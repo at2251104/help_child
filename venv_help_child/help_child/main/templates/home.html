@@ -1,33 +1,23 @@
-<!DOCTYPE html>
-<html lang="ja">
+{% extends 'base.html' %}
+{% load static %}
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>幼稚園・保育園・キッズクラブ向け 無料ホームページテンプレート tp_kids3</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="ここにサイト説明を入れます">
-	<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/slide.css">
-	<script type="text/javascript" src="js/openclose.js"></script>
-	<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-</head>
+{% block title %}幼稚園・保育園・キッズクラブ向け 無料ホームページテンプレート tp_kids3{% endblock %}
+
+{% block header%}
+{% endblock %}
 
 <body id="top">
-
+	{% block head_slide%}
 	<!--スライドショー-->
 	<aside id="mainimg">
 		<div>
-			<img src="images/1.jpg" alt="" id="slide0">
-			<img src="images/1.jpg" alt="" id="slide1">
-			<img src="images/2.jpg" alt="" id="slide2">
-			<img src="images/3.jpg" alt="" id="slide3">
+			<img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+			<img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+			<img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+			<img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
 		</div>
 	</aside>
+	{% endblock %}
 
 	<div id="container">
 
@@ -169,5 +159,4 @@
 		}
 	</script>
 </body>
-
-</html>
+{% endblock %}
