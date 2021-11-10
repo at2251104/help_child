@@ -1,0 +1,20 @@
+{% extend base.html %}
+
+{% block title %}連絡帳園児リスト{% endblock %}
+
+<h2>園児選択</h2>
+
+<p>
+    <input type="checkbox" name="today">今日の連絡帳<br>
+
+    <select name="classSelect">
+        <option value="ALL">ALL</option>
+        <option value="1組">1組</option>
+        <option value="2組">2組</option>
+    </select><br>
+    
+    <form>
+        <input type="search">
+        <button type="submit">検索</button>
+    </form>
+</p>
