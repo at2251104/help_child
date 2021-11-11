@@ -20,13 +20,13 @@ class LocationParentView(generic.TemplateView):
 class LocationConfigView(generic.TemplateView):
     template_name="locationConfig.html"
 
-class ContcactTopView(generic.TemplateView):
+class ContactTopView(generic.TemplateView):
     template_name="contactTop.html"
 
-class ContcactDetailView(generic.TemplateView):
+class ContactDetailView(generic.TemplateView):
     template_name="contactDetail.html"
 
-class ContcactUpdateView(generic.TemplateView):
+class ContactUpdateView(generic.TemplateView):
     template_name="contactUpdate.html"
 
 class MessageAddressView(generic.TemplateView):
