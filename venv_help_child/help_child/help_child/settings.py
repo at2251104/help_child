@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'main.apps.MainConfig',
     'accounts.apps.AccountsConfig',
 
     'django.contrib.sites',
@@ -120,6 +121,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR,'static'),
+)
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -175,12 +180,12 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # メールアドレス認証に変更する設定
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_USERNAME_REQUIRED = False
 
 # サインアップにメールアドレス確認を挟むよう設定
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# ACCOUNT_EMAIL_REQUIRED = True
 
 # ログイン/ログアウト後の遷移先を設定
 LOGIN_REDIRECT_URL = 'main:base'
@@ -190,7 +195,7 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 ACCOUNT_LOGOUT_ON_GET = True
 
 # django-allauthが送信するメールの件名に自動付与される接頭辞をブランクにする設定
-ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
+# ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
 
 # デフォルトのメール送信元を設定
-DEFAULT_FROM_EMAIL = 'admin@example.com'
+# DEFAULT_FROM_EMAIL = 'admin@example.com'

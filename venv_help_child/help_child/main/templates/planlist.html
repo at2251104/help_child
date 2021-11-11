@@ -1,1 +1,38 @@
+{% extends 'base.html' %}
+{%load static %}
+
 <!--予定表画面-->
+<lang="ja">
+    <meta charset="UTF-8">
+
+    <head>
+        <link rel="stylesheet" href="{% static 'css/suda.css' %}">
+    </head>
+
+    <body>
+        <form name="cal">
+            <input type="date">
+        </form>
+        
+        <div class="wrapper">
+            <!-- xxxx年xx月を表示 -->
+            <h1 id="header"></h1>
+            <script type="javascript" src="{% static 'js/planlist.js' %}"></script>
+            </script>
+
+            <!-- ボタンクリックで月移動 -->
+            <div id="next-prev-button">
+                <button id="prev" onclick="prev()">‹</button>
+                <button id="next" onclick="next()">›</button>
+            </div>
+
+            <!-- カレンダー -->
+            <div id="calendar"></div>
+        </div>
+    </body>
+
+
+
+
+
+    </html>
