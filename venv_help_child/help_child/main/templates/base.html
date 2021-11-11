@@ -24,7 +24,8 @@
     <div id="container">
 
         <!--小さな端末用（800px以下端末）ロゴ-->
-        <h1 id="logo-s"><a href="base.html"><img src="{% static 'images/logo.png' %}" alt="SAMPLE KIDS CLUB"></a></h1>
+        <h1 id="logo-s"><a href="{% url 'main:base' %}"><img src="{% static 'images/logo.png' %}"
+                    alt="SAMPLE KIDS CLUB"></a></h1>
         <!--小さな端末用（800px以下端末）メニュー-->
         <nav id="menubar-s">
             <ul>
