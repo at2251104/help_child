@@ -2,7 +2,7 @@
 
 /*全体*/
 .wrapper {
-  max-width: 600px;
+  max-width: 400px;
   margin: 0 auto;
   color: #666;
 }
@@ -17,6 +17,7 @@
 #calendar {
   text-align: center;
   width: 100%;
+  rposition: absolute;
 }
 table {
   outline: 2px solid #ddd;
@@ -74,4 +75,18 @@ td.today {
 }
 #next {
   float: right;
+}
+.ta1 {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 15px;
+  background: #fff; /*背景色（古いブラウザ用）*/
+  background: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /*背景色。255,255,255は白の事で0.8は透明度80%の事。*/
+  border: 5px solid #ccc; /*テーブルの枠線の幅、線種、色*/
+  position: absolute;
 }
