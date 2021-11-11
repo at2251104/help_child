@@ -2,8 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 # Create your views h
 
-class IndexView(generic.TemplateView):
-    template_name="index.html"
+
 
 class HomeView(generic.TemplateView):
     template_name="home.html"
