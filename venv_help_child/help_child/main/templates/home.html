@@ -95,7 +95,8 @@
 
 {% block animation %}
 <!--移動するアニメーション画像-->
-<img src="images/animation1.png" alt="" id="animation1">
+<img src="{% static 'images/animation1.png
+' %}" alt="" id="animation1">
 
 <!--小さな端末用（800px以下端末）更新情報-->
 <script type="text/javascript">
