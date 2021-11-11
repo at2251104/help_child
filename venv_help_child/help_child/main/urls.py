@@ -34,4 +34,6 @@ urlpatterns=[
     path('parentConfig',views.ParentConfigView.as_view(),name="parentConfig"),
     path('teacherConfig',views.TeacherConfigView.as_view(),name="teacherConfig"),
 
+    
+
 ]
