@@ -19,6 +19,7 @@
 </head>
 
 <body id="top">
+    <!--上部の装飾画像-->
     {% block head_slide %}{% endblock %}
     <div id="container">
 
@@ -38,6 +39,10 @@
 
         <div id="contents">
 
+            <div id="main">
+                {% block main_contents%}{% endblock %}
+            </div>
+
             <div id="sub">
 
                 <!--大きな端末用（801px以上端末）ロゴ-->
@@ -55,15 +60,13 @@
                         <li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
                     </ul>
                 </nav>
-
+                {% block sub_contents%}{% endblock %}
             </div>
             <!--/sub-->
 
             <p id="pagetop"><a href="#"><img src="{% static 'images/pagetop.png' %}" alt="ページの上部へ"></a></p>
 
         </div>
-
-        {% block header%}{% endblock %}
 
         {% block contents%}{% endblock %}
         <!--/contents-->
@@ -76,15 +79,7 @@
     </div>
     <!--/container-->
 
-    <!--移動するアニメーション画像-->
-    <img src="{% static 'images/animation1.png' %}" alt="" id="animation1">
-
-    <!--小さな端末用（800px以下端末）更新情報-->
-    <script type="text/javascript">
-        if (OCwindowWidth() <= 800) {
-            open_close("newinfo_hdr", "newinfo");
-        }
-    </script>
+    {% block animation %}{% endblock %}
 
     <!--メニューの３本バー-->
     <div id="menubar_hdr" class="close"><span></span><span></span><span></span></div>
