@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Log In | Help Child{% endblock %}
 
@@ -11,11 +12,13 @@
 {% block contents %}
 <h1>ログイン</h1>
 
+    <!-- ユーザーネーム入力 -->
     <div>
         <label for="username">ユーザーネーム:</label><br>
         <input type="text" id="username" name="username">
     </div>
 
+    <!-- パスワード入力 -->
     <div>
         <label for="pass">パスワード:</label><br>
         <input type="password" id="pass" name="password" required>
