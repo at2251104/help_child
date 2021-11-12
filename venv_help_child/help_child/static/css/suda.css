@@ -87,6 +87,5 @@ td.today {
     255,
     0.8
   ); /*背景色。255,255,255は白の事で0.8は透明度80%の事。*/
-  border: 5px solid #ccc; /*テーブルの枠線の幅、線種、色*/
   position: absolute;
 }
