@@ -567,14 +567,14 @@ img.fl {
     position: fixed;
     margin: 0 0 0;
     width: 100%;
-    background: linear-gradient(#fff 50%, #eee);
+    background: rgba(135, 206, 250, 0.5);
   }
   /*メニュー１個あたりの設定*/
   #menubar-s li {
     float: left;
     /* width: 49%; */
-    width: 90%;
-    margin: 0 0.5% 0;
+    width: 70%;
+    margin: 0 60 0;
   }
 
   /*３本バーアイコン設定
@@ -583,7 +583,7 @@ img.fl {
   #menubar_hdr {
     display: block;
     z-index: 13;
-    position: absolute;
+    position: fixed;
     top: 10px; /*上から10pxの場所に配置*/
     right: 3%; /*右から3%の場所に配置*/
     width: 30px; /*幅*/
