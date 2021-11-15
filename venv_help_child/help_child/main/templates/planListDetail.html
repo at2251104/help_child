@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{%load static %}
+
+<!--予定表画面-->
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+{% endblock %}
+
+        {% block head_slide%}
+        
+        
+        <!--スライドショー-->
+        <aside id="mainimg">
+            <div>
+                <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+                <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+                <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+                <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
+            </div>
+        </aside>
+        {% endblock %}
+        
+        {% block main_contents%}
+            <input type="date" id="datepicker">
+        {%endblock%}
+        </div>
