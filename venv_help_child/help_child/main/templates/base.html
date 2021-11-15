@@ -18,6 +18,18 @@
     {% block head %}{% endblock %}
 </head>
 
+<!--小さな端末用（800px以下端末）メニュー-->
+<nav id="menubar-s">
+    <ul id="menu-list">
+        <li><a href="about.html">当園について<span>ABOUT</span></a></li>
+        <li><a href="info.html">施設のご案内<span>INFORMATION</span></a></li>
+        <li><a href="event.html">年間行事<span>EVENT</span></a></li>
+        <li><a href="faq.html">よく頂く質問<span>FAQ</span></a></li>
+        <li><a href="recruit.html">採用情報<span>RECRUIT</span></a></li>
+        <li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
+    </ul>
+</nav>
+
 <body id="top">
     <!--上部の装飾画像-->
     {% block head_slide %}{% endblock %}
@@ -26,17 +38,6 @@
         <!--小さな端末用（800px以下端末）ロゴ-->
         <h1 id="logo-s"><a href="{% url 'main:home' %}"><img src="{% static 'images/logo.png' %}"
                     alt="SAMPLE KIDS CLUB"></a></h1>
-        <!--小さな端末用（800px以下端末）メニュー-->
-        <nav id="menubar-s">
-            <ul>
-                <li><a href="about.html">当園について<span>ABOUT</span></a></li>
-                <li><a href="info.html">施設のご案内<span>INFORMATION</span></a></li>
-                <li><a href="event.html">年間行事<span>EVENT</span></a></li>
-                <li><a href="faq.html">よく頂く質問<span>FAQ</span></a></li>
-                <li><a href="recruit.html">採用情報<span>RECRUIT</span></a></li>
-                <li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
-            </ul>
-        </nav>
 
         <div id="contents">
 
@@ -83,7 +84,13 @@
     {% block animation %}{% endblock %}
 
     <!--メニューの３本バー-->
-    <div id="menubar_hdr" class="close"><span></span><span></span><span></span></div>
+    <div id="menubar_hdr" class="close">
+        <a class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </div>
     <!--メニューの開閉処理条件設定　800px以下-->
     <script type="text/javascript">
         if (OCwindowWidth() <= 800) {
