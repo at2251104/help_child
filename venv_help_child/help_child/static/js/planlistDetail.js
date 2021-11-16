@@ -1,5 +1,5 @@
 $(function () {
-  
+  document.getElementById("target").src="{% static /images/calender2.png %}";
 
   $('#target').datepicker({
     changeYear: true,    // 年を表示
