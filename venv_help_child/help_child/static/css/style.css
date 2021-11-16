@@ -203,7 +203,7 @@ a:hover {
 #logo-s {
   background: #7ed0ff; /*背景色*/
   text-align: center;
-  padding: 40px; /*ボックス内の余白。この余白に合わせてロゴ画像がリサイズされます。*/
+  padding: 15px; /*ボックス内の余白。この余白に合わせてロゴ画像がリサイズされます。*/
   border-radius: 15px; /*角丸のサイズ*/
   margin-bottom: 30px; /*ロゴボックスの下にあけるスペース*/
   border: 5px solid #fff; /*枠線の幅、線種、色*/
@@ -542,7 +542,6 @@ img.fl {
     top: -15px; /*上に移動する距離*/
     left: 3%; /*左からの距離*/
     width: 30%; /*ロゴの幅*/
-    padding: 15px; /*ボックス内の余白*/
   }
   /*小さな端末用（800px以下）のロゴとメニューを非表示から表示に切り替える*/
   #logo-s,
