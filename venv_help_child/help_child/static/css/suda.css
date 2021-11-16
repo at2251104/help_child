@@ -2,7 +2,7 @@
 
 /*全体*/
 .wrapper {
-  max-width: 400px;
+  max-width: 600px;
   margin: 0 auto;
   color: #666;
 }
@@ -17,7 +17,6 @@
 #calendar {
   text-align: center;
   width: 100%;
-  rposition: absolute;
 }
 table {
   outline: 2px solid #ddd;
@@ -42,6 +41,7 @@ td:first-child {
 td:last-child {
   color: blue;
 }
+
 /*前後月の日付*/
 td.disabled {
   color: #ccc;
@@ -73,9 +73,81 @@ td.today {
 #prev {
   float: left;
 }
+#prevBottom {
+  position: absolute;
+  left: 300px;
+  top: 400px;
+  z-index: 2;
+}
+#planlistDetailToday {
+  position: absolute;
+  top: 550px;
+  left: 400px;
+  z-index: 2;
+}
 #next {
   float: right;
 }
+#nextBottom {
+  position: absolute;
+  right: 300px;
+  top: 400px;
+  z-index: 2;
+}
+
+/* 土曜日の色設定 */
+td.ui-datepicker-week-end:last-child a.ui-state-default {
+  color: #00f !important; /* 文字色：青 */
+}
+/* 日曜日の色設定 */
+td.ui-datepicker-week-end:first-child a.ui-state-default {
+  color: #f00 !important; /* 文字色：赤 */
+}
+
+.buttonImage {
+  display: inline-block;
+  margin-top: 2px;
+  width: 16px;
+  height: 16px;
+}
+.planlistDetailCenter {
+  vertical-align: center;
+  top: 30px;
+  position: relative;
+}
+
+.flatbutton {
+  border: 1px solid #3079ed;
+  background-color: #4d90fe;
+  width: 16px;
+  height: 16px;
+}
+a img.arrow {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  /* 位置合わせ用 */
+  vertical-align: middle;
+  margin: 0 10px 5px 0;
+}
+a span.arrow {
+  width: 24px;
+  height: 24px;
+  background-image: url(calender.png);
+  background-size: 24px 24px;
+  display: inline-block;
+  text-indent: -9999px;
+  /* 位置合わせ用 */
+  vertical-align: middle;
+  margin: 0 10px 5px 0;
+}
+
+img.ui-datepicker-trigger {
+  cursor: pointer;
+  margin-left: 7px !important;
+  vertical-align: middle;
+}
+
 .ta1 {
   width: 100%;
   margin: 0;
