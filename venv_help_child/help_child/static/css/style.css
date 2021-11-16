@@ -559,22 +559,27 @@ img.fl {
 ---------------------------------------------------------------------------*/
   #menubar-s {
     position: relative;
+    text-align: center;
     z-index: 12;
-    margin: 0;
     font-size: 5px;
+  }
+  #menubar-s h1 {
+    text-align: center;
+    font-size: 25;
+    margin: 2% auto;
   }
   #menu-list {
     position: fixed;
-    margin: 0 0 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
     background: rgba(135, 206, 250, 0.5);
   }
   /*メニュー１個あたりの設定*/
   #menubar-s li {
-    float: left;
+    margin: 0 auto;
     /* width: 49%; */
-    width: 70%;
-    margin: 0 60 0;
+    width: 90%;
   }
 
   /*３本バーアイコン設定

@@ -10,6 +10,7 @@
     <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/slide.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC:700">
     <script type="text/javascript" src="{% static 'js/openclose.js' %}"></script>
     <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -21,6 +22,7 @@
 <!--小さな端末用（800px以下端末）メニュー-->
 <nav id="menubar-s">
     <ul id="menu-list">
+        <h1>機能一覧</h1>
         <li><a href="about.html">当園について<span>ABOUT</span></a></li>
         <li><a href="info.html">施設のご案内<span>INFORMATION</span></a></li>
         <li><a href="event.html">年間行事<span>EVENT</span></a></li>
@@ -41,9 +43,7 @@
 
         <div id="contents">
 
-            <div id="main">
-                {% block main_contents%}{% endblock %}
-            </div>
+            {% block main_contents%}{% endblock %}
 
             <div id="sub">
 
