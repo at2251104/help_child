@@ -1,16 +1,21 @@
-{% extends 'base.html' %}
 {% load static %}
+<html lang="ja">
 
-{% block title %}Log In | Help Child{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ここにサイト説明を入れます">
+    <meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slide.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC:700">
+    <script type="text/javascript" src="{% static 'js/openclose.js' %}"></script>
+</head>
 
-
-{% block head %}
-<link rel="stylesheet" href="{% static 'css/suda.css' %}">
-{% endblock %}
-
-{% block head_slide%}
-<div class="ta1 ">
-    <!--スライドショー-->
+<body id="login-top">
     <aside id="mainimg">
         <div>
             <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
@@ -19,23 +24,29 @@
             <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
         </div>
     </aside>
-{% endblock %}
+    <!--上部の装飾画像-->
+    <div id="login-main">
+        <h1>ログイン</h1>
 
+        <!-- ユーザーネーム入力 -->
+        <div id="user-name">
+            <label for="username">ユーザーネーム:</label><br>
+            <input type="text" id="username" name="username">
+        </div>
 
-{% block contents %}
-<h1>ログイン</h1>
-
-    <!-- ユーザーネーム入力 -->
-    <div>
-        <label for="username">ユーザーネーム:</label><br>
-        <input type="text" id="username" name="username">
+        <!-- パスワード入力 -->
+        <div id="user-ps">
+            <label for="pass">パスワード:</label><br>
+            <input type="password" id="pass" name="password" required>
+        </div>
+        <button class="btn btn-primary" type="submit">ログイン</button>
     </div>
+    <footer>
+        <small>Copyright&copy; <a href="base.html">SAMPLE KIDS CLUB</a> All Rights Reserved.</small>
+        <span class="pr"><a href="http://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+    </footer>
 
-    <!-- パスワード入力 -->
-    <div>
-        <label for="pass">パスワード:</label><br>
-        <input type="password" id="pass" name="password" required>
-    </div>
-            <button class="btn btn-primary" type="submit">ログイン</button>
 
-{% endblock %}
+</body>
+
+</html>
