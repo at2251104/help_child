@@ -93,3 +93,4 @@ class ParentConfigView(generic.TemplateView):
 
 class TeacherConfigView(generic.TemplateView):
     template_name = "teacherConfig.html"
+
