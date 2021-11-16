@@ -80,7 +80,7 @@ td.today {
   z-index: 2;
 }
 #planlistDetailToday {
-  position: absolute;
+  position: relative;
   top: 550px;
   left: 400px;
   z-index: 2;
@@ -112,7 +112,7 @@ td.ui-datepicker-week-end:first-child a.ui-state-default {
 }
 .planlistDetailCenter {
   vertical-align: center;
-  top: 30px;
+  top: 20px;
   position: relative;
 }
 
@@ -160,4 +160,9 @@ img.ui-datepicker-trigger {
     0.8
   ); /*背景色。255,255,255は白の事で0.8は透明度80%の事。*/
   position: absolute;
+}
+.planListDetailremarks {
+  font-size: 200%;
+  top: 800px;
+  position: relative;
 }

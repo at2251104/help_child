@@ -31,6 +31,7 @@
     {% endblock %}
 
     {% block main_contents%}
+    <div id="main">
         <div id="header">
             <form action="window.alert(target)" method="post" class="planlistDetailCenter">
             <input type="text" placeholder="カレンダー表示" id="target" text-align="center">
@@ -42,7 +43,12 @@
             <div id="planlistDetailToday">
                 <h2>今日の行事</h2>
             </div>
+            <!--予定の表示-->
+            <div class="planListDetailremarks">
+                <h3>備考</h3>
+            </div>
         </div>
+    </div>
     {%endblock%}
 
 </html>
