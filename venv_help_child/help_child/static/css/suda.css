@@ -74,16 +74,24 @@ td.today {
   float: left;
 }
 #prevBottom {
-  position: absolute;
+  position: relative;
   left: 300px;
   top: 400px;
   z-index: 2;
 }
 #planlistDetailToday {
+  font-size: 20px;
+  top: 500px;
+  color: #ffffff;
+  background-size: contain;
+  background-color: skyblue;
+  margin-left: 0;
+  margin-right: 0;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
   position: relative;
-  top: 550px;
-  left: 400px;
-  z-index: 2;
 }
 #next {
   float: right;
@@ -149,7 +157,7 @@ img.ui-datepicker-trigger {
 }
 
 .ta1 {
-  width: 100%;
+  width: 96%;
   margin: 0;
   margin-bottom: 15px;
   background: #fff; /*背景色（古いブラウザ用）*/
@@ -159,12 +167,22 @@ img.ui-datepicker-trigger {
     255,
     0.8
   ); /*背景色。255,255,255は白の事で0.8は透明度80%の事。*/
-  position: absolute;
+  position: relative;
 }
 
 .planListDetailremarks {
-  font-size: 200%;
-  top: 800px;
+  font-size: 30px;
+
+  padding: 5px;
+  margin-right: 900px;
+  clear: both;
+
+  background: #fff; /*背景色*/
+  margin-right: 100px;
+  margin-left: 100px;
+  border: 1px solid #ccc; /*枠線の幅、線種、色*/
+  border-radius: 50px; /*角丸のサイズ。大きめにしておけばOK。*/
+  padding: 5px 5px 5px 5px;
   position: relative;
 }
 
@@ -230,4 +248,9 @@ img.ui-datepicker-trigger {
 .switchArea input[type="checkbox"]:checked ~ #swImg {
   transform: translateX(159px); /* 丸も右へ移動       */
   background: #7f007f; /* カーソルタブの背景 */
+}
+
+#classSelectBox {
+  position: relative;
+  text-align: center;
 }
