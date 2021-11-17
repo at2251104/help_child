@@ -123,8 +123,10 @@ td.ui-datepicker-week-end:first-child a.ui-state-default {
   top: 20px;
   position: relative;
 }
-
-.flatbutton {
+.visiblity {
+  visibility: hidden;
+}
+.flapbutton {
   border: 1px solid #3079ed;
   background-color: #4d90fe;
   width: 16px;
@@ -253,4 +255,8 @@ img.ui-datepicker-trigger {
 #classSelectBox {
   position: relative;
   text-align: center;
+}
+
+#planAdd {
+  position: relative;
 }
