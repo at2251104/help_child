@@ -16,17 +16,16 @@
 </head>
 
 <body id="login-top">
-    <aside id="mainimg">
-        <div>
-            <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
-            <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
-            <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
-            <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
-        </div>
-    </aside>
-    <!--上部の装飾画像-->
+    <!-- 背景 -->
+    <div id="top-background"></div>
     <div id="login-main">
-        <h1>ログイン</h1>
+        <div id="login-logo">
+            <img src="{% static 'images/CHILink.jpg' %}" alt="">
+        </div>
+
+        <div>
+            <h1>ログイン</h1>
+        </div>
 
         <!-- ユーザーネーム入力 -->
         <div id="user-name">
@@ -39,13 +38,14 @@
             <label for="pass">パスワード:</label><br>
             <input type="password" id="pass" name="password" required>
         </div>
-        <button class="btn btn-primary" type="submit">ログイン</button>
+        <a href="" class="btn btn-border">log in</a>
     </div>
-    <footer>
-        <small>Copyright&copy; <a href="base.html">SAMPLE KIDS CLUB</a> All Rights Reserved.</small>
-        <span class="pr"><a href="http://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
-    </footer>
-
+    <div id="login-footer">
+        <footer>
+            <small>Copyright&copy; <a href="base.html">SAMPLE KIDS CLUB</a> All Rights Reserved.</small>
+            <span class="pr"><a href="http://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+        </footer>
+    </div>
 
 </body>
 

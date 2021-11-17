@@ -1,4 +1,68 @@
+body {
+  margin: 0;
+}
+#top-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/login.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  filter: blur(2px);
+  background-attachment: fixed;
+}
+#login-main,
+#login-footer {
+  position: relative;
+  margin: auto;
+  text-align: center;
+}
 #login-main {
-  padding-top: 30%;
-  margin-left: 3%;
+  top: 80px;
+  width: 400px;
+  height: 70%;
+  margin-bottom: 180px;
+  background-color: rgba(240, 248, 255, 0.586);
+}
+#login-footer {
+  width: 328px;
+  height: 20px;
+}
+#login-logo img {
+  margin-top: 20px;
+  margin-bottom: 5%;
+  width: 30%;
+}
+
+/*ボタン設定
+---------------------------------------------------------------------------*/
+a.btn-border {
+  position: relative;
+  top: 10;
+  border-radius: 0;
+  font-size: 15px;
+  text-decoration: none;
+  color: #000;
+}
+a.btn-border:before,
+a.btn-border:after {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  content: "";
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background: #000;
+}
+a.btn-border:before {
+  left: 0;
+}
+a.btn-border:after {
+  right: 0;
+  bottom: 0;
+}
+a.btn-border:hover:before,
+a.btn-border:hover:after {
+  width: 0;
 }
