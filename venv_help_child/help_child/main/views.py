@@ -54,7 +54,7 @@ class NameListUpdateView(generic.TemplateView):
     template_name="nameListUpdate.html"
 
 class PlanListView(generic.TemplateView):
-    template_name="planList.html"
+    template_name="planlist.html"
 
 class PlanListDetailView(generic.TemplateView):
     template_name="planListDetail.html"
