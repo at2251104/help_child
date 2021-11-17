@@ -1,20 +1,25 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 
 
 class T001Children(models.Model):
-    t001_pk01_children_id = models.CharField(db_column='T001_PK01_children-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t001_fk01_class_id = models.ForeignKey('T004Class', models.DO_NOTHING, db_column='T001_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t001_fk02_parents_id = models.ForeignKey('T002Parents', models.DO_NOTHING, db_column='T001_FK02_parents-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t001_fd01_name = models.CharField(db_column='T001_FD01_name', max_length=20)  # Field name made lowercase.
-    t001_fd02_birthday = models.DateField(db_column='T001_FD02_birthday')  # Field name made lowercase.
-    t001_fd03_address = models.CharField(db_column='T001_FD03_address', max_length=50)  # Field name made lowercase.
-    t001_fd04_createdata = models.DateTimeField(db_column='T001_FD04_createdata')  # Field name made lowercase.
-    t001_fd05_updatedata = models.DateTimeField(db_column='T001_FD05_updatedata', blank=True, null=True)  # Field name made lowercase.
-    t001_fd06_sex = models.IntegerField(db_column='T001_FD06_sex')  # Field name made lowercase.
+    t001_pk01_children_id = models.CharField(verbose_name='園児ID',db_column='T001_PK01_children-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t001_fk01_class_id = models.ForeignKey('T004Class', models.DO_NOTHING, verbose_name='クラスID',db_column='T001_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t001_fk02_parents_id = models.ForeignKey('T002Parents', models.DO_NOTHING,verbose_name='保護者ID', db_column='T001_FK02_parents-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t001_fd01_name = models.CharField(verbose_name='氏名',db_column='T001_FD01_name', max_length=20)  # Field name made lowercase.
+    t001_fd02_birthday = models.DateField(verbose_name='誕生日',db_column='T001_FD02_birthday')  # Field name made lowercase.
+    t001_fd03_address = models.CharField(verbose_name='住所',db_column='T001_FD03_address', max_length=50)  # Field name made lowercase.
+    t001_fd04_createdata = models.DateTimeField(verbose_name='作成日時',db_column='T001_FD04_createdata')  # Field name made lowercase.
+    t001_fd05_updatedata = models.DateTimeField(verbose_name='更新日時',db_column='T001_FD05_updatedata', blank=True, null=True)  # Field name made lowercase.
+    t001_fd06_sex = models.IntegerField(verbose_name='性別',db_column='T001_FD06_sex')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'T001_children'
+        verbose_name_plural="園児テーブル",
+
+    def __str__(self):
+        return self.t001_fd01_name
 
 
 class T002Parents(models.Model):
@@ -34,6 +39,9 @@ class T002Parents(models.Model):
         managed = False
         db_table = 'T002_parents'
 
+    def __str__(self):
+        return self.t002_fd02_name
+
 
 class T003Childminder(models.Model):
     t003_fk01_class_id = models.ForeignKey('T004Class', models.DO_NOTHING, db_column='T003_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
@@ -47,11 +55,14 @@ class T003Childminder(models.Model):
     t003_fd08_createdata = models.DateTimeField(db_column='T003_FD08_createdata')  # Field name made lowercase.
     t003_fd09_updatedata = models.DateTimeField(db_column='T003_FD09_updatedata', blank=True, null=True)  # Field name made lowercase.
     t003_fd10_sex = models.IntegerField(db_column='T003_FD10_sex')  # Field name made lowercase.
-    t003_fk01_childminder_id = models.CharField(db_column='T003_FK01_childminder-id', primary_key=True, max_length=10)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t003_fk02_childminder_id = models.CharField(db_column='T003_FK01_childminder-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
 
     class Meta:
         managed = False
         db_table = 'T003_childminder'
+    
+    def __str__(self):
+        return self.t003_fd02_name
 
 
 class T004Class(models.Model):
@@ -63,9 +74,12 @@ class T004Class(models.Model):
         managed = False
         db_table = 'T004_class'
 
+    def __str__(self):
+        return self.t004_fd01_class_name
+
 
 class T005Kindergaten(models.Model):
-    t005_pk01_childen_id = models.CharField(db_column='T005_PK01_childen-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t005_pk01_childen_id = models.OneToOneField('T001Children', on_delete=models.CASCADE,db_column='T005_PK01_childen-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t005_fd01_date = models.DateField(db_column='T005_FD01_date', blank=True, null=True)  # Field name made lowercase.
     t005_fd02_school_time = models.TimeField(db_column='T005_FD02_school-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t005_fd03_exit_time = models.TimeField(db_column='T005_FD03_exit-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
@@ -75,18 +89,24 @@ class T005Kindergaten(models.Model):
         managed = False
         db_table = 'T005_kindergaten'
 
+    def __str__(self):
+        return self.t005_pk01_childen_id
+
 
 class T006Message(models.Model):
     t006_pk01_message_id = models.CharField(db_column='T006_PK01_message-id', primary_key=True, max_length=100)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t006_fk01_room_id = models.CharField(db_column='T006_FK01_room-id', max_length=100)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t006_fk01_room_id = models.ForeignKey('T011Room', models.DO_NOTHING,db_column='T006_FK01_room-id', max_length=100)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t006_fd01_send_id = models.CharField(db_column='T006_FD01_send-id', max_length=10)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t006_fd02_contents = models.CharField(db_column='T006_FD02_contents', max_length=200, blank=True, null=True)  # Field name made lowercase.
     t006_fd03_datetime = models.DateTimeField(db_column='T006_FD03_datetime')  # Field name made lowercase.
-    t006_fd04_emergency = models.BooleanField(db_column='T006_FD04_emergency')  # Field name made lowercase.
+    
 
     class Meta:
         managed = False
         db_table = 'T006_message'
+
+    def __str__(self):
+        return self.t006_pk01_message_id
 
 
 class T007Contactbook(models.Model):
@@ -111,6 +131,9 @@ class T007Contactbook(models.Model):
         managed = False
         db_table = 'T007_contactbook'
 
+    def __str__(self):
+        return self.t007_pk01_contactbook_id
+
 
 class T008Schedule(models.Model):
     t008_pk01_schedule_id = models.CharField(db_column='T008_PK01_schedule-id', primary_key=True, max_length=10)  # Field name made lowercase. Field renamed to remove unsuitable characters.
@@ -126,19 +149,8 @@ class T008Schedule(models.Model):
         managed = False
         db_table = 'T008_schedule'
 
-
-class T009Position(models.Model):
-    t009_pk01_children_id = models.CharField(db_column='T009_PK01_children-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t009_pk02_datetime = models.DateTimeField(db_column='T009_PK02_datetime')  # Field name made lowercase.
-    t009_fk01_playset_id = models.CharField(db_column='T009_FK01_playset-id', max_length=10)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t009_fd01_distance_a = models.FloatField(db_column='T009_FD01_distance-a')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t009_fd02_distance_b = models.FloatField(db_column='T009_FD02_distance-b')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t009_fd03_distance_c = models.FloatField(db_column='T009_FD03_distance-c')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-
-    class Meta:
-        managed = False
-        db_table = 'T009_position'
-        unique_together = (('t009_pk01_children_id', 't009_pk02_datetime'),)
+    def __str__(self):
+        return self.t008_fd01_event
 
 
 class T010Playset(models.Model):
@@ -152,15 +164,37 @@ class T010Playset(models.Model):
         managed = False
         db_table = 'T010_playset'
 
+    def __str__(self):
+        return self.t010_fd01_playset_name
+
+class T009Position(models.Model):
+    t009_pk01_children_id = models.OneToOneField(T001Children, on_delete=models.CASCADE, db_column='T009_PK01_children-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t009_pk02_datetime = models.DateTimeField(db_column='T009_PK02_datetime',)  # Field name made lowercase.
+    t009_fk01_playset_id = models.ForeignKey(T010Playset, models.DO_NOTHING, db_column='T009_FK01_playset-id', max_length=10)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t009_fd01_distance_a = models.FloatField(db_column='T009_FD01_distance-a')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t009_fd02_distance_b = models.FloatField(db_column='T009_FD02_distance-b')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t009_fd03_distance_c = models.FloatField(db_column='T009_FD03_distance-c')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+
+    class Meta:
+        managed = False
+        db_table = 'T009_position'
+        unique_together = (('t009_pk01_children_id', 't009_pk02_datetime'),)
+
+    def __str__(self):
+        return self.t009_pk01_children_id
+
 
 class T011Room(models.Model):
     t011_pk01_room_id = models.CharField(db_column='T011_PK01_room-id', primary_key=True, max_length=100)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t011_fk01_parents_id = models.ForeignKey(T002Parents, models.DO_NOTHING, db_column='T011_FK01_parents-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t011_fk02_chilminder_id = models.CharField(db_column='T011_FK02_chilminder-id', max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t011_fk02_chilminder_id = models.ForeignKey(T003Childminder, models.DO_NOTHING, db_column='T011_FK02_chilminder-id', max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
 
     class Meta:
         managed = False
         db_table = 'T011_room'
+
+    def __str__(self):
+        return self.t011_pk01_room_id
 
 
 class T012Contactbooktem(models.Model):
@@ -168,7 +202,7 @@ class T012Contactbooktem(models.Model):
     t012_fk01_childminder_id = models.ForeignKey(T003Childminder, models.DO_NOTHING, db_column='T012_FK01_childminder-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t012_fd01_date = models.DateField(db_column='T012_FD01_date', blank=True, null=True)  # Field name made lowercase.
     t012_fd02_information = models.CharField(db_column='T012_FD02_information', max_length=200, blank=True, null=True)  # Field name made lowercase.
-    t012_fd03_mealtime = models.TextField(db_column='T012_FD03_mealtime', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
+    t012_fd03_mealtime = models.TimeField(db_column='T012_FD03_mealtime', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
     t012_fd04_meal_contents = models.CharField(db_column='T012_FD04_meal-contents', max_length=100, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t012_fd05_bed_time = models.TimeField(db_column='T012_FD05_bed-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t012_fd06_wakeup_time = models.TimeField(db_column='T012_FD06_wakeup-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
@@ -177,3 +211,6 @@ class T012Contactbooktem(models.Model):
     class Meta:
         managed = False
         db_table = 'T012_contactbooktem'
+
+    def __str__(self):
+        return self.t012_pk01_contactbook_id
