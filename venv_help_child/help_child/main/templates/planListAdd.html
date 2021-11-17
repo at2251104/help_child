@@ -18,6 +18,7 @@
     {% block head_slide%}
 
         <!--スライドショー-->
+    
         <aside id="mainimg">
             <div>
                 <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
@@ -26,26 +27,31 @@
                 <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
             </div>
         </aside>
+    
     {% endblock %}
 
     {% block main_contents%}
     <div id="main">
         <div id="header">
+            <h1>行事追加</h1>
+        <div id="classSelectBox">
+            <input type="checkbox" name="class" id="age_0" value="1"><label for="age_0">0歳</label>
+            <input type="checkbox" name="class" id="age_1" value="2"><label for="age_1">1歳</label>
+            <input type="checkbox" name="class" id="age_2" value="3"><label for="age_2">2歳</label>
+            <input type="checkbox" name="class" id="age_3" value="4"><label for="age_3">年少</label>
+            <input type="checkbox" name="class" id="age_4" value="5"><label for="age_4">年中</label>
+            <input type="checkbox" name="class" id="age_5" value="6"><label for="age_5">年長</label>
+        </div>
+
+        
             <form action="window.alert(target)" method="post" class="planlistDetailCenter">
             <input type="text" placeholder="カレンダー表示" id="target" text-align="center">
-            </form>
-            <div id="next-prev-button">
-                <button id="prev" onclick="prev()">‹</button>
-                <button id="next" onclick="next()">›</button>
-            </div>
-        </div>
-        <div id="planlistDetailToday">
-            <h2>今日の行事</h2>
-        </div>
-            <!--予定の表示-->
-        <div class="planListDetailremarks">
-            <h3>備考</h3>
+            
         </div>
     </div>
+        
+            <!--予定の表示-->
+        
     {%endblock%}
+
 </html>

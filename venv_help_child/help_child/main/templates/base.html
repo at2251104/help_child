@@ -54,13 +54,13 @@
                 <!--大きな端末用（801px以上端末）メニュー-->
                 <nav id="menubar">
                     <ul class="mb30">
-                        <li><a href="index.html">ホーム<span>HOME</span></a></li>
-                        <li><a href="about.html">当園について<span>ABOUT</span></a></li>
-                        <li><a href="info.html">施設のご案内<span>INFORMATION</span></a></li>
-                        <li><a href="event.html">年間行事<span>EVENT</span></a></li>
-                        <li><a href="faq.html">よく頂く質問<span>FAQ</span></a></li>
-                        <li><a href="recruit.html">採用情報<span>RECRUIT</span></a></li>
-                        <li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
+                        <li><a href="{% url 'main:home'%}">ホーム<span>HOME</span></a></li>
+                        <li><a href="about.html">位置情報<span>LOCATION</span></a></li>
+                        <li><a href="info.html">連絡帳<span>CONTACT</span></a></li>
+                        <li><a href="event.html">メッセージ<span>MESSAGE</span></a></li>
+                        <li><a href="faq.html">登園管理<span>ATTEND</span></a></li>
+                        <li><a href="{% url 'main:planList' %}">予定表<span>PLANLIST</span></a></li>
+                        <li><a href="contact.html">設定<span>CONFIG</span></a></li>
                     </ul>
                 </nav>
                 {% block sub_contents%}{% endblock %}
