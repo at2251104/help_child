@@ -90,7 +90,7 @@ class T005Kindergaten(models.Model):
         db_table = 'T005_kindergaten'
 
     def __str__(self):
-        return self.t005_pk01_childen_id
+        return str(self.t005_pk01_childen_id)
 
 
 class T006Message(models.Model):
