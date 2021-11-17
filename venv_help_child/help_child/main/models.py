@@ -16,7 +16,7 @@ class T001Children(models.Model):
     class Meta:
         managed = False
         db_table = 'T001_children'
-        verbose_name_plural="園児テーブル",
+        verbose_name_plural="園児テーブル"
 
     def __str__(self):
         return self.t001_fd01_name
@@ -38,12 +38,14 @@ class T002Parents(models.Model):
     class Meta:
         managed = False
         db_table = 'T002_parents'
+        verbose_name_plural="保護者テーブル"
 
     def __str__(self):
         return self.t002_fd02_name
 
 
 class T003Childminder(models.Model):
+    t003_pk01_childminder_id = models.CharField(verbose_name='保育士ID',db_column='T003_FK01_childminder-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t003_fk01_class_id = models.ForeignKey('T004Class', models.DO_NOTHING, verbose_name='クラスID',db_column='T003_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t003_fd01_password = models.CharField(verbose_name='パスワード',db_column='T003_FD01_password', max_length=100)  # Field name made lowercase.
     t003_fd02_name = models.CharField(verbose_name='氏名',db_column='T003_FD02_name', max_length=50, blank=True, null=True)  # Field name made lowercase.
@@ -55,11 +57,11 @@ class T003Childminder(models.Model):
     t003_fd08_createdata = models.DateTimeField(verbose_name='作成日時',db_column='T003_FD08_createdata')  # Field name made lowercase.
     t003_fd09_updatedata = models.DateTimeField(verbose_name='更新日時',db_column='T003_FD09_updatedata', blank=True, null=True)  # Field name made lowercase.
     t003_fd10_sex = models.IntegerField(verbose_name='性別',db_column='T003_FD10_sex')  # Field name made lowercase.
-    t003_pk01_childminder_id = models.CharField(verbose_name='保育士ID',db_column='T003_FK01_childminder-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
 
     class Meta:
         managed = False
         db_table = 'T003_childminder'
+        verbose_name_plural="保育士テーブル"
     
     def __str__(self):
         return self.t003_fd02_name
@@ -73,6 +75,7 @@ class T004Class(models.Model):
     class Meta:
         managed = False
         db_table = 'T004_class'
+        verbose_name_plural="クラステーブル"
 
     def __str__(self):
         return self.t004_fd01_class_name
@@ -88,6 +91,7 @@ class T005Kindergaten(models.Model):
     class Meta:
         managed = False
         db_table = 'T005_kindergaten'
+        verbose_name_plural="登園状態テーブル"
 
     def __str__(self):
         return str(self.t005_pk01_childen_id)
@@ -104,6 +108,7 @@ class T006Message(models.Model):
     class Meta:
         managed = False
         db_table = 'T006_message'
+        verbose_name_plural="メッセージテーブル"
 
     def __str__(self):
         return self.t006_pk01_message_id
@@ -130,6 +135,7 @@ class T007Contactbook(models.Model):
     class Meta:
         managed = False
         db_table = 'T007_contactbook'
+        verbose_name_plural="連絡帳テーブル"
 
     def __str__(self):
         return self.t007_pk01_contactbook_id
@@ -148,6 +154,7 @@ class T008Schedule(models.Model):
     class Meta:
         managed = False
         db_table = 'T008_schedule'
+        verbose_name_plural="スケジュールテーブル"
 
     def __str__(self):
         return self.t008_fd01_event
@@ -163,6 +170,7 @@ class T010Playset(models.Model):
     class Meta:
         managed = False
         db_table = 'T010_playset'
+        verbose_name_plural="遊具テーブル"
 
     def __str__(self):
         return self.t010_fd01_playset_name
@@ -179,9 +187,10 @@ class T009Position(models.Model):
         managed = False
         db_table = 'T009_position'
         unique_together = (('t009_pk01_children_id', 't009_pk02_datetime'),)
+        verbose_name_plural="位置情報テーブル"
 
     def __str__(self):
-        return self.t009_pk01_children_id
+        return str(self.t009_pk01_children_id)
 
 
 class T011Room(models.Model):
@@ -192,6 +201,7 @@ class T011Room(models.Model):
     class Meta:
         managed = False
         db_table = 'T011_room'
+        verbose_name_plural="ルームテーブル"
 
     def __str__(self):
         return self.t011_pk01_room_id
@@ -211,6 +221,7 @@ class T012Contactbooktem(models.Model):
     class Meta:
         managed = False
         db_table = 'T012_contactbooktem'
+        verbose_name_plural="連絡帳テンプレートテーブル"
 
     def __str__(self):
         return self.t012_pk01_contactbook_id
