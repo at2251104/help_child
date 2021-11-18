@@ -4,6 +4,9 @@
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/suda.css' %}">
 {% endblock %}
+
+{% block title %}予定表-PLANLIST{% endblock %}
+
 {% block head_slide%}
     <!--スライドショー-->
     
@@ -39,3 +42,15 @@
     
 
     {%endblock%}
+
+{% block sub_contents%}
+    <nav class="box1">
+        <h2>予定表関連</h2>
+        <ul class="submenu">
+            <li><a href="#">詳細</a></li>
+            <li><a href="#">行事の追加</a></li>
+            <li><a href="#">編集</a></li>
+            <li><a href="#">削除</a></li>
+        </ul>
+    </nav>
+{% endblock %}

@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {%load static %}
-<!--予定表画面-->
+<!--連絡帳園児リスト画面-->
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/suda.css' %}">
 {% endblock %}
-{% block title %}連絡帳園児リスト{% endblock %}
+{% block title %}連絡帳園児リスト-CONTACT{% endblock %}
 
 {% block head_slide%}
 
@@ -45,3 +45,15 @@
     </form>
 </div>
 {%endblock%}
+
+{% block sub_contents%}
+    <nav class="box1">
+        <h2>連絡帳関連</h2>
+        <ul class="submenu">
+            <li><a href="#">詳細</a></li>
+            <li><a href="#">行事の追加</a></li>
+            <li><a href="#">編集</a></li>
+            <li><a href="#">削除</a></li>
+        </ul>
+    </nav>
+{% endblock %}
