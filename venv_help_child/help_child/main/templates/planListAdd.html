@@ -34,15 +34,15 @@
     <div id="main">
         <div id="header">
             <h1>行事追加</h1>
-            <div id="classSelectBox">
-                <input type="checkbox" name="class" id="age_0" value="1"><label for="age_0">0歳</label>
-                <input type="checkbox" name="class" id="age_1" value="2"><label for="age_1">1歳</label>
+            <div class="app_checkbox">
+                <input type="checkbox" name="class" id="age_0" value="1"><label for="age_0"><br>0歳</label>
+                <input type="checkbox" name="class" id="age_1" value="2"><label for="age_1"><br>1歳</label>
                 <input type="checkbox" name="class" id="age_2" value="3"><label for="age_2">2歳</label>
                 <input type="checkbox" name="class" id="age_3" value="4"><label for="age_3">年少</label>
                 <input type="checkbox" name="class" id="age_4" value="5"><label for="age_4">年中</label>
                 <input type="checkbox" name="class" id="age_5" value="6"><label for="age_5">年長</label>
             </div>
-            <form action="window.alert(target)" method="post" class="planlistDetailCenter">
+            <form action="window.alert(target)" method="post" class="planlistDetailCenter" style="height: 30px;">
                 <p>月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center" ></p>
             
             <div class="visiblity">
@@ -51,7 +51,7 @@
                     <button id="next" onclick="next()">›</button>
                 </div>
             </div>
-                <p>行事名:<input type="textbox" name="planName"></p>
+                <p>行事名:<input type="textbox" name="planName" style="height: 30px;"></p>
                 備考<br>
                 <textarea name="remarks" rows="4" cols="40"></textarea><br>
                 <div class="planlistAddButton">
