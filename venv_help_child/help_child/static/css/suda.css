@@ -260,3 +260,30 @@ img.ui-datepicker-trigger {
 #planAdd {
   position: relative;
 }
+.planAddButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1em 2em;
+  width: 300px;
+  color: #333;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #cccccc;
+  transition: 0.3s;
+}
+
+.button01 a::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-top: 3px solid #333333;
+  border-right: 3px solid #333333;
+  transform: rotate(45deg);
+}
+
+.button01 a:hover {
+  text-decoration: none;
+  background-color: coral;
+}

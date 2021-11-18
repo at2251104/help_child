@@ -33,7 +33,7 @@
     {% block main_contents%}
     <div id="main">
         <div id="header">
-            <h1>行事追加</h1>
+            <h1>行事削除</h1>
             <div id="classSelectBox">
                 <input type="checkbox" name="class" id="age_0" value="1"><label for="age_0">0歳</label>
                 <input type="checkbox" name="class" id="age_1" value="2"><label for="age_1">1歳</label>
@@ -51,11 +51,13 @@
                     <button id="next" onclick="next()">›</button>
                 </div>
             </div>
-                <p>行事名:<input type="textbox" name="planName"></p>
-                備考<br>
-                <textarea name="remarks" rows="4" cols="40"></textarea><br>
+                行事名:<select name="planName">
+                    <option value="サンプル1">サンプル1</option>
+                    <option value="サンプル2">サンプル2</option>
+                    <option value="サンプル3">サンプル3</option>
+                </select>
                 <div class="planlistAddButton">
-                    <br><input type="submit" value="追加" class="planlistAddButton">
+                    <br><input type="submit" value="削除" class="planlistAddButton">
                 </div>
                 </form>
             <div class="visiblity">
