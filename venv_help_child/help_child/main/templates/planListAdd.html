@@ -1,0 +1,71 @@
+{%extends 'base.html'%}
+    {%load static %}
+    {% block head %}
+        <link rel="stylesheet" href="{% static 'css/suda.css' %}">
+        
+            <meta charset="utf-8">
+            <!-- jQuery -->
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <!-- jQuery UI -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+            <script type="text/javascript" src="{% static 'js/planlistDetail.js' %}"></script>
+            <link rel="stylesheet" href="{% static 'css/suda.css}">
+            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
+    {% endblock %}
+
+    {% block head_slide%}
+
+        <!--スライドショー-->
+    
+        <aside id="mainimg">
+            <div>
+                <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+                <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+                <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+                <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
+            </div>
+        </aside>
+    
+    {% endblock %}
+
+    {% block main_contents%}
+    <div id="main">
+        <div id="header">
+            <h1>行事追加</h1>
+            <div class="app_checkbox">
+                <input type="checkbox" name="class" id="age_0" value="1"><label for="age_0"><br>0歳</label>
+                <input type="checkbox" name="class" id="age_1" value="2"><label for="age_1"><br>1歳</label>
+                <input type="checkbox" name="class" id="age_2" value="3"><label for="age_2">2歳</label>
+                <input type="checkbox" name="class" id="age_3" value="4"><label for="age_3">年少</label>
+                <input type="checkbox" name="class" id="age_4" value="5"><label for="age_4">年中</label>
+                <input type="checkbox" name="class" id="age_5" value="6"><label for="age_5">年長</label>
+            </div>
+            <form action="window.alert(target)" method="post" class="planlistDetailCenter" style="height: 30px;">
+                <p>月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center" ></p>
+            
+            <div class="visiblity">
+                <div id="next-prev-button">
+                    <button id="prev" onclick="prev()">‹</button>
+                    <button id="next" onclick="next()">›</button>
+                </div>
+            </div>
+                <p>行事名:<input type="textbox" name="planName" style="height: 30px;"></p>
+                備考<br>
+                <textarea name="remarks" rows="4" cols="40"></textarea><br>
+                <div class="planlistAddButton">
+                    <br><input type="submit" value="追加" class="planlistAddButton">
+                </div>
+                </form>
+            <div class="visiblity">
+            <p>/formのあとにボタンを置くと何故か治った</p>
+            </div>
+        </div>
+    </div>
+        
+            <!--予定の表示-->
+        
+    {%endblock%}
+
+</html>

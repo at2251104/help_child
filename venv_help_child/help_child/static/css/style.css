@@ -89,7 +89,7 @@ a:hover {
 ---------------------------------------------------------------------------*/
 #main {
   float: right; /*右側に回り込み*/
-  width: 73%; /*幅*/
+  width: 70%; /*幅*/
   overflow: hidden;
   padding-top: 10%; /*コンテンツ上にあける余白*/
 }
@@ -104,7 +104,7 @@ a:hover {
   color: #fff; /*文字色*/
   padding: 8px 30px; /*上下、左右への余白*/
   background: #37a8e9; /*背景色（古いブラウザ用）*/
-  border-radius: 50px; /*角丸のサイズ。大きめにしておけばOK。*/
+  border-radius: 30px; /*角丸のサイズ。大きめにしておけばOK。*/
 }
 /*mainコンテンツのh3タグの設定*/
 #main h3 {
