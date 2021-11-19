@@ -37,8 +37,7 @@ body {
   width: 30%;
 }
 
-/*ボタン設定
----------------------------------------------------------------------------*/
+/* ボタン設定 */
 a.btn-border {
   position: relative;
   top: 10;
@@ -83,12 +82,12 @@ a.btn-border:hover:after {
 .select-mode input {
   display: none;
 }
-.select-mode input[type="radio"]:checked.windows + label {
+.select-mode input[type="radio"]:checked.go-school + label {
   color: #3275bc;
   border: 2px solid #3275bc;
   background-color: #d0e6fd;
 }
-.select-mode input[type="radio"]:checked.osx + label {
+.select-mode input[type="radio"]:checked.go-home + label {
   color: #000;
   border: 2px solid #000;
   background-color: #eaeaea;
@@ -106,6 +105,22 @@ a.btn-border:hover:after {
   color: #aaa;
   border: 2px solid #aaa;
   cursor: pointer;
+}
+/* タッチ画面 */
+.box1 {
+  top: 20;
+  border: 2px solid black;
+  margin: 20px auto;
+  padding: 15px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px; /* 角を丸くする */
+  justify-content: center;
+}
+.box1 p {
+  margin: 0;
 }
 /*タグスキャン画面
 ---------------------------------------------------------------------------*/
