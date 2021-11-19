@@ -170,8 +170,10 @@ LOGGING = {
     }
 }
 
+# 認証に使うモデルを指定
 AUTH_USER_MODEL = 'accounts.CustomUser'
-
+# signupformからの情報をcustomusermodelに保存するためのアダプタを指定
+ACCOUNT_ADAPTER = 'accounts.adapter.AccountAdapter'
 SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = (
