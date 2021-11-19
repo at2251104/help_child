@@ -172,8 +172,8 @@ LOGGING = {
 
 # 認証に使うモデルを指定
 AUTH_USER_MODEL = 'accounts.CustomUser'
-# signupformからの情報をcustomusermodelに保存するためのアダプタを指定
-ACCOUNT_ADAPTER = 'accounts.adapter.AccountAdapter'
+ACCOUNT_ADPTER = 'accounts.adapter.AccountAdapter'
+
 SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = (
@@ -201,3 +201,4 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 # デフォルトのメール送信元を設定
 # DEFAULT_FROM_EMAIL = 'admin@example.com'
+

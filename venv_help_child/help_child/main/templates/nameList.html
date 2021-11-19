@@ -5,3 +5,36 @@
 <link rel="stylesheet" href="{% static 'css/suda.css' %}">
 {% endblock %}
 {% block title %}名簿-CONTACT{% endblock %}
+
+{% block head_slide%}
+<!--スライドショー-->
+<aside id="mainimg">
+	<div>
+		<img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+		<img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+		<img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+		<img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
+	</div>
+</aside>
+{% endblock %}
+
+
+{% block main_contents%}
+<div id="main">
+    <form>
+        <input type="search">
+        <button type="submit">検索</button>
+    </form>
+</div>
+{% endblock%}
+
+{% block sub_contents %}
+<nav class="box1">
+	<h2>名簿関連</h2>
+	<ul class="submenu">
+		<li><a href="#">詳細</a></li>
+		<li><a href="#">編集</a></li>
+		<li><a href="#">追加</a></li>
+	</ul>
+</nav>
+{% endblock %}

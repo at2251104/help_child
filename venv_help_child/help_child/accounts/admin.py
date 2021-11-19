@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import CustomUser,UserType,UserDetailBuyer,UserDetailSupplier
 
 admin.site.register(CustomUser)

@@ -3,6 +3,10 @@
 
 {% block title %}幼稚園・保育園・キッズクラブ向け 無料ホームページテンプレート tp_kids3{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
+{% endblock %}
+
 {% block head_slide%}
 <!--スライドショー-->
 <aside id="mainimg">
@@ -19,6 +23,16 @@
 {% block main_contents%}
 <div id="tag-main">
     <h1>モード選択</h1>
+    <div class="select-mode">
+        <input type="radio" id="windows" name="os" value="windows" class="windows" checked>
+        <label for="windows">
+            <i class="fab fa-windows"></i> 登園モード
+        </label>
+        <input type="radio" id="osx" name="os" value="osx" class="osx">
+        <label for="osx">
+            <i class="fab fa-apple"></i> 降園モード
+        </label>
+    </div>
 </div>
 {% endblock %}
 
