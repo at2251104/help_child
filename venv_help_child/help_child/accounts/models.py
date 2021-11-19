@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> e4e64d6c113e395f5ce1f9feb680d0d7e5478c2c
 # member/models.py
 
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+<<<<<<< HEAD
 from django.contrib.auth.models import UserManager,PermissionsMixin
+=======
+from django.contrib.auth.models import PermissionsMixin, UserManager
+>>>>>>> e4e64d6c113e395f5ce1f9feb680d0d7e5478c2c
 
 class UserType(models.Model):
     """ ユーザ種別 """
@@ -70,9 +77,15 @@ class UserDetailSupplier(models.Model):
                                 on_delete=models.CASCADE)
     # サプライヤーユーザ向けの項目
     companyName = models.CharField(
+<<<<<<< HEAD
                                    max_length=100,
                                    null=True,
                                    blank=True,
+=======
+                                    max_length=100,
+                                    null=True,
+                                    blank=True,
+>>>>>>> e4e64d6c113e395f5ce1f9feb680d0d7e5478c2c
                                 )
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
@@ -86,9 +99,15 @@ class UserDetailBuyer(models.Model):
                                 on_delete=models.CASCADE)
     # バイヤーユーザ向けの項目
     nearestStation = models.CharField(
+<<<<<<< HEAD
                                    max_length=100,
                                    null=True,
                                    blank=True,
+=======
+                                    max_length=100,
+                                    null=True,
+                                    blank=True,
+>>>>>>> e4e64d6c113e395f5ce1f9feb680d0d7e5478c2c
                                 )
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
