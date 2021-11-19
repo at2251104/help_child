@@ -23,6 +23,9 @@ class LocationConfigView(generic.TemplateView):
 class ContactTopView(generic.TemplateView):
     template_name="contactTop.html"
 
+class ContactTopOyaView(generic.TemplateView):
+    template_name="contactTop_oya.html"
+
 class ContactDetailView(generic.TemplateView):
     template_name="contactDetail.html"
 
