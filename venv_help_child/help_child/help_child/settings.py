@@ -171,6 +171,7 @@ LOGGING = {
 }
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+ACCOUNT_ADPTER = 'accounts.adapter.AccountAdapter'
 
 SITE_ID = 1
 
@@ -199,3 +200,4 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 # デフォルトのメール送信元を設定
 # DEFAULT_FROM_EMAIL = 'admin@example.com'
+
