@@ -69,9 +69,9 @@ class UserDetailSupplier(models.Model):
                                 on_delete=models.CASCADE)
     # サプライヤーユーザ向けの項目
     companyName = models.CharField(
-                                    max_length=100,
-                                    null=True,
-                                    blank=True,
+                                   max_length=100,
+                                   null=True,
+                                   blank=True,
                                 )
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
@@ -85,9 +85,9 @@ class UserDetailBuyer(models.Model):
                                 on_delete=models.CASCADE)
     # バイヤーユーザ向けの項目
     nearestStation = models.CharField(
-                                    max_length=100,
-                                    null=True,
-                                    blank=True,
+                                   max_length=100,
+                                   null=True,
+                                   blank=True,
                                 )
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)

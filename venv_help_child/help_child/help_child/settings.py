@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -172,8 +173,8 @@ LOGGING = {
 
 # 認証に使うモデルを指定
 AUTH_USER_MODEL = 'accounts.CustomUser'
-# signupformからの情報をcustomusermodelに保存するためのアダプタを指定
-ACCOUNT_ADAPTER = 'accounts.adapter.AccountAdapter'
+ACCOUNT_ADPTER = 'accounts.adapter.AccountAdapter'
+
 SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = (
@@ -190,7 +191,7 @@ AUTHENTICATION_BACKENDS = (
 # ACCOUNT_EMAIL_REQUIRED = True
 
 # ログイン/ログアウト後の遷移先を設定
-LOGIN_REDIRECT_URL = 'main:base'
+LOGIN_REDIRECT_URL = 'main:home'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
 # ログアウトリンクのクリック一発でログアウトする設定
@@ -201,3 +202,4 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 # デフォルトのメール送信元を設定
 # DEFAULT_FROM_EMAIL = 'admin@example.com'
+

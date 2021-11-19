@@ -1,3 +1,6 @@
+
+# member/adapter.py
+
 from allauth.account.adapter import DefaultAccountAdapter
 from .models import *
 
