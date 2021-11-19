@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 
 # member/adapter.py
 
-=======
->>>>>>> e4e64d6c113e395f5ce1f9feb680d0d7e5478c2c
 from allauth.account.adapter import DefaultAccountAdapter
 from .models import *
 
