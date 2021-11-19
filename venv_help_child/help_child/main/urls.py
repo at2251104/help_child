@@ -5,7 +5,7 @@ app_name="main"
 
 urlpatterns=[
     path('',views.HomeView.as_view(),name="home"),
-    path('login',views.LoginView.as_view(),name="login"),
+    # path('login',views.LoginView.as_view(),name="login"),
     path('locationAdmin',views.LocationAdminView.as_view(),name="locationAdmin"),
     path('locationParent',views.LocationParentView.as_view(),name="locationParent"),
     path('locationConfig',views.LocationConfigView.as_view(),name="locationConfig"),

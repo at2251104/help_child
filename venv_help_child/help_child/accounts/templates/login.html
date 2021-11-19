@@ -26,19 +26,16 @@
         <div>
             <h1>ログイン</h1>
         </div>
+        <form action="{% url 'account_login' %}" method="post">
+        {% csrf_token %}
+        
+        {{form.as_p}}
 
-        <!-- ユーザーネーム入力 -->
-        <div id="user-name">
-            <label for="username">ユーザーネーム:</label><br>
-            <input type="text" id="username" name="username">
-        </div>
-
-        <!-- パスワード入力 -->
-        <div id="user-ps">
-            <label for="pass">パスワード:</label><br>
-            <input type="password" id="pass" name="password" required>
-        </div>
-        <a href="" class="btn btn-border">log in</a>
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+        {% endif %}
+        <button class="" type="submit">ログイン</button>
+        </form>
     </div>
     <div id="login-footer">
         <footer>
