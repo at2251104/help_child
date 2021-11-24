@@ -8,8 +8,8 @@ class IndexView(generic.TemplateView):
 class HomeView(generic.TemplateView):
     template_name="home.html"
 
-class LoginView(generic.TemplateView):
-    template_name="login.html"
+# class LoginView(generic.TemplateView):
+#     template_name="login.html"
 
 class LocationAdminView(generic.TemplateView):
     template_name="locationAdmin.html"
@@ -22,6 +22,9 @@ class LocationConfigView(generic.TemplateView):
 
 class ContactTopView(generic.TemplateView):
     template_name="contactTop.html"
+
+class ContactTopOyaView(generic.TemplateView):
+    template_name="contactTop_oya.html"
 
 class ContactDetailView(generic.TemplateView):
     template_name="contactDetail.html"
