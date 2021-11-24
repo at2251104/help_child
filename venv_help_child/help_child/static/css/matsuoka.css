@@ -1,6 +1,7 @@
 #main h2 {
   clear: both;
-  display: inline-block; /*文字数に合わせて幅を変える*/
+  width: 90%;
+  /* display: inline-block; 文字数に合わせて幅を変える */
   margin-bottom: 15px;
   color: #fff; /*文字色*/
   padding: 8px 30px; /*上下、左右への余白*/
@@ -77,4 +78,89 @@
 .switchArea input[type="checkbox"]:checked ~ #swImg {
   transform: translateX(110px); /* 丸も右へ移動       */
   background: #7f007f; /* カーソルタブの背景 */
+}
+
+
+/* ----------------絞り込み機能------------------------- */
+/* 
+#attend-main {
+  float: right; 
+  width: 70%; 
+  overflow: hidden;
+  padding-top: 30%; 
+} */
+/* #attend-main h2 {
+  font-size: 30px;
+  text-align: center;
+}
+#attend-main form {
+  margin-left: auto;
+  margin-right: auto;
+} */
+.group {
+  border-bottom: 2px solid #dedede;
+}
+/* セレクトボックス */
+.title {
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.checkAll {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #00abea;
+}
+
+.list {
+  display: flex;
+  list-style-type: none;
+}
+
+.item {
+  margin-bottom: 20px;
+}
+.item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.label {
+  cursor: pointer;
+}
+
+.text {
+  font-weight: bold;
+}
+/* 検索窓 */
+.search_container {
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: 300px;
+  background-color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.search_container input[type="text"] {
+  border: none;
+  height: 2em;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"] {
+  cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  border-radius: 20%;
+  background: #3879d9;
+  color: #fff;
+  outline: none;
+  width: 2em;
+  height: 2em;
 }
