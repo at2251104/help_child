@@ -128,6 +128,84 @@ a.btn-border:hover:after {
 
 /*attend画面
 ---------------------------------------------------------------------------*/
+#attend-main {
+  float: right; /*右側に回り込み*/
+  width: 70%; /*幅*/
+  overflow: hidden;
+  padding-top: 30%; /*コンテンツ上にあける余白*/
+}
+#attend-main h2 {
+  font-size: 30px;
+  text-align: center;
+}
+#attend-main form {
+  margin-left: auto;
+  margin-right: auto;
+}
+.group {
+  border-bottom: 2px solid #dedede;
+}
+/* セレクトボックス */
+.title {
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
 
+.checkAll {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #00abea;
+}
+
+.list {
+  display: flex;
+  list-style-type: none;
+}
+
+.item {
+  margin-bottom: 20px;
+}
+.item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.label {
+  cursor: pointer;
+}
+
+.text {
+  font-weight: bold;
+}
+/* 検索窓 */
+.search_container {
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: 300px;
+  background-color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.search_container input[type="text"] {
+  border: none;
+  height: 2em;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"] {
+  cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  border-radius: 20%;
+  background: #3879d9;
+  color: #fff;
+  outline: none;
+  width: 2em;
+  height: 2em;
+}
 /*attend画面
 ---------------------------------------------------------------------------*/
