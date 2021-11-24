@@ -2,7 +2,7 @@
 {%load static %}
 <!--連絡帳園児リスト画面-->
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/suda.css' %}">
+<link rel="stylesheet" href="{% static 'css/matsuoka.css' %}">
 {% endblock %}
 {% block title %}連絡帳園児リスト-CONTACT{% endblock %}
 
@@ -29,7 +29,7 @@
         <div id="swImg"></div>
     </div>
     
-
+    <form>
     <a><input type="checkbox" name="class" id="age_0" value="1"><label for="age_0">0歳</label></a>
     <a><input type="checkbox" name="class" id="age_1" value="2"><label for="age_1">1歳</label></a>
     <a><input type="checkbox" name="class" id="age_2" value="3"><label for="age_2">2歳</label></a>
@@ -38,10 +38,16 @@
     <a><input type="checkbox" name="class" id="age_5" value="6"><label for="age_5">年長</label></a>
 
     <!-- 検索box -->
-    <form>
+    
         <input type="search">
         <button type="submit">検索</button>
     </form>
+
+    <ul>
+        <li><a href="#">Aくん</a></li>
+        <li><a href="#">Bちゃん</a></li>
+        <li><a href="#">Cくん</a></li>
+    </ul>
 </div>
 {%endblock%}
 
@@ -49,8 +55,7 @@
     <nav class="box1">
         <h2>連絡帳関連</h2>
         <ul class="submenu">
-            <li><a href="#">詳細</a></li>
-            <li><a href="#">行事の追加</a></li>
+            <li><a href="#">追加</a></li>
             <li><a href="#">編集</a></li>
             <li><a href="#">削除</a></li>
         </ul>

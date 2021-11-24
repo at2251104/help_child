@@ -37,8 +37,7 @@ body {
   width: 30%;
 }
 
-/*ボタン設定
----------------------------------------------------------------------------*/
+/* ボタン設定 */
 a.btn-border {
   position: relative;
   top: 10;
@@ -70,7 +69,8 @@ a.btn-border:hover:after {
 }
 /*login画面
 ---------------------------------------------------------------------------*/
-/*タグスキャン画面
+
+/*tagScan画面
 ---------------------------------------------------------------------------*/
 #tag-main {
   position: relative;
@@ -83,12 +83,12 @@ a.btn-border:hover:after {
 .select-mode input {
   display: none;
 }
-.select-mode input[type="radio"]:checked.windows + label {
+.select-mode input[type="radio"]:checked.go-school + label {
   color: #3275bc;
   border: 2px solid #3275bc;
   background-color: #d0e6fd;
 }
-.select-mode input[type="radio"]:checked.osx + label {
+.select-mode input[type="radio"]:checked.go-home + label {
   color: #000;
   border: 2px solid #000;
   background-color: #eaeaea;
@@ -107,5 +107,105 @@ a.btn-border:hover:after {
   border: 2px solid #aaa;
   cursor: pointer;
 }
-/*タグスキャン画面
+/* タッチ画面 */
+.box1 {
+  top: 20;
+  border: 2px solid black;
+  margin: 20px auto;
+  padding: 15px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px; /* 角を丸くする */
+  justify-content: center;
+}
+.box1 p {
+  margin: 0;
+}
+/*tagScan画面
+---------------------------------------------------------------------------*/
+
+/*attend画面
+---------------------------------------------------------------------------*/
+#attend-main {
+  float: right; /*右側に回り込み*/
+  width: 70%; /*幅*/
+  overflow: hidden;
+  padding-top: 30%; /*コンテンツ上にあける余白*/
+}
+#attend-main h2 {
+  font-size: 30px;
+  text-align: center;
+}
+#attend-main form {
+  margin-left: auto;
+  margin-right: auto;
+}
+.group {
+  border-bottom: 2px solid #dedede;
+}
+/* セレクトボックス */
+.title {
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.checkAll {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #00abea;
+}
+
+.list {
+  display: flex;
+  list-style-type: none;
+}
+
+.item {
+  margin-bottom: 20px;
+}
+.item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.label {
+  cursor: pointer;
+}
+
+.text {
+  font-weight: bold;
+}
+/* 検索窓 */
+.search_container {
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: 300px;
+  background-color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.search_container input[type="text"] {
+  border: none;
+  height: 2em;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"] {
+  cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  border-radius: 20%;
+  background: #3879d9;
+  color: #fff;
+  outline: none;
+  width: 2em;
+  height: 2em;
+}
+/*attend画面
 ---------------------------------------------------------------------------*/

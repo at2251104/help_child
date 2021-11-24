@@ -6,7 +6,7 @@
   margin: 0 auto;
   color: #666;
 }
-#header {
+#planListDetailheader {
   text-align: center;
   font-size: 24px;
   width: 100%;
@@ -328,4 +328,19 @@ img.ui-datepicker-trigger {
   box-shadow: none;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+#attend-main {
+  float: right; /*右側に回り込み*/
+  width: 70%; /*幅*/
+  overflow: hidden;
+  padding-top: 30%; /*コンテンツ上にあける余白*/
+}
+#attend-main h2 {
+  font-size: 30px;
+  text-align: center;
+}
+#attend-main form {
+  margin-left: auto;
+  margin-right: auto;
 }
