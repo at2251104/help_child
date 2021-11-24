@@ -127,3 +127,7 @@ function OnLinkClick(){
 
     alert(1);
 }
+
+console.log(year)
+console.log(month)
+console.log(day)
