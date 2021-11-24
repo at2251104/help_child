@@ -207,5 +207,67 @@ a.btn-border:hover:after {
   width: 2em;
   height: 2em;
 }
+/* 画面幅800px以下の設定 */
+@media screen and (max-width: 800px) {
+  /*mainコンテンツ*/
+  #attend-main {
+    float: none;
+    width: auto;
+  }
+
+  /*main*/
+  #attend-main {
+    padding: 0 !important;
+  }
+}
+/*画面幅480px以下の設定*/
+@media screen and (max-width: 480px) {
+  /*メインコンテンツ*/
+}
+
 /*attend画面
+---------------------------------------------------------------------------*/
+
+/*contactDetail画面
+---------------------------------------------------------------------------*/
+#contact-detail-main {
+  float: right; /*contact-detail-main右側に回り込み*/
+  width: 70%; /*幅*/
+  overflow: hidden;
+  padding-top: 30%; /*コンテンツ上にあける余白*/
+  text-align: center;
+}
+#contact-detail-main form {
+  margin-left: auto;
+  margin-right: auto;
+}
+#next-prev-button {
+  margin-left: auto;
+  margin-right: auto;
+}
+#prev {
+  float: left;
+}
+#next {
+  float: right;
+}
+
+/* 画面幅800px以下の設定 */
+@media screen and (max-width: 800px) {
+  /*mainコンテンツ*/
+  #contact-detail-main {
+    float: none;
+    width: auto;
+  }
+
+  /*main*/
+  #contact-detail-main {
+    padding: 0 !important;
+  }
+}
+/*画面幅480px以下の設定*/
+@media screen and (max-width: 480px) {
+  /*メインコンテンツ*/
+}
+/*contactDetail画面
 ---------------------------------------------------------------------------*/
