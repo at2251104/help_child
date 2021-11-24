@@ -5,6 +5,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
 {% endblock %}
@@ -24,6 +25,7 @@
 
 {% block main_contents%}
 <div id="attend-main">
+    <h2>登降園状態</h2>
     <div class="group">
         <div class="head">
             <div class="title">年齢：</div>
@@ -71,16 +73,15 @@
                     <span class="text">5歳児</span>
                 </label>
             </li>
-
         </ul>
     </div>
     <div class="group">
         <div class="head">
-            <div class="title">地域</div>
+            <div class="title">状態</div>
             <div class="checkAll">
                 <label class="label">
                     <input class="js-check-all" type="checkbox" name="" data-check-all="area">
-                    <span class="text">すべてを選択</span>
+                    <span class="text">All</span>
                 </label>
             </div>
         </div>
@@ -88,41 +89,34 @@
             <li class="item">
                 <label class="label">
                     <input type="checkbox" name="area" value="area1">
-                    <span class="text">北海道</span>
+                    <span class="text">登園</span>
                 </label>
             </li>
             <li class="item">
                 <label class="label">
                     <input type="checkbox" name="area" value="area2">
-                    <span class="text">東北</span>
+                    <span class="text">降園</span>
                 </label>
             </li>
             <li class="item">
                 <label class="label">
                     <input type="checkbox" name="area" value="area3">
-                    <span class="text">関東</span>
+                    <span class="text">遅刻</span>
                 </label>
             </li>
             <li class="item">
                 <label class="label">
                     <input type="checkbox" name="area" value="area4">
-                    <span class="text">関西</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="area" value="area5">
-                    <span class="text">九州</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="area" value="area6">
-                    <span class="text">その他</span>
+                    <span class="text">早退</span>
                 </label>
             </li>
         </ul>
     </div>
+    <form method="get" action="#" class="search_container">
+        <input type="text" size="30" placeholder="キーワード検索">
+        <input type="submit" value="&#xf002">
+    </form>
+
 </div>
 {% endblock %}
 <script>
