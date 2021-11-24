@@ -44,13 +44,21 @@
 {%endblock%}
 
 {% block sub_contents%}
+<<<<<<< HEAD
+=======
+<!-- 予定表関連の他の画面への移行 -->
+>>>>>>> a008487f17eb8a402379e33e31d6f8315d3e1c86
 <nav class="box1">
     <h2>予定表関連</h2>
     <ul class="submenu">
-        <li><a href="#">詳細</a></li>
+        <li><a href="{% url 'main:planListDetail' %}">詳細</a></li>
         <li><a href="{% url 'main:planListAdd' %}">行事の追加</a></li>
         <li><a href="#">編集</a></li>
-        <li><a href="#">削除</a></li>
+        <li><a href="{% url 'main:planListDelete' %}">削除</a></li>
     </ul>
 </nav>
+<<<<<<< HEAD
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> a008487f17eb8a402379e33e31d6f8315d3e1c86

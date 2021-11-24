@@ -71,7 +71,7 @@ function createProcess(year, month) {
                 count++;
                 var dateInfo = checkDate(year, month, count);
                 if(dateInfo.isToday){
-                    calendar += "<td class='today' onclick="+  +">"+count + "</td>";
+                    calendar += "<td class='today' onclick="+ OnLinkClick(year,month,count); +">"+count + "</td>";
                 } else if(dateInfo.isHoliday) {
                     calendar += "<td class='holiday' title='" + dateInfo.holidayName + "'>"+ count + "</td>";
                 } else {
