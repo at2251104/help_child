@@ -44,6 +44,7 @@
 {%endblock%}
 
 {% block sub_contents%}
+<<<<<<< HEAD
 <nav class="box1">
     <h2>予定表関連</h2>
     <ul class="submenu">
@@ -54,3 +55,15 @@
     </ul>
 </nav>
 {% endblock %}
+=======
+    <nav class="box1">
+        <h2>予定表関連</h2>
+        <ul class="submenu">
+            <li><a href="{% url 'main:planListDetail' %}">詳細</a></li>
+            <li><a href="{% url 'main:planListAdd' %}">行事の追加</a></li>
+            <li><a href="{% url 'main:planListDelete' %}">編集</a></li>
+            <li><a href="#">削除</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+>>>>>>> c2db4606c871fc76fd97a60b4f691cb2fc5da3f2
