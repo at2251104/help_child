@@ -31,7 +31,7 @@ function next(){
 function showProcess(date) {
     var year = date.getFullYear();
     var month = date.getMonth(); // 0始まり
-    document.querySelector('#header').innerHTML = year + "年 " + (month + 1) + "月";
+    document.querySelector('#planListDetailheader').innerHTML = year + "年 " + (month + 1) + "月";
 
     var calendar = createProcess(year, month);
     document.querySelector('#calendar').innerHTML = calendar;
@@ -71,7 +71,7 @@ function createProcess(year, month) {
                 count++;
                 var dateInfo = checkDate(year, month, count);
                 if(dateInfo.isToday){
-                    calendar += "<td class='today' onclick="+  +">"+count + "</td>";
+                    calendar += "<td class='today' onclick="+ OnLinkClick(year,month,count); +">"+count + "</td>";
                 } else if(dateInfo.isHoliday) {
                     calendar += "<td class='holiday' title='" + dateInfo.holidayName + "'>"+ count + "</td>";
                 } else {
