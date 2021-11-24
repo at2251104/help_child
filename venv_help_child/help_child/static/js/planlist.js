@@ -31,7 +31,7 @@ function next(){
 function showProcess(date) {
     var year = date.getFullYear();
     var month = date.getMonth(); // 0始まり
-    document.querySelector('#header').innerHTML = year + "年 " + (month + 1) + "月";
+    document.querySelector('#planListDetailheader').innerHTML = year + "年 " + (month + 1) + "月";
 
     var calendar = createProcess(year, month);
     document.querySelector('#calendar').innerHTML = calendar;
