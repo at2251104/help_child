@@ -11,7 +11,9 @@
             <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
             <script type="text/javascript" src="{% static 'js/planlistDetail.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
             <link rel="stylesheet" href="{% static 'css/suda.css}">
+            <link rel="stylesheet" href="{% static 'css/sugahara.css}">
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
     {% endblock %}
 
@@ -31,16 +33,58 @@
     {% endblock %}
 
     {% block main_contents%}
-    <div id="main">
-        <div id="header">
-            <h1>行事削除</h1>
-            <div id="classSelectBox">
-                <input type="checkbox" name="class" id="age_0" value="1"><label for="age_0">0歳</label>
-                <input type="checkbox" name="class" id="age_1" value="2"><label for="age_1">1歳</label>
-                <input type="checkbox" name="class" id="age_2" value="3"><label for="age_2">2歳</label>
-                <input type="checkbox" name="class" id="age_3" value="4"><label for="age_3">年少</label>
-                <input type="checkbox" name="class" id="age_4" value="5"><label for="age_4">年中</label>
-                <input type="checkbox" name="class" id="age_5" value="6"><label for="age_5">年長</label>
+    <!-- <div id="main"> -->
+            <div id="attend-main">
+                <h2>登降園状態</h2>
+                <div class="group">
+                    <div class="head">
+                        <div class="title">年齢：</div>
+                        <div class="checkAll">
+                            <label class="label">
+                                <input class="js-check-all" type="checkbox" name="" data-check-all="hobby">
+                                <span class="text">All</span>
+                            </label>
+                        </div>
+                    </div>
+                    <ul class="js-check-all-target list" data-check-all="hobby">
+                        <li class="item">
+                            <label class="label">
+                                <input type="checkbox" name="hobby" value="age0">
+                                <span class="text">0歳児</span>
+                            </label>
+                        </li>
+                        <li class="item">
+                            <label class="label">
+                                <input type="checkbox" name="hobby" value="age1">
+                                <span class="text">1歳児</span>
+                            </label>
+                        </li>
+                        <li class="item">
+                            <label class="label">
+                                <input type="checkbox" name="hobby" value="age2">
+                                <span class="text">2歳児</span>
+                            </label>
+                        </li>
+                        <li class="item">
+                            <label class="label">
+                                <input type="checkbox" name="hobby" value="age3">
+                                <span class="text">3歳児</span>
+                            </label>
+                        </li>
+                        <li class="item">
+                            <label class="label">
+                                <input type="checkbox" name="hobby" value="age4">
+                                <span class="text">4歳児</span>
+                            </label>
+                        </li>
+                        <li class="item">
+                            <label class="label">
+                                <input type="checkbox" name="hobby" value="age5">
+                                <span class="text">5歳児</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <form action="window.alert(target)" method="post" class="planlistDetailCenter">
                 <p>月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center" ></p>
@@ -64,7 +108,7 @@
             <p>/formのあとにボタンを置くと何故か治った</p>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
         
             <!--予定の表示-->
         
