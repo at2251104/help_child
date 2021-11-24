@@ -23,7 +23,7 @@
 {% endblock %}
 {% block main_contents%}
 
-<div id="main">
+<div id="attend-main">
     <h2>園児選択</h2>
     <!-- 閲覧/記入の切り替え -->
     <div class="switchArea">
@@ -104,6 +104,7 @@
 <nav class="box1">
     <h2>連絡帳関連</h2>
     <ul class="submenu">
+        <li><a href="{% url 'main:contactDetail' %}">詳細</a></li>
         <li><a href="#">追加</a></li>
         <li><a href="#">編集</a></li>
         <li><a href="#">削除</a></li>
