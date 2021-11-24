@@ -123,10 +123,7 @@ function isHoliday(year, month, day) {
 }
 
 // カレンダー内の各要素にリンクを設定、Detailに飛べるようにする
-function OnLinkClick(year,month,count){
-    let n = year * 10000; // YYYY0000
-	n += month * 100 + 100; // YYYYMM00
-	n += count; // YYYYMMDD
+function OnLinkClick(){
 
-    alert(n);
+    alert(1);
 }
