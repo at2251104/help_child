@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}幼稚園・保育園・キッズクラブ向け 無料ホームページテンプレート tp_kids3{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
+{% endblock %}
+
+{% block head_slide%}
+<!--スライドショー-->
+<aside id="mainimg">
+    <div>
+        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+        <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+        <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
+    </div>
+</aside>
+{% endblock %}
+
+
+{% block main_contents%}
+<div id="attend-main">
+    <div class="group">
+        <div class="head">
+            <div class="title">年齢：</div>
+            <div class="checkAll">
+                <label class="label">
+                    <input class="js-check-all" type="checkbox" name="" data-check-all="hobby">
+                    <span class="text">All</span>
+                </label>
+            </div>
+        </div>
+        <ul class="js-check-all-target list" data-check-all="hobby">
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age0">
+                    <span class="text">0歳児</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age1">
+                    <span class="text">1歳児</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age2">
+                    <span class="text">2歳児</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age3">
+                    <span class="text">3歳児</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age4">
+                    <span class="text">4歳児</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age5">
+                    <span class="text">5歳児</span>
+                </label>
+            </li>
+
+        </ul>
+    </div>
+    <div class="group">
+        <div class="head">
+            <div class="title">地域</div>
+            <div class="checkAll">
+                <label class="label">
+                    <input class="js-check-all" type="checkbox" name="" data-check-all="area">
+                    <span class="text">すべてを選択</span>
+                </label>
+            </div>
+        </div>
+        <ul class="js-check-all-target list" data-check-all="area">
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="area" value="area1">
+                    <span class="text">北海道</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="area" value="area2">
+                    <span class="text">東北</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="area" value="area3">
+                    <span class="text">関東</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="area" value="area4">
+                    <span class="text">関西</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="area" value="area5">
+                    <span class="text">九州</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="area" value="area6">
+                    <span class="text">その他</span>
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+<script>
+
+</script>
+
+<!--/main-->
+
+<!--/contents-->
+
+{% block animation %}
+<!--移動するアニメーション画像-->
+<img src="{% static 'images/animation1.png' %}" alt="" id="animation1">
+
+<!--小さな端末用（800px以下端末）更新情報-->
+<script type="text/javascript">
+    if (OCwindowWidth() <= 800) {
+        open_close("newinfo_hdr", "newinfo");
+    }
+</script>
+{% endblock %}
