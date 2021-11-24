@@ -37,6 +37,8 @@ function showProcess(date) {
     document.querySelector('#calendar').innerHTML = calendar;
 }
 
+
+
 // カレンダー作成
 function createProcess(year, month) {
     // 曜日
@@ -69,11 +71,11 @@ function createProcess(year, month) {
                 count++;
                 var dateInfo = checkDate(year, month, count);
                 if(dateInfo.isToday){
-                    calendar += "<td class='today'>" + count + "</td>";
+                    calendar += "<td class='today' onclick=>"+count + "</td>";
                 } else if(dateInfo.isHoliday) {
-                    calendar += "<td class='holiday' title='" + dateInfo.holidayName + "'>" + count + "</td>";
+                    calendar += "<td class='holiday' title='" + dateInfo.holidayName + "'>"+ count + "</td>";
                 } else {
-                    calendar += "<td>" + count + "</td>";
+                    calendar += '<td>' + count + "</td>";
                 }
             }
         }
@@ -118,4 +120,13 @@ function isHoliday(year, month, day) {
         }
     }
     return [false, ""];
+}
+
+// カレンダー内の各要素にリンクを設定、Detailに飛べるようにする
+function OnLinkClick(year,month,count){
+    let n = year * 10000; // YYYY0000
+	n += month * 100 + 100; // YYYYMM00
+	n += count; // YYYYMMDD
+
+    alert(n);
 }
