@@ -1,6 +1,6 @@
-#main h2 {
+#attend-main h2 {
   clear: both;
-  width: 90%;
+  /* width: 90%; 幅を制限 */
   /* display: inline-block; 文字数に合わせて幅を変える */
   margin-bottom: 15px;
   color: #fff; /*文字色*/
@@ -9,19 +9,12 @@
   border-radius: 30px; /*角丸のサイズ。大きめにしておけばOK。*/
 }
 
-/* 名簿の名残 */
-/* #table td{
-  width: 300px;
-  background-color: #fff;
-  border-color: black;
-} */
-
 /* === ボタンを表示するエリア ============================== */
 .switchArea {
   line-height: 60px; /* 1行の高さ          */
   letter-spacing: 0; /* 文字間             */
   text-align: center; /* 文字位置は中央     */
-  font-size: 27px; /* 文字サイズ         */
+  font-size: 20px; /* 文字サイズ         */
 
   position: relative; /* 親要素が基点       */
   margin: auto; /* 中央寄せ           */
@@ -90,9 +83,10 @@
   padding-top: 30%; 
 }
 #attend-main h2 {
-  font-size: 30px;
-  text-align: center;
+  font-size: 17px;
+  text-align: left;
 }
+
 #attend-main form {
   margin-left: auto;
   margin-right: auto;
@@ -163,4 +157,22 @@
   outline: none;
   width: 2em;
   height: 2em;
+}
+
+/* 画面幅800px以下の設定 */
+@media screen and (max-width: 800px) {
+  /*mainコンテンツ*/
+  #attend-main {
+    float: none;
+    width: auto;
+  }
+
+  /*main*/
+  #attend-main {
+    padding: 0 !important;
+  }
+}
+/*画面幅480px以下の設定*/
+@media screen and (max-width: 480px) {
+  /*メインコンテンツ*/
 }

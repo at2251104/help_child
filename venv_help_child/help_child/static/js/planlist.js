@@ -69,12 +69,20 @@ function createProcess(year, month) {
             } else {
                 // 当月の日付を曜日に照らし合わせて設定
                 count++;
+<<<<<<< HEAD
                 var num=OnLinkClick(year,month,count);
                 var aaa="/planListDetail/"+num
                 if(year == today.getFullYear()
                 　&& month == (today.getMonth())
                 　&& count == today.getDate()){
                     calendar += "<td class='today'>"+"<a href="+`${aaa}`+ ">"+count + "</a></td>";
+=======
+                var dateInfo = checkDate(year, month, count);
+                if(dateInfo.isToday){
+                    calendar += "<td class='today' onclick=+ OnLinkClick(year,month,count)+>" + count + "</td>";
+                } else if(dateInfo.isHoliday) {
+                    calendar += "<td class='holiday' title='" + dateInfo.holidayName + "'>"+ count + "</td>";
+>>>>>>> 7bcb79ac2c4ae31cf88e0a18e0c5579aa84ebeef
                 } else {
                     calendar += "<td>" + count + "</td>";
                 }
@@ -85,3 +93,53 @@ function createProcess(year, month) {
     return calendar;
 }
 
+<<<<<<< HEAD
+=======
+// 日付チェック
+function checkDate(year, month, day) {
+    if(isToday(year, month, day)){
+        return {
+            isToday: true,
+            isHoliday: false,
+            holidayName: ""
+        };
+    }
+
+    var checkHoliday = isHoliday(year, month, day);
+    return {
+        isToday: false,
+        isHoliday: checkHoliday[0],
+        holidayName: checkHoliday[1],
+    };
+}
+
+// 当日かどうか
+function isToday(year, month, day) {
+    return (year == today.getFullYear()
+        && month == (today.getMonth())
+        && day == today.getDate());
+    }
+
+// 祝日かどうか
+function isHoliday(year, month, day) {
+    var checkDate = year + '/' + (month + 1) + '/' + day;
+    var dateList = request.responseText.split('\n');
+    // 1行目はヘッダーのため、初期値1で開始
+    for (var i = 1; i < dateList.length; i++) {
+        if (dateList[i].split(',')[0] === checkDate) {
+            return [true, dateList[i].split(',')[1]];
+        }
+    }
+    return [false, ""];
+}
+
+// カレンダー内の各要素にリンクを設定、Detailに飛べるようにする
+function OnLinkClick(){
+
+    alert(1);
+}
+
+console.log(year)
+console.log(month)
+console.log(day)
+>>>>>>> 7bcb79ac2c4ae31cf88e0a18e0c5579aa84ebeef

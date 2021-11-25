@@ -108,7 +108,7 @@ a.btn-border:hover:after {
   cursor: pointer;
 }
 /* タッチ画面 */
-.box1 {
+.touchbox {
   top: 20;
   border: 2px solid black;
   margin: 20px auto;
@@ -120,7 +120,7 @@ a.btn-border:hover:after {
   border-radius: 10px; /* 角を丸くする */
   justify-content: center;
 }
-.box1 p {
+.touchbox p {
   margin: 0;
 }
 /*tagScan画面
@@ -231,25 +231,51 @@ a.btn-border:hover:after {
 /*contactDetail画面
 ---------------------------------------------------------------------------*/
 #contact-detail-main {
+  position: relative;
   float: right; /*contact-detail-main右側に回り込み*/
   width: 70%; /*幅*/
   overflow: hidden;
   padding-top: 30%; /*コンテンツ上にあける余白*/
   text-align: center;
 }
+#contact-detail-main h2 {
+  font-size: 30px;
+  text-align: center;
+}
 #contact-detail-main form {
-  margin-left: auto;
-  margin-right: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+#target {
+  border: none;
+  width: 30%;
+  font-size: 20px;
+  text-align: center;
 }
 #next-prev-button {
   margin-left: auto;
   margin-right: auto;
+}
+#next-prev-button button {
+  cursor: pointer;
+  background: #b78d4a;
+  color: #fff;
+  border: 1px solid #b78d4a;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  margin: auto;
+  margin-bottom: 20px;
 }
 #prev {
   float: left;
 }
 #next {
   float: right;
+}
+#contact-book {
 }
 
 /* 画面幅800px以下の設定 */
