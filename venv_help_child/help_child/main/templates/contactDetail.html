@@ -30,13 +30,67 @@
 <div id="contact-detail-main">
     <h2>連絡帳</h2>
     <form action="window.alert(target)" method="post" class="planlistDetailCenter">
-        <input type="text" placeholder="日付選択" id="target" text-align="center">
+        <input type="text" placeholder="日付検索" id="target" text-align="center">
     </form>
     <div id="next-prev-button">
         <button id="prev" onclick="prev()">‹</button>
         <button id="next" onclick="next()">›</button>
     </div>
     <div id="contact-book">
+        <form action="">
+            <table class="contact-book-table">
+                <tr>
+                    <th></th>
+                    <th colspan="2">
+                        家庭から
+                    </th>
+                    <th colspan="2">
+                        園から
+                    </th>
+                </tr>
+                <tr>
+                    <td rowspan="3">
+                        食事
+                    </td>
+                    <td>
+                        時刻
+                    </td>
+                    <td>
+                        主菜、副菜、その他
+                    </td>
+                    <td>
+                        時刻
+                    </td>
+                    <td>
+                        主菜、副菜、その他
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="time" name="example" list="data1">
+                        <datalist id="data1">
+                            <option value="01:00"></option>
+                            <option value="02:00"></option>
+                            <option value="03:00"></option>
+                        </datalist>
+                    </td>
+                    <td>
+                        <input type="text" name="晩飯" class="form-text">
+                    </td>
+                    <td>
+                        <input type="time" name="example" list="data1">
+                        <datalist id="data1">
+                            <option value="01:00"></option>
+                            <option value="02:00"></option>
+                            <option value="03:00"></option>
+                        </datalist>
+                    </td>
+                    <td>
+                        <input type="text" name="晩飯" class="form-text">
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
 </div>
 {% endblock %}

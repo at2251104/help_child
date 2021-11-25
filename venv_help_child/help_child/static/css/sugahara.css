@@ -275,6 +275,8 @@ a.btn-border:hover:after {
 #next {
   float: right;
 }
+#contact-book {
+}
 
 /* 画面幅800px以下の設定 */
 @media screen and (max-width: 800px) {
