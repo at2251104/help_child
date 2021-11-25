@@ -71,7 +71,7 @@ function createProcess(year, month) {
                 count++;
                 var dateInfo = checkDate(year, month, count);
                 if(dateInfo.isToday){
-                    calendar += "<td class='today' onclick="+ OnLinkClick(year,month,count); +">"+count + "</td>";
+                    calendar += "<td class='today' onclick=+ OnLinkClick(year,month,count)+>" + count + "</td>";
                 } else if(dateInfo.isHoliday) {
                     calendar += "<td class='holiday' title='" + dateInfo.holidayName + "'>"+ count + "</td>";
                 } else {
@@ -123,10 +123,11 @@ function isHoliday(year, month, day) {
 }
 
 // カレンダー内の各要素にリンクを設定、Detailに飛べるようにする
-function OnLinkClick(year,month,count){
-    let n = year * 10000; // YYYY0000
-	n += month * 100 + 100; // YYYYMM00
-	n += count; // YYYYMMDD
+function OnLinkClick(){
 
-    alert(n);
+    alert(1);
 }
+
+console.log(year)
+console.log(month)
+console.log(day)
