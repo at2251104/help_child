@@ -242,7 +242,7 @@ a.btn-border:hover:after {
   font-size: 30px;
   text-align: center;
 }
-#contact-detail-main form {
+#contact-date {
   position: absolute;
   left: 0;
   right: 0;
@@ -276,6 +276,15 @@ a.btn-border:hover:after {
   float: right;
 }
 #contact-book {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+}
+#contact-book-table {
+  width: 100%;
+}
+.food-text {
+  width: 80%;
 }
 
 /* 画面幅800px以下の設定 */
