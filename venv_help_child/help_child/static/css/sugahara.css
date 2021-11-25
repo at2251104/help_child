@@ -231,6 +231,7 @@ a.btn-border:hover:after {
 /*contactDetail画面
 ---------------------------------------------------------------------------*/
 #contact-detail-main {
+  position: relative;
   float: right; /*contact-detail-main右側に回り込み*/
   width: 70%; /*幅*/
   overflow: hidden;
@@ -242,13 +243,22 @@ a.btn-border:hover:after {
   text-align: center;
 }
 #contact-detail-main form {
+  position: absolute;
   left: 0;
   right: 0;
   margin: auto;
+  z-index: 2;
+}
+#target {
+  border: none;
+  width: 30%;
+  font-size: 20px;
+  text-align: center;
 }
 #next-prev-button {
   margin-left: auto;
   margin-right: auto;
+  z-index: 1;
 }
 #next-prev-button button {
   cursor: pointer;
