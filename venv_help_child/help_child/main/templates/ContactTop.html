@@ -5,8 +5,13 @@
 <link rel="stylesheet" href="{% static 'css/matsuoka.css' %}">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/matsuoka.js' %}"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 {% endblock %}
+
 {% block title %}連絡帳園児リスト-CONTACT{% endblock %}
 
 {% block head_slide%}
@@ -34,17 +39,15 @@
 
     <!-- 園児年齢選択 -->
     <div class="group">
-        <!-- <div class="head"> -->
-            <div class="title">
-                <年齢で絞り込み>
-            </div>
-            <div class="checkAll">
-                <label class="label">
-                    <input class="js-check-all" type="checkbox" name="" data-check-all="hobby">
-                    <span class="text">All</span>
-                </label>
-            </div>
-        <!-- </div> -->
+        <div class="title">
+            <年齢で絞り込み>
+        </div>
+        <div class="checkAll">
+            <label class="label">
+                <input class="js-check-all" type="checkbox" name="" data-check-all="hobby">
+                <span class="text">All</span>
+            </label>
+        </div>
 
         <ul class="js-check-all-target list" data-check-all="hobby">
             <li class="item">
@@ -88,11 +91,16 @@
 
     <!-- 検索box -->
     <form method="get" action="#" class="search_container">
-        <input type="text" size="30" placeholder="名前検索">
+        <input type="text" id="search-text"size="30" placeholder="名前検索">
         <input type="submit" value="&#xf002">
     </form>
 
-    <ul>
+    <div class="search-result">
+        <div class="search-result__hit-num"></div>
+        <div id="search-result__list"></div>
+    </div>
+    
+    <ul class="target-area">
         <li><a href="#">Aくん</a></li>
         <li><a href="#">Bちゃん</a></li>
         <li><a href="#">Cくん</a></li>
@@ -101,6 +109,7 @@
 {%endblock%}
 
 {% block sub_contents%}
+<!-- 関連項目 -->
 <nav class="box1">
     <h2>連絡帳関連</h2>
     <ul class="submenu">
@@ -108,6 +117,7 @@
         <li><a href="#">追加</a></li>
         <li><a href="#">編集</a></li>
         <li><a href="#">削除</a></li>
+        <li><a href="{% url 'main:contactTop_oya' %}">親画面</a></li>
     </ul>
 </nav>
 {% endblock %}
