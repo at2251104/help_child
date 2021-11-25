@@ -9,19 +9,12 @@
   border-radius: 30px; /*角丸のサイズ。大きめにしておけばOK。*/
 }
 
-/* 名簿の名残 */
-/* #table td{
-  width: 300px;
-  background-color: #fff;
-  border-color: black;
-} */
-
 /* === ボタンを表示するエリア ============================== */
 .switchArea {
   line-height: 60px; /* 1行の高さ          */
   letter-spacing: 0; /* 文字間             */
   text-align: center; /* 文字位置は中央     */
-  font-size: 27px; /* 文字サイズ         */
+  font-size: 20px; /* 文字サイズ         */
 
   position: relative; /* 親要素が基点       */
   margin: auto; /* 中央寄せ           */

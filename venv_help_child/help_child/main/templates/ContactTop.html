@@ -37,7 +37,7 @@
         <div id="swImg"></div>
     </div>
 
-    <!-- 園児年齢選択 -->
+    <!-- 園児年齢別選択 -->
     <div class="group">
         <div class="title">
             <年齢で絞り込み>
@@ -91,16 +91,12 @@
 
     <!-- 検索box -->
     <form method="get" action="#" class="search_container">
-        <input type="text" id="search-text"size="30" placeholder="名前検索">
+        <input type="text" id="search-text" onkeyup="myFunction()" size="32" placeholder="名前検索">
         <input type="submit" value="&#xf002">
     </form>
 
-    <!-- <div class="search-result">
-        <div class="search-result__hit-num"></div>
-        <div id="search-result__list"></div>
-    </div> -->
-    
-    <ul class="target-area">
+    <!-- 園児リスト -->
+    <ul id="list">
         <li><a href="#">Aくん</a></li>
         <li><a href="#">Bちゃん</a></li>
         <li><a href="#">Cくん</a></li>
