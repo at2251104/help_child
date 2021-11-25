@@ -247,7 +247,6 @@ a.btn-border:hover:after {
   left: 0;
   right: 0;
   margin: auto;
-  z-index: 2;
 }
 #target {
   border: none;
@@ -258,7 +257,6 @@ a.btn-border:hover:after {
 #next-prev-button {
   margin-left: auto;
   margin-right: auto;
-  z-index: 1;
 }
 #next-prev-button button {
   cursor: pointer;
