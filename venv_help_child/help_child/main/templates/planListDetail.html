@@ -39,11 +39,35 @@
             <button id="next" onclick="next()">›</button>
         </div>
     </div>
-    <div id="word">
+    <div id="planListDetailCaption">
         <h2>今日の行事</h2>
+        <ul>
+            <li>テスト</li>
+            <li>テスト</li>
+            <li>テスト</li>
+        </ul>
         <h3>備考</h3>
+        <div class="remarksBox2">
+            <p>テストテストテストテストテストテストテストテスト</p>
+        </div>
     </div>
 </div>
+
+
 {%endblock%}
+
+{% block sub_contents%}
+<nav class="box1">
+    <h2>予定表関連</h2>
+    <ul class="submenu">
+        <li><a href="{% url 'main:planListDetail' %}">詳細</a></li>
+        <li><a href="{% url 'main:planListAdd' %}">行事の追加</a></li>
+        <li><a href="#">編集</a></li>
+        <li><a href="{% url 'main:planListDelete' %}">削除</a></li>
+    </ul>
+</nav>
+{% endblock %}
+
+
 
 </html>

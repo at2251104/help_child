@@ -92,7 +92,7 @@
     </div>
 
     <form action="window.alert(target)" method="post" class="planlistDetailCenter">
-        <p>月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center"></p>
+        <p>月日:<input type="text" placeholder="日付検索" id="target" text-align="center"></p>
         <div class="visiblity">
             <div id="next-prev-button">
                 <button id="prev" onclick="prev()">‹</button>
@@ -118,5 +118,17 @@
 <!--予定の表示-->
 
 {%endblock%}
+
+{% block sub_contents%}
+<nav class="box1">
+    <h2>予定表関連</h2>
+    <ul class="submenu">
+        <li><a href="{% url 'main:planListDetail' %}">詳細</a></li>
+        <li><a href="{% url 'main:planListAdd' %}">行事の追加</a></li>
+        <li><a href="#">編集</a></li>
+        <li><a href="{% url 'main:planListDelete' %}">削除</a></li>
+    </ul>
+</nav>
+{% endblock %}
 
 </html>

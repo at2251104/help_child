@@ -344,3 +344,32 @@ img.ui-datepicker-trigger {
   margin-left: auto;
   margin-right: auto;
 }
+
+#planListDetailCaption h2 {
+  width: 12%;
+  position: relative;
+}
+
+#planListDetailCaption h3 {
+  width: 5%;
+  position: relative;
+}
+#planListDetailCaption ul {
+  list-style-type: disc;
+  margin-left: 24px; /* リストの左側に余白 */
+  text-align: left;
+}
+.remarksBox2 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #6091d3; /*文字色*/
+  background: #fff;
+  border: solid 3px #6091d3; /*線*/
+  border-radius: 10px; /*角の丸み*/
+  position: relative;
+}
+.remarksBox2 p {
+  margin: 0;
+  padding: 0;
+}
