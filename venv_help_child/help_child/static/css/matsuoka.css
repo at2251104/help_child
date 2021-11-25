@@ -1,6 +1,6 @@
 #attend-main h2 {
   clear: both;
-  width: 90%;
+  /* width: 90%; 幅を制限 */
   /* display: inline-block; 文字数に合わせて幅を変える */
   margin-bottom: 15px;
   color: #fff; /*文字色*/
@@ -156,4 +156,22 @@
   outline: none;
   width: 2em;
   height: 2em;
+}
+
+/* 画面幅800px以下の設定 */
+@media screen and (max-width: 800px) {
+  /*mainコンテンツ*/
+  #attend-main {
+    float: none;
+    width: auto;
+  }
+
+  /*main*/
+  #attend-main {
+    padding: 0 !important;
+  }
+}
+/*画面幅480px以下の設定*/
+@media screen and (max-width: 480px) {
+  /*メインコンテンツ*/
 }
