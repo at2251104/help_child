@@ -108,7 +108,7 @@ a.btn-border:hover:after {
   cursor: pointer;
 }
 /* タッチ画面 */
-.box1 {
+.touchbox {
   top: 20;
   border: 2px solid black;
   margin: 20px auto;
@@ -120,7 +120,7 @@ a.btn-border:hover:after {
   border-radius: 10px; /* 角を丸くする */
   justify-content: center;
 }
-.box1 p {
+.touchbox p {
   margin: 0;
 }
 /*tagScan画面
