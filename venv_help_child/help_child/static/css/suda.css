@@ -344,3 +344,13 @@ img.ui-datepicker-trigger {
   margin-left: auto;
   margin-right: auto;
 }
+
+#planListDetailCaption h2 {
+  width: 12%;
+  position: relative;
+}
+
+#planListDetailCaption h3 {
+  width: 5%;
+  position: relative;
+}
