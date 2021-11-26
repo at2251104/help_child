@@ -90,15 +90,15 @@
         </div>
     </div>
 
-    <form action="window.alert(target)" method="post" class="planlistDetailCenter">
-        <p>月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center"></p>
-        <div class="visiblity">
-            <div id="next-prev-button">
-                <button id="prev" onclick="prev()">‹</button>
-                <button id="next" onclick="next()">›</button>
-            </div>
-        </div>
-        行事名:<select name="planName">
+    <form method="post" class="planlistDetailCenter">
+        <p>編集前月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center"></p>
+        編集前行事名:<select name="planName">
+            <option value="サンプル1">サンプル1</option>
+            <option value="サンプル2">サンプル2</option>
+            <option value="サンプル3">サンプル3</option>
+        </select>
+        <p>編集後月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center"></p>
+        編集後行事名:<select name="planName">
             <option value="サンプル1">サンプル1</option>
             <option value="サンプル2">サンプル2</option>
             <option value="サンプル3">サンプル3</option>
@@ -107,7 +107,6 @@
             <br><input type="submit" value="削除" class="planlistAddButton">
         </div>
     </form>
-
 </div>
 
 
