@@ -14,6 +14,8 @@ urlpatterns=[
     path('contactTop_oya',views.ContactTopOyaView.as_view(),name="contactTop_oya"),
     path('contactDetail',views.ContactDetailView.as_view(),name="contactDetail"),
     path('contactUpdate',views.ContactUpdateView.as_view(),name="contactUpdate"),
+    path('contactTemplate',views.ContactTemplateView.as_view(),name="contactTemplate"),
+
 
     path('messageAddress',views.MessageAddressView.as_view(),name="messageAddress"),
     path('message',views.MessageView.as_view(),name="message"),

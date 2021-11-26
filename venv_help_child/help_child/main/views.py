@@ -32,6 +32,9 @@ class ContactDetailView(generic.TemplateView):
 class ContactUpdateView(generic.TemplateView):
     template_name="contactUpdate.html"
 
+class ContactTemplateView(generic.TemplateView):
+    template_name="contactTemplate.html"
+
 class MessageAddressView(generic.TemplateView):
     template_name="messageAddress.html"
 
