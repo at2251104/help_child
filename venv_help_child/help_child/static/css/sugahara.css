@@ -146,6 +146,11 @@ a.btn-border:hover:after {
   border-bottom: 2px solid #dedede;
 }
 /* セレクトボックス */
+/*絞り込み*/
+.is-hide {
+  display: none; /*非表示*/
+}
+
 .title {
   display: inline-block;
   font-size: 20px;
@@ -312,3 +317,4 @@ a.btn-border:hover:after {
 }
 /*contactDetail画面
 ---------------------------------------------------------------------------*/
+

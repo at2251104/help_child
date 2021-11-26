@@ -175,3 +175,8 @@
 @media screen and (max-width: 480px) {
   /*メインコンテンツ*/
 }
+
+/* ------チェックボックスによる絞り込み----- */
+.is-hide {
+  display: none; /*非表示*/
+}
