@@ -357,12 +357,13 @@ img.ui-datepicker-trigger {
   list-style-type: disc;
   margin-left: 24px; /* リストの左側に余白 */
   text-align: left;
-  font-size: 10px;
+  font-size: 20px;
 }
 .remarksBox2 {
   padding: 0.5em 1em;
   margin: 2em 0;
   font-weight: bold;
+  font-size: 20px;
   color: #6091d3; /*文字色*/
   background: #fff;
   border: solid 3px #6091d3; /*線*/
@@ -415,5 +416,9 @@ img.ui-datepicker-trigger {
   font-size: 20px;
 }
 .planListAddInputBox {
+  font-size: 20px;
+}
+
+.planNameStyle {
   font-size: 20px;
 }
