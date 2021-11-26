@@ -8,7 +8,7 @@
 <script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/sugahara.css' %}"> -->
 <link rel="stylesheet" href="{% static 'css/suda.css' %}">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -38,7 +38,7 @@
     <div id="header">
 
         <!-- <div id="attend-main"> -->
-        <h2>予定表削除</h2>
+        <h2>予定表追加</h2>
         <div class="group">
             <div class="head">
                 <div class="title">年齢：</div>
@@ -48,67 +48,66 @@
                         <span class="text">All</span>
                     </label>
                 </div>
+                <ul class="js-check-all-target list" data-check-all="hobby">
+                    <li class="item">
+                        <label class="label">
+                            <input type="checkbox" name="hobby" value="age0">
+                            <span class="text">0歳児</span>
+                        </label>
+                    </li>
+                    <li class="item">
+                        <label class="label">
+                            <input type="checkbox" name="hobby" value="age1">
+                            <span class="text">1歳児</span>
+                        </label>
+                    </li>
+                    <li class="item">
+                        <label class="label">
+                            <input type="checkbox" name="hobby" value="age2">
+                            <span class="text">2歳児</span>
+                        </label>
+                    </li>
+                    <li class="item">
+                        <label class="label">
+                            <input type="checkbox" name="hobby" value="age3">
+                            <span class="text">3歳児</span>
+                        </label>
+                    </li>
+                    <li class="item">
+                        <label class="label">
+                            <input type="checkbox" name="hobby" value="age4">
+                            <span class="text">4歳児</span>
+                        </label>
+                    </li>
+                    <li class="item">
+                        <label class="label">
+                            <input type="checkbox" name="hobby" value="age5">
+                            <span class="text">5歳児</span>
+                        </label>
+                    </li>
+                </ul>
             </div>
-            <ul class="js-check-all-target list" data-check-all="hobby">
-                <li class="item">
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age0">
-                        <span class="text">0歳児</span>
-                    </label>
-                </li>
-                <li class="item">
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age1">
-                        <span class="text">1歳児</span>
-                    </label>
-                </li>
-                <li class="item">
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age2">
-                        <span class="text">2歳児</span>
-                    </label>
-                </li>
-                <li class="item">
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age3">
-                        <span class="text">3歳児</span>
-                    </label>
-                </li>
-                <li class="item">
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age4">
-                        <span class="text">4歳児</span>
-                    </label>
-                </li>
-                <li class="item">
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age5">
-                        <span class="text">5歳児</span>
-                    </label>
-                </li>
-            </ul>
-        </div>
-        <form action="window.alert(target)" method="post" class="planlistDetailCenter" style="height: 30px;">
-            <p>月日:<input type="text" placeholder="日付検索" id="target" text-align="center"></p>
-
-            <div class="visiblity">
-                <div id="next-prev-button">
-                    <button id="prev" onclick="prev()">‹</button>
-                    <button id="next" onclick="next()">›</button>
-                </div>
-            </div>
-            <p>行事名:<input type="textbox" name="planName" style="height: 30px;"></p>
-            備考<br>
-            <textarea name="remarks" rows="4" cols="40"></textarea><br>
-            <div class="planlistAddButton">
-                <br><input type="submit" value="追加" class="planlistAddButton">
-            </div>
-        </form>
-        <div class="visiblity">
-            <p>/formのあとにボタンを置くと何故か治った</p>
         </div>
     </div>
+    <form action="window.alert(target)" method="post" class="planlistDetailCenter" style="height: 30px;">
+        <p>月日:<input type="text" placeholder="日付検索" id="target" text-align="center"></p>
+        <!-- <div class="visiblity"> -->
+        <div id="next-prev-button">
+            <button id="prev" onclick="prev()">‹</button>
+            <button id="next" onclick="next()">›</button>
+        </div>
+        <!-- </div> -->
+        <p>行事名:<input type="textbox" name="planName" style="height: 30px;"></p>
+        備考<br>
+        <textarea name="remarks" rows="4" cols="40"></textarea><br>
+        <div class="planlistAddButton">
+            <br><input type="submit" value="削除" class="planlistAddButton">
+        </div>
+    </form>
 </div>
+
+
+
 
 <!--予定の表示-->
 
