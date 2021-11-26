@@ -28,6 +28,7 @@ urlpatterns=[
 
     path('planList',views.PlanListView.as_view(),name="planList"),
     path('planListAdd',views.PlanListAddView.as_view(),name="planListAdd"),
+    path('planListDetail',views.PlanListDetailView.as_view(),name="planListDetail2"),
     path('planListDetail/<int:pk>',views.PlanListDetailView.as_view(),name="planListDetail"),
     path('planListUpdate',views.PlanListUpdateView.as_view(),name="planListUpdate"),
     path('planListDelete',views.PlanListDeleteView.as_view(),name="planListDelete"),
