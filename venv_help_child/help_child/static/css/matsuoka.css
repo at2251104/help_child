@@ -1,21 +1,11 @@
-#attend-main h2 {
-  clear: both;
-  /* width: 90%; 幅を制限 */
-  /* display: inline-block; 文字数に合わせて幅を変える */
-  margin-bottom: 15px;
-  color: #fff; /*文字色*/
-  padding: 8px 30px; /*上下、左右への余白*/
-  background: #37a8e9; /*背景色（古いブラウザ用）*/
-  border-radius: 30px; /*角丸のサイズ。大きめにしておけばOK。*/
-}
 
 /* === ボタンを表示するエリア ============================== */
 .switchArea {
   line-height: 60px; /* 1行の高さ          */
   letter-spacing: 0; /* 文字間             */
   text-align: center; /* 文字位置は中央     */
-  font-size: 20px; /* 文字サイズ         */
-
+  font-size: 27px; /* 文字サイズ         */
+  
   position: relative; /* 親要素が基点       */
   margin: auto; /* 中央寄せ           */
   width: 170px; /* ボタンの横幅       */
@@ -73,31 +63,40 @@
   background: #7f007f; /* カーソルタブの背景 */
 }
 
-
-/* ----------------絞り込み機能------------------------- */
-
-#attend-main {
+/* contactTop */
+#contactTop-main {
   float: right; 
   width: 70%; 
   overflow: hidden;
   padding-top: 30%; 
 }
-#attend-main h2 {
-  font-size: 17px;
-  text-align: left;
+
+#contactTop-main h2 {
+  clear: both;
+  font-size: 17px; /*文字サイズ*/
+  text-align: left; /*テキストの位置*/
+    /* width: 90%; 幅を制限 */
+  /* display: inline-block; 文字数に合わせて幅を変える */
+  margin-bottom: 15px;
+  color: #fff; /*文字色*/
+  padding: 8px 30px; /*上下、左右への余白*/
+  background: #37a8e9; /*背景色（古いブラウザ用）*/
+  border-radius: 30px; /*角丸のサイズ。大きめにしておけばOK。*/
 }
 
-#attend-main form {
+#contact-main form {
   margin-left: auto;
   margin-right: auto;
 }
 .group {
   border-bottom: 2px solid #dedede;
 }
+
+
 /* セレクトボックス */
 .title {
   display: inline-block;
-  font-size: 20px;
+  font-size: 17px;
   margin-bottom: 10px;
 }
 
