@@ -2,39 +2,107 @@
 {%load static %}
 <!--名簿画面-->
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/suda.css' %}">
+<link rel="stylesheet" href="{% static 'css/matsuoka.css' %}">
 {% endblock %}
 {% block title %}名簿-CONTACT{% endblock %}
 
 {% block head_slide%}
 <!--スライドショー-->
 <aside id="mainimg">
-	<div>
-		<img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
-		<img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
-		<img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
-		<img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
-	</div>
+    <div>
+        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+        <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+        <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
+    </div>
 </aside>
 {% endblock %}
 
 
 {% block main_contents%}
 <div id="main">
+    <!-- クラス選択 -->
+    <select name="class_name">
+        <option value="ALL">All</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+    <!-- 検索ボックス -->
     <form>
         <input type="search">
         <button type="submit">検索</button>
     </form>
+
+    <div id="table">
+        <details>
+            <summary>保育士</summary>
+            <table border="1">
+                行を追加します<input type="button" value="行を追加" id="coladd" onclick="coladd()">
+                <tr>
+                    <td>matsuoka </td>
+                    <td>Hidden Content 2 </td>
+                    <td>Hidden Content 3 </td>
+                </tr>
+            </table>
+        </details>
+
+        <details>
+            <summary>保護者</summary>
+            <table border="1">
+                <tr>
+                    <td>Hidden Content 1 </td>
+                    <td>Hidden Content 2 </td>
+                    <td>Hidden Content 3 </td>
+                </tr>
+            </table>
+        </details>
+
+        <details>
+            <summary>園児</summary>
+            <table border="1">
+                <tr>
+                    <td>Hidden Content 1 </td>
+                    <td>Hidden Content 2 </td>
+                    <td>Hidden Content 3 </td>
+                </tr>
+            </table>
+        </details>
+    </div>
 </div>
 {% endblock%}
 
 {% block sub_contents %}
 <nav class="box1">
-	<h2>名簿関連</h2>
-	<ul class="submenu">
-		<li><a href="#">詳細</a></li>
-		<li><a href="#">編集</a></li>
-		<li><a href="#">追加</a></li>
-	</ul>
+    <h2>名簿関連</h2>
+    <ul class="submenu">
+        <li><a href="#">詳細</a></li>
+        <li><a href="#">編集</a></li>
+        <li><a href="#">追加</a></li>
+    </ul>
 </nav>
 {% endblock %}
+
+
+<body>
+    <div class="wrapper">
+        <div class="search-area">
+            <form>
+                <input type="text" id="search-text" placeholder="検索ワードを入力">
+            </form>
+            <div class="search-result">
+                <div class="search-result__hit-num"></div>
+                <div id="search-result__list"></div>
+            </div>
+        </div>
+
+        <ul class="target-area">
+            <li>りんご120円</li>
+            <li>ばなな100円</li>
+            <li>みかん150円</li>
+            <li>いちご220円</li>
+            <li>すいか500円</li>
+        </ul>
+    </div><!-- /.wrapper -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+</body>

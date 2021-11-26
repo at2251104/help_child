@@ -11,6 +11,7 @@ urlpatterns=[
     path('locationConfig',views.LocationConfigView.as_view(),name="locationConfig"),
 
     path('contactTop',views.ContactTopView.as_view(),name="contactTop"),
+    path('contactTop_oya',views.ContactTopOyaView.as_view(),name="contactTop_oya"),
     path('contactDetail',views.ContactDetailView.as_view(),name="contactDetail"),
     path('contactUpdate',views.ContactUpdateView.as_view(),name="contactUpdate"),
 
@@ -27,13 +28,11 @@ urlpatterns=[
 
     path('planList',views.PlanListView.as_view(),name="planList"),
     path('planListAdd',views.PlanListAddView.as_view(),name="planListAdd"),
-    path('planListDetail',views.PlanListDetailView.as_view(),name="planListDetail"),
+    path('planListDetail/<int:pk>',views.PlanListDetailView.as_view(),name="planListDetail"),
     path('planListUpdate',views.PlanListUpdateView.as_view(),name="planListUpdate"),
     path('planListDelete',views.PlanListDeleteView.as_view(),name="planListDelete"),
 
     path('parentConfig',views.ParentConfigView.as_view(),name="parentConfig"),
     path('teacherConfig',views.TeacherConfigView.as_view(),name="teacherConfig"),
-
     
-
 ]

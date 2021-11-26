@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{%load static %}
+<!--連絡帳園児リスト画面-->
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/matsuoka.css' %}">
+{% endblock %}
+{% block title %}連絡帳園児リスト-CONTACT{% endblock %}
+
+{% block head_slide%}
+
+    <!--スライドショー-->
+    <aside id="mainimg">
+        <div>
+            <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+            <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+            <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+            <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
+        </div>
+    </aside>
+{% endblock %}
+{% block main_contents%}
+
+<div id="contactTop-main">
+    <h2>連絡帳一覧</h2>
+    <ul>
+        <li><a href="#">Aくん</a></li>
+        <li><a href="#">Bちゃん</a></li>
+        <li><a href="#">Cくん</a></li>
+    </ul>
+</div>
+{%endblock%}
+
+{% block sub_contents%}
+<nav class="box1">
+    <h2>連絡帳関連</h2>
+    <ul class="submenu">
+        <li><a href="#">連絡帳記入</a></li>
+    </ul>
+</nav>
+{% endblock %}

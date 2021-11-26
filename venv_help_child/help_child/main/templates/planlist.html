@@ -2,55 +2,57 @@
 {%load static %}
 <!--予定表画面-->
 {% block head %}
+<link rel="shortcut icon" href="#">
 <link rel="stylesheet" href="{% static 'css/suda.css' %}">
 {% endblock %}
 
 {% block title %}予定表-PLANLIST{% endblock %}
 
 {% block head_slide%}
-    <!--スライドショー-->
-    
-    <aside id="mainimg">
-        <div>
-            <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
-            <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
-            <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
-            <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
-        </div>
-    </aside>
-    {% endblock %}
+<!--スライドショー-->
 
-    {% block main_contents%}
-
-    <!-- xxx年xx月を表示 -->
-    <div id="main">
-        <div class="ta1">
-            <h1 id="header"></h1>
-            <script type="text/javascript" src="{% static 'js/planlist.js' %}"></script>
-            </script>
-    <!-- ボタンクリックで月移動 -->
-            <div id="next-prev-button">
-                <button id="prev" onclick="prev()">‹</button>
-                <button id="next" onclick="next()">›</button>
-            </div>
-        <!-- カレンダー -->
-            <div id="calendar"></div>
-        </div>
+<aside id="mainimg">
+    <div>
+        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+        <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+        <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
     </div>
+</aside>
+{% endblock %}
 
-    <!--スマホ画面用のカレンダーUIの作成-->
-    
+{% block main_contents%}
 
-    {%endblock%}
+<!-- xxx年xx月を表示 -->
+<div id="main">
+    <div class="ta1">
+        <h1 id="planListDetailheader"></h1>
+        <script type="text/javascript" src="{% static 'js/planlist.js' %}"></script>
+        </script>
+        <!-- ボタンクリックで月移動 -->
+        <div id="next-prev-button">
+            <button id="prev" onclick="prev()">‹</button>
+            <button id="next" onclick="next()">›</button>
+        </div>
+        <!-- カレンダー -->
+        <div id="calendar"></div>
+    </div>
+</div>
+
+<!--スマホ画面用のカレンダーUIの作成-->
+
+
+{%endblock%}
 
 {% block sub_contents%}
-    <nav class="box1">
-        <h2>予定表関連</h2>
-        <ul class="submenu">
-            <li><a href="#">詳細</a></li>
-            <li><a href="{% url 'main:planListAdd' %}">行事の追加</a></li>
-            <li><a href="#">編集</a></li>
-            <li><a href="#">削除</a></li>
-        </ul>
-    </nav>
+<!-- 関連項目 -->
+<nav class="box1">
+    <h2>予定表関連</h2>
+    <ul class="submenu">
+        <li><a href="#">詳細</a></li>
+        <li><a href="{% url 'main:planListAdd' %}">行事の追加</a></li>
+        <li><a href="{% url 'main:planListUpdate' %}">編集</a></li>
+        <li><a href="{% url 'main:planListDelete' %}">削除</a></li>
+    </ul>
+</nav>
 {% endblock %}

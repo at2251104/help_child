@@ -1,48 +1,73 @@
 {%extends 'base.html'%}
-    {%load static %}
-    {% block head %}
-        <link rel="stylesheet" href="{% static 'css/suda.css' %}">
-        
-            <meta charset="utf-8">
-            <!-- jQuery -->
-            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-            <!-- jQuery UI -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-            <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-            <script type="text/javascript" src="{% static 'js/planlistDetail.js' %}"></script>
-            <link rel="stylesheet" href="{% static 'css/suda.css}">
-            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
-    {% endblock %}
+{%load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/suda.css' %}">
 
-    {% block head_slide%}
+<meta charset="utf-8">
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- jQuery UI -->
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+<script type="text/javascript" src="{% static 'js/planlistDetail.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/suda.css}">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
+{% endblock %}
 
-        <!--スライドショー-->
-        <aside id="mainimg">
-            <div>
-                <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
-                <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
-                <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
-                <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
-            </div>
-        </aside>
-    {% endblock %}
+{% block head_slide%}
 
-    {% block main_contents%}
-    <div id="main">
-        <div id="header">
-            <form action="window.alert(target)" method="post" class="planlistDetailCenter">
+<!--スライドショー-->
+<aside id="mainimg">
+    <div>
+        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+        <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+        <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
+    </div>
+</aside>
+{% endblock %}
+
+{% block main_contents%}
+<div id="main">
+    <div id="planListDetailheader">
+        <form action="window.alert(target)" method="post" class="planlistDetailCenter">
             <input type="text" placeholder="カレンダー表示" id="target" text-align="center">
-            </form>
-            <div id="next-prev-button">
-                <button id="prev" onclick="prev()">‹</button>
-                <button id="next" onclick="next()">›</button>
-            </div>
-        </div>
-        <div id="word">
-            <h2>今日の行事</h2>
-            <h3>備考</h3>
+        </form>
+        <div id="next-prev-button">
+            <button id="prev" onclick="prev()">‹</button>
+            <button id="next" onclick="next()">›</button>
         </div>
     </div>
-    {%endblock%}
+    <div id="planListDetailCaption">
+        <h2>今日の行事</h2>
+        <ul>
+            <li>テスト</li>
+            <li>テスト</li>
+            <li>テスト</li>
+        </ul>
+        <h3>備考</h3>
+        <div class="remarksBox2">
+            <p>テストテストテストテストテストテストテストテスト</p>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
+
+{% block sub_contents%}
+<nav class="box1">
+    <h2>予定表関連</h2>
+    <ul class="submenu">
+        <li><a href="{% url 'main:planList' %}">カレンダー</a></li>
+        <li><a href="{% url 'main:planListAdd' %}">行事の追加</a></li>
+        <li><a href="{% url 'main:planListUpdate' %}">編集</a></li>
+        <li><a href="{% url 'main:planListDelete' %}">削除</a></li>
+    </ul>
+</nav>
+{% endblock %}
+
+
+
 </html>

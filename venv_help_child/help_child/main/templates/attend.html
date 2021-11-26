@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}幼稚園・保育園・キッズクラブ向け 無料ホームページテンプレート tp_kids3{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
+{% endblock %}
+
+{% block head_slide%}
+<!--スライドショー-->
+<aside id="mainimg">
+    <div>
+        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+        <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+        <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
+    </div>
+</aside>
+{% endblock %}
+
+
+{% block main_contents%}
+<div id="attend-main">
+    <h2>登降園状態</h2>
+    <div class="group">
+        <div class="head">
+            <div class="title">年齢：</div>
+            <div class="checkAll">
+                <label class="label">
+                    <input class="js-check-all" type="checkbox" name="" data-check-all="hobby">
+                    <span class="text">All</span>
+                </label>
+            </div>
+        </div>
+        <ul class="js-check-all-target list" data-check-all="hobby">
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age0">
+                    <span class="text">0歳児</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age1">
+                    <span class="text">1歳児</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age2">
+                    <span class="text">2歳児</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age3">
+                    <span class="text">3歳児</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age4">
+                    <span class="text">4歳児</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="hobby" value="age5">
+                    <span class="text">5歳児</span>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="group">
+        <div class="head">
+            <div class="title">状態：</div>
+            <div class="checkAll">
+                <label class="label">
+                    <input class="js-check-all" type="checkbox" name="" data-check-all="area">
+                    <span class="text">All</span>
+                </label>
+            </div>
+        </div>
+        <ul class="js-check-all-target list" data-check-all="area">
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="area" value="area1">
+                    <span class="text">登園</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="area" value="area2">
+                    <span class="text">降園</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="area" value="area3">
+                    <span class="text">遅刻</span>
+                </label>
+            </li>
+            <li class="item">
+                <label class="label">
+                    <input type="checkbox" name="area" value="area4">
+                    <span class="text">早退</span>
+                </label>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 検索box -->
+    <form method="get" action="#" class="search_container">
+        <input type="text" id="search-text" onkeyup="myFunction()" size="30" placeholder="名前検索">
+        <input type="submit" value="&#xf002">
+    </form>
+
+    <!-- 園児リスト -->
+    <ul id="list">
+        <li><a href="#">Aくん</a></li>
+        <li><a href="#">Bちゃん</a></li>
+        <li><a href="#">Cくん</a></li>
+    </ul>
+</div>
+{% endblock %}
+<script>
+
+</script>
+
+<!--/main-->
+
+<!--/contents-->
+
+{% block animation %}
+<!--移動するアニメーション画像-->
+<img src="{% static 'images/animation1.png' %}" alt="" id="animation1">
+
+<!--小さな端末用（800px以下端末）更新情報-->
+<script type="text/javascript">
+    if (OCwindowWidth() <= 800) {
+        open_close("newinfo_hdr", "newinfo");
+    }
+</script>
+{% endblock %}
