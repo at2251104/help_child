@@ -1,5 +1,5 @@
 
-import os 
+import os
 
 from pathlib import Path
 
@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-jl40*j10i^r%7cq8cf846=vwv^fecfd=sl2&_=fft6qk#nrjhs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -122,8 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS=(
-    os.path.join(BASE_DIR,'static'),
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
 )
 
 # Default primary key field type
@@ -202,4 +202,3 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 # デフォルトのメール送信元を設定
 # DEFAULT_FROM_EMAIL = 'admin@example.com'
-

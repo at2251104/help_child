@@ -3,17 +3,19 @@ const today = new Date();
 // 月末だとずれる可能性があるため、1日固定で取得
 var showDate = new Date(today.getFullYear(), today.getMonth(), 1);
 
-// 祝日取得
-var request;
+// 初期表示
 window.onload = function () {
-    request = new XMLHttpRequest();
-    request.open('get', 'syukujitsu.csv', true);
-    request.send(null);
-    request.onload = function () {
-        // 初期表示
-        showProcess(today, calendar);
-    };
+    showProcess(today, calendar);
 };
+
+// カレンダー内の各要素にリンクを設定、Detailに飛べるようにする
+function OnLinkClick(year,month,count){
+    var n = year * 10000; // YYYY0000
+	n += month * 100 + 100; // YYYYMM00
+	n += count; // YYYYMMDD
+
+    return n;
+}
 
 // 前の月表示
 function prev(){
@@ -30,14 +32,12 @@ function next(){
 // カレンダー表示
 function showProcess(date) {
     var year = date.getFullYear();
-    var month = date.getMonth(); // 0始まり
+    var month = date.getMonth();
     document.querySelector('#planListDetailheader').innerHTML = year + "年 " + (month + 1) + "月";
 
     var calendar = createProcess(year, month);
     document.querySelector('#calendar').innerHTML = calendar;
 }
-
-
 
 // カレンダー作成
 function createProcess(year, month) {
@@ -69,13 +69,22 @@ function createProcess(year, month) {
             } else {
                 // 当月の日付を曜日に照らし合わせて設定
                 count++;
+<<<<<<< HEAD
+                var num=OnLinkClick(year,month,count);
+                var aaa="/planListDetail/"+num
+                if(year == today.getFullYear()
+                　&& month == (today.getMonth())
+                　&& count == today.getDate()){
+                    calendar += "<td class='today'>"+"<a href="+`${aaa}`+ ">"+count + "</a></td>";
+=======
                 var dateInfo = checkDate(year, month, count);
                 if(dateInfo.isToday){
                     calendar += "<td class='today' onclick=+ OnLinkClick(year,month,count)+>" + count + "</td>";
                 } else if(dateInfo.isHoliday) {
                     calendar += "<td class='holiday' title='" + dateInfo.holidayName + "'>"+ count + "</td>";
+>>>>>>> 7bcb79ac2c4ae31cf88e0a18e0c5579aa84ebeef
                 } else {
-                    calendar += '<td>' + count + "</td>";
+                    calendar += "<td>" + count + "</td>";
                 }
             }
         }
@@ -84,6 +93,8 @@ function createProcess(year, month) {
     return calendar;
 }
 
+<<<<<<< HEAD
+=======
 // 日付チェック
 function checkDate(year, month, day) {
     if(isToday(year, month, day)){
@@ -131,3 +142,4 @@ function OnLinkClick(){
 console.log(year)
 console.log(month)
 console.log(day)
+>>>>>>> 7bcb79ac2c4ae31cf88e0a18e0c5579aa84ebeef
