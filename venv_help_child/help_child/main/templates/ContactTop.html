@@ -42,14 +42,14 @@
         <div class="title">
             <年齢で絞り込み>
         </div>
-        <div class="checkAll">
-            <label class="label">
-                <input class="js-check-all" type="checkbox" name="" data-check-all="hobby">
-                <span class="text">All</span>
-            </label>
-        </div>
-
         <div class="search-box">
+            <div class="checkAll">
+                <label class="label">
+                    <input class="js-check-all" type="checkbox" name="hobby" data-check-all="hobby">
+                    <span class="text">All</span>
+                </label>
+            </div>
+
             <ul class="js-check-all-target list" data-check-all="hobby">
                 <li class="item">
                     <label class="label">
@@ -63,7 +63,6 @@
                         <span class="text">1歳</span>
                     </label>
                 </li>
-
                 <li class="item">
                     <label class="label">
                         <input type="checkbox" name="hobby" value="age2">
@@ -88,35 +87,6 @@
                         <span class="text">5歳</span><br>
                     </label>
                 </li>
-
-                <form>
-                    <div class="search-box">
-                      <span class="search-box_label">種類:</span>
-                      <input type="radio" name="kind" value="">ALL
-                      <input type="radio" name="kind" value="野菜">野菜
-                      <input type="radio" name="kind" value="果物">果物
-                    </div>
-                  
-                    <div class="search-box">
-                      <span class="search-box_label">色:</span>
-                      <input type="checkbox" name="color" value="赤色">赤色
-                      <input type="checkbox" name="color" value="緑色">緑色
-                      <input type="checkbox" name="color" value="黄色">黄色
-                    </div>
-                  </form>
-                  
-                  <ul class="list">
-                    <li class="list_item" data-kind="野菜" data-color="赤色">いちご 種類: 野菜 色: 赤色</li>
-                    <li class="list_item" data-kind="野菜" data-color="黄色">かぼちゃ 種類: 野菜 色: 黄色</li>
-                    <li class="list_item" data-kind="野菜" data-color="緑色">キャベツ 種類: 野菜 色: 緑色</li>
-                    <li class="list_item" data-kind="果物" data-color="赤色">さくらんぼ 種類: 果物 色: 赤色</li>
-                    <li class="list_item" data-kind="野菜" data-color="緑色">すいか 種類: 野菜 色: 緑色</li>
-                    <li class="list_item" data-kind="果物" data-color="緑色">キウイ 種類: 果物 色: 緑色</li>
-                    <li class="list_item" data-kind="果物" data-color="黄色">バナナ 種類: 果物 色: 黄色</li>
-                    <li class="list_item" data-kind="野菜" data-color="緑色">メロン 種類: 野菜 色: 緑色</li>
-                    <li class="list_item" data-kind="果物" data-color="赤色">りんご 種類: 果物 色: 赤色</li>
-                    <li class="list_item" data-kind="果物" data-color="黄色">レモン 種類: 果物 色:黄色 </li>
-                  </ul>
             </ul>
         </div>
     </div>
@@ -129,9 +99,9 @@
 
     <!-- 園児リスト -->
     <ul id="list">
-        <li data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li data-hobby="age1"><a href="#">Bちゃん 1歳</a></li>
-        <li data-hobby="age2"><a href="#">Cくん 2歳</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳</a></li>
     </ul>
 </div>
 {%endblock%}
@@ -142,7 +112,7 @@
     <h2>連絡帳関連</h2>
     <ul class="submenu">
         <li><a href="{% url 'main:contactDetail' %}">詳細</a></li>
-        <li><a href="#">追加</a></li>
+        <li><a href="{% url 'main:contactTemplate' %}">テンプレートの作成</a></li>
         <li><a href="#">編集</a></li>
         <li><a href="#">削除</a></li>
         <li><a href="{% url 'main:contactTop_oya' %}">親画面</a></li>

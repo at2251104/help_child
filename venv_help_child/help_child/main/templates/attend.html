@@ -36,44 +36,47 @@
                 </label>
             </div>
         </div>
-        <ul class="js-check-all-target list" data-check-all="hobby">
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age0">
-                    <span class="text">0歳児</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age1">
-                    <span class="text">1歳児</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age2">
-                    <span class="text">2歳児</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age3">
-                    <span class="text">3歳児</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age4">
-                    <span class="text">4歳児</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age5">
-                    <span class="text">5歳児</span>
-                </label>
-            </li>
-        </ul>
+        
+        <div class="search-box">
+            <ul class="js-check-all-target list" data-check-all="hobby">
+                <li class="item">
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age0">
+                        <span class="text">0歳児</span>
+                    </label>
+                </li>
+                <li class="item">
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age1">
+                        <span class="text">1歳児</span>
+                    </label>
+                </li>
+                <li class="item">
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age2">
+                        <span class="text">2歳児</span>
+                    </label>
+                </li>
+                <li class="item">
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age3">
+                        <span class="text">3歳児</span>
+                    </label>
+                </li>
+                <li class="item">
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age4">
+                        <span class="text">4歳児</span>
+                    </label>
+                </li>
+                <li class="item">
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age5">
+                        <span class="text">5歳児</span>
+                    </label>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="group">
         <div class="head">
@@ -121,9 +124,9 @@
 
     <!-- 園児リスト -->
     <ul id="list">
-        <li><a href="#">Aくん</a></li>
-        <li><a href="#">Bちゃん</a></li>
-        <li><a href="#">Cくん</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age3"><a href="#">Bちゃん 3歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Cくん 1歳</a></li>
     </ul>
 </div>
 {% endblock %}
