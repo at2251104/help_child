@@ -25,14 +25,14 @@ class AccountAdapter(DefaultAccountAdapter):
 
         if int(user.userType.id) == USERTYPE_SUPPLIER:
             # サプライヤーユーザ
-            supplier = UserDetailSupplier()
+            supplier = T002Parents()
             supplier.user_id = user.id
-            supplier.companyName = request.POST['companyName']
+            supplier.companyName = request.POST['notification']
             supplier.save()
         else:
             # それ以外は一般ユーザ
             user.userType = UserType(USERTYPE_BUYER)
-            buyer = UserDetailBuyer()
+            buyer = T003Childminder()
             buyer.user_id = user.id
-            buyer.nearestStation = request.POST.get('nearestStation', False)
+            buyer.nearestStation = request.POST.get('administator', False)
             buyer.save()
