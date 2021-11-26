@@ -333,7 +333,6 @@ img.ui-datepicker-trigger {
 #attend-main {
   float: right; /*右側に回り込み*/
   width: 70%; /*幅*/
-  overflow: hidden;
   padding-top: 30%; /*コンテンツ上にあける余白*/
 }
 #attend-main h2 {
@@ -372,4 +371,37 @@ img.ui-datepicker-trigger {
 .remarksBox2 p {
   margin: 0;
   padding: 0;
+}
+
+/* セレクトボックス */
+.title {
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.checkAll {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #00abea;
+}
+
+.list {
+  display: flex;
+  list-style-type: none;
+}
+
+.item {
+  margin-bottom: 20px;
+}
+.item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.label {
+  cursor: pointer;
+}
+
+.text {
+  font-weight: bold;
 }
