@@ -405,3 +405,14 @@ img.ui-datepicker-trigger {
 .text {
   font-weight: bold;
 }
+
+.remarksBox1 {
+  resize: none;
+  font-size: 20px;
+}
+#target {
+  font-size: 20px;
+}
+.planListAddInputBox {
+  font-size: 20px;
+}
