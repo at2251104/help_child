@@ -1,11 +1,25 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
+from accounts.models import T002Parents,T003Childminder,CustomUser
 
+
+
+class T004Class(models.Model):
+    t004_pk01_class_id = models.CharField(verbose_name='クラスID',db_column='T004_PK01_class-id', primary_key=True, max_length=3)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t004_fd01_class_name = models.CharField(verbose_name='クラス名',db_column='T004_FD01_class-name', max_length=20)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t004_fd02_year = models.IntegerField(verbose_name='学年',db_column='T004_FD02_year')  # Field name made lowercase.
+
+    class Meta:
+        db_table = 'T004_class'
+        verbose_name_plural="クラステーブル"
+
+    def __str__(self):
+        return self.t004_fd01_class_name
 
 class T001Children(models.Model):
     t001_pk01_children_id = models.CharField(verbose_name='園児ID',default='ID',db_column='T001_PK01_children-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t001_fk01_class_id = models.ForeignKey('T004Class', models.DO_NOTHING, default='ID',verbose_name='クラスID',db_column='T001_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t001_fk02_parents_id = models.ForeignKey('T002Parents', models.DO_NOTHING,default='ID',verbose_name='保護者ID', db_column='T001_FK02_parents-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t001_fk01_class_id = models.ForeignKey(T004Class, models.DO_NOTHING, default='ID',verbose_name='クラスID',db_column='T001_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t001_fk02_parents_id = models.ForeignKey(T002Parents, models.DO_NOTHING,default='ID',verbose_name='保護者ID', db_column='T001_FK02_parents-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_fd01_name = models.CharField(verbose_name='氏名',db_column='T001_FD01_name', max_length=20)  # Field name made lowercase.
     t001_fd02_birthday = models.DateField(verbose_name='誕生日',db_column='T001_FD02_birthday')  # Field name made lowercase.
     t001_fd03_address = models.CharField(verbose_name='住所',db_column='T001_FD03_address', max_length=50)  # Field name made lowercase.
@@ -20,61 +34,6 @@ class T001Children(models.Model):
     def __str__(self):
         return self.t001_fd01_name
 
-
-class T002Parents(models.Model):
-    t002_pk01_parents_id = models.CharField(verbose_name='保護者ID',db_column='T002_PK01_parents-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t002_fd01_password = models.CharField(verbose_name='パスワード',db_column='T002_FD01_password', max_length=100)  # Field name made lowercase.
-    t002_fd02_name = models.CharField(verbose_name='氏名',db_column='T002_FD02_name', max_length=50, blank=True, null=True)  # Field name made lowercase.
-    t002_fd03_birthday = models.DateField(verbose_name='誕生日',db_column='T002_FD03_birthday')  # Field name made lowercase.
-    t002_fd04_address = models.CharField(verbose_name='住所',db_column='T002_FD04_address', max_length=100)  # Field name made lowercase.
-    t002_fd05_mailadd = models.CharField(verbose_name='メールアドレス',db_column='T002_FD05_mailadd', max_length=255, blank=True, null=True)  # Field name made lowercase.
-    t002_fd06_notification = models.BooleanField(verbose_name='通知するか',db_column='T002_FD06_notification', blank=True, null=True)  # Field name made lowercase.
-    t002_fd07_telephonenum = models.CharField(verbose_name='電話番号',db_column='T002_FD07_telephonenum', max_length=20)  # Field name made lowercase.
-    t002_fd08_createdata = models.DateTimeField(verbose_name='作成日時',db_column='T002_FD08_createdata')  # Field name made lowercase.
-    t002_fd09_updatedata = models.DateTimeField(verbose_name='更新日時',db_column='T002_FD09_updatedata', blank=True, null=True)  # Field name made lowercase.
-    t002_fd10_sex = models.IntegerField(verbose_name='性別',db_column='T002_FD10_sex')  # Field name made lowercase.
-
-    class Meta:
-        db_table = 'T002_parents'
-        verbose_name_plural="保護者テーブル"
-
-    def __str__(self):
-        return self.t002_fd02_name
-
-
-class T003Childminder(models.Model):
-    t003_pk01_childminder_id = models.CharField(verbose_name='保育士ID',db_column='T003_FK01_childminder-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t003_fk01_class_id = models.ForeignKey('T004Class', models.DO_NOTHING,default='ID', verbose_name='クラスID',db_column='T003_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t003_fd01_password = models.CharField(verbose_name='パスワード',db_column='T003_FD01_password', max_length=100)  # Field name made lowercase.
-    t003_fd02_name = models.CharField(verbose_name='氏名',db_column='T003_FD02_name', max_length=50, blank=True, null=True)  # Field name made lowercase.
-    t003_fd03_birthday = models.DateField(verbose_name='誕生日',db_column='T003_FD03_birthday')  # Field name made lowercase.
-    t003_fd04_address = models.CharField(verbose_name='住所',db_column='T003_FD04_address', max_length=100)  # Field name made lowercase.
-    t003_fd05_mailadd = models.CharField(verbose_name='メールアドレス',db_column='T003_FD05_mailadd', max_length=255, blank=True, null=True)  # Field name made lowercase.
-    t003_fd06_administator = models.BooleanField(verbose_name='管理者',db_column='T003_FD06_administator')  # Field name made lowercase.
-    t003_fd07_telephonenum = models.CharField(verbose_name='電話番号',db_column='T003_FD07_telephonenum', max_length=20)  # Field name made lowercase.
-    t003_fd08_createdata = models.DateTimeField(verbose_name='作成日時',db_column='T003_FD08_createdata')  # Field name made lowercase.
-    t003_fd09_updatedata = models.DateTimeField(verbose_name='更新日時',db_column='T003_FD09_updatedata', blank=True, null=True)  # Field name made lowercase.
-    t003_fd10_sex = models.IntegerField(verbose_name='性別',db_column='T003_FD10_sex')  # Field name made lowercase.
-
-    class Meta:
-        db_table = 'T003_childminder'
-        verbose_name_plural="保育士テーブル"
-    
-    def __str__(self):
-        return self.t003_fd02_name
-
-
-class T004Class(models.Model):
-    t004_pk01_class_id = models.CharField(verbose_name='クラスID',db_column='T004_PK01_class-id', primary_key=True, max_length=3)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t004_fd01_class_name = models.CharField(verbose_name='クラス名',db_column='T004_FD01_class-name', max_length=20)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t004_fd02_year = models.IntegerField(verbose_name='学年',db_column='T004_FD02_year')  # Field name made lowercase.
-
-    class Meta:
-        db_table = 'T004_class'
-        verbose_name_plural="クラステーブル"
-
-    def __str__(self):
-        return self.t004_fd01_class_name
 
 
 class T005Kindergaten(models.Model):
@@ -191,7 +150,7 @@ class T009Position(models.Model):
 
 class T011Room(models.Model):
     t011_pk01_room_id = models.CharField(verbose_name='ルームID',db_column='T011_PK01_room-id', primary_key=True, max_length=100)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t011_fk01_parents_id = models.ForeignKey(T002Parents, models.DO_NOTHING,default='ID',verbose_name='保護者ID', db_column='T011_FK01_parents-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t011_fk01_parents_id = models.ForeignKey(T002Parents, models.DO_NOTHING,default='ID',verbose_name='保護者ID', )  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t011_fk02_chilminder_id = models.ForeignKey(T003Childminder, models.DO_NOTHING,default='ID', verbose_name='保育士ID',db_column='T011_FK02_chilminder-id', max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
 
     class Meta:

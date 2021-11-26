@@ -8,7 +8,6 @@
 <script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
 <link rel="stylesheet" href="{% static 'css/suda.css' %}">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -108,10 +107,7 @@
             <br><input type="submit" value="削除" class="planlistAddButton">
         </div>
     </form>
-    <div class="visiblity">
-        <p>/formのあとにボタンを置くと何故か治った</p>
-    </div>
-    </form>
+
 </div>
 
 
@@ -125,7 +121,7 @@
     <h2>予定表関連</h2>
     <ul class="submenu">
         <li><a href="{% url 'main:planList' %}">カレンダー</a></li>
-        <li><a href="{% url 'main:planListDetail' %}">詳細</a></li>
+        <li><a href="#">詳細</a></li>
         <li><a href="{% url 'main:planListAdd' %}">行事の追加</a></li>
         <li><a href="{% url 'main:planListDelete' %}">削除</a></li>
     </ul>
