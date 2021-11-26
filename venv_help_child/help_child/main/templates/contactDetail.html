@@ -29,64 +29,128 @@
 {% block main_contents%}
 <div id="contact-detail-main">
     <h2>連絡帳</h2>
-    <form action="window.alert(target)" method="post" class="planlistDetailCenter">
-        <input type="text" placeholder="日付検索" id="target" text-align="center">
-    </form>
+    <div id="contact-date">
+        <form action="window.alert(target)" method="post" class="planlistDetailCenter">
+            <input type="text" placeholder="日付検索" id="target" text-align="center">
+        </form>
+    </div>
     <div id="next-prev-button">
         <button id="prev" onclick="prev()">‹</button>
         <button id="next" onclick="next()">›</button>
     </div>
     <div id="contact-book">
         <form action="">
-            <table class="contact-book-table">
+            <table border="1" class="contact-book-table">
                 <tr>
                     <th></th>
-                    <th colspan="2">
+                    <th colspan="3">
                         家庭から
                     </th>
-                    <th colspan="2">
+                    <th colspan="3">
                         園から
                     </th>
                 </tr>
                 <tr>
-                    <td rowspan="3">
+                    <td rowspan="3" style="writing-mode: tb-rl">
                         食事
                     </td>
                     <td>
                         時刻
                     </td>
-                    <td>
+                    <td colspan="2" style="white-space: nowrap;">
                         主菜、副菜、その他
                     </td>
                     <td>
                         時刻
                     </td>
-                    <td>
+                    <td colspan="2" style="white-space: nowrap;">
                         主菜、副菜、その他
                     </td>
                 </tr>
                 <tr>
                     <td>
+                        <p>前夜</p>
                         <input type="time" name="example" list="data1">
-                        <datalist id="data1">
-                            <option value="01:00"></option>
-                            <option value="02:00"></option>
-                            <option value="03:00"></option>
-                        </datalist>
                     </td>
-                    <td>
-                        <input type="text" name="晩飯" class="form-text">
+                    <td colspan="2">
+                        <input type="text" name="前夜" class="food-text">
                     </td>
-                    <td>
+                    <td rowspan="2">
+                        <p>昼食</p>
                         <input type="time" name="example" list="data1">
-                        <datalist id="data1">
-                            <option value="01:00"></option>
-                            <option value="02:00"></option>
-                            <option value="03:00"></option>
-                        </datalist>
                     </td>
+                    <td colspan="2" rowspan="2">
+                        <input type="text" name="昼食" class="food-text">
+                    </td>
+                </tr>
+                <tr>
                     <td>
-                        <input type="text" name="晩飯" class="form-text">
+                        <p>今朝</p>
+                        <input type="time" name="example" list="data1">
+                    </td>
+                    <td colspan="2">
+                        <input type="text" name="今朝" class="food-text">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="writing-mode: tb-rl">
+                        睡眠
+                    </td>
+                    <td colspan="3">
+                        <p>就寝(時分) 起床(時分)</p>
+                        <input type="time" name="example" list="data1">~<input type="time" name="example" list="data1">
+                    </td>
+                    <td colspan="3">
+                        <p>就寝(時分) 起床(時分)</p>
+                        <input type="time" name="example" list="data1">~<input type="time" name="example" list="data1">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="writing-mode: tb-rl">
+                        きげん
+                    </td>
+                    <td colspan="3">
+                        <label><input type="radio" name="home_mood">良</label>
+                        <label><input type="radio" name="home_mood">普</label>
+                        <label><input type="radio" name="home_mood">悪</label>
+                    </td>
+                    <td colspan="3">
+                        <label><input type="radio" name="school_mood">良</label>
+                        <label><input type="radio" name="school_mood">普</label>
+                        <label><input type="radio" name="school_mood">悪</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="writing-mode: tb-rl">
+                        排便
+                    </td>
+                    <td colspan="3">
+                        <label><input type="radio" name="home_hardness">水</label>
+                        <label><input type="radio" name="home_hardness">軟</label>
+                        <label><input type="radio" name="home_hardness">普</label>
+                        <label><input type="radio" name="home_hardness">硬</label>
+                        <select name="number">
+                            <option value="zero">0</option>
+                            <option value="one">1</option>
+                            <option value="two">2</option>
+                            <option value="three">3</option>
+                            <option value="four">4</option>
+                            <option value="five">5</option>
+                        </select>回
+                    </td>
+                    <td colspan="3">
+                        <label><input type="radio" name="school_hardness">水</label>
+                        <label><input type="radio" name="school_hardness">軟</label>
+                        <label><input type="radio" name="school_hardness">普</label>
+                        <label><input type="radio" name="school_hardness">硬</label>
+                        <select name="number">
+                            <option value="zero">0</option>
+                            <option value="one">1</option>
+                            <option value="two">2</option>
+                            <option value="three">3</option>
+                            <option value="four">4</option>
+                            <option value="five">5</option>
+                        </select>回
                     </td>
                 </tr>
             </table>
