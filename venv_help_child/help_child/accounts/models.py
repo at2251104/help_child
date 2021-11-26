@@ -131,7 +131,7 @@ class T002Parents(models.Model):
                                 db_index=True,
                                 related_name='detail_supplier',
                                 on_delete=models.CASCADE)
-    # サプライヤーユーザ向けの項目
+    # 保護者向けの項目
     notification = models.BooleanField(
                                    verbose_name='通知',
                                    null=True,
@@ -147,19 +147,15 @@ class T003Childminder(models.Model):
                                 db_index=True,
                                 related_name='detail_buyer',
                                 on_delete=models.CASCADE)
-    # バイヤーユーザ向けの項目
-    class_id = models.CharField(
+    # 保育士向けの項目
+    class_id = models.ForeignKey("main.T004Class",
                                  max_length=3,
                                  default='ID', 
+                                 on_delete=models.CASCADE,
                                  verbose_name='クラスID',
                                 )
 
-    administator = models.BooleanField(
-
-                                   default=False,
-                                   verbose_name='管理者',
-                                )
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
-        return f'{user.email} - {self.id} - {self.class_id} - {self.administator}'
+        return f'{user.email} - {self.id} - {self.class_id}'
 

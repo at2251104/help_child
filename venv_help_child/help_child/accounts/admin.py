@@ -6,6 +6,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.forms import UserChangeForm,UserCreationForm
 
+#管理者サイトのユーザ追加項目
 @admin.register(CustomUser)
 class AdminUserAdmin(UserAdmin):
     fieldsets = (
