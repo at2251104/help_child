@@ -71,10 +71,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     )
     email = models.EmailField(('メールアドレス'),primary_key=True, unique=True)
     last_name = models.CharField(('姓'), max_length=150)
-    first_name = models.CharField(('名'),default='ID', max_length=150)
-    last_name_kana = models.CharField(('姓（かな）'),default='ID', max_length=150)
-    first_name_kana = models.CharField(('名（かな）'), default='ID',max_length=150)
-    sex = models.CharField(('性別'), default='ID',max_length=4, choices=(('男性','男性'), ('女性','女性')))
+    first_name = models.CharField(('名'),default='1', max_length=150)
+    last_name_kana = models.CharField(('姓（かな）'),default='1', max_length=150)
+    first_name_kana = models.CharField(('名（かな）'), default='1',max_length=150)
+    sex = models.CharField(('性別'), default='1',max_length=4, choices=(('男性','男性'), ('女性','女性')))
     birthday = models.DateField(('生年月日'), blank=True, null=True)
     postal_code = models.CharField(('郵便番号（ハイフンなし）'), max_length=7, blank=True, null=True)
     prefecture = models.CharField(('都道府県'), max_length=5, blank=True, null=True)
@@ -141,6 +141,9 @@ class T002Parents(models.Model):
         user = CustomUser.objects.get(pk=self.user_id)
         return f'{user.email} - {self.id} -{self.notification}'
 
+    class Meta:
+        verbose_name_plural="保護者テーブル"
+
 class T003Childminder(models.Model):
     user = models.OneToOneField(CustomUser,
                                 unique=True,
@@ -150,7 +153,7 @@ class T003Childminder(models.Model):
     # 保育士向けの項目
     class_id = models.ForeignKey("main.T004Class",
                                  max_length=3,
-                                 default='ID', 
+                                 default='1', 
                                  on_delete=models.CASCADE,
                                  verbose_name='クラスID',
                                 )
@@ -158,4 +161,7 @@ class T003Childminder(models.Model):
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
         return f'{user.email} - {self.id} - {self.class_id}'
+
+    class Meta:
+        verbose_name_plural="保育士テーブル"
 
