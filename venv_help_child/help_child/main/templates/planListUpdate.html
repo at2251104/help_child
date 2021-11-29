@@ -8,7 +8,6 @@
 <script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
 <link rel="stylesheet" href="{% static 'css/suda.css' %}">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -91,26 +90,29 @@
         </div>
     </div>
 
-    <form action="window.alert(target)" method="post" class="planlistDetailCenter">
-        <p>月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center"></p>
-        <div class="visiblity">
-            <div id="next-prev-button">
-                <button id="prev" onclick="prev()">‹</button>
-                <button id="next" onclick="next()">›</button>
-            </div>
-        </div>
-        行事名:<select name="planName">
+    <form method="post" class="planlistDetailCenter">
+        <h2>変更したい日程,行事</h2>
+        <br>
+        <p>編集前月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center"></p>
+        編集前行事名:<select name="planName">
             <option value="サンプル1">サンプル1</option>
             <option value="サンプル2">サンプル2</option>
             <option value="サンプル3">サンプル3</option>
         </select>
-        <div class="planlistAddButton">
-            <br><input type="submit" value="削除" class="planlistAddButton">
-        </div>
-    </form>
-    <div class="visiblity">
-        <p>/formのあとにボタンを置くと何故か治った</p>
-    </div>
+        <h1>
+            <div class="planListUpdateReverseTryungle">▽▽▽▽▽▽▽▽▽▽</div>
+        </h1>
+        <h2>変更日程,行事</h2>
+        <br>
+        <p>編集後月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center"></p>
+        編集後行事名:<select name="planName">
+            <option value="サンプル1">サンプル1</option>
+            <option value="サンプル2">サンプル2</option>
+            <option value="サンプル3">サンプル3</option>
+        </select>
+
+        <br><input type="submit" value="削除" class="planlistAddButton">
+
     </form>
 </div>
 

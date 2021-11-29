@@ -1,4 +1,4 @@
-
+/* contactTop------------------------------------------------ */
 /* === ボタンを表示するエリア ============================== */
 .switchArea {
   line-height: 60px; /* 1行の高さ          */
@@ -63,7 +63,6 @@
   background: #7f007f; /* カーソルタブの背景 */
 }
 
-/* contactTop */
 #contactTop-main {
   float: right; 
   width: 70%; 
@@ -71,12 +70,11 @@
   padding-top: 30%; 
 }
 
-#contactTop-main h2 {
+/* #contactTop-main h2 { */
+#h2 {
   clear: both;
   font-size: 17px; /*文字サイズ*/
   text-align: left; /*テキストの位置*/
-    /* width: 90%; 幅を制限 */
-  /* display: inline-block; 文字数に合わせて幅を変える */
   margin-bottom: 15px;
   color: #fff; /*文字色*/
   padding: 8px 30px; /*上下、左右への余白*/
@@ -161,13 +159,13 @@
 /* 画面幅800px以下の設定 */
 @media screen and (max-width: 800px) {
   /*mainコンテンツ*/
-  #attend-main {
+  #contactTop-main {
     float: none;
     width: auto;
   }
 
   /*main*/
-  #attend-main {
+  #contactTop-main {
     padding: 0 !important;
   }
 }
@@ -175,3 +173,10 @@
 @media screen and (max-width: 480px) {
   /*メインコンテンツ*/
 }
+
+/* ------チェックボックスによる絞り込み----- */
+.is-hide {
+  display: none; /*非表示*/
+}
+
+/* --------------------------------------------------------- */

@@ -14,6 +14,8 @@ urlpatterns=[
     path('contactTop_oya',views.ContactTopOyaView.as_view(),name="contactTop_oya"),
     path('contactDetail',views.ContactDetailView.as_view(),name="contactDetail"),
     path('contactUpdate',views.ContactUpdateView.as_view(),name="contactUpdate"),
+    path('contactTemplate',views.ContactTemplateView.as_view(),name="contactTemplate"),
+
 
     path('messageAddress',views.MessageAddressView.as_view(),name="messageAddress"),
     path('message',views.MessageView.as_view(),name="message"),
@@ -21,10 +23,11 @@ urlpatterns=[
     path('attend',views.AttendView.as_view(),name="attend"),
     path('tagScan',views.TagScanView.as_view(),name="tagScan"),
 
-    path('nameList',views.NameListView.as_view(),name="nameList"),
-    path('nameListAdd',views.NameListAddView.as_view(),name="nameListAdd"),
-    path('nameListDetail',views.NameListDetailView.as_view(),name="nameListDetail"),
-    path('nameListUpdate',views.NameListUpdateView.as_view(),name="nameListUpdate"),
+    # 名簿画面は作らないことになった
+    # path('nameList',views.NameListView.as_view(),name="nameList"),
+    # path('nameListAdd',views.NameListAddView.as_view(),name="nameListAdd"),
+    # path('nameListDetail',views.NameListDetailView.as_view(),name="nameListDetail"),
+    # path('nameListUpdate',views.NameListUpdateView.as_view(),name="nameListUpdate"),
 
     path('planList',views.PlanListView.as_view(),name="planList"),
     path('planListAdd',views.PlanListAddView.as_view(),name="planListAdd"),

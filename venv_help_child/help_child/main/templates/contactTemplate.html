@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}CHIlink{% endblock %}
+{% block title %}テンプレート{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
@@ -110,12 +110,12 @@
                         きげん
                     </td>
                     <td colspan="6">
-                        <label><input type="radio" name="home_mood">良</label>
+                        <label><input type="radio" name="home_mood" checked="checked">良</label>
                         <label><input type="radio" name="home_mood">普</label>
                         <label><input type="radio" name="home_mood">悪</label>
                     </td>
                     <td colspan="6">
-                        <label><input type="radio" name="school_mood">良</label>
+                        <label><input type="radio" name="school_mood" checked="checked">良</label>
                         <label><input type="radio" name="school_mood">普</label>
                         <label><input type="radio" name="school_mood">悪</label>
                     </td>
@@ -127,7 +127,7 @@
                     <td colspan="6" nowrap>
                         <label><input type="radio" name="home_hardness">水</label>
                         <label><input type="radio" name="home_hardness">軟</label>
-                        <label><input type="radio" name="home_hardness">普</label>
+                        <label><input type="radio" name="home_hardness" checked="checked">普</label>
                         <label><input type="radio" name="home_hardness">硬</label>
                         <select name="number">
                             <option value="zero">0</option>
@@ -141,7 +141,7 @@
                     <td colspan="6" nowrap>
                         <label><input type="radio" name="school_hardness">水</label>
                         <label><input type="radio" name="school_hardness">軟</label>
-                        <label><input type="radio" name="school_hardness">普</label>
+                        <label><input type="radio" name="school_hardness" checked="checked">普</label>
                         <label><input type="radio" name="school_hardness">硬</label>
                         <select name="number">
                             <option value="zero">0</option>
@@ -158,7 +158,7 @@
                         入浴
                     </td>
                     <td colspan="2" nowrap>
-                        <label><input type="radio" name="home_bathe">有</label><br>
+                        <label><input type="radio" name="home_bathe" checked="checked">有</label><br>
                         <label><input type="radio" name="home_bathe">無</label>
                     </td>
                     <td style="writing-mode: tb-rl">
@@ -236,7 +236,7 @@
                         沐浴
                     </td>
                     <td colspan="2" nowrap>
-                        <label><input type="radio" name="school_bathe">有</label><br>
+                        <label><input type="radio" name="school_bathe" checked="checked">有</label><br>
                         <label><input type="radio" name="school_bathe">無</label>
                     </td>
                     <td style="writing-mode: tb-rl">
@@ -369,7 +369,7 @@
     <h2>連絡帳関連</h2>
     <ul class="submenu">
         <li><a href="{% url 'main:contactTop' %}">園児選択画面</a></li>
-        <li><a href="#">追加</a></li>
+        <!-- <li><a href="#">追加</a></li> -->
         <li><a href="#">編集</a></li>
         <li><a href="#">削除</a></li>
     </ul>
