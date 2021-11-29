@@ -34,7 +34,7 @@
 {% endblock %}
 
 {% block main_contents%}
-<div id="attend-main">
+<div id="plmain">
     <div id="header">
 
         <!-- <div id="attend-main"> -->
@@ -89,6 +89,8 @@
             </div>
         </div>
     </div>
+</div>
+<div id="main">
     <form action="window.alert(target)" method="post" class="planlistDetailCenter" style="height: 30px;">
         <h4>月　日:<input type="text" placeholder="日付検索" id="target" text-align="center"></h4>
 
@@ -98,12 +100,7 @@
         <br><input type="submit" value="追加" class="planlistAddButton">
     </form>
 </div>
-
-
-
-
 <!--予定の表示-->
-
 {%endblock%}
 
 {% block sub_contents%}
