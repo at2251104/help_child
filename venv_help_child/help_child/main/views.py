@@ -47,17 +47,18 @@ class AttendView(generic.TemplateView):
 class TagScanView(generic.TemplateView):
     template_name="tagScan.html"
 
-class NameListView(generic.TemplateView):
-    template_name="nameList.html"
+# 名簿画面は作らないことになった
+# class NameListView(generic.TemplateView):
+#     template_name="nameList.html"
 
-class NameListDetailView(generic.TemplateView):
-    template_name="nameListDetail.html"
+# class NameListDetailView(generic.TemplateView):
+#     template_name="nameListDetail.html"
 
-class NameListAddView(generic.TemplateView):
-    template_name="nameListAdd.html"
+# class NameListAddView(generic.TemplateView):
+#     template_name="nameListAdd.html"
 
-class NameListUpdateView(generic.TemplateView):
-    template_name="nameListUpdate.html"
+# class NameListUpdateView(generic.TemplateView):
+#     template_name="nameListUpdate.html"
 
 class PlanListView(generic.TemplateView):
     template_name="planlist.html"

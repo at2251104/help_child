@@ -281,10 +281,12 @@ a.btn-border:hover:after {
   float: right;
 }
 #contact-book {
-  margin-left: auto;
-  margin-right: auto;
+  display: block;
   margin-top: 10%;
   margin-bottom: 10%;
+}
+#contact-book table {
+  margin: auto;
 }
 #contact-book-table {
   display: table;
@@ -314,7 +316,5 @@ a.btn-border:hover:after {
 /*画面幅480px以下の設定*/
 @media screen and (max-width: 480px) {
   /*メインコンテンツ*/
-}
-/*contactDetail画面
+} /*contactDetail画面
 ---------------------------------------------------------------------------*/
-

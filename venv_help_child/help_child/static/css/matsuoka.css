@@ -1,4 +1,4 @@
-
+/* contactTop------------------------------------------------ */
 /* === ボタンを表示するエリア ============================== */
 .switchArea {
   line-height: 60px; /* 1行の高さ          */
@@ -63,7 +63,6 @@
   background: #7f007f; /* カーソルタブの背景 */
 }
 
-/* contactTop */
 #contactTop-main {
   float: right; 
   width: 70%; 
@@ -161,13 +160,13 @@
 /* 画面幅800px以下の設定 */
 @media screen and (max-width: 800px) {
   /*mainコンテンツ*/
-  #attend-main {
+  #contactTop-main {
     float: none;
     width: auto;
   }
 
   /*main*/
-  #attend-main {
+  #contactTop-main {
     padding: 0 !important;
   }
 }
@@ -180,3 +179,5 @@
 .is-hide {
   display: none; /*非表示*/
 }
+
+/* --------------------------------------------------------- */
