@@ -330,8 +330,11 @@
   }
 
   #plmain {
-    float: right; /*右側に回り込み*/
-    padding-top: 30%; /*コンテンツ上にあける余白*/
+    height: 3009px;
+    margin-top: 30%;
+    margin-left: 30%;
+    position: absolute;
+    overflow: auto;
   }
   #plmain h2 {
     font-size: 30px;
@@ -815,8 +818,10 @@
 
   #plmain {
     width: 100%;
-    padding-top: 10%; /*コンテンツ上にあける余白*/
-    overflow: hidden;
+    overflow: scroll;
+    position: relative;
+    box-sizing: border-box;
+    height: 100%;
   }
   #plmain h2 {
     font-size: 30px;
@@ -839,7 +844,7 @@
     width: 300px;
     border: 2px solid skyblue;
     border-radius: 3px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   /*planListDetail画面の今日の行事名表示のためのID*/
@@ -956,6 +961,7 @@
     color: #fff;
     border-bottom: solid 4px #627295;
     border-radius: 3px;
+    margin-bottom: 20px;
   }
 
   .planAddButton:active {
@@ -969,7 +975,8 @@
   .planListUpdateReverseTryungle {
     font-size: 40px;
     width: left 40%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #00abea;
+    text-align: center;
   }
 }
