@@ -293,11 +293,14 @@ a.btn-border:hover:after {
   width: 100%;
   table-layout: fixed;
 }
-.table-title {
-  width: 10px;
+.time {
+  width: 68px;
 }
-.food-text {
-  width: 80%;
+.table-title,
+.food-text,
+.info-text,
+.writer-text {
+  width: 100%;
 }
 
 /* 画面幅800px以下の設定 */
