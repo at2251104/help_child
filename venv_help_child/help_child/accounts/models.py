@@ -3,6 +3,14 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.contrib.auth.models import PermissionsMixin, UserManager
+from django.db import models
+from django.db.models.fields import EmailField
+from django.utils import timezone
+from django.core.mail import send_mail
+from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.validators import UnicodeUsernameValidator
 
 class UserType(models.Model):
     """ ユーザ種別 """
@@ -16,8 +24,11 @@ USERTYPE_SUPPLIER = 100
 USERTYPE_BUYER = 200
 USERTYPE_DEFAULT = USERTYPE_BUYER
 
-class CustomUserManager(UserManager):
+class CustomUserManager(BaseUserManager):
     """ 拡張ユーザーモデル向けのマネージャー """
+
+    use_in_migrations = True
+    ordering = ('email',)
 
     def _create_user(self, email, password, **extra_fields):
         if not email:
@@ -33,7 +44,7 @@ class CustomUserManager(UserManager):
         extra_fields.setdefault('is_superuser', False)
         return self._create_user(email, password, **extra_fields)
 
-    def create_superuser(self, email, password, **extra_fields):
+    def create_superuser(self ,email, password, **extra_fields):
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
         if extra_fields.get('is_staff') is not True:
@@ -43,52 +54,114 @@ class CustomUserManager(UserManager):
         return self._create_user(email, password, **extra_fields)
 
 
-class CustomUser(AbstractUser):
-    """ 拡張ユーザーモデル """
+class CustomUser(AbstractBaseUser, PermissionsMixin):
 
-    class Meta(object):
-        db_table = 'custom_user'
+    username_validator = UnicodeUsernameValidator()
 
-    #作成したマネージャークラスを使用
+    username = models.CharField(
+        _('username'),
+        max_length=150,
+        blank=True,
+        null=True,
+        help_text=_('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
+        validators=[username_validator],
+        error_messages={
+            'unique': _("A user with that username already exists."),
+        },
+    )
+    email = models.EmailField(('メールアドレス'),primary_key=True, unique=True)
+    last_name = models.CharField(('姓'), max_length=150)
+    first_name = models.CharField(('名'),default='1', max_length=150)
+    last_name_kana = models.CharField(('姓（かな）'),default='1', max_length=150)
+    first_name_kana = models.CharField(('名（かな）'), default='1',max_length=150)
+    sex = models.CharField(('性別'), default='1',max_length=4, choices=(('男性','男性'), ('女性','女性')))
+    birthday = models.DateField(('生年月日'), blank=True, null=True)
+    postal_code = models.CharField(('郵便番号（ハイフンなし）'), max_length=7, blank=True, null=True)
+    prefecture = models.CharField(('都道府県'), max_length=5, blank=True, null=True)
+    address = models.CharField(('市区町村番地'), max_length=50, blank=True, null=True)
+    building = models.CharField(('建物名'), max_length=30, blank=True, null=True)
+    tel = models.CharField(('電話番号（ハイフンなし）'), max_length=11, blank=True, null=True)
+
+    is_staff = models.BooleanField(
+        ('staff status'),
+        default=False,
+        help_text=('Designates whether the user can log into this admin site.'),
+    )
+    is_active = models.BooleanField(
+        ('active'),
+        default=True,
+        help_text=(
+            'Designates whether this user should be treated as active. '
+            'Unselect this instead of deleting accounts.'
+        ),
+    )
+    date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
+
     objects = CustomUserManager()
 
-    # モデル内にユーザ種別を持つ
-    userType = models.ForeignKey(UserType,
-                                verbose_name='ユーザ種別',
-                                null=True,
-                                blank=True,
-                                on_delete=models.PROTECT)
-    def __str__(self):
-        return self.username
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
 
-class UserDetailSupplier(models.Model):
+    class Meta:
+        db_table = 'User'
+        verbose_name = ('user')
+        verbose_name_plural = ('ユーザー')
+
+    def clean(self):
+        super().clean()
+        self.email = self.__class__.objects.normalize_email(self.email)
+
+    def get_full_name(self):
+        full_name = '%s %s' % (self.last_name, self.first_name)
+        return full_name.strip()
+
+    def get_full_name_kana(self):
+        full_name_kana = '%s %s' % (self.last_name_kana, self.first_name_kana)
+        return full_name_kana.strip()
+
+    def get_short_name(self):
+        return self.first_name
+
+    def email_user(self, subject, message, from_email=None, **kwargs):
+        send_mail(subject, message, from_email, [self.email], **kwargs)
+
+class T002Parents(models.Model):
     user = models.OneToOneField(CustomUser,
                                 unique=True,
                                 db_index=True,
                                 related_name='detail_supplier',
                                 on_delete=models.CASCADE)
-    # サプライヤーユーザ向けの項目
-    companyName = models.CharField(
-                                   max_length=100,
+    # 保護者向けの項目
+    notification = models.BooleanField(
+                                   verbose_name='通知',
                                    null=True,
                                    blank=True,
                                 )
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
-        return f'{user.id} - {user.username} - {user.email} - {self.id} - {self.companyName}'
+        return f'{user.email} - {self.id} -{self.notification}'
 
-class UserDetailBuyer(models.Model):
+    class Meta:
+        verbose_name_plural="保護者テーブル"
+
+class T003Childminder(models.Model):
     user = models.OneToOneField(CustomUser,
                                 unique=True,
                                 db_index=True,
                                 related_name='detail_buyer',
                                 on_delete=models.CASCADE)
-    # バイヤーユーザ向けの項目
-    nearestStation = models.CharField(
-                                   max_length=100,
-                                   null=True,
-                                   blank=True,
+    # 保育士向けの項目
+    class_id = models.ForeignKey("main.T004Class",
+                                 max_length=3,
+                                 default='1', 
+                                 on_delete=models.CASCADE,
+                                 verbose_name='クラスID',
                                 )
+
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
-        return f'{user.id} - {user.username} - {user.email} - {self.id} - {self.nearestStation}'
+        return f'{user.email} - {self.id} - {self.class_id}'
+
+    class Meta:
+        verbose_name_plural="保育士テーブル"
+

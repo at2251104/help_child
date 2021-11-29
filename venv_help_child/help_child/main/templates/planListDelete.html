@@ -8,7 +8,6 @@
 <script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
 <link rel="stylesheet" href="{% static 'css/suda.css' %}">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -35,7 +34,7 @@
 {% endblock %}
 
 {% block main_contents%}
-<div id="attend-main">
+<div id="plmain">
     <div id="header">
 
         <!-- <div id="attend-main"> -->
@@ -92,25 +91,14 @@
     </div>
 
     <form action="window.alert(target)" method="post" class="planlistDetailCenter">
-        <p>月日:<input type="text" placeholder="日付検索" id="target" text-align="center"></p>
-        <div class="visiblity">
-            <div id="next-prev-button">
-                <button id="prev" onclick="prev()">‹</button>
-                <button id="next" onclick="next()">›</button>
-            </div>
-        </div>
-        行事名:<select name="planName">
-            <option value="サンプル1">サンプル1</option>
-            <option value="サンプル2">サンプル2</option>
-            <option value="サンプル3">サンプル3</option>
-        </select>
-        <div class="planlistAddButton">
-            <br><input type="submit" value="削除" class="planlistAddButton">
-        </div>
-    </form>
-    <div class="visiblity">
-        <p>/formのあとにボタンを置くと何故か治った</p>
-    </div>
+        <h4>月　日:<input type="text" placeholder="日付検索" id="target" text-align="center"></h4>
+        <h4>行事名:<select name="planName">
+                <option value="サンプル1">１２３４５６７８９０１２３４５</option>
+                <!--最大表示14文字-->
+                <option value="サンプル2">サンプル2</option>
+                <option value="サンプル3">サンプル3</option>
+            </select></h4>
+        <br><input type="submit" value="削除" class="planlistAddButton">
     </form>
 </div>
 

@@ -29,7 +29,9 @@
 {% block main_contents%}
 
 <div id="contactTop-main">
+    <div id="h2">
     <h2>園児選択</h2>
+    </div>
     <!-- 閲覧/記入の切り替え -->
     <div class="switchArea">
         <input type="checkbox" id="switch1">
@@ -40,66 +42,58 @@
     <!-- 園児年齢別選択 -->
     <div class="group">
         <div class="title">
-            <年齢で絞り込み>
+            <年齢選択>
         </div>
-        <div class="checkAll">
-            <label class="label">
-                <input class="js-check-all" type="checkbox" name="" data-check-all="hobby">
-                <span class="text">All</span>
-            </label>
-        </div>
+        <div class="search-box">
+            <div class="checkAll">
+                <label class="label">
+                    <input class="js-check-all" type="checkbox" name="hobby" data-check-all="hobby">
+                    <span class="text">All</span>
+                </label>
+            </div>
 
-        <ul class="js-check-all-target list" data-check-all="hobby">
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age0">
-                    <span class="text">0歳</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age1">
-                    <span class="text">1歳</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age2">
-                    <span class="text">2歳</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age3">
-                    <span class="text">3歳</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age4">
-                    <span class="text">4歳</span>
-                </label>
-            </li>
-            <li class="item">
-                <label class="label">
-                    <input type="checkbox" name="hobby" value="age5">
-                    <span class="text">5歳</span><br>
-                </label>
-            </li>
-        </ul>
+            <ul class="js-check-all-target list" data-check-all="hobby">
+                <li class="item">
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age0">
+                        <span class="text">0歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age1">
+                        <span class="text">1歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age2">
+                        <span class="text">2歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age3">
+                        <span class="text">3歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age4">
+                        <span class="text">4歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age5">
+                        <span class="text">5歳児</span><br>
+                    </label>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <!-- 検索box -->
     <form method="get" action="#" class="search_container">
-        <input type="text" id="search-text" onkeyup="myFunction()" size="32" placeholder="名前検索">
+        <input type="text" id="search-text" onkeyup="myFunction()" placeholder="名前検索">
         <input type="submit" value="&#xf002">
     </form>
 
     <!-- 園児リスト -->
     <ul id="list">
-        <li><a href="#">Aくん</a></li>
-        <li><a href="#">Bちゃん</a></li>
-        <li><a href="#">Cくん</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳</a></li>
     </ul>
 </div>
 {%endblock%}
@@ -109,8 +103,9 @@
 <nav class="box1">
     <h2>連絡帳関連</h2>
     <ul class="submenu">
+        <!-- 「詳細」は園児の名前を押下時表示される画面 -->
         <li><a href="{% url 'main:contactDetail' %}">詳細</a></li>
-        <li><a href="#">追加</a></li>
+        <li><a href="{% url 'main:contactTemplate' %}">テンプレートの作成</a></li>
         <li><a href="#">編集</a></li>
         <li><a href="#">削除</a></li>
         <li><a href="{% url 'main:contactTop_oya' %}">親画面</a></li>

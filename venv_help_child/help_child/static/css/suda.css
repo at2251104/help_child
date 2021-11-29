@@ -1,375 +1,982 @@
 @charset "utf-8";
 
-/*全体*/
-.wrapper {
-  max-width: 600px;
-  margin: 0 auto;
-  color: #666;
-}
-#planListDetailheader {
-  text-align: center;
-  font-size: 24px;
-  width: 100%;
-  margin: 1rem 0 0;
+/*PC用の設定以下487行目まで*/
+@media screen and (min-width: 801px) {
+  /*全体*/
+  .wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #666;
+  }
+  /*planListdetail全体*/
+  #planListDetailheader {
+    text-align: center;
+    font-size: 24px;
+    width: 100%;
+    margin: 1rem 0 0;
+  }
+
+  /*カレンダー*/
+  #calendar {
+    text-align: center;
+    width: 100%;
+  }
+  table {
+    outline: 2px solid #ddd;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th {
+    color: #000;
+  }
+  th,
+  td {
+    outline: 1px solid #ddd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  /*日曜日*/
+  td:first-child {
+    color: red;
+  }
+  /*土曜日*/
+  td:last-child {
+    color: blue;
+  }
+
+  /*前後月の日付*/
+  td.disabled {
+    color: #ccc;
+  }
+  /*本日*/
+  td.today {
+    background-color: #d65e72;
+    color: #fff;
+  }
+
+  /*ボタン*/
+  #next-prev-button {
+    position: relative;
+  }
+  #next-prev-button button {
+    cursor: pointer;
+    background: #b78d4a;
+    color: #fff;
+    border: 1px solid #b78d4a;
+    border-radius: 4px;
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    margin: 1rem 0;
+  }
+  #next-prev-button button:hover {
+    background-color: #d4bb92;
+    border-color: #d4bb92;
+  }
+  #prev {
+    float: left;
+  }
+  #prevBottom {
+    position: relative;
+    left: 300px;
+    top: 400px;
+    z-index: 2;
+  }
+  #planlistDetailToday h2 {
+    width: 100%;
+    font-size: 20px;
+    top: 500px;
+    color: #ffffff;
+    background-size: contain;
+    background-color: skyblue;
+    margin-left: 0;
+    margin-right: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    position: relative;
+  }
+
+  #next {
+    float: right;
+  }
+  #nextBottom {
+    position: absolute;
+    right: 300px;
+    top: 400px;
+    z-index: 2;
+  }
+
+  /* 土曜日の色設定 */
+  td.ui-datepicker-week-end:last-child a.ui-state-default {
+    color: #00f !important; /* 文字色：青 */
+  }
+  /* 日曜日の色設定 */
+  td.ui-datepicker-week-end:first-child a.ui-state-default {
+    color: #f00 !important; /* 文字色：赤 */
+  }
+
+  .buttonImage {
+    display: inline-block;
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .visiblity {
+    visibility: hidden;
+  }
+  .flapbutton {
+    border: 1px solid #3079ed;
+    background-color: #4d90fe;
+    width: 16px;
+    height: 16px;
+  }
+  a img.arrow {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    /* 位置合わせ用 */
+    vertical-align: middle;
+    margin: 0 10px 5px 0;
+  }
+  a span.arrow {
+    width: 24px;
+    height: 24px;
+    background-image: url(calender.png);
+    background-size: 24px 24px;
+    display: inline-block;
+    text-indent: -9999px;
+    /* 位置合わせ用 */
+    vertical-align: middle;
+    margin: 0 10px 5px 0;
+  }
+
+  img.ui-datepicker-trigger {
+    cursor: pointer;
+    margin-left: 7px !important;
+    vertical-align: middle;
+  }
+
+  .ta1 {
+    width: 96%;
+    margin: 0;
+    margin-bottom: 15px;
+    background: #fff; /*背景色（古いブラウザ用）*/
+    background: rgba(
+      255,
+      255,
+      255,
+      0.8
+    ); /*背景色。255,255,255は白の事で0.8は透明度80%の事。*/
+    position: relative;
+  }
+
+  .planListDetailremarks {
+    font-size: 30px;
+
+    padding: 5px;
+    margin-right: 900px;
+    clear: both;
+
+    background: #fff; /*背景色*/
+    margin-right: 100px;
+    margin-left: 100px;
+    border: 1px solid #ccc; /*枠線の幅、線種、色*/
+    border-radius: 50px; /*角丸のサイズ。大きめにしておけばOK。*/
+    padding: 5px 5px 5px 5px;
+    position: relative;
+  }
+
+  /* === ボタンを表示するエリア ============================== */
+  .switchArea {
+    line-height: 60px; /* 1行の高さ          */
+    letter-spacing: 0; /* 文字間             */
+    text-align: center; /* 文字位置は中央     */
+    font-size: 27px; /* 文字サイズ         */
+
+    position: relative; /* 親要素が基点       */
+    margin: auto; /* 中央寄せ           */
+    width: 219px; /* ボタンの横幅       */
+    background: #fff; /* デフォルト背景色   */
+  }
+
+  /* === チェックボックス ==================================== */
+  .switchArea input[type="checkbox"] {
+    display: none; /* チェックボックス非表示 */
+  }
+
+  /* === チェックボックスのラベル（標準） ==================== */
+  .switchArea label {
+    display: block; /* ボックス要素に変更 */
+    box-sizing: border-box; /* 枠線を含んだサイズ */
+    height: 60px; /* ボタンの高さ       */
+    border: 2px solid #990000; /* 未選択タブのの枠線 */
+    border-radius: 30px; /* 角丸               */
+  }
+
+  /* === チェックボックスのラベル（ONのとき） ================ */
+  .switchArea input[type="checkbox"]:checked + label {
+    border-color: #7f007f; /* 選択タブの枠線     */
+  }
+
+  /* === 表示する文字（標準） ================================ */
+  .switchArea label span:after {
+    content: "閲覧"; /* 表示する文字       */
+    padding: 0 0 0 36px; /* 表示する位置       */
+    color: #990000; /* 文字色             */
+  }
+
+  /* === 表示する文字（ONのとき） ============================ */
+  .switchArea input[type="checkbox"]:checked + label span:after {
+    content: "記入"; /* 表示する文字       */
+    padding: 0 36px 0 0; /* 表示する位置       */
+    color: #7f007f; /* 文字色             */
+  }
+
+  /* === 丸部分のSTYLE（標準） =============================== */
+  .switchArea #swImg {
+    position: absolute; /* 親要素からの相対位置*/
+    width: 52px; /* 丸の横幅           */
+    height: 52px; /* 丸の高さ           */
+    background: #990000; /* カーソルタブの背景 */
+    top: 4px; /* 親要素からの位置   */
+    left: 4px; /* 親要素からの位置   */
+    border-radius: 26px; /* 角丸               */
+    transition: 0.2s; /* 滑らか変化         */
+  }
+
+  /* === 丸部分のSTYLE（ONのとき） =========================== */
+  .switchArea input[type="checkbox"]:checked ~ #swImg {
+    transform: translateX(159px); /* 丸も右へ移動       */
+    background: #7f007f; /* カーソルタブの背景 */
+  }
+
+  #classSelectBox {
+    position: relative;
+    text-align: center;
+  }
+
+  #planAdd {
+    position: relative;
+  }
+  .planAddButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1em 2em;
+    width: 300px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #cccccc;
+    transition: 0.3s;
+  }
+
+  .button01 a::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #333333;
+    border-right: 3px solid #333333;
+    transform: rotate(45deg);
+  }
+
+  .button01 a:hover {
+    text-decoration: none;
+    background-color: coral;
+  }
+
+  .app_checkbox input[type="checkbox"] {
+    display: none;
+  }
+  .app_checkbox input[type="checkbox"] + label {
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: content-box;
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+  }
+  .app_checkbox input[type="checkbox"]:checked + label {
+    background-color: #78d376;
+    border-color: #78d376;
+  }
+  .app_checkbox input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px; /* widthと同じ 上のラベルの高さに揃える */
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px gray;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .app_checkbox input[type="checkbox"]:checked + label:before {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    box-shadow: none;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  #plmain {
+    height: 100%;
+    margin-top: 30%;
+    margin-left: 30%;
+    position: absolute;
+    overflow: auto;
+  }
+  #plmain h2 {
+    font-size: 30px;
+    text-align: center;
+  }
+  #plmain form {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*planListDetail画面*~390/
+/*日付入力欄(target)とカレンダーアイコンに参照させるためのクラス*/
+  .planlistDetailCenter {
+    vertical-align: center;
+    top: 20px;
+    position: relative;
+  }
+  .planlistDetailCenter select {
+    font-size: 20px;
+    width: 300px;
+    border: 2px solid skyblue;
+    border-radius: 3px;
+    margin-bottom: 40px;
+  }
+
+  /*planListDetail画面の今日の行事名表示のためのID*/
+  #planListDetailCaption h2 {
+    width: 12%;
+    position: relative;
+  }
+
+  #planListDetailCaption h3 {
+    width: 5%;
+    position: relative;
+  }
+  #planListDetailCaption ul {
+    list-style-type: disc;
+    margin-left: 24px; /* リストの左側に余白 */
+    text-align: left;
+    font-size: 20px;
+  }
+
+  /*planListDetail画面の備考欄のためのクラス*/
+  .remarksBox2 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    font-size: 20px;
+    color: #6091d3; /*文字色*/
+    background: #fff;
+    border: solid 3px #6091d3; /*線*/
+    border-radius: 10px; /*角の丸み*/
+    position: relative;
+  }
+
+  .remarksBox2 p {
+    margin: 0;
+    padding: 0;
+  }
+  /*planListDetail画面終了*/
+
+  /* checkboxのCSS */
+  .title {
+    display: inline-block;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .checkAll {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #00abea;
+  }
+
+  .list {
+    display: flex;
+    list-style-type: none;
+  }
+
+  .item {
+    margin-bottom: 20px;
+  }
+  .item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .label {
+    cursor: pointer;
+  }
+
+  .text {
+    font-weight: bold;
+  }
+
+  .remarksBox1 {
+    resize: none;
+    font-size: 20px;
+    border-color: skyblue;
+    border: 5px solid skyblue; /* 枠線 */
+    border-radius: 0.67em; /* 角丸 */
+  }
+
+  /*日付入力欄のCSS*/
+  #target {
+    font-size: 20px;
+    border-color: skyblue;
+    border: 2px solid skyblue; /* 枠線 */
+    border-radius: 0.27em; /* 角丸 */
+    font-family: cursive; /*フォント指定(いじるかもしれない)*/
+    margin-bottom: 20px;
+  }
+  .underline {
+    padding: auto;
+    border-bottom: 1px solid red;
+  }
+  .planListAddInputBox {
+    font-size: 20px;
+    border-color: skyblue;
+    border: 5px solid skyblue; /* 枠線 */
+    border-radius: 0.67em; /* 角丸 */
+  }
+
+  .planNameStyle {
+    font-size: 20px;
+  }
+
+  .planlistAddButton {
+    font-size: 15px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8; /*ボタン色*/
+    color: #fff;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+  }
+
+  .planAddButton:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(8px); /*下に動く*/
+    border-bottom: none; /*線を消す*/
+  }
+
+  /*planListUpdateの逆三角形クラス*/
+  .planListUpdateReverseTryungle {
+    font-size: 40px;
+    width: left 40%;
+    margin-bottom: 20px;
+    color: #00abea;
+  }
 }
 
-/*カレンダー*/
-#calendar {
-  text-align: center;
-  width: 100%;
-}
-table {
-  outline: 2px solid #ddd;
-  border-collapse: collapse;
-  width: 100%;
-}
-th {
-  color: #000;
-}
-th,
-td {
-  outline: 1px solid #ddd;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-}
-/*日曜日*/
-td:first-child {
-  color: red;
-}
-/*土曜日*/
-td:last-child {
-  color: blue;
-}
+/*スマホ・タブレット用の設定以下972行目まで*/
+@media screen and (max-width: 800px) {
+  .wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #666;
+  }
+  /*planListdetail全体*/
+  #planListDetailheader {
+    text-align: center;
+    font-size: 24px;
+    width: 100%;
+    margin: 1rem 0 0;
+  }
 
-/*前後月の日付*/
-td.disabled {
-  color: #ccc;
-}
-/*本日*/
-td.today {
-  background-color: #d65e72;
-  color: #fff;
-}
+  /*カレンダー*/
+  #calendar {
+    text-align: center;
+    width: 100%;
+  }
+  table {
+    outline: 2px solid #ddd;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th {
+    color: #000;
+  }
+  th,
+  td {
+    outline: 1px solid #ddd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  /*日曜日*/
+  td:first-child {
+    color: red;
+  }
+  /*土曜日*/
+  td:last-child {
+    color: blue;
+  }
 
-/*ボタン*/
-#next-prev-button {
-  position: relative;
-}
-#next-prev-button button {
-  cursor: pointer;
-  background: #b78d4a;
-  color: #fff;
-  border: 1px solid #b78d4a;
-  border-radius: 4px;
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  margin: 1rem 0;
-}
-#next-prev-button button:hover {
-  background-color: #d4bb92;
-  border-color: #d4bb92;
-}
-#prev {
-  float: left;
-}
-#prevBottom {
-  position: relative;
-  left: 300px;
-  top: 400px;
-  z-index: 2;
-}
-#planlistDetailToday h2 {
-  width: 100%;
-  font-size: 20px;
-  top: 500px;
-  color: #ffffff;
-  background-size: contain;
-  background-color: skyblue;
-  margin-left: 0;
-  margin-right: 0;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-  border-bottom-right-radius: 40px;
-  border-bottom-left-radius: 40px;
-  position: relative;
-}
+  /*前後月の日付*/
+  td.disabled {
+    color: #ccc;
+  }
+  /*本日*/
+  td.today {
+    background-color: #d65e72;
+    color: #fff;
+  }
 
-#next {
-  float: right;
-}
-#nextBottom {
-  position: absolute;
-  right: 300px;
-  top: 400px;
-  z-index: 2;
-}
+  /*ボタン*/
+  #next-prev-button {
+    position: relative;
+  }
+  #next-prev-button button {
+    cursor: pointer;
+    background: #b78d4a;
+    color: #fff;
+    border: 1px solid #b78d4a;
+    border-radius: 4px;
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    margin: 1rem 0;
+  }
+  #next-prev-button button:hover {
+    background-color: #d4bb92;
+    border-color: #d4bb92;
+  }
+  #prev {
+    float: left;
+  }
+  #prevBottom {
+    position: relative;
+    left: 300px;
+    top: 400px;
+    z-index: 2;
+  }
+  #planlistDetailToday h2 {
+    width: 100%;
+    font-size: 20px;
+    top: 500px;
+    color: #ffffff;
+    background-size: contain;
+    background-color: skyblue;
+    margin-left: 0;
+    margin-right: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    position: relative;
+  }
 
-/* 土曜日の色設定 */
-td.ui-datepicker-week-end:last-child a.ui-state-default {
-  color: #00f !important; /* 文字色：青 */
-}
-/* 日曜日の色設定 */
-td.ui-datepicker-week-end:first-child a.ui-state-default {
-  color: #f00 !important; /* 文字色：赤 */
-}
+  #next {
+    float: right;
+  }
+  #nextBottom {
+    position: absolute;
+    right: 300px;
+    top: 400px;
+    z-index: 2;
+  }
 
-.buttonImage {
-  display: inline-block;
-  margin-top: 2px;
-  width: 16px;
-  height: 16px;
-}
-.planlistDetailCenter {
-  vertical-align: center;
-  top: 20px;
-  position: relative;
-}
-.visiblity {
-  visibility: hidden;
-}
-.flapbutton {
-  border: 1px solid #3079ed;
-  background-color: #4d90fe;
-  width: 16px;
-  height: 16px;
-}
-a img.arrow {
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  /* 位置合わせ用 */
-  vertical-align: middle;
-  margin: 0 10px 5px 0;
-}
-a span.arrow {
-  width: 24px;
-  height: 24px;
-  background-image: url(calender.png);
-  background-size: 24px 24px;
-  display: inline-block;
-  text-indent: -9999px;
-  /* 位置合わせ用 */
-  vertical-align: middle;
-  margin: 0 10px 5px 0;
-}
+  /* 土曜日の色設定 */
+  td.ui-datepicker-week-end:last-child a.ui-state-default {
+    color: #00f !important; /* 文字色：青 */
+  }
+  /* 日曜日の色設定 */
+  td.ui-datepicker-week-end:first-child a.ui-state-default {
+    color: #f00 !important; /* 文字色：赤 */
+  }
 
-img.ui-datepicker-trigger {
-  cursor: pointer;
-  margin-left: 7px !important;
-  vertical-align: middle;
-}
+  .buttonImage {
+    display: inline-block;
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+  }
 
-.ta1 {
-  width: 96%;
-  margin: 0;
-  margin-bottom: 15px;
-  background: #fff; /*背景色（古いブラウザ用）*/
-  background: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /*背景色。255,255,255は白の事で0.8は透明度80%の事。*/
-  position: relative;
-}
+  .visiblity {
+    visibility: hidden;
+  }
+  .flapbutton {
+    border: 1px solid #3079ed;
+    background-color: #4d90fe;
+    width: 16px;
+    height: 16px;
+  }
+  a img.arrow {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    /* 位置合わせ用 */
+    vertical-align: middle;
+    margin: 0 10px 5px 0;
+  }
+  a span.arrow {
+    width: 24px;
+    height: 24px;
+    background-image: url(calender.png);
+    background-size: 24px 24px;
+    display: inline-block;
+    text-indent: -9999px;
+    /* 位置合わせ用 */
+    vertical-align: middle;
+    margin: 0 10px 5px 0;
+  }
 
-.planListDetailremarks {
-  font-size: 30px;
+  img.ui-datepicker-trigger {
+    cursor: pointer;
+    margin-left: 7px !important;
+    vertical-align: middle;
+  }
 
-  padding: 5px;
-  margin-right: 900px;
-  clear: both;
+  .ta1 {
+    width: 96%;
+    margin: 0;
+    margin-bottom: 15px;
+    background: #fff; /*背景色（古いブラウザ用）*/
+    background: rgba(
+      255,
+      255,
+      255,
+      0.8
+    ); /*背景色。255,255,255は白の事で0.8は透明度80%の事。*/
+    position: relative;
+  }
 
-  background: #fff; /*背景色*/
-  margin-right: 100px;
-  margin-left: 100px;
-  border: 1px solid #ccc; /*枠線の幅、線種、色*/
-  border-radius: 50px; /*角丸のサイズ。大きめにしておけばOK。*/
-  padding: 5px 5px 5px 5px;
-  position: relative;
-}
+  .planListDetailremarks {
+    font-size: 30px;
 
-/* === ボタンを表示するエリア ============================== */
-.switchArea {
-  line-height: 60px; /* 1行の高さ          */
-  letter-spacing: 0; /* 文字間             */
-  text-align: center; /* 文字位置は中央     */
-  font-size: 27px; /* 文字サイズ         */
+    padding: 5px;
+    margin-right: 900px;
+    clear: both;
 
-  position: relative; /* 親要素が基点       */
-  margin: auto; /* 中央寄せ           */
-  width: 219px; /* ボタンの横幅       */
-  background: #fff; /* デフォルト背景色   */
-}
+    background: #fff; /*背景色*/
+    margin-right: 100px;
+    margin-left: 100px;
+    border: 1px solid #ccc; /*枠線の幅、線種、色*/
+    border-radius: 50px; /*角丸のサイズ。大きめにしておけばOK。*/
+    padding: 5px 5px 5px 5px;
+    position: relative;
+  }
 
-/* === チェックボックス ==================================== */
-.switchArea input[type="checkbox"] {
-  display: none; /* チェックボックス非表示 */
-}
+  /* === ボタンを表示するエリア ============================== */
+  .switchArea {
+    line-height: 60px; /* 1行の高さ          */
+    letter-spacing: 0; /* 文字間             */
+    text-align: center; /* 文字位置は中央     */
+    font-size: 27px; /* 文字サイズ         */
 
-/* === チェックボックスのラベル（標準） ==================== */
-.switchArea label {
-  display: block; /* ボックス要素に変更 */
-  box-sizing: border-box; /* 枠線を含んだサイズ */
-  height: 60px; /* ボタンの高さ       */
-  border: 2px solid #990000; /* 未選択タブのの枠線 */
-  border-radius: 30px; /* 角丸               */
-}
+    position: relative; /* 親要素が基点       */
+    margin: auto; /* 中央寄せ           */
+    width: 219px; /* ボタンの横幅       */
+    background: #fff; /* デフォルト背景色   */
+  }
 
-/* === チェックボックスのラベル（ONのとき） ================ */
-.switchArea input[type="checkbox"]:checked + label {
-  border-color: #7f007f; /* 選択タブの枠線     */
-}
+  /* === チェックボックス ==================================== */
+  .switchArea input[type="checkbox"] {
+    display: none; /* チェックボックス非表示 */
+  }
 
-/* === 表示する文字（標準） ================================ */
-.switchArea label span:after {
-  content: "閲覧"; /* 表示する文字       */
-  padding: 0 0 0 36px; /* 表示する位置       */
-  color: #990000; /* 文字色             */
-}
+  /* === チェックボックスのラベル（標準） ==================== */
+  .switchArea label {
+    display: block; /* ボックス要素に変更 */
+    box-sizing: border-box; /* 枠線を含んだサイズ */
+    height: 60px; /* ボタンの高さ       */
+    border: 2px solid #990000; /* 未選択タブのの枠線 */
+    border-radius: 30px; /* 角丸               */
+  }
 
-/* === 表示する文字（ONのとき） ============================ */
-.switchArea input[type="checkbox"]:checked + label span:after {
-  content: "記入"; /* 表示する文字       */
-  padding: 0 36px 0 0; /* 表示する位置       */
-  color: #7f007f; /* 文字色             */
-}
+  /* === チェックボックスのラベル（ONのとき） ================ */
+  .switchArea input[type="checkbox"]:checked + label {
+    border-color: #7f007f; /* 選択タブの枠線     */
+  }
 
-/* === 丸部分のSTYLE（標準） =============================== */
-.switchArea #swImg {
-  position: absolute; /* 親要素からの相対位置*/
-  width: 52px; /* 丸の横幅           */
-  height: 52px; /* 丸の高さ           */
-  background: #990000; /* カーソルタブの背景 */
-  top: 4px; /* 親要素からの位置   */
-  left: 4px; /* 親要素からの位置   */
-  border-radius: 26px; /* 角丸               */
-  transition: 0.2s; /* 滑らか変化         */
-}
+  /* === 表示する文字（標準） ================================ */
+  .switchArea label span:after {
+    content: "閲覧"; /* 表示する文字       */
+    padding: 0 0 0 36px; /* 表示する位置       */
+    color: #990000; /* 文字色             */
+  }
 
-/* === 丸部分のSTYLE（ONのとき） =========================== */
-.switchArea input[type="checkbox"]:checked ~ #swImg {
-  transform: translateX(159px); /* 丸も右へ移動       */
-  background: #7f007f; /* カーソルタブの背景 */
-}
+  /* === 表示する文字（ONのとき） ============================ */
+  .switchArea input[type="checkbox"]:checked + label span:after {
+    content: "記入"; /* 表示する文字       */
+    padding: 0 36px 0 0; /* 表示する位置       */
+    color: #7f007f; /* 文字色             */
+  }
 
-#classSelectBox {
-  position: relative;
-  text-align: center;
-}
+  /* === 丸部分のSTYLE（標準） =============================== */
+  .switchArea #swImg {
+    position: absolute; /* 親要素からの相対位置*/
+    width: 52px; /* 丸の横幅           */
+    height: 52px; /* 丸の高さ           */
+    background: #990000; /* カーソルタブの背景 */
+    top: 4px; /* 親要素からの位置   */
+    left: 4px; /* 親要素からの位置   */
+    border-radius: 26px; /* 角丸               */
+    transition: 0.2s; /* 滑らか変化         */
+  }
 
-#planAdd {
-  position: relative;
-}
-.planAddButton {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  padding: 1em 2em;
-  width: 300px;
-  color: #333;
-  font-size: 18px;
-  font-weight: 700;
-  background-color: #cccccc;
-  transition: 0.3s;
-}
+  /* === 丸部分のSTYLE（ONのとき） =========================== */
+  .switchArea input[type="checkbox"]:checked ~ #swImg {
+    transform: translateX(159px); /* 丸も右へ移動       */
+    background: #7f007f; /* カーソルタブの背景 */
+  }
 
-.button01 a::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-top: 3px solid #333333;
-  border-right: 3px solid #333333;
-  transform: rotate(45deg);
-}
+  #classSelectBox {
+    position: relative;
+    text-align: center;
+  }
 
-.button01 a:hover {
-  text-decoration: none;
-  background-color: coral;
-}
+  #planAdd {
+    position: relative;
+  }
+  .planAddButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1em 2em;
+    width: 300px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #cccccc;
+    transition: 0.3s;
+  }
 
-.app_checkbox input[type="checkbox"] {
-  display: none;
-}
-.app_checkbox input[type="checkbox"] + label {
-  cursor: pointer;
-  display: inline-block;
-  box-sizing: content-box;
-  position: relative;
-  width: 60px;
-  height: 30px;
-  background-color: #fff;
-  border: 2px solid #ccc;
-  border-radius: 30px;
-}
-.app_checkbox input[type="checkbox"]:checked + label {
-  background-color: #78d376;
-  border-color: #78d376;
-}
-.app_checkbox input[type="checkbox"] + label:before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 30px;
-  height: 30px; /* widthと同じ 上のラベルの高さに揃える */
-  left: 0;
-  top: 0;
-  border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 2px 2px 4px gray;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-.app_checkbox input[type="checkbox"]:checked + label:before {
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-  box-shadow: none;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
+  .button01 a::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #333333;
+    border-right: 3px solid #333333;
+    transform: rotate(45deg);
+  }
 
-#attend-main {
-  float: right; /*右側に回り込み*/
-  width: 70%; /*幅*/
-  overflow: hidden;
-  padding-top: 30%; /*コンテンツ上にあける余白*/
-}
-#attend-main h2 {
-  font-size: 30px;
-  text-align: center;
-}
-#attend-main form {
-  margin-left: auto;
-  margin-right: auto;
-}
+  .button01 a:hover {
+    text-decoration: none;
+    background-color: coral;
+  }
 
-#planListDetailCaption h2 {
-  width: 12%;
-  position: relative;
-}
+  .app_checkbox input[type="checkbox"] {
+    display: none;
+  }
+  .app_checkbox input[type="checkbox"] + label {
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: content-box;
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+  }
+  .app_checkbox input[type="checkbox"]:checked + label {
+    background-color: #78d376;
+    border-color: #78d376;
+  }
+  .app_checkbox input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px; /* widthと同じ 上のラベルの高さに揃える */
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px gray;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .app_checkbox input[type="checkbox"]:checked + label:before {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    box-shadow: none;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
 
-#planListDetailCaption h3 {
-  width: 5%;
-  position: relative;
-}
-#planListDetailCaption ul {
-  list-style-type: disc;
-  margin-left: 24px; /* リストの左側に余白 */
-  text-align: left;
-}
-.remarksBox2 {
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  font-weight: bold;
-  color: #6091d3; /*文字色*/
-  background: #fff;
-  border: solid 3px #6091d3; /*線*/
-  border-radius: 10px; /*角の丸み*/
-  position: relative;
-}
-.remarksBox2 p {
-  margin: 0;
-  padding: 0;
+  #plmain {
+    width: 100%;
+    overflow: scroll;
+    position: relative;
+    box-sizing: border-box;
+    height: 100%;
+  }
+  #plmain h2 {
+    font-size: 30px;
+    text-align: center;
+  }
+  #plmain form {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*planListDetail画面*~390/
+/*日付入力欄(target)とカレンダーアイコンに参照させるためのクラス*/
+  .planlistDetailCenter {
+    vertical-align: center;
+    top: 20px;
+    position: relative;
+  }
+  .planlistDetailCenter select {
+    font-size: 20px;
+    width: 300px;
+    border: 2px solid skyblue;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+
+  /*planListDetail画面の今日の行事名表示のためのID*/
+  #planListDetailCaption h2 {
+    position: relative;
+  }
+
+  #planListDetailCaption h3 {
+    position: relative;
+  }
+  #planListDetailCaption ul {
+    text-align: center;
+    list-style-type: disc;
+    margin-left: 24px; /* リストの左側に余白 */
+    font-size: 20px;
+    list-style-position: inside;
+  }
+
+  /*planListDetail画面の備考欄のためのクラス*/
+  .remarksBox2 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    font-size: 20px;
+    color: #6091d3; /*文字色*/
+    background: #fff;
+    border: solid 3px #6091d3; /*線*/
+    border-radius: 10px; /*角の丸み*/
+    position: relative;
+  }
+
+  .remarksBox2 p {
+    margin: 0;
+    padding: 0;
+  }
+  /*planListDetail画面終了*/
+
+  /* checkboxのCSS */
+  .group {
+    width: 100%;
+  }
+
+  .title {
+    display: inline-block;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .checkAll {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #00abea;
+  }
+
+  .list {
+    display: flex;
+    list-style-type: none;
+  }
+
+  .item {
+    margin-bottom: 20px;
+  }
+  .item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .label {
+    cursor: pointer;
+  }
+
+  .text {
+    font-weight: bold;
+  }
+
+  .remarksBox1 {
+    width: 100%;
+    resize: none;
+    font-size: 20px;
+    border-color: skyblue;
+    border: 5px solid skyblue; /* 枠線 */
+    border-radius: 0.67em; /* 角丸 */
+  }
+
+  /*日付入力欄のCSS*/
+  #target {
+    font-size: 20px;
+    border-color: skyblue;
+    border: 2px solid skyblue; /* 枠線 */
+    border-radius: 0.27em; /* 角丸 */
+    font-family: cursive; /*フォント指定(いじるかもしれない)*/
+    margin-bottom: 20px;
+  }
+  .underline {
+    padding: auto;
+    border-bottom: 1px solid red;
+  }
+  .planListAddInputBox {
+    font-size: 20px;
+    border-color: skyblue;
+    border: 5px solid skyblue; /* 枠線 */
+    border-radius: 0.67em; /* 角丸 */
+  }
+
+  .planNameStyle {
+    font-size: 20px;
+  }
+
+  .planlistAddButton {
+    font-size: 15px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8; /*ボタン色*/
+    color: #fff;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+
+  .planAddButton:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(8px); /*下に動く*/
+    border-bottom: none; /*線を消す*/
+  }
+
+  /*planListUpdateの逆三角形クラス*/
+  .planListUpdateReverseTryungle {
+    font-size: 40px;
+    width: left 40%;
+    margin-bottom: 10px;
+    color: #00abea;
+    text-align: center;
+  }
 }
