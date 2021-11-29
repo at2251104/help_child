@@ -287,6 +287,8 @@ a.btn-border:hover:after {
 }
 #contact-book table {
   margin: auto;
+  background-color: #fff;
+  width: 100%;
 }
 #contact-book-table {
   display: table;
