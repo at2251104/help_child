@@ -27,7 +27,9 @@
 <div id="attend-main">
     <h2>登降園状態</h2>
     <div class="group">
-        <div class="title"><年齢選択></div>
+        <div class="title">
+            <年齢選択>
+        </div>
 
         <div class="search-box">
             <div class="checkAll">
@@ -75,43 +77,45 @@
                     </label>
                 </li>
             </ul>
-            <!-- <div class="group"> -->
-            <div class="title"><登園状態></div>
-            <div class="search-box">
-                <div class="checkAll">
-                    <label class="label">
-                        <input class="js-check-all" type="checkbox" name="area" data-check-all="area">
-                        <span class="text">All</span>
-                    </label>
+            <div class="group">
+                <div class="title">
+                    <登園状態>
                 </div>
-                <ul class="js-check-all-target list" data-check-all="area">
-                    <li class="item">
+                <div class="search-box">
+                    <div class="checkAll">
                         <label class="label">
-                            <input type="checkbox" name="area" value="area1">
-                            <span class="text">登園</span>
+                            <input class="js-check-all" type="checkbox" name="area" data-check-all="area">
+                            <span class="text">All</span>
                         </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="area" value="area2">
-                            <span class="text">降園</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="area" value="area3">
-                            <span class="text">遅刻</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="area" value="area4">
-                            <span class="text">早退</span>
-                        </label>
-                    </li>
-                </ul>
+                    </div>
+                    <ul class="js-check-all-target list" data-check-all="area">
+                        <li class="item">
+                            <label class="label">
+                                <input type="checkbox" name="area" value="area1">
+                                <span class="text">登園</span>
+                            </label>
+                        </li>
+                        <li class="item">
+                            <label class="label">
+                                <input type="checkbox" name="area" value="area2">
+                                <span class="text">降園</span>
+                            </label>
+                        </li>
+                        <li class="item">
+                            <label class="label">
+                                <input type="checkbox" name="area" value="area3">
+                                <span class="text">遅刻</span>
+                            </label>
+                        </li>
+                        <li class="item">
+                            <label class="label">
+                                <input type="checkbox" name="area" value="area4">
+                                <span class="text">早退</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <!-- </div> -->
         </div>
     </div>
 
@@ -126,6 +130,8 @@
         <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
         <li class="list_item" data-hobby="age3" data-area="area2"><a href="#">Bちゃん 3歳 降園</a></li>
         <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
+        <li class="list_item" data-hobby="age1" data-area="area1"><a href="#">Cくん 1歳 登園</a></li>
+
     </ul>
 </div>
 {% endblock %}
