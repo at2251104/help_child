@@ -70,12 +70,11 @@
   padding-top: 30%; 
 }
 
-#contactTop-main h2 {
+/* #contactTop-main h2 { */
+#h2 {
   clear: both;
   font-size: 17px; /*文字サイズ*/
   text-align: left; /*テキストの位置*/
-    /* width: 90%; 幅を制限 */
-  /* display: inline-block; 文字数に合わせて幅を変える */
   margin-bottom: 15px;
   color: #fff; /*文字色*/
   padding: 8px 30px; /*上下、左右への余白*/
