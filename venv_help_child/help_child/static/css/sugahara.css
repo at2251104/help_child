@@ -281,10 +281,12 @@ a.btn-border:hover:after {
   float: right;
 }
 #contact-book {
-  margin-left: auto;
-  margin-right: auto;
+  display: block;
   margin-top: 10%;
   margin-bottom: 10%;
+}
+#contact-book table {
+  margin: auto;
 }
 #contact-book-table {
   display: table;
@@ -317,4 +319,3 @@ a.btn-border:hover:after {
 }
 /*contactDetail画面
 ---------------------------------------------------------------------------*/
-
