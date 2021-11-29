@@ -57,39 +57,39 @@
                     <td colspan="3">
                         時刻
                     </td>
-                    <td colspan="3" nowrap>
-                        主食、副食、その他
+                    <td colspan="3">
+                        献立
                     </td>
                     <td colspan="3">
                         時刻
                     </td>
-                    <td colspan="3" nowrap>
-                        主食、副食、その他
+                    <td colspan="3">
+                        献立
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3">
                         <p>前夜</p>
-                        <input type="time" name="dinner_time">
+                        <input type="time" name="dinner_time" class="time">
                     </td>
                     <td colspan="3">
-                        <input type="text" name="前夜" class="food-text">
+                        <textarea cols="" rows="" name="dinner" class="food-text"></textarea>
                     </td>
                     <td colspan="3" rowspan="2">
                         <p>昼食</p>
-                        <input type="time" name="lunch_time">
+                        <input type="time" name="lunch_time" class="time">
                     </td>
                     <td colspan="3" rowspan="2">
-                        <input type="text" name="昼食" class="food-text">
+                        <textarea cols="" rows="" name="lunch" class="food-text"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3">
                         <p>今朝</p>
-                        <input type="time" name="breakfast_time">
+                        <input type="time" name="breakfast_time" class="time">
                     </td>
                     <td colspan="3">
-                        <input type="text" name="今朝" class="food-text">
+                        <textarea cols="" rows="" name="breakfast" class="food-text"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -97,12 +97,14 @@
                         睡眠
                     </td>
                     <td colspan="6">
-                        <p>就寝(時分) 起床(時分)</p>
-                        <input type="time" name="home_inbed">~<input type="time" name="home_outbed">
+                        <p>就寝(時分)起床(時分)</p>
+                        <input type="time" name="home_inbed" class="time">~<input type="time" name="home_outbed"
+                            class="time">
                     </td>
                     <td colspan="6">
-                        <p>就寝(時分) 起床(時分)</p>
-                        <input type="time" name="school_inbed">~<input type="time" name="school_outbed">
+                        <p>就寝(時分)起床(時分)</p>
+                        <input type="time" name="school_inbed" class="time">~<input type="time" name="school_outbed"
+                            class="time">
                     </td>
                 </tr>
                 <tr>
@@ -124,11 +126,11 @@
                     <td style="writing-mode: tb-rl">
                         排便
                     </td>
-                    <td colspan="6" nowrap>
+                    <td colspan="6">
                         <label><input type="radio" name="home_hardness">水</label>
                         <label><input type="radio" name="home_hardness">軟</label>
                         <label><input type="radio" name="home_hardness">普</label>
-                        <label><input type="radio" name="home_hardness">硬</label>
+                        <label><input type="radio" name="home_hardness">硬</label><br>
                         <select name="number">
                             <option value="zero">0</option>
                             <option value="one">1</option>
@@ -138,11 +140,11 @@
                             <option value="five">5</option>
                         </select>回
                     </td>
-                    <td colspan="6" nowrap>
+                    <td colspan="6">
                         <label><input type="radio" name="school_hardness">水</label>
                         <label><input type="radio" name="school_hardness">軟</label>
                         <label><input type="radio" name="school_hardness">普</label>
-                        <label><input type="radio" name="school_hardness">硬</label>
+                        <label><input type="radio" name="school_hardness">硬</label><br>
                         <select name="number">
                             <option value="zero">0</option>
                             <option value="one">1</option>
@@ -165,7 +167,7 @@
                         検温
                     </td>
                     <td colspan="3">
-                        <p>(時分)</p><input type="time" name="home_temp_time"><br>
+                        <p>(時分)</p><input type="time" name="home_temp_time" class="time"><br>
                         <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
                             list="temperature">
                         <datalist id="temperature">
@@ -243,7 +245,7 @@
                         検温
                     </td>
                     <td colspan="2">
-                        <p>(時分)</p><input type="time" name="home_temp_time"><br>
+                        <p>(時分)</p><input type="time" name="home_temp_time" class="time"><br>
                         <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
                             list="temperature">
                         <datalist id="temperature">
@@ -316,10 +318,10 @@
                         連絡事項
                     </td>
                     <td colspan="6">
-                        <textarea id="story" name="home_information"></textarea>
+                        <textarea id="story" name="home_information" class="info-text"></textarea>
                     </td>
                     <td colspan="6">
-                        <textarea id="story" name="school_information"></textarea>
+                        <textarea id="story" name="school_information" class="info-text"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -336,13 +338,13 @@
                             <option value="祖母">祖母</option>
                         </select>
                         <p>(時分)</p>
-                        <input type="time" name="pickup_time">
+                        <input type="time" name="pickup_time" class="time">
                     </td>
                     <td style="writing-mode: tb-rl">
                         記入者
                     </td>
                     <td colspan="6">
-                        <textarea id="story" name="filler_name"></textarea>
+                        <input type="text" name="writer" class="writer-text">
                     </td>
                 </tr>
             </table>
