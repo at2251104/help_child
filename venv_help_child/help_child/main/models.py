@@ -17,6 +17,7 @@ class T004Class(models.Model):
     def __str__(self):
         return self.t004_fd01_class_name
 
+# 園児の個人データ
 class T001Children(models.Model):
     t001_pk01_children_id = models.CharField(verbose_name='園児ID',db_column='T001_PK01_children-id', primary_key=True, max_length=150)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_fk01_class_id = models.ForeignKey(T004Class, models.DO_NOTHING, default='1',verbose_name='クラスID',db_column='T001_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
