@@ -62,6 +62,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         _('username'),
         max_length=150,
         help_text=_('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
+        default='01',
         validators=[username_validator],
         error_messages={
             'unique': _("A user with that username already exists."),
