@@ -138,7 +138,7 @@ class T002Parents(models.Model):
                                 )
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
-        return f'{user.email} - {self.id} -{self.notification}'
+        return f'{self.user} - {self.id} -{self.notification}'
 
     class Meta:
         verbose_name_plural="保護者テーブル"
