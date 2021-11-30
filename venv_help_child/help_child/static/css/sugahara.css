@@ -314,7 +314,9 @@ a.btn-border:hover:after {
 .table-col-8,
 .table-col-11 {
   width: 25px;
+  text-align: center;
   vertical-align: middle;
+  writing-mode: tb-rl;
 }
 .time {
   width: 68px;
