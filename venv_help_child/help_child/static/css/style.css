@@ -224,6 +224,7 @@ a:hover {
 #menubar-s a {
   display: block;
   text-decoration: none;
+  font-size: 18px;
   background: #fff; /*背景色（古いブラウザ用）*/
   background: linear-gradient(#fff 50%, #eee); /*背景色グラデーション*/
   text-align: center; /*文字をセンタリング*/

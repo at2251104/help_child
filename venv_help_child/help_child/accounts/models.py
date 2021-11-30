@@ -104,6 +104,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         verbose_name = ('user')
         verbose_name_plural = ('ユーザー')
 
+    def __str__(self):
+        return self.username
+
     def clean(self):
         super().clean()
         self.email = self.__class__.objects.normalize_email(self.email)
@@ -135,7 +138,7 @@ class T002Parents(models.Model):
                                 )
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
-        return f'{user.email} - {self.id} -{self.notification}'
+        return f'{self.user} - {self.id} -{self.notification}'
 
     class Meta:
         verbose_name_plural="保護者テーブル"
@@ -156,7 +159,7 @@ class T003Childminder(models.Model):
 
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
-        return f'{user.email} - {self.id} - {self.class_id}'
+        return f'{self.user} - {self.id} - {self.class_id}'
 
     class Meta:
         verbose_name_plural="保育士テーブル"

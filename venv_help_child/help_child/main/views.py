@@ -11,6 +11,7 @@ class HomeView(generic.TemplateView):
 # class LoginView(generic.TemplateView):
 #     template_name="login.html"
 
+# 位置情報関連----------------------------------------------------------------
 class LocationAdminView(generic.TemplateView):
     template_name="locationAdmin.html"
 
@@ -20,6 +21,7 @@ class LocationParentView(generic.TemplateView):
 class LocationConfigView(generic.TemplateView):
     template_name="locationConfig.html"
 
+# 連絡帳関連------------------------------------------------------------------
 class ContactTopView(generic.TemplateView):
     template_name="contactTop.html"
 
@@ -35,31 +37,14 @@ class ContactUpdateView(generic.TemplateView):
 class ContactTemplateView(generic.TemplateView):
     template_name="contactTemplate.html"
 
-class MessageAddressView(generic.TemplateView):
-    template_name="messageAddress.html"
-
-class MessageView(generic.TemplateView):
-    template_name="message.html"
-
+# 登降園関連--------------------------------------------------------------------
 class AttendView(generic.TemplateView):
     template_name="attend.html"
 
 class TagScanView(generic.TemplateView):
     template_name="tagScan.html"
 
-# 名簿画面は作らないことになった
-# class NameListView(generic.TemplateView):
-#     template_name="nameList.html"
-
-# class NameListDetailView(generic.TemplateView):
-#     template_name="nameListDetail.html"
-
-# class NameListAddView(generic.TemplateView):
-#     template_name="nameListAdd.html"
-
-# class NameListUpdateView(generic.TemplateView):
-#     template_name="nameListUpdate.html"
-
+# 予定表関連--------------------------------------------------------------------
 class PlanListView(generic.TemplateView):
     template_name="planlist.html"
 
@@ -74,9 +59,3 @@ class PlanListUpdateView(generic.TemplateView):
 
 class PlanListDeleteView(generic.TemplateView):
     template_name="planListDelete.html"
-
-class ParentConfigView(generic.TemplateView):
-    template_name="parentConfig.html"
-
-class TeacherConfigView(generic.TemplateView):
-    template_name="teacherConfig.html"

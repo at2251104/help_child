@@ -16,18 +16,8 @@ urlpatterns=[
     path('contactUpdate',views.ContactUpdateView.as_view(),name="contactUpdate"),
     path('contactTemplate',views.ContactTemplateView.as_view(),name="contactTemplate"),
 
-
-    path('messageAddress',views.MessageAddressView.as_view(),name="messageAddress"),
-    path('message',views.MessageView.as_view(),name="message"),
-
     path('attend',views.AttendView.as_view(),name="attend"),
     path('tagScan',views.TagScanView.as_view(),name="tagScan"),
-
-    # 名簿画面は作らないことになった
-    # path('nameList',views.NameListView.as_view(),name="nameList"),
-    # path('nameListAdd',views.NameListAddView.as_view(),name="nameListAdd"),
-    # path('nameListDetail',views.NameListDetailView.as_view(),name="nameListDetail"),
-    # path('nameListUpdate',views.NameListUpdateView.as_view(),name="nameListUpdate"),
 
     path('planList',views.PlanListView.as_view(),name="planList"),
     path('planListAdd',views.PlanListAddView.as_view(),name="planListAdd"),
@@ -35,7 +25,4 @@ urlpatterns=[
     path('planListUpdate',views.PlanListUpdateView.as_view(),name="planListUpdate"),
     path('planListDelete',views.PlanListDeleteView.as_view(),name="planListDelete"),
 
-    path('parentConfig',views.ParentConfigView.as_view(),name="parentConfig"),
-    path('teacherConfig',views.TeacherConfigView.as_view(),name="teacherConfig"),
-    
 ]
