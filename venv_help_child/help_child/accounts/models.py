@@ -159,7 +159,7 @@ class T003Childminder(models.Model):
 
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
-        return f'{user.email} - {self.id} - {self.class_id}'
+        return f'{self.user} - {self.id} - {self.class_id}'
 
     class Meta:
         verbose_name_plural="保育士テーブル"
