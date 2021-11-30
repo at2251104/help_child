@@ -20,7 +20,7 @@ class T001Children(models.Model):
     t001_pk01_children_id = models.CharField(verbose_name='園児ID',default='1',db_column='T001_PK01_children-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_fk01_class_id = models.ForeignKey(T004Class, models.DO_NOTHING, default='1',verbose_name='クラスID',db_column='T001_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_fk02_parents_id = models.ForeignKey(T002Parents, models.DO_NOTHING,default='1',verbose_name='保護者ID', db_column='T001_FK02_parents-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t001_fd01_last_name = models.CharField(verbose_name='姓',default='1',db_column='T001_FD01_name', max_length=20)  # Field name made lowercase.
+    t001_fd01_last_name = models.CharField(verbose_name='姓',default='1',max_length=20)  # Field name made lowercase.
     t001_fd07_first_name = models.CharField(('名'),default='1', max_length=20)
     t001_fd08_last_name_kana = models.CharField(('姓（かな）'),default='1', max_length=20)
     t001_fd09_first_name_kana = models.CharField(('名（かな）'), default='1',max_length=20)
@@ -37,7 +37,7 @@ class T001Children(models.Model):
         verbose_name_plural="園児テーブル"
 
     def __str__(self):
-        return self.t001_fd01_name
+        return self.t001_pk01_children_id
 
 
 
@@ -123,9 +123,10 @@ class T008Schedule(models.Model):
     t008_fd01_event = models.CharField(verbose_name='イベント名',db_column='T008_FD01_event', max_length=100)  # Field name made lowercase.
     t008_fd02_remarks = models.CharField(verbose_name='情報',db_column='T008_FD02_remarks', max_length=200, blank=True, null=True)  # Field name made lowercase.
     t008_fd03_date = models.DateField(verbose_name='開催日',db_column='T008_FD03_date')  # Field name made lowercase.
+    t008_fd06_time = models.TimeField(verbose_name='開催時間',db_column='T008_FD06_time', blank=True, null=True)  # Field name made lowercase.
     t008_fd04_updatedata = models.DateTimeField(verbose_name='作成日時',db_column='T008_FD04_updatedata')  # Field name made lowercase.
     t008_fd05_createdata = models.DateTimeField(verbose_name='更新日時',db_column='T008_FD05_createdata', blank=True, null=True)  # Field name made lowercase.
-    t008_fd06_time = models.TimeField(verbose_name='開催時間',db_column='T008_FD06_time', blank=True, null=True)  # Field name made lowercase.
+    
 
     class Meta:
          
