@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
 from accounts.models import T002Parents,T003Childminder,CustomUser
+import datetime
 
 
 
@@ -43,7 +44,7 @@ class T001Children(models.Model):
 
 class T005Kindergaten(models.Model):
     t005_pk01_childen_id = models.OneToOneField('T001Children', on_delete=models.CASCADE,verbose_name='園児ID',db_column='T005_PK01_childen-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t005_fd01_date = models.DateField(verbose_name='日付',db_column='T005_FD01_date',)  # Field name made lowercase.
+    t005_fd01_date = models.DateField(verbose_name='日付',default=datetime.date.today,db_column='T005_FD01_date',)  # Field name made lowercase.
     t005_fd02_school_time = models.TimeField(verbose_name='登園時間',db_column='T005_FD02_school-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t005_fd03_exit_time = models.TimeField(verbose_name='降園時間',db_column='T005_FD03_exit-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t005_fd04_status = models.CharField(verbose_name='登園状態',max_length=4,db_column='T005_FD04_status',default = '登園',choices=(('登園','登園'), ('降園','降園')))  # Field name made lowercase.
