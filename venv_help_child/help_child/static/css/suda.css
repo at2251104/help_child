@@ -340,8 +340,14 @@
   }
 
   #plmain h2 {
-    font-size: 30px;
-    text-align: center;
+    clear: both;
+    font-size: 17px; /*文字サイズ*/
+    text-align: left; /*テキストの位置*/
+    margin-bottom: 15px;
+    color: #fff; /*文字色*/
+    padding: 8px 30px; /*上下、左右への余白*/
+    background: #37a8e9; /*背景色（古いブラウザ用）*/
+    border-radius: 30px;
   }
   #plmain form {
     margin-left: auto;
