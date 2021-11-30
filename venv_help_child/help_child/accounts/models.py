@@ -61,9 +61,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
         _('username'),
         max_length=150,
-        blank=True,
-        null=True,
         help_text=_('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
+        default='01',
         validators=[username_validator],
         error_messages={
             'unique': _("A user with that username already exists."),
@@ -71,10 +70,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     )
     email = models.EmailField(('メールアドレス'),primary_key=True, unique=True)
     last_name = models.CharField(('姓'), max_length=150)
-    first_name = models.CharField(('名'),default='1', max_length=150)
-    last_name_kana = models.CharField(('姓（かな）'),default='1', max_length=150)
-    first_name_kana = models.CharField(('名（かな）'), default='1',max_length=150)
-    sex = models.CharField(('性別'), default='1',max_length=4, choices=(('男性','男性'), ('女性','女性')))
+    first_name = models.CharField(('名'),max_length=150)
+    last_name_kana = models.CharField(('姓（かな）'), max_length=150)
+    first_name_kana = models.CharField(('名（かな）'),max_length=150)
+    sex = models.CharField(('性別'), default='男性',max_length=4, choices=(('男性','男性'), ('女性','女性')))
     birthday = models.DateField(('生年月日'), blank=True, null=True)
     postal_code = models.CharField(('郵便番号（ハイフンなし）'), max_length=7, blank=True, null=True)
     address = models.CharField(('住所'), max_length=50, blank=True, null=True)
@@ -105,6 +104,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         verbose_name = ('user')
         verbose_name_plural = ('ユーザー')
 
+    def __str__(self):
+        return self.username
+
     def clean(self):
         super().clean()
         self.email = self.__class__.objects.normalize_email(self.email)
@@ -132,12 +134,11 @@ class T002Parents(models.Model):
     # 保護者向けの項目
     notification = models.BooleanField(
                                    verbose_name='通知',
-                                   null=True,
-                                   blank=True,
+                                   default=True
                                 )
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
-        return f'{user.email} - {self.id} -{self.notification}'
+        return f'{self.user} - {self.id} -{self.notification}'
 
     class Meta:
         verbose_name_plural="保護者テーブル"
@@ -158,7 +159,7 @@ class T003Childminder(models.Model):
 
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
-        return f'{user.email} - {self.id} - {self.class_id}'
+        return f'{self.user} - {self.id} - {self.class_id}'
 
     class Meta:
         verbose_name_plural="保育士テーブル"
