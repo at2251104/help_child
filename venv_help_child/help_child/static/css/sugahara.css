@@ -154,7 +154,7 @@ a.btn-border:hover:after {
   padding: 8px 30px; /*上下、左右への余白*/
   background: #37a8e9; /*背景色（古いブラウザ用）*/
   border-radius: 30px; /*角丸のサイズ。大きめにしておけばOK。*/
-  }
+}
 #attend-main form {
   margin-left: auto;
   margin-right: auto;
@@ -302,26 +302,28 @@ a.btn-border:hover:after {
   margin-top: 10%;
   margin-bottom: 10%;
 }
-#contact-book table {
+.contact-book-table {
+  display: table;
   margin: auto;
   background-color: #fff;
   width: 100%;
-}
-#contact-book-table {
-  display: table;
-  width: 100%;
   table-layout: fixed;
+}
+.table-col-1,
+.table-col-4,
+.table-col-8,
+.table-col-11 {
+  width: 25px;
+  vertical-align: middle;
 }
 .time {
   width: 68px;
 }
-.table-title,
 .food-text,
 .info-text,
 .writer-text {
   width: 100%;
 }
-
 /* 画面幅800px以下の設定 */
 @media screen and (max-width: 800px) {
   /*mainコンテンツ*/
