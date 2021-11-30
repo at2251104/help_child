@@ -74,7 +74,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(('名'),default='1', max_length=150)
     last_name_kana = models.CharField(('姓（かな）'),default='1', max_length=150)
     first_name_kana = models.CharField(('名（かな）'), default='1',max_length=150)
-    sex = models.CharField(('性別'), default='1',max_length=4, choices=(('男性','男性'), ('女性','女性')))
+    sex = models.CharField(('性別'), default='男性',max_length=4, choices=(('男性','男性'), ('女性','女性')))
     birthday = models.DateField(('生年月日'), blank=True, null=True)
     postal_code = models.CharField(('郵便番号（ハイフンなし）'), max_length=7, blank=True, null=True)
     address = models.CharField(('住所'), max_length=50, blank=True, null=True)
@@ -132,8 +132,7 @@ class T002Parents(models.Model):
     # 保護者向けの項目
     notification = models.BooleanField(
                                    verbose_name='通知',
-                                   null=True,
-                                   blank=True,
+                                   default=True
                                 )
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
