@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.views import generic
+
+from .models import T001Children,T004Class,T005Kindergaten,T006Message,T007Contactbook,T008Schedule,T009Position,T010Playset,T011Room,T012Contactbooktem
+
 # Create your views h
 
 class IndexView(generic.TemplateView):
