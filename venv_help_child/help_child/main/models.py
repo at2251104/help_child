@@ -43,7 +43,7 @@ class T001Children(models.Model):
 
 class T005Kindergaten(models.Model):
     t005_pk01_childen_id = models.OneToOneField('T001Children', on_delete=models.CASCADE,verbose_name='園児ID',db_column='T005_PK01_childen-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t005_fd01_date = models.DateField(verbose_name='日付',db_column='T005_FD01_date', blank=True, null=True)  # Field name made lowercase.
+    t005_fd01_date = models.DateField(verbose_name='日付',db_column='T005_FD01_date',)  # Field name made lowercase.
     t005_fd02_school_time = models.TimeField(verbose_name='登園時間',db_column='T005_FD02_school-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t005_fd03_exit_time = models.TimeField(verbose_name='降園時間',db_column='T005_FD03_exit-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t005_fd04_status = models.CharField(verbose_name='登園状態',max_length=4,db_column='T005_FD04_status',default = '登園',choices=(('登園','登園'), ('降園','降園')))  # Field name made lowercase.
@@ -78,7 +78,7 @@ class T007Contactbook(models.Model):
     t007_pk01_contactbook_id = models.CharField(verbose_name='連絡帳ID',db_column='T007_PK01_contactbook-id', primary_key=True, max_length=10)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fk02_childminder_id = models.ForeignKey(T003Childminder, models.DO_NOTHING,default='1',verbose_name='保育士ID', db_column='T007_FK02_childminder-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fk01_children_id = models.ForeignKey(T001Children, models.DO_NOTHING,default='1',verbose_name='園児ID', db_column='T007_FK01_children-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t007_fd13_updatedata = models.DateTimeField(verbose_name='投稿日時',db_column='T007_FD13_updatedata')  # Field name made lowercase.
+    t007_fd13_updatedata = models.DateTimeField(verbose_name='保存or投稿日時',db_column='T007_FD13_updatedata')  # Field name made lowercase.
     t007_fd04_meal_contents = models.CharField(verbose_name='前夜食事内容',db_column='T007_FD04_meal-contents', max_length=100, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fd03_meal_time = models.TimeField(verbose_name='前夜食事時間',db_column='T007_FD03_meal-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fd13_breakfast_contents = models.CharField(verbose_name='今朝食事内容',db_column='T007_FD13_bresakfast-contents', max_length=100, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
@@ -141,7 +141,7 @@ class T010Playset(models.Model):
     t010_pk01_playset_id = models.CharField(verbose_name='遊具ID',db_column='T010_PK01_playset-id', primary_key=True, max_length=10)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t010_fd01_playset_name = models.CharField(verbose_name='遊具名',db_column='T010_FD01_playset-name', max_length=30)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t010_fd02_distance_a = models.FloatField(verbose_name='アンカーaからの遊具までの距離',db_column='T010_FD02_distance-a')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t010_fd03_distance_b = models.FloatField(verbose_name='アンカーbからの遊具までの距離',db_column='T010_FD03_distance-b', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t010_fd03_distance_b = models.FloatField(verbose_name='アンカーbからの遊具までの距離',db_column='T010_FD03_distance-b')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t010_fd04_distance_c = models.FloatField(verbose_name='アンカーcからの遊具までの距離',db_column='T010_FD04_distance-c')  # Field name made lowercase. Field renamed to remove unsuitable characters.
 
     class Meta:
