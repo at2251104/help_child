@@ -78,8 +78,17 @@ a.btn-border:hover:after {
   text-align: center;
 }
 #tag-main h1 {
-  font-size: 17px;
+  display: inline-block;
+  width: 220px;
+  clear: both;
+  font-size: 17px; /*文字サイズ*/
+  margin-bottom: 15px;
+  color: #fff; /*文字色*/
+  padding: 8px 30px; /*上下、左右への余白*/
+  background: #37a8e9; /*背景色（古いブラウザ用）*/
+  border-radius: 30px; /*角丸のサイズ。大きめにしておけばOK。*/
 }
+
 .select-mode input {
   display: none;
 }
@@ -135,9 +144,17 @@ a.btn-border:hover:after {
   padding-top: 30%; /*コンテンツ上にあける余白*/
 }
 #attend-main h2 {
-  font-size: 30px;
-  text-align: center;
-}
+  /* font-size: 30px;
+  text-align: center; */
+  clear: both;
+  font-size: 17px; /*文字サイズ*/
+  text-align: left; /*テキストの位置*/
+  margin-bottom: 15px;
+  color: #fff; /*文字色*/
+  padding: 8px 30px; /*上下、左右への余白*/
+  background: #37a8e9; /*背景色（古いブラウザ用）*/
+  border-radius: 30px; /*角丸のサイズ。大きめにしておけばOK。*/
+  }
 #attend-main form {
   margin-left: auto;
   margin-right: auto;
@@ -287,17 +304,22 @@ a.btn-border:hover:after {
 }
 #contact-book table {
   margin: auto;
+  background-color: #fff;
+  width: 100%;
 }
 #contact-book-table {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
-.table-title {
-  width: 10px;
+.time {
+  width: 68px;
 }
-.food-text {
-  width: 80%;
+.table-title,
+.food-text,
+.info-text,
+.writer-text {
+  width: 100%;
 }
 
 /* 画面幅800px以下の設定 */

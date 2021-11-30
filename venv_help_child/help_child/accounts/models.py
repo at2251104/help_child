@@ -77,9 +77,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     sex = models.CharField(('性別'), default='1',max_length=4, choices=(('男性','男性'), ('女性','女性')))
     birthday = models.DateField(('生年月日'), blank=True, null=True)
     postal_code = models.CharField(('郵便番号（ハイフンなし）'), max_length=7, blank=True, null=True)
-    prefecture = models.CharField(('都道府県'), max_length=5, blank=True, null=True)
-    address = models.CharField(('市区町村番地'), max_length=50, blank=True, null=True)
-    building = models.CharField(('建物名'), max_length=30, blank=True, null=True)
+    address = models.CharField(('住所'), max_length=50, blank=True, null=True)
     tel = models.CharField(('電話番号（ハイフンなし）'), max_length=11, blank=True, null=True)
 
     is_staff = models.BooleanField(

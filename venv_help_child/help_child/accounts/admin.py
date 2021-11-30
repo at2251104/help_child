@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserChangeForm,UserCreationForm
 class AdminUserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        (('Personal info'), {'fields': ('last_name', 'first_name', 'last_name_kana', 'first_name_kana', 'email', 'sex', 'birthday', 'postal_code', 'address', 'building', 'tel')}),
+        (('Personal info'), {'fields': ('last_name', 'first_name', 'last_name_kana', 'first_name_kana', 'email', 'sex', 'birthday', 'postal_code', 'address', 'tel')}),
         (('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions')}),
         (('Important dates'), {'fields': ('last_login', 'date_joined')}),
@@ -22,7 +22,7 @@ class AdminUserAdmin(UserAdmin):
             'fields' : ('email','password1','password2'),
         }),
     )
-    list_display = ('get_full_name', 'get_full_name_kana', 'email', 'sex', 'birthday', 'postal_code', 'prefecture', 'address', 'building', 'tel', 'is_staff',)
+    list_display = ('get_full_name', 'get_full_name_kana', 'email', 'sex', 'birthday', 'postal_code', 'address','tel', 'is_staff',)
     search_fields = ('username', 'email',)
     ordering = ('date_joined',)
     filter_horizontal = ('groups', 'user_permissions',)

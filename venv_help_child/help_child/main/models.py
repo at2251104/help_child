@@ -20,12 +20,17 @@ class T001Children(models.Model):
     t001_pk01_children_id = models.CharField(verbose_name='園児ID',default='1',db_column='T001_PK01_children-id', primary_key=True, max_length=5)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_fk01_class_id = models.ForeignKey(T004Class, models.DO_NOTHING, default='1',verbose_name='クラスID',db_column='T001_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_fk02_parents_id = models.ForeignKey(T002Parents, models.DO_NOTHING,default='1',verbose_name='保護者ID', db_column='T001_FK02_parents-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t001_fd01_name = models.CharField(verbose_name='氏名',db_column='T001_FD01_name', max_length=20)  # Field name made lowercase.
+    t001_fd01_last_name = models.CharField(verbose_name='姓',default='1',db_column='T001_FD01_name', max_length=20)  # Field name made lowercase.
+    t001_fd07_first_name = models.CharField(('名'),default='1', max_length=20)
+    t001_fd08_last_name_kana = models.CharField(('姓（かな）'),default='1', max_length=20)
+    t001_fd09_first_name_kana = models.CharField(('名（かな）'), default='1',max_length=20)
+    t001_fd06_sex = models.CharField(verbose_name='性別',default='1',max_length=4,db_column='T001_FD06_sex',choices=(('男性','男性'), ('女性','女性')))  # Field name made lowercase.
     t001_fd02_birthday = models.DateField(verbose_name='誕生日',db_column='T001_FD02_birthday')  # Field name made lowercase.
+    t001_fd10_postal_code = models.CharField(('郵便番号（ハイフンなし）'), max_length=7, blank=True, null=True)
     t001_fd03_address = models.CharField(verbose_name='住所',db_column='T001_FD03_address', max_length=50)  # Field name made lowercase.
     t001_fd04_createdata = models.DateTimeField(verbose_name='作成日時',db_column='T001_FD04_createdata')  # Field name made lowercase.
     t001_fd05_updatedata = models.DateTimeField(verbose_name='更新日時',db_column='T001_FD05_updatedata', blank=True, null=True)  # Field name made lowercase.
-    t001_fd06_sex = models.IntegerField(verbose_name='性別',db_column='T001_FD06_sex')  # Field name made lowercase.
+    
 
     class Meta:
         db_table = 'T001_children'
@@ -74,18 +79,31 @@ class T007Contactbook(models.Model):
     t007_fk02_childminder_id = models.ForeignKey(T003Childminder, models.DO_NOTHING,default='1',verbose_name='保育士ID', db_column='T007_FK02_childminder-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fk01_children_id = models.ForeignKey(T001Children, models.DO_NOTHING,default='1',verbose_name='園児ID', db_column='T007_FK01_children-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fd13_updatedata = models.DateTimeField(verbose_name='投稿日時',db_column='T007_FD13_updatedata')  # Field name made lowercase.
+    t007_fd04_meal_contents = models.CharField(verbose_name='前夜食事内容',db_column='T007_FD04_meal-contents', max_length=100, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd03_meal_time = models.TimeField(verbose_name='前夜食事時間',db_column='T007_FD03_meal-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd13_breakfast_contents = models.CharField(verbose_name='今朝食事内容',db_column='T007_FD13_bresakfast-contents', max_length=100, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd14_breakfast_time = models.TimeField(verbose_name='今朝食事時間',db_column='T007_FD14_breakfast-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd05_bed_time = models.TimeField(verbose_name='就寝時間',db_column='T007_FD05_bed-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd06_wakeup_time = models.TimeField(verbose_name='起床時間',db_column='T007_FD06_wakeup-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd07_mood = models.IntegerField(verbose_name='機嫌',db_column='T007_FD07_mood',blank=True, null=True)  # Field name made lowercase.
+    t007_fd09_defecation_times = models.IntegerField(verbose_name='排便回数',db_column='T007_FD09_defecation-times', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd08_defecation_status = models.IntegerField(verbose_name='排便状態',db_column='T007_FD08_defecation-status', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd10_bathing = models.BooleanField(verbose_name='入浴の有無',db_column='T007_FD10_bathing', blank=True, null=True)  # Field name made lowercase.
     t007_fd12_temperature = models.FloatField(verbose_name='検温',db_column='T007_FD12_temperature', blank=True, null=True)  # Field name made lowercase.
     t007_fd11_temperature_time = models.TimeField(verbose_name='検温時間',db_column='T007_FD11_temperature-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t007_fd10_bathing = models.BooleanField(verbose_name='入浴の有無',db_column='T007_FD10_bathing', blank=True, null=True)  # Field name made lowercase.
-    t007_fd09_defecation_times = models.IntegerField(verbose_name='排便回数',db_column='T007_FD09_defecation-times', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t007_fd08_defecation_status = models.CharField(verbose_name='排便回数',db_column='T007_FD08_defecation-status', max_length=10, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t007_fd07_mood = models.CharField(verbose_name='機嫌',db_column='T007_FD07_mood', max_length=10, blank=True, null=True)  # Field name made lowercase.
-    t007_fd06_wakeup_time = models.TimeField(verbose_name='起床時間',db_column='T007_FD06_wakeup-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t007_fd05_bed_time = models.TimeField(verbose_name='就寝時間',db_column='T007_FD05_bed-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t007_fd04_meal_contents = models.CharField(verbose_name='食事内容',db_column='T007_FD04_meal-contents', max_length=100, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t007_fd03_meal_time = models.TimeField(verbose_name='食事時間',db_column='T007_FD03_meal-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fd02_infomation = models.CharField(verbose_name='備考',db_column='T007_FD02_infomation', max_length=200, blank=True, null=True)  # Field name made lowercase.
-    t007_fd01_date = models.DateField(verbose_name='日付',db_column='T007_FD01_date', blank=True, null=True)  # Field name made lowercase.
+    t007_fd15_lunch_contents = models.CharField(verbose_name='昼食食事内容',db_column='T007_FD15_lunch-contents', max_length=100, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd16_lunch_time = models.TimeField(verbose_name='昼食食事時間',db_column='T007_FD16_lunch-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd05_bed_time = models.TimeField(verbose_name='就寝時間', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd17_wakeup_time = models.TimeField(verbose_name='起床時間', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd18_mood = models.IntegerField(verbose_name='機嫌',blank=True, null=True)  # Field name made lowercase.
+    t007_fd19_defecation_times = models.IntegerField(verbose_name='排便回数', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd20_defecation_status = models.IntegerField(verbose_name='排便状態', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd21_bathing = models.BooleanField(verbose_name='入浴の有無', blank=True, null=True)  # Field name made lowercase.
+    t007_fd22_temperature = models.FloatField(verbose_name='検温', blank=True, null=True)  # Field name made lowercase.
+    t007_fd23_temperature_time = models.TimeField(verbose_name='検温時間', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd24_infomation = models.CharField(verbose_name='備考', max_length=200, blank=True, null=True)  # Field name made lowercase.
+    t007_fd02_date = models.DateField(verbose_name='日付',db_column='T007_FD01_date', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
          
