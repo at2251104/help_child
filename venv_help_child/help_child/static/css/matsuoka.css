@@ -71,7 +71,6 @@
   padding-top: 30%; 
 }
 
-/* #contactTop-main h2 { */
 #h2 {
   clear: both;
   font-size: 17px; /*文字サイズ*/
@@ -108,8 +107,6 @@
 .list {
   display: flex;
   list-style-type: none;
-  /* float: left;
-  width: 50%; */
 }
 
 .item {

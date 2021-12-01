@@ -35,60 +35,61 @@
 
 {% block main_contents%}
 <div id="plmain">
-    <div id="header">
-
-        <!-- <div id="attend-main"> -->
-        <h2>予定表追加</h2>
-        <div class="group">
-            <div class="head">
-                <div class="title"><追加する学年></div>
-                <div class="checkAll">
-                    <label class="label">
-                        <input class="js-check-all" type="checkbox" name="" data-check-all="hobby">
-                        <span class="text">All</span>
-                    </label>
-                </div>
-                <ul class="js-check-all-target list" data-check-all="hobby">
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age0">
-                            <span class="text">0歳児</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age1">
-                            <span class="text">1歳児</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age2">
-                            <span class="text">2歳児</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age3">
-                            <span class="text">3歳児</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age4">
-                            <span class="text">4歳児</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age5">
-                            <span class="text">5歳児</span>
-                        </label>
-                    </li>
-                </ul>
+    <h2>予定表追加</h2>
+    <div class="group">
+        <div class="title">
+            <追加する学年>
+        </div>
+        <div class="search-box">
+            <div class="checkAll">
+                <label class="label">
+                    <input class="js-check-all" type="checkbox" name="" data-check-all="hobby">
+                    <span class="text">All</span>
+                </label>
             </div>
+            <ul class="js-check-all-target list" data-check-all="hobby">
+                <li class="item">
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age0">
+                        <span class="text">0歳児</span>
+                    </label>
+
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age1">
+                        <span class="text">1歳児</span>
+                    </label>
+
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age2">
+                        <span class="text">2歳児</span>
+                    </label>
+
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age3">
+                        <span class="text">3歳児</span>
+                    </label>
+
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age4">
+                        <span class="text">4歳児</span>
+                    </label>
+
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age5">
+                        <span class="text">5歳児</span>
+                    </label>
+                </li>
+            </ul>
         </div>
     </div>
+
+    <ul id="list">
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳</a></li>
+    </ul>
 
     <form action="window.alert(target)" method="post" class="planlistDetailCenter" style="height: 30px;">
         <h4>月　日:<input type="text" placeholder="日付検索" id="target" text-align="center"></h4>

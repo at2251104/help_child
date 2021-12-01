@@ -27,6 +27,10 @@ class LocationConfigView(generic.TemplateView):
 # 連絡帳関連------------------------------------------------------------------
 class ContactTopView(generic.TemplateView):
     template_name="contactTop.html"
+    # テスト------------------------------------------
+    def index(request):
+        T004ClassModel= {'class':T004Class.objects.all()}
+        return render(request,'class.contactTop.html',T004ClassModel)
 
 class ContactTopOyaView(generic.TemplateView):
     template_name="contactTop_oya.html"
