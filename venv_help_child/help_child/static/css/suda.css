@@ -331,19 +331,32 @@
 
   #plmain {
     height: 100%;
-    margin-top: 25%;
-    margin-left: 30%;
-    position: absolute;
-    overflow: auto;
+    position: relative;
+    /* overflow: scroll; */
+    float: right; /*右側に回り込み*/
+    width: 70%; /*幅*/
+    /* overflow: hidden; */
+    padding-top: 30%; /*コンテンツ上にあける余白*/
   }
+
   #plmain h2 {
-    font-size: 30px;
-    text-align: center;
+    clear: both;
+    font-size: 17px; /*文字サイズ*/
+    text-align: left; /*テキストの位置*/
+    margin-bottom: 15px;
+    color: #fff; /*文字色*/
+    padding: 8px 30px; /*上下、左右への余白*/
+    background: #37a8e9; /*背景色（古いブラウザ用）*/
+    border-radius: 30px;
   }
   #plmain form {
     margin-left: auto;
     margin-right: auto;
   }
+  .group {
+    border-bottom: 2px solid #dedede;
+  }
+
 
   /*planListDetail画面*~390/
 /*日付入力欄(target)とカレンダーアイコンに参照させるためのクラス*/
@@ -818,7 +831,7 @@
 
   #plmain {
     width: 100%;
-    overflow: scroll;
+    /* overflow: scroll; */
     position: relative;
     box-sizing: border-box;
     height: 100%;
@@ -980,3 +993,96 @@
     text-align: center;
   }
 }
+
+#contact-update-main {
+  position: relative;
+  float: right; /*contact-detail-main右側に回り込み*/
+  width: 70%; /*幅*/
+  overflow: hidden;
+  padding-top: 30%; /*コンテンツ上にあける余白*/
+  text-align: center;
+}
+#contact-update-main h2 {
+  font-size: 30px;
+  text-align: center;
+}
+#contact-date-update {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+/* #target {
+  border: none;
+  width: 30%;
+  font-size: 20px;
+  text-align: center;
+} */
+#next-prev-button {
+  margin-left: auto;
+  margin-right: auto;
+}
+#next-prev-button button {
+  cursor: pointer;
+  background: #b78d4a;
+  color: #fff;
+  border: 1px solid #b78d4a;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  margin: auto;
+  margin-bottom: 20px;
+}
+#prev {
+  float: left;
+}
+#next {
+  float: right;
+}
+#contact-book-update {
+  display: block;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.contact-book-update-table {
+  display: table;
+  margin: auto;
+  background-color: #fff;
+  width: 100%;
+  table-layout: fixed;
+}
+.table-col-1,
+.table-col-4,
+.table-col-8,
+.table-col-11 {
+  width: 25px;
+  text-align: center;
+  vertical-align: middle;
+  writing-mode: tb-rl;
+}
+.time {
+  width: 68px;
+}
+.food-text,
+.info-text,
+.writer-text {
+  width: 100%;
+}
+/* 画面幅800px以下の設定 */
+@media screen and (max-width: 800px) {
+  /*mainコンテンツ*/
+  #contact-detail-main {
+    float: none;
+    width: auto;
+  }
+
+  /*main*/
+  #contact-detail-main {
+    padding: 0 !important;
+  }
+}
+/*画面幅480px以下の設定*/
+@media screen and (max-width: 480px) {
+  /*メインコンテンツ*/
+} /*contactDetail画面
+---------------------------------------------------------------------------*/

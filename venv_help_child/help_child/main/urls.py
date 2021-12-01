@@ -16,10 +16,6 @@ urlpatterns=[
     path('contactUpdate',views.ContactUpdateView.as_view(),name="contactUpdate"),
     path('contactTemplate',views.ContactTemplateView.as_view(),name="contactTemplate"),
 
-
-    path('messageAddress',views.MessageAddressView.as_view(),name="messageAddress"),
-    path('message',views.MessageView.as_view(),name="message"),
-
     path('attend',views.AttendView.as_view(),name="attend"),
     path('tagScan',views.TagScanView.as_view(),name="tagScan"),
 
@@ -29,7 +25,4 @@ urlpatterns=[
     path('planListUpdate',views.PlanListUpdateView.as_view(),name="planListUpdate"),
     path('planListDelete',views.PlanListDeleteView.as_view(),name="planListDelete"),
 
-    path('parentConfig',views.ParentConfigView.as_view(),name="parentConfig"),
-    path('teacherConfig',views.TeacherConfigView.as_view(),name="teacherConfig"),
-    
 ]
