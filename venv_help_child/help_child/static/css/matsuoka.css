@@ -127,6 +127,7 @@
   font-weight: bold;
 }
 
+/* リストを二列で表示 */
 .list_item {
   float: left;
   width: 50%;
