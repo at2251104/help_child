@@ -30,8 +30,8 @@ class T001Children(models.Model):
     t001_fd02_birthday = models.DateField(verbose_name='誕生日',db_column='T001_FD02_birthday')  # Field name made lowercase.
     t001_fd10_postal_code = models.CharField(('郵便番号（ハイフンなし）'), max_length=7, blank=True, null=True)
     t001_fd03_address = models.CharField(verbose_name='住所',db_column='T001_FD03_address', max_length=50)  # Field name made lowercase.
-    t001_fd04_createdata = models.DateTimeField(verbose_name='作成日時',db_column='T001_FD04_createdata')  # Field name made lowercase.
-    t001_fd05_updatedata = models.DateTimeField(verbose_name='更新日時',db_column='T001_FD05_updatedata', blank=True, null=True)  # Field name made lowercase.
+    t001_fd04_createdata = models.DateTimeField(verbose_name='作成日時',db_column='T001_FD04_createdata',auto_now_add=True, blank=True, null=True)  # Field name made lowercase.
+    t001_fd05_updatedata = models.DateTimeField(verbose_name='更新日時',db_column='T001_FD05_updatedata',auto_now=True, blank=True, null=True)  # Field name made lowercase.
     
 
     class Meta:
@@ -64,7 +64,7 @@ class T006Message(models.Model):
     t006_fk01_room_id = models.ForeignKey('T011Room', models.DO_NOTHING,default='1',verbose_name='ルームID',db_column='T006_FK01_room-id', max_length=100)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t006_fd01_send_id = models.CharField(verbose_name='送信者ID',db_column='T006_FD01_send-id', max_length=10)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t006_fd02_contents = models.CharField(verbose_name='内容',db_column='T006_FD02_contents', max_length=200, blank=True, null=True)  # Field name made lowercase.
-    t006_fd03_datetime = models.DateTimeField(verbose_name='日時',db_column='T006_FD03_datetime')  # Field name made lowercase.
+    t006_fd03_datetime = models.DateTimeField(verbose_name='日時',auto_now=True,db_column='T006_FD03_datetime',blank=True, null=True)  # Field name made lowercase.
     
 
     class Meta:
@@ -108,7 +108,7 @@ class T007Contactbook(models.Model):
     t007_fd22_temperature = models.FloatField(verbose_name='検温', blank=True, null=True)  # Field name made lowercase.
     t007_fd23_temperature_time = models.TimeField(verbose_name='検温時間', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fd24_infomation = models.CharField(verbose_name='備考', max_length=200, blank=True, null=True)  # Field name made lowercase.
-    t007_fd01_date = models.DateField(verbose_name='日付',db_column='T007_FD01_date', blank=True, null=True)  # Field name made lowercase.
+    t007_fd01_date = models.DateField(verbose_name='日付',default=datetime.date.today,db_column='T007_FD01_date', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
          
@@ -126,8 +126,8 @@ class T008Schedule(models.Model):
     t008_fd02_remarks = models.CharField(verbose_name='情報',db_column='T008_FD02_remarks', max_length=200, blank=True, null=True)  # Field name made lowercase.
     t008_fd03_date = models.DateField(verbose_name='開催日',db_column='T008_FD03_date')  # Field name made lowercase.
     t008_fd06_time = models.TimeField(verbose_name='開催時間',db_column='T008_FD06_time', blank=True, null=True)  # Field name made lowercase.
-    t008_fd04_updatedata = models.DateTimeField(verbose_name='作成日時',db_column='T008_FD04_updatedata')  # Field name made lowercase.
-    t008_fd05_createdata = models.DateTimeField(verbose_name='更新日時',db_column='T008_FD05_createdata', blank=True, null=True)  # Field name made lowercase.
+    t008_fd04_updatedata = models.DateTimeField(verbose_name='作成日時',auto_now_add=True,db_column='T008_FD04_updatedata')  # Field name made lowercase.
+    t008_fd05_createdata = models.DateTimeField(verbose_name='更新日時',auto_now=True,db_column='T008_FD05_createdata', blank=True, null=True)  # Field name made lowercase.
     
 
     class Meta:
@@ -194,7 +194,7 @@ class T012Contactbooktem(models.Model):
     t012_fd04_meal_contents = models.CharField(verbose_name='食事内容',db_column='T012_FD04_meal-contents', max_length=100, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t012_fd05_bed_time = models.TimeField(verbose_name='就寝時間',db_column='T012_FD05_bed-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t012_fd06_wakeup_time = models.TimeField(verbose_name='起床時間',db_column='T012_FD06_wakeup-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t012_fd07_updatedata = models.DateTimeField(verbose_name='更新日時',db_column='T012_FD07_updatedata')  # Field name made lowercase.
+    t012_fd07_updatedata = models.DateTimeField(verbose_name='更新日時',auto_now=True,db_column='T012_FD07_updatedata')  # Field name made lowercase.
 
     class Meta:
          

@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserChangeForm,UserCreationForm
 class AdminUserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        (('Personal info'), {'fields': ('last_name', 'first_name', 'last_name_kana', 'first_name_kana', 'email', 'sex', 'birthday', 'postal_code', 'address', 'tel')}),
+        (('Personal info'), {'fields': ('last_name', 'first_name', 'last_name_kana', 'first_name_kana', 'email', 'sex', 'birthday', 'postal_code', 'address', 'tel','userType')}),
         (('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions')}),
         (('Important dates'), {'fields': ('last_login', 'date_joined')}),
@@ -28,7 +28,6 @@ class AdminUserAdmin(UserAdmin):
     filter_horizontal = ('groups', 'user_permissions',)
     
 
-   
     admin.site.register(UserType)
     admin.site.register(T002Parents)
     admin.site.register(T003Childminder)
