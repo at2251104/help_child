@@ -323,6 +323,12 @@ a.btn-border:hover:after {
   vertical-align: middle;
   writing-mode: tb-rl;
 }
+.table-col-2 {
+  width: 50px;
+}
+.table-col-3 {
+  width: 0px;
+}
 .time {
   width: 68px;
 }
