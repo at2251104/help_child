@@ -199,6 +199,11 @@ a.btn-border:hover:after {
 .text {
   font-weight: bold;
 }
+.list_item {
+  float: left;
+  width: 50%;
+}
+
 /* 検索窓 */
 .search_container {
   box-sizing: border-box;
@@ -314,7 +319,9 @@ a.btn-border:hover:after {
 .table-col-8,
 .table-col-11 {
   width: 25px;
+  text-align: center;
   vertical-align: middle;
+  writing-mode: tb-rl;
 }
 .time {
   width: 68px;
