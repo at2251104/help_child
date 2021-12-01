@@ -330,7 +330,7 @@
   }
 
   #plmain {
-    height: 100%;
+    /* height: 100%; */
     position: relative;
     /* overflow: scroll; */
     float: right; /*右側に回り込み*/
@@ -352,11 +352,12 @@
   #plmain form {
     margin-left: auto;
     margin-right: auto;
+    float: none;
+    width: auto;
   }
   .group {
     border-bottom: 2px solid #dedede;
   }
-
 
   /*planListDetail画面*~390/
 /*日付入力欄(target)とカレンダーアイコンに参照させるためのクラス*/
@@ -512,7 +513,7 @@
   #planListDetailheader {
     text-align: center;
     font-size: 24px;
-    width: 100%;
+    width: auto;
     margin: 1rem 0 0;
   }
 
@@ -830,27 +831,31 @@
   }
 
   #plmain {
-    width: 100%;
+    /* width: 100%; */
     /* overflow: scroll; */
     position: relative;
     box-sizing: border-box;
-    height: 100%;
+    /* height: 100%; */
+    float: none;
+    width: auto;
   }
   #plmain h2 {
     font-size: 30px;
     text-align: center;
+    float: none;
+    width: auto;
   }
-  #plmain form {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  /* #plmain form {
+    float: none;
+    width: auto;
+  } */
 
   /*planListDetail画面*~390/
 /*日付入力欄(target)とカレンダーアイコンに参照させるためのクラス*/
   .planlistDetailCenter {
-    vertical-align: center;
+    /* vertical-align: center; */
     top: 20px;
-    position: relative;
+    /* position: relative; */
   }
   .planlistDetailCenter select {
     font-size: 20px;
@@ -994,7 +999,7 @@
   }
 }
 
-#contact-update-main {
+#contact-detail-main {
   position: relative;
   float: right; /*contact-detail-main右側に回り込み*/
   width: 70%; /*幅*/
@@ -1002,87 +1007,13 @@
   padding-top: 30%; /*コンテンツ上にあける余白*/
   text-align: center;
 }
-#contact-update-main h2 {
+/* #contact-detail-main h2 {
   font-size: 30px;
   text-align: center;
 }
-#contact-date-update {
+#contact-date {
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
-}
-/* #target {
-  border: none;
-  width: 30%;
-  font-size: 20px;
-  text-align: center;
 } */
-#next-prev-button {
-  margin-left: auto;
-  margin-right: auto;
-}
-#next-prev-button button {
-  cursor: pointer;
-  background: #b78d4a;
-  color: #fff;
-  border: 1px solid #b78d4a;
-  border-radius: 4px;
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  margin: auto;
-  margin-bottom: 20px;
-}
-#prev {
-  float: left;
-}
-#next {
-  float: right;
-}
-#contact-book-update {
-  display: block;
-  margin-top: 10%;
-  margin-bottom: 10%;
-}
-.contact-book-update-table {
-  display: table;
-  margin: auto;
-  background-color: #fff;
-  width: 100%;
-  table-layout: fixed;
-}
-.table-col-1,
-.table-col-4,
-.table-col-8,
-.table-col-11 {
-  width: 25px;
-  text-align: center;
-  vertical-align: middle;
-  writing-mode: tb-rl;
-}
-.time {
-  width: 68px;
-}
-.food-text,
-.info-text,
-.writer-text {
-  width: 100%;
-}
-/* 画面幅800px以下の設定 */
-@media screen and (max-width: 800px) {
-  /*mainコンテンツ*/
-  #contact-detail-main {
-    float: none;
-    width: auto;
-  }
-
-  /*main*/
-  #contact-detail-main {
-    padding: 0 !important;
-  }
-}
-/*画面幅480px以下の設定*/
-@media screen and (max-width: 480px) {
-  /*メインコンテンツ*/
-} /*contactDetail画面
----------------------------------------------------------------------------*/
