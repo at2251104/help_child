@@ -1,8 +1,6 @@
 {%extends 'base.html'%}
 {%load static %}
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/suda.css' %}">
-<meta charset="utf-8">
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
@@ -10,12 +8,13 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <!-- <link rel="stylesheet" href="{% static 'css/sugahara.css' %}"> -->
 <link rel="stylesheet" href="{% static 'css/suda.css' %}">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
 <script type="text/javascript" src="{% static 'js/planlistDetail.js' %}"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
 
+<link rel="stylesheet" href="{% static 'css/matsuoka.css' %}">
 {% endblock %}
 
 {% block head_slide%}
@@ -35,60 +34,58 @@
 
 {% block main_contents%}
 <div id="plmain">
-    <div id="header">
-
-        <!-- <div id="attend-main"> -->
-        <h2>予定表追加</h2>
-        <div class="group">
-            <div class="head">
-                <div class="title"><追加する学年></div>
-                <div class="checkAll">
-                    <label class="label">
-                        <input class="js-check-all" type="checkbox" name="" data-check-all="hobby">
-                        <span class="text">All</span>
-                    </label>
-                </div>
-                <ul class="js-check-all-target list" data-check-all="hobby">
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age0">
-                            <span class="text">0歳児</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age1">
-                            <span class="text">1歳児</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age2">
-                            <span class="text">2歳児</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age3">
-                            <span class="text">3歳児</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age4">
-                            <span class="text">4歳児</span>
-                        </label>
-                    </li>
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age5">
-                            <span class="text">5歳児</span>
-                        </label>
-                    </li>
-                </ul>
+    <h2>予定表追加</h2>
+    <div class="group">
+        <div class="title">
+            <年齢選択>
+        </div>
+        <div class="search-box">
+            <div class="checkAll">
+                <label class="label">
+                    <input class="js-check-all" type="checkbox" name="hobby" data-check-all="hobby">
+                    <span class="text">All</span>
+                </label>
             </div>
+
+            <ul class="js-check-all-target list" data-check-all="hobby">
+                <li class="item">
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age0">
+                        <span class="text">0歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age1">
+                        <span class="text">1歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age2">
+                        <span class="text">2歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age3">
+                        <span class="text">3歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age4">
+                        <span class="text">4歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age5">
+                        <span class="text">5歳児</span><br>
+                    </label>
+                </li>
+            </ul>
         </div>
     </div>
+
+    <ul id="list">
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳</a></li>
+        <li class="list_item" data-hobby="age5"><a href="#">Aくん 5歳</a></li>
+        <li class="list_item" data-hobby="age3"><a href="#">Bちゃん 3歳</a></li>
+    </ul>
+
 
     <form action="window.alert(target)" method="post" class="planlistDetailCenter" style="height: 30px;">
         <h4>月　日:<input type="text" placeholder="日付検索" id="target" text-align="center"></h4>

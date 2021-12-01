@@ -1,64 +1,92 @@
+from django.core.mail import message
 from django.shortcuts import render
 from django.views import generic
-
-from .models import T001Children,T004Class,T005Kindergaten,T006Message,T007Contactbook,T008Schedule,T009Position,T010Playset,T011Room,T012Contactbooktem
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views h
 
 class IndexView(generic.TemplateView):
     template_name="index.html"
 
-class HomeView(generic.TemplateView):
+class HomeView(LoginRequiredMixin,generic.TemplateView):
     template_name="home.html"
 
 # class LoginView(generic.TemplateView):
 #     template_name="login.html"
 
-# 位置情報関連----------------------------------------------------------------
-class LocationAdminView(generic.TemplateView):
+class LocationAdminView(LoginRequiredMixin,generic.TemplateView):
     template_name="locationAdmin.html"
 
-class LocationParentView(generic.TemplateView):
+    def get_context_data(self, **kwargs):
+        # request.pathからid部分を抽出('/polls/01'が入ってるので、01だけ取る)
+        # ログイン中のuser_idとurlのidの一致チェック
+        if self.request.user.userType.id == 3:
+            template_name="locationAdmin.html"
+        else :
+            message.error("日記の作成に失敗しました。")
+
+class LocationParentView(LoginRequiredMixin,generic.TemplateView):
     template_name="locationParent.html"
 
-class LocationConfigView(generic.TemplateView):
+class LocationConfigView(LoginRequiredMixin,generic.TemplateView):
     template_name="locationConfig.html"
 
-# 連絡帳関連------------------------------------------------------------------
-class ContactTopView(generic.TemplateView):
+class ContactTopView(LoginRequiredMixin,generic.TemplateView):
     template_name="contactTop.html"
-
-class ContactTopOyaView(generic.TemplateView):
+    
+class ContactTopOyaView(LoginRequiredMixin,generic.TemplateView):
     template_name="contactTop_oya.html"
 
-class ContactDetailView(generic.TemplateView):
+class ContactDetailView(LoginRequiredMixin,generic.TemplateView):
     template_name="contactDetail.html"
 
-class ContactUpdateView(generic.TemplateView):
+class ContactUpdateView(LoginRequiredMixin,generic.TemplateView):
     template_name="contactUpdate.html"
 
-class ContactTemplateView(generic.TemplateView):
+class ContactTemplateView(LoginRequiredMixin,generic.TemplateView):
     template_name="contactTemplate.html"
 
-# 登降園関連--------------------------------------------------------------------
-class AttendView(generic.TemplateView):
+class MessageAddressView(LoginRequiredMixin,generic.TemplateView):
+    template_name="messageAddress.html"
+
+class MessageView(LoginRequiredMixin,generic.TemplateView):
+    template_name="message.html"
+
+class AttendView(LoginRequiredMixin,generic.TemplateView):
     template_name="attend.html"
 
-class TagScanView(generic.TemplateView):
+class TagScanView(LoginRequiredMixin,generic.TemplateView):
     template_name="tagScan.html"
 
-# 予定表関連--------------------------------------------------------------------
-class PlanListView(generic.TemplateView):
+# 名簿画面は作らないことになった
+# class NameListView(generic.TemplateView):
+#     template_name="nameList.html"
+
+# class NameListDetailView(generic.TemplateView):
+#     template_name="nameListDetail.html"
+
+# class NameListAddView(generic.TemplateView):
+#     template_name="nameListAdd.html"
+
+# class NameListUpdateView(generic.TemplateView):
+#     template_name="nameListUpdate.html"
+
+class PlanListView(LoginRequiredMixin,generic.TemplateView):
     template_name="planlist.html"
 
-class PlanListDetailView(generic.TemplateView):
+class PlanListDetailView(LoginRequiredMixin,generic.TemplateView):
     template_name="planListDetail.html"
 
-class PlanListAddView(generic.TemplateView):
+class PlanListAddView(LoginRequiredMixin,generic.TemplateView):
     template_name="planListAdd.html"
 
-class PlanListUpdateView(generic.TemplateView):
+class PlanListUpdateView(LoginRequiredMixin,generic.TemplateView):
     template_name="planListUpdate.html"
 
-class PlanListDeleteView(generic.TemplateView):
+class PlanListDeleteView(LoginRequiredMixin,generic.TemplateView):
     template_name="planListDelete.html"
+
+class ParentConfigView(LoginRequiredMixin,generic.TemplateView):
+    template_name="parentConfig.html"
+
+class TeacherConfigView(LoginRequiredMixin,generic.TemplateView):
+    template_name="teacherConfig.html"

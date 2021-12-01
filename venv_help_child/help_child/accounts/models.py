@@ -20,9 +20,9 @@ class UserType(models.Model):
     def __str__(self):
         return f'{self.id} - {self.typename}'
 
-USERTYPE_SUPPLIER = 100
-USERTYPE_BUYER = 200
-USERTYPE_DEFAULT = USERTYPE_BUYER
+USERTYPE_PARENTS = 3
+USERTYPE_CHILDMINDER = 4
+USERTYPE_DEFAULT = USERTYPE_PARENTS
 
 class CustomUserManager(BaseUserManager):
     """ 拡張ユーザーモデル向けのマネージャー """
@@ -68,6 +68,13 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
             'unique': _("A user with that username already exists."),
         },
     )
+
+    userType = models.ForeignKey(UserType,
+                                verbose_name='ユーザ種別',
+                                null=True,
+                                blank=True,
+                                on_delete=models.PROTECT)
+
     email = models.EmailField(('メールアドレス'),primary_key=True, unique=True)
     last_name = models.CharField(('姓'), max_length=150)
     first_name = models.CharField(('名'),max_length=150)
