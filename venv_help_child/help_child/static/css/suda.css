@@ -1002,7 +1002,7 @@
   font-size: 30px;
   text-align: center;
 }
-#contact-date {
+#contact-date-update {
   position: absolute;
   left: 0;
   right: 0;
@@ -1035,12 +1035,12 @@
 #next {
   float: right;
 }
-#contact-book {
+#contact-book-update {
   display: block;
   margin-top: 10%;
   margin-bottom: 10%;
 }
-.contact-book-table {
+.contact-book-update-table {
   display: table;
   margin: auto;
   background-color: #fff;
