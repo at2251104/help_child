@@ -457,6 +457,9 @@
     font-family: cursive; /*フォント指定(いじるかもしれない)*/
     margin-bottom: 20px;
   }
+  #float {
+    float: left;
+  }
   .underline {
     padding: auto;
     border-bottom: 1px solid red;
@@ -848,6 +851,9 @@
   #plmain form {
     float: none;
     width: auto;
+  }
+  #disp {
+    display: none;
   }
 
   /*planListDetail画面*~390/
