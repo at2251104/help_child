@@ -20,8 +20,8 @@ class UserType(models.Model):
     def __str__(self):
         return f'{self.id} - {self.typename}'
 
-USERTYPE_PARENTS = 3
-USERTYPE_CHILDMINDER = 4
+USERTYPE_PARENTS = 200
+USERTYPE_CHILDMINDER = 100
 USERTYPE_DEFAULT = USERTYPE_PARENTS
 
 class CustomUserManager(BaseUserManager):

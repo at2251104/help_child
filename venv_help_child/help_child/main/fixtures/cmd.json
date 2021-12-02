@@ -1,0 +1,16 @@
+[
+        {
+        "model": "accounts.UserType",
+        "pk": 100,
+        "fields": {
+        "typename": "保育士"
+        }
+    },
+    {
+        "model": "accounts.UserType",
+        "pk": 200,
+        "fields": {
+        "typename": "保護者"
+        }
+    }
+]
