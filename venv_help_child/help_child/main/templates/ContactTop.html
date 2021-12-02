@@ -90,9 +90,19 @@
 
     <!-- 園児リスト -->
     <ul id="list">
-        {% for help_child in contactTop %}
-        <li class="list_item" data-hobby="age4"><a href="#">{{class.t004_fd02_year}}</a></li>
-        {% endfor %}
+        {% for T001Children in object_list %}
+        <li class="list_item" data-hobby="age4"><a href="#">{{ T001Children.t001_fd07_first_name }}</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        {% empty %}
+        
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">aaaくん 2歳 9</a></li>
         <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
         <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
         <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
@@ -100,6 +110,36 @@
         <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
         <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
         <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">aaaくん 2歳 9</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">aaaくん 2歳 9</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">aaaくん 2歳 9</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">aaaくん 2歳 最後</a></li>
+        {% endfor %}
     </ul>
 </div>
 {%endblock%}

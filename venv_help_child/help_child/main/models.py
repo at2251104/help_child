@@ -38,6 +38,11 @@ class T001Children(models.Model):
         db_table = 'T001_children'
         verbose_name_plural="園児テーブル"
 
+    def get_full_name(self):
+        full_name = '%s %s' % (self.t001_fd01_last_name, self.t001_fd07_first_name)
+        return full_name.strip()
+
+
     def __str__(self):
         return self.t001_pk01_children_id
 
@@ -95,7 +100,7 @@ class T007Contactbook(models.Model):
     t007_fd12_temperature = models.FloatField(verbose_name='検温',db_column='T007_FD12_temperature', blank=True, null=True)  # Field name made lowercase.
     t007_fd11_temperature_time = models.TimeField(verbose_name='検温時間',db_column='T007_FD11_temperature-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fd02_infomation = models.CharField(verbose_name='備考',db_column='T007_FD02_infomation', max_length=200, blank=True, null=True)  # Field name made lowercase.
-    t007_fd25_pickup_person = models.CharField(verbose_name='迎え人',default='父',max_length=4,choices=(('父','父'), ('母','母'),('兄','兄'),('姉','姉'),('祖母','祖母'),('祖父','祖父')))  # Field name made lowercase.
+    t007_fd25_pickup_person = models.CharField(verbose_name='迎え人',default='父',max_length=4,choices=(('父','父'), ('母','母'),('兄','兄'),('姉','姉'),('祖母','祖母'),('祖父','祖父'),('バス','バス')))  # Field name made lowercase.
     t007_fd26_pickup_time = models.TimeField(verbose_name='迎え時間',blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
 
     t007_fd15_lunch_contents = models.CharField(verbose_name='昼食食事内容',db_column='T007_FD15_lunch-contents', max_length=100, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.

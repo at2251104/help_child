@@ -84,10 +84,11 @@
         <li class="list_item" data-hobby="age5"><a href="#">5クラス </a></li>
 
     </ul>
-    <form action="window.alert(target)" method="post">
+    <form action="window.alert(target)" method="post" class="planlistDetailCenter">
+        <h2>追加したい日程・行事</h2>
         <div id="float">
-            <h4>日 付:<input type="text" placeholder="日付検索" id="target"></h4>
-            <h4>行事名:<input type="textbox" name="planName" id="target"></h4>
+            <h4>日 付 : <input type="text" placeholder="日付検索" id="target"></h4>
+            <h4>行事名 : <input type="textbox" name="planName" id="target"></h4>
             備考<br>
             <textarea class="remarksBox1" name="remarks" rows="6" cols="40"></textarea><br>
             <br>
@@ -102,7 +103,7 @@
 <nav class="box1">
     <h2>予定表関連</h2>
     <ul class="submenu">
-        <li><a href="">詳細</a></li>
+        <li><a href="{% url 'main:planList' %}">カレンダー</a></li>
         <li><a href="{% url 'main:planListUpdate'%}">編集</a></li>
         <li><a href="{% url 'main:planListDelete' %}">削除</a></li>
     </ul>
