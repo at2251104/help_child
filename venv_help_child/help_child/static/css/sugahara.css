@@ -318,16 +318,25 @@ a.btn-border:hover:after {
 .table-col-4,
 .table-col-8,
 .table-col-11 {
-  width: 25px;
+  width: 20px;
   text-align: center;
   vertical-align: middle;
   writing-mode: tb-rl;
 }
-.table-col-2 {
+.table-col-2,
+.table-col-9 {
   width: 50px;
 }
-.table-col-3 {
+.table-col-3,
+.table-col-6,
+.table-col-7,
+.table-col-10,
+.table-col-13 {
   width: 0px;
+}
+.table-col-5,
+.table-col-12 {
+  width: auto;
 }
 .time {
   width: 68px;
