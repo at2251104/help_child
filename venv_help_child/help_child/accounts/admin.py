@@ -27,7 +27,5 @@ class AdminUserAdmin(UserAdmin):
     ordering = ('date_joined',)
     filter_horizontal = ('groups', 'user_permissions',)
     
-
-    admin.site.register(UserType)
     admin.site.register(T002Parents)
     admin.site.register(T003Childminder)
