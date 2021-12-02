@@ -80,13 +80,44 @@
 
     <ul id="list">
         <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳</a></li>
-        <li class="list_item" data-hobby="age5"><a href="#">Aくん 5歳</a></li>
-        <li class="list_item" data-hobby="age3"><a href="#">Bちゃん 3歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
     </ul>
-
-
     <form action="window.alert(target)" method="post" class="planlistDetailCenter" style="height: 30px;">
         <h4>月　日:<input type="text" placeholder="日付検索" id="target" text-align="center"></h4>
 
@@ -104,9 +135,9 @@
 <nav class="box1">
     <h2>予定表関連</h2>
     <ul class="submenu">
-        <li><a href="#">詳細</a></li>
+        <li><a href="">詳細</a></li>
         <li><a href="{% url 'main:planListAdd' %}">行事の追加</a></li>
-        <li><a href="#">編集</a></li>
+        <li><a href="{% url 'main:planListUpdate'%}">編集</a></li>
         <li><a href="{% url 'main:planListDelete' %}">削除</a></li>
     </ul>
 </nav>

@@ -3,6 +3,7 @@
 
 {% block title %}CHIlink{% endblock %}
 
+{%  if user.userType.id==1 %}
 {% block head_slide%}
 <!--スライドショー-->
 <aside id="mainimg">
@@ -14,9 +15,10 @@
 	</div>
 </aside>
 {% endblock %}
-
+{% endif %}
 
 {% block main_contents%}
+
 <div id="main">
 	<section id="new">
 		<h2 id="newinfo_hdr" class="close">更新情報・お知らせ</h2>
@@ -24,7 +26,7 @@
 			<dt>2017/02/23</dt>
 			<dd>スライドショーの設定を少し変更。トップの列車アニメーションがIEで動かなかったので修正。<span class="newicon">NEW</span></dd>
 			<dt>2017/02/20</dt>
-			<dd>tp_kids3公開。</dd>
+			<dd>{{ user.userType.id }}</dd>
 			<dt>20XX/00/00</dt>
 			<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
 			<dt>20XX/00/00</dt>
@@ -39,9 +41,8 @@
 			<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
 		</dl>
 	</section>
-
+	
 	<section>
-
 		<h2>テンプレートのご利用前に必ずお読み下さい</h2>
 
 		<h3>利用規約のご案内</h3>
@@ -67,6 +68,7 @@
 
 	</section>
 </div>
+
 {% endblock %}
 
 <!--/main-->
@@ -80,13 +82,14 @@
 		<li><a href="#">サンプルメニュー</a></li>
 	</ul>
 </nav>
-
+{% if request.user.is_staff  %}
 <div class="box1">
 	<section>
 		<h2>この見出しはh2タグです</h2>
 		<p>このボックスは、class="box1"と指定すれば出ます。</p>
 	</section>
 </div>
+{% endif %}
 {% endblock %}
 <!--/box1-->
 
