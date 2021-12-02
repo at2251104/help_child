@@ -85,12 +85,14 @@
 
     </ul>
     <form action="window.alert(target)" method="post">
-        <h4>月　日:<input type="text" placeholder="日付検索" id="target"></h4>
-        <h4>行事名:<input type="textbox" name="planName" id="target"></h4>
-        備考<br>
-        <textarea class="remarksBox1" name="remarks" rows="6" cols="40"></textarea><br>
-        <br>
-        <input type="submit" value="追加" class="planlistAddButton">
+        <div id="float">
+            <h4>日 付:<input type="text" placeholder="日付検索" id="target"></h4>
+            <h4>行事名:<input type="textbox" name="planName" id="target"></h4>
+            備考<br>
+            <textarea class="remarksBox1" name="remarks" rows="6" cols="40"></textarea><br>
+            <br>
+            <input type="submit" value="追加" class="planlistAddButton">
+        </div>
     </form>
 </div>
 <!--予定の表示-->
