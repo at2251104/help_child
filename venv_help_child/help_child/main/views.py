@@ -2,6 +2,10 @@ from django.core.mail import message
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView
+
+from accounts.models import *
+from main.models import *
 # Create your views h
 
 class IndexView(generic.TemplateView):
@@ -16,22 +20,20 @@ class HomeView(LoginRequiredMixin,generic.TemplateView):
 class LocationAdminView(LoginRequiredMixin,generic.TemplateView):
     template_name="locationAdmin.html"
 
-    def get_context_data(self, **kwargs):
-        # request.pathからid部分を抽出('/polls/01'が入ってるので、01だけ取る)
-        # ログイン中のuser_idとurlのidの一致チェック
-        if self.request.user.userType.id == 3:
-            template_name="locationAdmin.html"
-        else :
-            message.error("日記の作成に失敗しました。")
-
 class LocationParentView(LoginRequiredMixin,generic.TemplateView):
     template_name="locationParent.html"
 
 class LocationConfigView(LoginRequiredMixin,generic.TemplateView):
     template_name="locationConfig.html"
 
-class ContactTopView(LoginRequiredMixin,generic.TemplateView):
-    template_name="contactTop.html"
+class ContactTopView(LoginRequiredMixin,generic.ListView):
+     model = T001Children
+     template_name="ContactTop.html"
+
+     def get_queryset(self):
+         childminder = T001Children.objects.filter(t001_pk01_children_id = 43434)
+         return childminder
+
     
 class ContactTopOyaView(LoginRequiredMixin,generic.TemplateView):
     template_name="contactTop_oya.html"
