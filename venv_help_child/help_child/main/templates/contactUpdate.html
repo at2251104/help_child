@@ -4,7 +4,7 @@
 {% block title %}CHIlink{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/ryota.css' %}">
+<link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
 <script type="text/javascript" src="{% static 'js/planlistDetail.js' %}"></script>
@@ -29,7 +29,7 @@
 {% block main_contents%}
 <div id="contact-update-main">
     <h2>連絡帳</h2>
-    <div id="contact-date-update">
+    <div id="contact-date">
         <form action="window.alert(target)" method="post" class="planlistDetailCenter">
             <input type="text" placeholder="日付検索" id="target" text-align="center">
         </form>
@@ -38,21 +38,75 @@
         <button id="prev" onclick="prev()">‹</button>
         <button id="next" onclick="next()">›</button>
     </div>
-    <div id="contact-book-update">
+    <div id="contact-book">
         <form action="">
-            <table border="1" class="contact-book-update-table">
-                <div id="s">
+            <table border="1" align="left" class="contact-book-table">
+                <colgroup class="table-col-1">
+                </colgroup>
+                <thead>
                     <tr>
                         <th></th>
-                        <th colspan="5">
-                            園から
-                        </th>
                     </tr>
+                </thead>
+                <tbody>
                     <tr>
-                        <td rowspan="2" style="writing-mode: tb-rl">
+                        <td rowspan="3">
                             食事
                         </td>
-                        <td colspan="2">
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <td>
+                            睡眠
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            きげん
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            排便
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            入浴
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            連絡事項
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            お迎え
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table border="1" align="left" class="contact-book-table">
+                <colgroup>
+                    <col class="table-col-2">
+                    <col class="table-col-3">
+                    <col class="table-col-4">
+                    <col class="table-col-5">
+                    <col class="table-col-6">
+                    <col class="table-col-7">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th colspan="6">
+                            家庭から
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3">
                             時刻
                         </td>
                         <td colspan="3">
@@ -60,44 +114,43 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <p>昼食</p>
-                            <input type="time" name="lunch_time" class="time">
+                        <td colspan="3">
+                            <p>前夜</p>
+                            <input type="time" name="dinner_time" class="time">
                         </td>
                         <td colspan="3">
-                            <textarea cols="" rows="" name="lunch" class="food-text"></textarea>
+                            <textarea cols="" rows="" name="dinner" class="food-text"></textarea>
                         </td>
                     </tr>
                     <tr>
-                        <td style="writing-mode: tb-rl">
-                            睡眠
+                        <td colspan="3">
+                            <p>今朝</p>
+                            <input type="time" name="breakfast_time" class="time">
                         </td>
-                        <td colspan="5">
-                            <p>就寝(時分)~起床(時分)</p>
-                            <input type="time" name="school_inbed" class="time">~<input type="time" name="school_outbed"
+                        <td colspan="3">
+                            <textarea cols="" rows="" name="breakfast" class="food-text"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <p>就寝(時分)起床(時分)</p>
+                            <input type="time" name="home_inbed" class="time">~<input type="time" name="home_outbed"
                                 class="time">
                         </td>
                     </tr>
                     <tr>
-                        <td style="writing-mode: tb-rl">
-                            きげん
-                        </td>
-                        <td colspan="5">
-                            <label><input type="radio" name="school_mood">良</label>
-                            <label><input type="radio" name="school_mood">普</label>
-                            <label><input type="radio" name="school_mood">悪</label>
+                        <td colspan="6">
+                            <label><input type="radio" name="home_mood">良</label>
+                            <label><input type="radio" name="home_mood">普</label>
+                            <label><input type="radio" name="home_mood">悪</label>
                         </td>
                     </tr>
                     <tr>
-                        <td style="writing-mode: tb-rl">
-                            排便
-                        </td>
-                        <td colspan="5">
-                            <label><input type="radio" name="school_hardness">水</label>
-                            <label><input type="radio" name="school_hardness">軟</label>
-                            <label><input type="radio" name="school_hardness">普</label>
-                            <label><input type="radio" name="school_hardness">硬</label>
-                            <p></p>
+                        <td colspan="6">
+                            <label><input type="radio" name="home_hardness">水</label>
+                            <label><input type="radio" name="home_hardness">軟</label><br>
+                            <label><input type="radio" name="home_hardness">普</label>
+                            <label><input type="radio" name="home_hardness">硬</label>
                             <select name="number">
                                 <option value="zero">0</option>
                                 <option value="one">1</option>
@@ -109,62 +162,262 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="writing-mode: tb-rl">
-                            沐浴
-                        </td>
                         <td colspan="2" nowrap>
-                            <label><input type="radio" name="school_bathe">有</label>
-                            <label><input type="radio" name="school_bathe">無</label>
+                            <label><input type="radio" name="home_bathe">有</label><br>
+                            <label><input type="radio" name="home_bathe">無</label>
                         </td>
-                        <td style="writing-mode: tb-rl">
+                        <td>
                             検温
                         </td>
-                        <td colspan="2">
+                        <td colspan="3">
                             <p>(時分)</p><input type="time" name="home_temp_time" class="time"><br>
-                            <input type="number" name="home_int_temperature" min="34" max="40" step="1"
-                                list="int-temperature">
-                            <datalist id="int-temperature">
-                                <option value="34">
-                                <option value="35">
-                                <option value="36">
-                                <option value="37">
-                                <option value="38">
-                                <option value="39">
-                                <option value="40">
-                            </datalist>.
-                            <input type="number" name="home_float_temperature" min="0" max="9" step="1"
-                                list="float-temperature">
-                            <datalist id="float-temperature">
-                                <option value="0">
-                                <option value="1">
-                                <option value="2">
-                                <option value="3">
-                                <option value="4">
-                                <option value="5">
-                                <option value="6">
-                                <option value="7">
-                                <option value="8">
-                                <option value="9">
+                            <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
+                                list="temperature">
+                            <datalist id="temperature">
+                                <option value="34.0">
+                                <option value="34.1">
+                                <option value="34.2">
+                                <option value="34.3">
+                                <option value="34.4">
+                                <option value="34.5">
+                                <option value="34.6">
+                                <option value="34.7">
+                                <option value="34.8">
+                                <option value="34.9">
+                                <option value="35.0">
+                                <option value="35.1">
+                                <option value="35.2">
+                                <option value="35.3">
+                                <option value="35.4">
+                                <option value="35.5">
+                                <option value="35.6">
+                                <option value="35.7">
+                                <option value="35.8">
+                                <option value="35.9">
+                                <option value="36.0">
+                                <option value="36.1">
+                                <option value="36.2">
+                                <option value="36.3">
+                                <option value="36.4">
+                                <option value="36.5">
+                                <option value="36.6">
+                                <option value="36.7">
+                                <option value="36.8">
+                                <option value="36.9">
+                                <option value="37.0">
+                                <option value="37.1">
+                                <option value="37.2">
+                                <option value="37.3">
+                                <option value="37.4">
+                                <option value="37.5">
+                                <option value="37.6">
+                                <option value="37.7">
+                                <option value="37.8">
+                                <option value="37.9">
+                                <option value="38.0">
+                                <option value="38.1">
+                                <option value="38.2">
+                                <option value="38.3">
+                                <option value="38.4">
+                                <option value="38.5">
+                                <option value="38.6">
+                                <option value="38.7">
+                                <option value="38.8">
+                                <option value="38.9">
+                                <option value="39.0">
+                                <option value="39.1">
+                                <option value="39.2">
+                                <option value="39.3">
+                                <option value="39.4">
+                                <option value="39.5">
+                                <option value="39.6">
+                                <option value="39.7">
+                                <option value="39.8">
+                                <option value="39.9">
+                                <option value="40.0">
                             </datalist>℃
                         </td>
                     </tr>
                     <tr>
-                        <td style="writing-mode: tb-rl">
-                            連絡事項
+                        <td colspan="6">
+                            <textarea id="story" name="home_information" class="info-text"></textarea>
                         </td>
-                        <td colspan="5">
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <select name="pickup">
+                                <option value="父">父</option>
+                                <option value="母">母</option>
+                                <option value="兄">兄</option>
+                                <option value="姉">姉</option>
+                                <option value="祖父">祖父</option>
+                                <option value="祖母">祖母</option>
+                                <option value="祖母">バス</option>
+                            </select>
+                            <p>(時分)</p>
+                            <input type="time" name="pickup_time" class="time">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table border="1" align="left" class="contact-book-table">
+                <colgroup>
+                    <col class="table-col-8">
+                    <col class="table-col-9">
+                    <col class="table-col-10">
+                    <col class="table-col-11">
+                    <col class="table-col-12">
+                    <col class="table-col-13">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th colspan="6">
+                            園から
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3">
+                            時刻
+                        </td>
+                        <td colspan="3">
+                            献立
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" rowspan="2">
+                            <p>昼食</p>
+                            <input type="time" name="lunch_time" class="time">
+                        </td>
+                        <td colspan="3" rowspan="2">
+                            <textarea cols="" rows="" name="lunch" class="food-text"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <p>就寝(時分)起床(時分)</p>
+                            <input type="time" name="school_inbed" class="time">~<input type="time" name="school_outbed"
+                                class="time">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <label><input type="radio" name="school_mood">良</label>
+                            <label><input type="radio" name="school_mood">普</label>
+                            <label><input type="radio" name="school_mood">悪</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <label><input type="radio" name="school_hardness">水</label>
+                            <label><input type="radio" name="school_hardness">軟</label><br>
+                            <label><input type="radio" name="school_hardness">普</label>
+                            <label><input type="radio" name="school_hardness">硬</label>
+                            <select name="number">
+                                <option value="zero">0</option>
+                                <option value="one">1</option>
+                                <option value="two">2</option>
+                                <option value="three">3</option>
+                                <option value="four">4</option>
+                                <option value="five">5</option>
+                            </select>回
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            沐浴
+                        </td>
+                        <td colspan="2" nowrap>
+                            <label><input type="radio" name="school_bathe">有</label><br>
+                            <label><input type="radio" name="school_bathe">無</label>
+                        </td>
+                        <td>
+                            検温
+                        </td>
+                        <td colspan="2">
+                            <p>(時分)</p><input type="time" name="home_temp_time" class="time"><br>
+                            <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
+                                list="temperature">
+                            <datalist id="temperature">
+                                <option value="34.0">
+                                <option value="34.1">
+                                <option value="34.2">
+                                <option value="34.3">
+                                <option value="34.4">
+                                <option value="34.5">
+                                <option value="34.6">
+                                <option value="34.7">
+                                <option value="34.8">
+                                <option value="34.9">
+                                <option value="35.0">
+                                <option value="35.1">
+                                <option value="35.2">
+                                <option value="35.3">
+                                <option value="35.4">
+                                <option value="35.5">
+                                <option value="35.6">
+                                <option value="35.7">
+                                <option value="35.8">
+                                <option value="35.9">
+                                <option value="36.0">
+                                <option value="36.1">
+                                <option value="36.2">
+                                <option value="36.3">
+                                <option value="36.4">
+                                <option value="36.5">
+                                <option value="36.6">
+                                <option value="36.7">
+                                <option value="36.8">
+                                <option value="36.9">
+                                <option value="37.0">
+                                <option value="37.1">
+                                <option value="37.2">
+                                <option value="37.3">
+                                <option value="37.4">
+                                <option value="37.5">
+                                <option value="37.6">
+                                <option value="37.7">
+                                <option value="37.8">
+                                <option value="37.9">
+                                <option value="38.0">
+                                <option value="38.1">
+                                <option value="38.2">
+                                <option value="38.3">
+                                <option value="38.4">
+                                <option value="38.5">
+                                <option value="38.6">
+                                <option value="38.7">
+                                <option value="38.8">
+                                <option value="38.9">
+                                <option value="39.0">
+                                <option value="39.1">
+                                <option value="39.2">
+                                <option value="39.3">
+                                <option value="39.4">
+                                <option value="39.5">
+                                <option value="39.6">
+                                <option value="39.7">
+                                <option value="39.8">
+                                <option value="39.9">
+                                <option value="40.0">
+                            </datalist>℃
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
                             <textarea id="story" name="school_information" class="info-text"></textarea>
                         </td>
                     </tr>
                     <tr>
-                        <td style="writing-mode: tb-rl">
+                        <td>
                             記入者
                         </td>
                         <td colspan="5">
                             <input type="text" name="writer" class="writer-text">
                         </td>
                     </tr>
-                </div>
+                </tbody>
             </table>
         </form>
     </div>
