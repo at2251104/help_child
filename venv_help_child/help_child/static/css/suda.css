@@ -355,13 +355,6 @@
     float: none;
     width: auto;
   }
-  .group {
-    border-bottom: 2px solid #dedede;
-  }
-  .group {
-    border-bottom: 2px solid #dedede;
-  }
-
 
   /*planListDetail画面*~390/
 /*日付入力欄(target)とカレンダーアイコンに参照させるためのクラス*/
@@ -463,6 +456,9 @@
     border-radius: 0.27em; /* 角丸 */
     font-family: cursive; /*フォント指定(いじるかもしれない)*/
     margin-bottom: 20px;
+  }
+  #float {
+    float: left;
   }
   .underline {
     padding: auto;
@@ -834,6 +830,9 @@
     transition: all 0.3s ease;
   }
 
+  .test {
+  }
+
   #plmain {
     /* width: 100%; */
     /* overflow: scroll; */
@@ -849,17 +848,22 @@
     float: none;
     width: auto;
   }
-  /* #plmain form {
+  #plmain form {
     float: none;
     width: auto;
-  } */
+  }
+  #disp {
+    display: none;
+  }
 
   /*planListDetail画面*~390/
 /*日付入力欄(target)とカレンダーアイコンに参照させるためのクラス*/
   .planlistDetailCenter {
-    /* vertical-align: center; */
+    vertical-align: center;
     top: 20px;
-    /* position: relative; */
+    position: relative;
+    /* height: 30px; */
+    /* text-align: center; */
   }
   .planlistDetailCenter select {
     font-size: 20px;
@@ -1003,7 +1007,6 @@
   }
 }
 
-#contact-update-main {
 #contact-detail-main {
   position: relative;
   float: right; /*contact-detail-main右側に回り込み*/
@@ -1012,12 +1015,7 @@
   padding-top: 30%; /*コンテンツ上にあける余白*/
   text-align: center;
 }
-#contact-update-main h2 {
-  font-size: 30px;
-  text-align: center;
-}
-#contact-date-update {
-/* #contact-detail-main h2 {
+#contact-detail-main h2 {
   font-size: 30px;
   text-align: center;
 }
@@ -1027,78 +1025,3 @@
   right: 0;
   margin: auto;
 }
-/* #target {
-  border: none;
-  width: 30%;
-  font-size: 20px;
-  text-align: center;
-} */
-#next-prev-button {
-  margin-left: auto;
-  margin-right: auto;
-}
-#next-prev-button button {
-  cursor: pointer;
-  background: #b78d4a;
-  color: #fff;
-  border: 1px solid #b78d4a;
-  border-radius: 4px;
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  margin: auto;
-  margin-bottom: 20px;
-}
-#prev {
-  float: left;
-}
-#next {
-  float: right;
-}
-#contact-book-update {
-  display: block;
-  margin-top: 10%;
-  margin-bottom: 10%;
-}
-.contact-book-update-table {
-  display: table;
-  margin: auto;
-  background-color: #fff;
-  width: 100%;
-  table-layout: fixed;
-}
-.table-col-1,
-.table-col-4,
-.table-col-8,
-.table-col-11 {
-  width: 25px;
-  text-align: center;
-  vertical-align: middle;
-  writing-mode: tb-rl;
-}
-.time {
-  width: 68px;
-}
-.food-text,
-.info-text,
-.writer-text {
-  width: 100%;
-}
-/* 画面幅800px以下の設定 */
-@media screen and (max-width: 800px) {
-  /*mainコンテンツ*/
-  #contact-detail-main {
-    float: none;
-    width: auto;
-  }
-
-  /*main*/
-  #contact-detail-main {
-    padding: 0 !important;
-  }
-}
-/*画面幅480px以下の設定*/
-@media screen and (max-width: 480px) {
-  /*メインコンテンツ*/
-} /*contactDetail画面
----------------------------------------------------------------------------*/
-} */

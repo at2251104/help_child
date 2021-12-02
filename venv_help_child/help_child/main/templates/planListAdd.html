@@ -6,9 +6,8 @@
 <script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<!-- <link rel="stylesheet" href="{% static 'css/sugahara.css' %}"> -->
 <link rel="stylesheet" href="{% static 'css/suda.css' %}">
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
 <script type="text/javascript" src="{% static 'js/planlistDetail.js' %}"></script>
@@ -46,7 +45,6 @@
                     <span class="text">All</span>
                 </label>
             </div>
-
             <ul class="js-check-all-target list" data-check-all="hobby">
                 <li class="item">
                     <label class="label">
@@ -77,55 +75,25 @@
             </ul>
         </div>
     </div>
-
     <ul id="list">
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-    </ul>
-    <form action="window.alert(target)" method="post" class="planlistDetailCenter" style="height: 30px;">
-        <h4>月　日:<input type="text" placeholder="日付検索" id="target" text-align="center"></h4>
+        <li class="list_item" data-hobby="age0"><a href="#">0クラス </a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">1クラス </a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">2クラス </a></li>
+        <li class="list_item" data-hobby="age3"><a href="#">3クラス </a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">4クラス </a></li>
+        <li class="list_item" data-hobby="age5"><a href="#">5クラス </a></li>
 
-        <h4>行事名:<input type="textbox" name="planName" id="target"></h4>
-        備考<br>
-        <textarea class="remarksBox1" name="remarks" rows="6" cols="40"></textarea><br>
-        <br>
-        <input type="submit" value="追加" class="planlistAddButton">
+    </ul>
+    <form action="window.alert(target)" method="post" class="planlistDetailCenter">
+        <h2>追加したい日程・行事</h2>
+        <div id="float">
+            <h4>日 付 : <input type="text" placeholder="日付検索" id="target"></h4>
+            <h4>行事名 : <input type="textbox" name="planName" id="target"></h4>
+            備考<br>
+            <textarea class="remarksBox1" name="remarks" rows="6" cols="40"></textarea><br>
+            <br>
+            <input type="submit" value="追加" class="planlistAddButton">
+        </div>
     </form>
 </div>
 <!--予定の表示-->
@@ -135,12 +103,9 @@
 <nav class="box1">
     <h2>予定表関連</h2>
     <ul class="submenu">
-        <li><a href="">詳細</a></li>
-        <li><a href="{% url 'main:planListAdd' %}">行事の追加</a></li>
+        <li><a href="{% url 'main:planList' %}">カレンダー</a></li>
         <li><a href="{% url 'main:planListUpdate'%}">編集</a></li>
         <li><a href="{% url 'main:planListDelete' %}">削除</a></li>
     </ul>
 </nav>
 {% endblock %}
-
-</html>

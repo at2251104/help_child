@@ -318,16 +318,25 @@ a.btn-border:hover:after {
 .table-col-4,
 .table-col-8,
 .table-col-11 {
-  width: 25px;
+  width: 20px;
   text-align: center;
   vertical-align: middle;
   writing-mode: tb-rl;
 }
-.table-col-2 {
+.table-col-2,
+.table-col-9 {
   width: 50px;
 }
-.table-col-3 {
+.table-col-3,
+.table-col-6,
+.table-col-7,
+.table-col-10,
+.table-col-13 {
   width: 0px;
+}
+.table-col-5,
+.table-col-12 {
+  width: auto;
 }
 .time {
   width: 68px;
@@ -353,5 +362,48 @@ a.btn-border:hover:after {
 /*画面幅480px以下の設定*/
 @media screen and (max-width: 480px) {
   /*メインコンテンツ*/
-} /*contactDetail画面
+}
+/*contactDetail画面
+---------------------------------------------------------------------------*/
+
+/*contactUpdate画面
+---------------------------------------------------------------------------*/
+#contact-update-main {
+  position: relative;
+  float: right; /*contact-update-main右側に回り込み*/
+  width: 70%; /*幅*/
+  overflow: hidden;
+  padding-top: 30%; /*コンテンツ上にあける余白*/
+  text-align: center;
+}
+#contact-update-main h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+/* 画面幅800px以下の設定 */
+@media screen and (max-width: 800px) {
+  /*mainコンテンツ*/
+  #contact-update-main {
+    float: none;
+    width: auto;
+  }
+  /* .h-table {
+    display: table;
+    margin: auto;
+    background-color: #fff;
+    width: 10%;
+    table-layout: fixed;
+  } */
+
+  /*main*/
+  #contact-update-main {
+    padding: 0 !important;
+  }
+}
+/*画面幅480px以下の設定*/
+@media screen and (max-width: 480px) {
+  /*メインコンテンツ*/
+}
+/*contactUpdate画面
 ---------------------------------------------------------------------------*/

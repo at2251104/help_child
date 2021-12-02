@@ -7,6 +7,9 @@ from django.views.generic import ListView
 from accounts.models import *
 from main.models import *
 # Create your views h
+from .models import *
+from accounts.models import *
+
 
 class IndexView(generic.TemplateView):
     template_name="index.html"
