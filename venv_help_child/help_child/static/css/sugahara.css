@@ -271,13 +271,14 @@ a.btn-border:hover:after {
 }
 #contact-date {
   position: absolute;
+  width: 40%;
   left: 0;
   right: 0;
   margin: auto;
 }
 #target {
   border: none;
-  width: 30%;
+  width: 80%;
   font-size: 20px;
   text-align: center;
 }
@@ -306,13 +307,12 @@ a.btn-border:hover:after {
   display: block;
   margin-top: 10%;
   margin-bottom: 10%;
+  width: 100%;
+  padding: 0;
 }
 .contact-book-table {
-  display: table;
   margin: auto;
   background-color: #fff;
-  width: 100%;
-  table-layout: fixed;
 }
 .table-col-1,
 .table-col-4,
@@ -388,13 +388,11 @@ a.btn-border:hover:after {
     float: none;
     width: auto;
   }
-  /* .h-table {
-    display: table;
+  .input-page-table {
+    display: inline-block;
     margin: auto;
     background-color: #fff;
-    width: 10%;
-    table-layout: fixed;
-  } */
+  }
 
   /*main*/
   #contact-update-main {
