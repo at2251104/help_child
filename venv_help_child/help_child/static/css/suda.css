@@ -852,6 +852,9 @@
     float: none;
     width: auto;
   }
+  #disp {
+    display: none;
+  }
 
   /*planListDetail画面*~390/
 /*日付入力欄(target)とカレンダーアイコンに参照させるためのクラス*/
