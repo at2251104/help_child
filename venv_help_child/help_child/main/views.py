@@ -8,7 +8,6 @@ from accounts.models import *
 from main.models import *
 # Create your views h
 from .models import *
-from accounts.models import *
 
 
 class IndexView(generic.TemplateView):
@@ -29,14 +28,16 @@ class LocationParentView(LoginRequiredMixin,generic.TemplateView):
 class LocationConfigView(LoginRequiredMixin,generic.TemplateView):
     template_name="locationConfig.html"
 
-class ContactTopView(LoginRequiredMixin,generic.ListView):
-     model = T001Children
-     template_name="ContactTop.html"
-
-     def get_queryset(self):
-         childminder = T001Children.objects.filter(t001_pk01_children_id = 43434)
-         return childminder
-
+class ContactTopView(generic.ListView,LoginRequiredMixin):
+    
+    template_name="ContactTop.html"
+    model=T001Children
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # ユーザ種類別のデータの取り出し方...self.request.user.detail_buyer←ここでrelated_nameを指定する！！！！！！！！！！！！！！！
+        context["object_list"] = T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id)
+        return context
+    
     
 class ContactTopOyaView(LoginRequiredMixin,generic.TemplateView):
     template_name="contactTop_oya.html"

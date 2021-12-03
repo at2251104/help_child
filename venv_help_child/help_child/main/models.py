@@ -20,7 +20,7 @@ class T004Class(models.Model):
 # 園児の個人データ
 class T001Children(models.Model):
     t001_pk01_children_id = models.CharField(verbose_name='園児ID',db_column='T001_PK01_children-id', primary_key=True, max_length=150)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t001_fk01_class_id = models.ForeignKey(T004Class, models.DO_NOTHING, default='1',verbose_name='クラスID',db_column='T001_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t001_fk01_class_id = models.ForeignKey(T004Class, models.DO_NOTHING, default='1',verbose_name='クラス名',db_column='T001_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_fk02_parents_id = models.ForeignKey(T002Parents, models.DO_NOTHING,default='1',verbose_name='保護者ID', db_column='T001_FK02_parents-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_fd01_last_name = models.CharField(verbose_name='姓',max_length=20)  # Field name made lowercase.
     t001_fd07_first_name = models.CharField(('名'), max_length=20)
