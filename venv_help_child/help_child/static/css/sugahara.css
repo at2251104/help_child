@@ -271,13 +271,14 @@ a.btn-border:hover:after {
 }
 #contact-date {
   position: absolute;
+  width: 50%;
   left: 0;
   right: 0;
   margin: auto;
 }
 #target {
   border: none;
-  width: 30%;
+  width: 80%;
   font-size: 20px;
   text-align: center;
 }
@@ -306,13 +307,12 @@ a.btn-border:hover:after {
   display: block;
   margin-top: 10%;
   margin-bottom: 10%;
+  width: 100%;
 }
 .contact-book-table {
-  display: table;
   margin: auto;
-  background-color: #fff;
-  width: 100%;
   table-layout: fixed;
+  background-color: #fff;
 }
 .table-col-1,
 .table-col-4,
@@ -380,6 +380,15 @@ a.btn-border:hover:after {
   font-size: 30px;
   text-align: center;
 }
+.parent-table {
+  margin: auto;
+  table-layout: fixed;
+  background-color: #fff;
+}
+.line-2 {
+}
+.input-page-table {
+}
 
 /* 画面幅800px以下の設定 */
 @media screen and (max-width: 800px) {
@@ -388,13 +397,6 @@ a.btn-border:hover:after {
     float: none;
     width: auto;
   }
-  /* .h-table {
-    display: table;
-    margin: auto;
-    background-color: #fff;
-    width: 10%;
-    table-layout: fixed;
-  } */
 
   /*main*/
   #contact-update-main {
