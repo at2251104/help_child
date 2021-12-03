@@ -37,89 +37,88 @@
 
 {% block main_contents%}
 <div id="plmain">
-        <h2>予定表編集</h2>
-        <div class="group">
-            <div class="title">
-                <年齢選択>
-            </div>
-            <div class="search-box">
-                <div class="checkAll">
-                    <label class="label">
-                        <input class="js-check-all" type="checkbox" name="hobby" data-check-all="hobby">
-                        <span class="text">All</span>
-                    </label>
-                </div>
-                <ul class="js-check-all-target list" data-check-all="hobby">
-                    <li class="item">
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age0">
-                            <span class="text">0歳児</span>
-                        </label>
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age1">
-                            <span class="text">1歳児</span>
-                        </label>
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age2">
-                            <span class="text">2歳児</span>
-                        </label>
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age3">
-                            <span class="text">3歳児</span>
-                        </label>
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age4">
-                            <span class="text">4歳児</span>
-                        </label>
-                        <label class="label">
-                            <input type="checkbox" name="hobby" value="age5">
-                            <span class="text">5歳児</span><br>
-                        </label>
-                    </li>
-                </ul>
-            </div>
+    <h2>予定表編集</h2>
+    <div class="group">
+        <div class="title">
+            <年齢選択>
         </div>
-
-        <ul id="list">
-            <li class="list_item" data-hobby="age0"><a href="#">0クラス </a></li>
-            <li class="list_item" data-hobby="age1"><a href="#">1クラス </a></li>
-            <li class="list_item" data-hobby="age2"><a href="#">2クラス </a></li>
-            <li class="list_item" data-hobby="age3"><a href="#">3クラス </a></li>
-            <li class="list_item" data-hobby="age4"><a href="#">4クラス </a></li>
-            <li class="list_item" data-hobby="age5"><a href="#">5クラス </a></li>
-    
-        </ul>
-
-    <form method="post" class="planlistDetailCenter">
-        <h2>変更したい日程・行事</h2>
-        <br>
-        <p>編集前月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center"></p>
-        編集前行事名:<select name="planName">
-            <option value="サンプル1">サンプル1</option>
-            <option value="サンプル2">サンプル2</option>
-            <option value="サンプル3">サンプル3</option>
-        </select>
-        <h1>
-            <div class="planListUpdateReverseTryungle">▽▽▽▽▽▽▽▽</div>
-        </h1>
-        <h2>変更日程,行事</h2>
-        <p>編集後月日:<input type="text" placeholder="カレンダー表示" id="target" text-align="center"></p>
-        編集後行事名:<select name="planName">
-            <option value="サンプル1">サンプル1</option>
-            <option value="サンプル2">サンプル2</option>
-            <option value="サンプル3">サンプル3</option>
-        </select>
-        <br>
-        <input type="submit" value="削除" class="planlistAddButton">
-        <!--  -->
-
-    </form>
-    <div class="visiblity">
-
-        <p>謎のエラー解消用のための生贄</p>
+        <div class="search-box">
+            <div class="checkAll">
+                <label class="label">
+                    <input class="js-check-all" type="checkbox" name="hobby" data-check-all="hobby">
+                    <span class="text">All</span>
+                </label>
+            </div>
+            <ul class="js-check-all-target list" data-check-all="hobby">
+                <li class="item">
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age0">
+                        <span class="text">0歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age1">
+                        <span class="text">1歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age2">
+                        <span class="text">2歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age3">
+                        <span class="text">3歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age4">
+                        <span class="text">4歳児</span>
+                    </label>
+                    <label class="label">
+                        <input type="checkbox" name="hobby" value="age5">
+                        <span class="text">5歳児</span><br>
+                    </label>
+                </li>
+            </ul>
+        </div>
     </div>
 
+    <ul id="list">
+        <li class="list_item" data-hobby="age0"><a href="#">0クラス </a></li>
+        <li class="list_item" data-hobby="age1"><a href="#">1クラス </a></li>
+        <li class="list_item" data-hobby="age2"><a href="#">2クラス </a></li>
+        <li class="list_item" data-hobby="age3"><a href="#">3クラス </a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">4クラス </a></li>
+        <li class="list_item" data-hobby="age5"><a href="#">5クラス </a></li>
 
+    </ul>
+
+    <form method="post">
+        <div class="planlistDetailCenter">
+            <h2>変更したい日程・行事</h2>
+            <br>
+
+            <p>編集前月日　:<input type="text" placeholder="カレンダー表示" id="from1" text-align="center"></p>
+            編集前行事名:<select name="planName">
+                <option value="サンプル1">サンプル1</option>
+                <option value="サンプル2">サンプル2</option>
+                <option value="サンプル3">サンプル3</option>
+            </select>
+            <h1>
+                <div class="planListUpdateReverseTryungle">▽▽▽▽▽▽▽▽</div>
+            </h1>
+
+            <h2>変更日程,行事</h2>
+            <p>編集後月日　:<input type="text" placeholder="カレンダー表示" id="to1" text-align="center"></p>
+            編集後行事名:<select name="planName">
+                <option value="サンプル1">サンプル1</option>
+                <option value="サンプル2">サンプル2</option>
+                <option value="サンプル3">サンプル3</option>
+            </select>
+            <br>
+            <input type="submit" value="変更" class="planlistAddButton">
+        </div>
+    </form>
+    <div class="visiblity">
+        <p>謎のエラー解消用のための生贄</p>
+    </div>
 </div>
 
 
