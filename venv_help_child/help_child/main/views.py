@@ -54,14 +54,20 @@ class ContactUpdateView(LoginRequiredMixin,generic.TemplateView):
 class ContactTemplateView(LoginRequiredMixin,generic.TemplateView):
     template_name="contactTemplate.html"
 
-class MessageAddressView(LoginRequiredMixin,generic.TemplateView):
+class MessageAddressView(LoginRequiredMixin,generic.ListView):
     template_name="messageAddress.html"
 
 class MessageView(LoginRequiredMixin,generic.TemplateView):
     template_name="message.html"
 
-class AttendView(LoginRequiredMixin,generic.TemplateView):
+class AttendView(LoginRequiredMixin,generic.ListView):
+    model = T005Kindergaten
     template_name="attend.html"
+
+    def get_queryset(self):
+        toukouenn = T005Kindergaten.objects.all().select_related()
+        return toukouenn
+
 
 class TagScanView(LoginRequiredMixin,generic.TemplateView):
     template_name="tagScan.html"

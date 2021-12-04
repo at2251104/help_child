@@ -2,7 +2,8 @@ from django.db import models
 from django.db.models.deletion import CASCADE
 from accounts.models import T002Parents,T003Childminder,CustomUser
 import datetime
-
+from datetime import date
+import math
 
 
 class T004Class(models.Model):
@@ -41,6 +42,13 @@ class T001Children(models.Model):
     def get_full_name(self):
         full_name = '%s %s' % (self.t001_fd01_last_name, self.t001_fd07_first_name)
         return full_name.strip()
+
+    def Age(self):
+        today = int(date.today().strftime('%Y%m%d'))
+        birth = int(self.t001_fd02_birthday.strftime('%Y%m%d'))
+        age = math.floor((today - birth) / 10000)
+
+        return str(age) + "歳"
 
 
     def __str__(self):
