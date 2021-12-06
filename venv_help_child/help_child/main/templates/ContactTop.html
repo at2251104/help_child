@@ -88,6 +88,12 @@
         <input type="text" id="search-text" onkeyup="myFunction()" placeholder="名前検索">
     </form>
 
+    <!-- 検索ボックス Django-->
+    <!-- <form method="get">
+        <input type="search" value="{{ request.GET.query }}" name="query" type="text" placeholder="Djangoで検索したい">
+        <button>検索</button>
+    </form> -->
+
     <!-- 園児リスト -->
     <ul id="list">
         {% for iiii in object_list %}
@@ -98,7 +104,7 @@
         <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
         <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
         {% empty %}
-        
+
         <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
         <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
         <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
