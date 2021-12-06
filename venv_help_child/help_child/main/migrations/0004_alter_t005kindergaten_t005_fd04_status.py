@@ -13,6 +13,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='t005kindergaten',
             name='t005_fd04_status',
-            field=models.CharField(choices=[('登園', '登園'), ('降園', '降園'), ('遅刻', '遅刻'), ('早退', '早退')], db_column='T005_FD04_status', default='登園', max_length=4, verbose_name='登園状態'),
+            field=models.CharField(choices=[('登園', '登園'), ('降園', '降園'), ('遅刻', '遅刻'), (
+                '早退', '早退')], db_column='T005_FD04_status', default='登園', max_length=4, verbose_name='登園状態'),
         ),
     ]
