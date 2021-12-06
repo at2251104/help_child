@@ -26,13 +26,11 @@ class AccountAdapter(DefaultAccountAdapter):
         if int(user.userType.id) == USERTYPE_PARENTS:
             # 保護者
             supplier = T002Parents()
-            supplier.user_id = user.id
             supplier.notification = request.POST['notification']
             supplier.save()
         else:
             # 保育士
             user.userType = UserType(USERTYPE_CHILDMINDER)
             buyer = T003Childminder()
-            buyer.user_id = user.id
             buyer.class_id = request.POST.get('class_id', False)
             buyer.save()

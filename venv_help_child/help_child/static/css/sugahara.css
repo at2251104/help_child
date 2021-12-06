@@ -271,7 +271,7 @@ a.btn-border:hover:after {
 }
 #contact-date {
   position: absolute;
-  width: 40%;
+  width: 50%;
   left: 0;
   right: 0;
   margin: auto;
@@ -308,10 +308,10 @@ a.btn-border:hover:after {
   margin-top: 10%;
   margin-bottom: 10%;
   width: 100%;
-  padding: 0;
 }
 .contact-book-table {
   margin: auto;
+  table-layout: fixed;
   background-color: #fff;
 }
 .table-col-1,
@@ -380,6 +380,15 @@ a.btn-border:hover:after {
   font-size: 30px;
   text-align: center;
 }
+.parent-table {
+  margin: auto;
+  table-layout: fixed;
+  background-color: #fff;
+}
+.line-2 {
+}
+.input-page-table {
+}
 
 /* 画面幅800px以下の設定 */
 @media screen and (max-width: 800px) {
@@ -387,11 +396,6 @@ a.btn-border:hover:after {
   #contact-update-main {
     float: none;
     width: auto;
-  }
-  .input-page-table {
-    display: inline-block;
-    margin: auto;
-    background-color: #fff;
   }
 
   /*main*/

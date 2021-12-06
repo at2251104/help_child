@@ -88,10 +88,17 @@
         <input type="text" id="search-text" onkeyup="myFunction()" placeholder="名前検索">
     </form>
 
+    <form method="get">
+        <input type="search" value="{{ request.GET.query }}" 
+               name="query" type="text" 
+               placeholder=" Input keywords..">
+        <button>Search</button>
+      </form>
+
     <!-- 園児リスト -->
     <ul id="list">
-        {% for T001Children in object_list %}
-        <li class="list_item" data-hobby="age4"><a href="#">{{ T001Children.t001_fd07_first_name }}</a></li>
+        {% for iiii in object_list %}
+        <li class="list_item" data-hobby="age4"><a href="#">{{ iiii.t001_fk01_class_id }}</a></li>
         <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
         <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
         <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>

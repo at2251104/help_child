@@ -2,7 +2,8 @@ from django.db import models
 from django.db.models.deletion import CASCADE
 from accounts.models import T002Parents,T003Childminder,CustomUser
 import datetime
-
+from datetime import date
+import math
 
 
 class T004Class(models.Model):
@@ -20,7 +21,7 @@ class T004Class(models.Model):
 # 園児の個人データ
 class T001Children(models.Model):
     t001_pk01_children_id = models.CharField(verbose_name='園児ID',db_column='T001_PK01_children-id', primary_key=True, max_length=150)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t001_fk01_class_id = models.ForeignKey(T004Class, models.DO_NOTHING, default='1',verbose_name='クラスID',db_column='T001_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t001_fk01_class_id = models.ForeignKey(T004Class, models.DO_NOTHING, default='1',verbose_name='クラス名',db_column='T001_FK01_class-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_fk02_parents_id = models.ForeignKey(T002Parents, models.DO_NOTHING,default='1',verbose_name='保護者ID', db_column='T001_FK02_parents-id')  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_fd01_last_name = models.CharField(verbose_name='姓',max_length=20)  # Field name made lowercase.
     t001_fd07_first_name = models.CharField(('名'), max_length=20)
@@ -42,6 +43,13 @@ class T001Children(models.Model):
         full_name = '%s %s' % (self.t001_fd01_last_name, self.t001_fd07_first_name)
         return full_name.strip()
 
+    def Age(self):
+        today = int(date.today().strftime('%Y%m%d'))
+        birth = int(self.t001_fd02_birthday.strftime('%Y%m%d'))
+        age = math.floor((today - birth) / 10000)
+
+        return str(age) + "歳"
+
 
     def __str__(self):
         return self.t001_pk01_children_id
@@ -53,7 +61,7 @@ class T005Kindergaten(models.Model):
     t005_fd01_date = models.DateField(verbose_name='日付',default=datetime.date.today,db_column='T005_FD01_date',)  # Field name made lowercase.
     t005_fd02_school_time = models.TimeField(verbose_name='登園時間',db_column='T005_FD02_school-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t005_fd03_exit_time = models.TimeField(verbose_name='降園時間',db_column='T005_FD03_exit-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t005_fd04_status = models.CharField(verbose_name='登園状態',max_length=4,db_column='T005_FD04_status',default = '登園',choices=(('登園','登園'), ('降園','降園')))  # Field name made lowercase.
+    t005_fd04_status = models.CharField(verbose_name='登園状態',max_length=4,db_column='T005_FD04_status',default = '登園',choices=(('登園','登園'), ('降園','降園'), ('遅刻','遅刻'), ('早退','早退')))  # Field name made lowercase.
 
     class Meta:
 

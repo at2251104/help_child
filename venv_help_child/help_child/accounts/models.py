@@ -107,7 +107,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = []
 
     class Meta:
-        db_table = 'User'
+        db_table = 'custom_user'
         verbose_name = ('user')
         verbose_name_plural = ('ユーザー')
 
@@ -135,13 +135,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 class T002Parents(models.Model):
     user = models.OneToOneField(CustomUser,
                                 unique=True,
-                                db_index=True,
                                 related_name='detail_supplier',
                                 on_delete=models.CASCADE)
     # 保護者向けの項目
     notification = models.BooleanField(
-                                   verbose_name='通知',
-                                   default=True
+                                    verbose_name='通知',
+                                    default=True
                                 )
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
@@ -153,15 +152,14 @@ class T002Parents(models.Model):
 class T003Childminder(models.Model):
     user = models.OneToOneField(CustomUser,
                                 unique=True,
-                                db_index=True,
                                 related_name='detail_buyer',
                                 on_delete=models.CASCADE)
     # 保育士向けの項目
     class_id = models.ForeignKey("main.T004Class",
-                                 max_length=3,
-                                 default='1', 
-                                 on_delete=models.CASCADE,
-                                 verbose_name='クラスID',
+                                max_length=3,
+                                default='1', 
+                                on_delete=models.CASCADE,
+                                verbose_name='クラスID',
                                 )
 
     def __str__(self):
