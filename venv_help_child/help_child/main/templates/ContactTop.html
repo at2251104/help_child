@@ -40,59 +40,12 @@
     </div>
 
     <!-- 園児年齢別選択 -->
-    <div class="group">
-        <div class="title">
-            <年齢選択>
-        </div>
-        <div class="search-box">
-            <div class="checkAll">
-                <label class="label">
-                    <input class="js-check-all" type="checkbox" name="hobby" data-check-all="hobby">
-                    <span class="text">All</span>
-                </label>
-            </div>
 
-            <ul class="js-check-all-target list" data-check-all="hobby">
-                <li class="item">
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age0">
-                        <span class="text">0歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age1">
-                        <span class="text">1歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age2">
-                        <span class="text">2歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age3">
-                        <span class="text">3歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age4">
-                        <span class="text">4歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age5">
-                        <span class="text">5歳児</span>
-                    </label>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- 検索box -->
-    <form method="get" action="#" class="search_container">
-        <input type="text" id="search-text" onkeyup="myFunction()" placeholder="名前検索">
-    </form>
 
     <!-- 検索ボックス Django-->
-    <!-- <form method="get">
-        <input type="search" value="{{ request.GET.query }}" name="query" type="text" placeholder="Djangoで検索したい">
-        <button>検索</button>
-    </form> -->
+    <form action="" method="get" class="search_container">
+        <input name="query" value="{{ request.GET.query }}" type="text" id="search-text"onkeyup="myFunction()" size="30"placeholder="検索">
+    </form>
 
     <!-- 園児リスト -->
     <ul id="list">
