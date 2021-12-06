@@ -97,12 +97,7 @@
     <!-- 園児リスト -->
     <ul id="list">
         {% for iiii in object_list %}
-        <li class="list_item" data-hobby="age4"><a href="#">{{ iiii.t001_fk01_class_id }}</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+        <li class="list_item" data-hobby="age4"><a href="#">{{ iiii.get_full_name }}</a></li>
         {% empty %}
 
         <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
