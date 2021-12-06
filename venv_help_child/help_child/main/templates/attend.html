@@ -127,21 +127,24 @@
 
     <!-- 園児リスト -->
     <ul id="list">
-        <li class="list_item" data-hobby="age1" data-area="area4"><a href="#">Cくん 2歳 早退</a></li>
-        <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
-        <li class="list_item" data-hobby="age3" data-area="area2"><a href="#">Bちゃん 3歳 降園</a></li>
-        <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
-        <li class="list_item" data-hobby="age2" data-area="area1"><a href="#">Cくん 2歳 登園</a></li>
-        <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
-        <li class="list_item" data-hobby="age1" data-area="area1"><a href="#">Cくん 1歳 登園</a></li>
-        <li class="list_item" data-hobby="age2" data-area="area1"><a href="#">松岡くん 2歳 登園</a></li>
-        <li class="list_item" data-hobby="age2" data-area="area2"><a href="#">マツオカちゃん 2歳 降園</a></li>
-        <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
-        <li class="list_item" data-hobby="age1" data-area="area1"><a href="#">Cくん 1歳 登園</a></li>
-        <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
-        <li class="list_item" data-hobby="age3" data-area="area2"><a href="#">Bちゃん 3歳 降園</a></li>
-        <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
-
+        {% for enji in object_list %}
+            <li class="list_item" data-hobby="age1" data-area="area4"><a href="#">{{enji.t005_pk01_childen_id.get_full_name}} {{enji.t005_pk01_childen_id.Age}} {{enji.t005_fd04_status}}</a></li>
+        {% empty %}
+            <li class="list_item" data-hobby="age1" data-area="area4"><a href="#">Cくん 2歳 早退</a></li>
+            <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
+            <li class="list_item" data-hobby="age3" data-area="area2"><a href="#">Bちゃん 3歳 降園</a></li>
+            <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
+            <li class="list_item" data-hobby="age2" data-area="area1"><a href="#">Cくん 2歳 登園</a></li>
+            <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
+            <li class="list_item" data-hobby="age1" data-area="area1"><a href="#">Cくん 1歳 登園</a></li>
+            <li class="list_item" data-hobby="age2" data-area="area1"><a href="#">松岡くん 2歳 登園</a></li>
+            <li class="list_item" data-hobby="age2" data-area="area2"><a href="#">マツオカちゃん 2歳 降園</a></li>
+            <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
+            <li class="list_item" data-hobby="age1" data-area="area1"><a href="#">Cくん 1歳 登園</a></li>
+            <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
+            <li class="list_item" data-hobby="age3" data-area="area2"><a href="#">Bちゃん 3歳 降園</a></li>
+            <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
+        {% endfor %}
     </ul>
 </div>
 {% endblock %}
