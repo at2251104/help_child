@@ -42,37 +42,37 @@
             <ul class="js-check-all-target list" data-check-all="hobby">
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="０歳">
+                        <input type="checkbox" name="hobby" value="0歳">
                         <span class="text">0歳児</span>
                     </label>
                 </li>
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="１歳">
+                        <input type="checkbox" name="hobby" value="1歳">
                         <span class="text">1歳児</span>
                     </label>
                 </li>
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="２歳">
+                        <input type="checkbox" name="hobby" value="2歳">
                         <span class="text">2歳児</span>
                     </label>
                 </li>
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="３歳">
+                        <input type="checkbox" name="hobby" value="3歳">
                         <span class="text">3歳児</span>
                     </label>
                 </li>
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="４歳">
+                        <input type="checkbox" name="hobby" value="4歳">
                         <span class="text">4歳児</span>
                     </label>
                 </li>
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="５歳">
+                        <input type="checkbox" name="hobby" value="5歳">
                         <span class="text">5歳児</span>
                     </label>
                 </li>
@@ -127,7 +127,7 @@
     <!-- 園児リスト -->
     <ul id="list">
         {% for enji in object_list %}
-            <li class="list_item" data-hobby="enji.t005_pk01_childen_id.Age" data-area="enji.t005_fd04_status"><a href="#">{{enji.t005_pk01_childen_id.get_full_name}} {{enji.t005_pk01_childen_id.Age}} {{enji.t005_fd04_status}}</a></li>
+            <li class="list_item" data-hobby="{{enji.t005_pk01_childen_id.Age}}" data-area="{{enji.t005_fd04_status}}"><a href="#">{{enji.t005_pk01_childen_id.get_full_name}} {{enji.t005_pk01_childen_id.Age}} {{enji.t005_fd04_status}}</a></li>
         {% empty %}
             <li class="list_item" data-hobby="age1" data-area="area4"><a href="#">Cくん 2歳 早退</a></li>
             <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
