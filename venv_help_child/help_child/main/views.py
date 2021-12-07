@@ -44,24 +44,6 @@ class ContactTopView(generic.ListView, LoginRequiredMixin):
         context["object_list"] = T001Children.objects.filter(
             t001_fk01_class_id=self.request.user.detail_buyer.class_id)
         return context
-<<<<<<< HEAD
-=======
-
-    def get_queryset(self):
-        contact = T001Children.objects.all().select_related()
-        # 検索box 絞り込み
-        if "query" in self.request.GET:
-            search = self.request.GET["query"]
-            or_lookup = (
-                Q(t005_pk01_childen_id__icontains=search)
-            )
-            contact = contact.filter(or_lookup)
-
-        return contact
-    
-class ContactTopOyaView(LoginRequiredMixin,generic.TemplateView):
-    template_name="contactTop_oya.html"
->>>>>>> 26a85ba1606eedd39e3e92d603a7746a0b73f3b0
 
 
 class ContactTopOyaView(LoginRequiredMixin, generic.TemplateView):
@@ -70,10 +52,13 @@ class ContactTopOyaView(LoginRequiredMixin, generic.TemplateView):
 
 class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactDetail.html"
+    context_object_name = 'object'
 
-    def get_queryset(self):
+    def get_queryset(self, request):
+        id = request.GET.get(key="id", default="01")
+        num = request.GET.get(key="num", default="20211207")
         renrakucho = T007Contactbook.objects.filter(
-            t007_pk01_contactbook_id=1234)
+            t007_pk01_contactbook_id=id, t007_fd01_date=datetime.date.strptime(num, '%Y%m%d'))
         return renrakucho
 
 
