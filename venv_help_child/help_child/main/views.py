@@ -11,74 +11,88 @@ from django.db.models import Q
 
 
 class IndexView(generic.TemplateView):
-    template_name="index.html"
+    template_name = "index.html"
 
-class HomeView(LoginRequiredMixin,generic.TemplateView):
-    template_name="home.html"
+
+class HomeView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "home.html"
 
 # class LoginView(generic.TemplateView):
 #     template_name="login.html"
 
-class LocationAdminView(LoginRequiredMixin,generic.TemplateView):
-    template_name="locationAdmin.html"
 
-class LocationParentView(LoginRequiredMixin,generic.TemplateView):
-    template_name="locationParent.html"
+class LocationAdminView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "locationAdmin.html"
 
-class LocationConfigView(LoginRequiredMixin,generic.TemplateView):
-    template_name="locationConfig.html"
 
-class ContactTopView(generic.ListView,LoginRequiredMixin):
-    
-    template_name="ContactTop.html"
-    model=T001Children
+class LocationParentView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "locationParent.html"
+
+
+class LocationConfigView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "locationConfig.html"
+
+
+class ContactTopView(generic.ListView, LoginRequiredMixin):
+
+    template_name = "ContactTop.html"
+    model = T001Children
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # ユーザ種類別のデータの取り出し方...self.request.user.detail_buyer←ここでrelated_nameを指定する！！！！！！！！！！！！！！！
-        context["object_list"] = T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id)
+        context["object_list"] = T001Children.objects.filter(
+            t001_fk01_class_id=self.request.user.detail_buyer.class_id)
         return context
-    
-    
-class ContactTopOyaView(LoginRequiredMixin,generic.TemplateView):
-    template_name="contactTop_oya.html"
 
-class ContactDetailView(LoginRequiredMixin,generic.TemplateView):
-    template_name="contactDetail.html"
+
+class ContactTopOyaView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "contactTop_oya.html"
+
+
+class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "contactDetail.html"
 
     def get_queryset(self):
-        renrakucho = T007Contactbook.objects.filter(t007_pk01_contactbook_id = 1234)
+        renrakucho = T007Contactbook.objects.filter(
+            t007_pk01_contactbook_id=1234)
         return renrakucho
-class ContactUpdateView(LoginRequiredMixin,generic.TemplateView):
-    template_name="contactUpdate.html"
 
-class ContactTemplateView(LoginRequiredMixin,generic.TemplateView):
-    template_name="contactTemplate.html"
 
-class MessageAddressView(LoginRequiredMixin,generic.ListView):
-    template_name="messageAddress.html"
+class ContactUpdateView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "contactUpdate.html"
 
-class MessageView(LoginRequiredMixin,generic.TemplateView):
-    template_name="message.html"
 
-class AttendView(LoginRequiredMixin,generic.ListView):
+class ContactTemplateView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "contactTemplate.html"
+
+
+class MessageAddressView(LoginRequiredMixin, generic.ListView):
+    template_name = "messageAddress.html"
+
+
+class MessageView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "message.html"
+
+
+class AttendView(LoginRequiredMixin, generic.ListView):
     model = T005Kindergaten
-    template_name="attend.html"
+    template_name = "attend.html"
 
     def get_queryset(self):
         toukouenn = T005Kindergaten.objects.all().select_related()
         if "query" in self.request.GET:
             search = self.request.GET["query"]
             or_lookup = (
-                Q(t005_pk01_childen_id__icontains=search)           
+                Q(t005_pk01_childen_id__icontains=search)
             )
             toukouenn = toukouenn.filter(or_lookup)
 
         return toukouenn
 
-    
 
-class TagScanView(LoginRequiredMixin,generic.TemplateView):
-    template_name="tagScan.html"
+class TagScanView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "tagScan.html"
 
 # 名簿画面は作らないことになった
 # class NameListView(generic.TemplateView):
@@ -93,23 +107,36 @@ class TagScanView(LoginRequiredMixin,generic.TemplateView):
 # class NameListUpdateView(generic.TemplateView):
 #     template_name="nameListUpdate.html"
 
-class PlanListView(LoginRequiredMixin,generic.TemplateView):
-    template_name="planlist.html"
 
-class PlanListDetailView(LoginRequiredMixin,generic.TemplateView):
-    template_name="planListDetail.html"
+class PlanListView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "planlist.html"
 
-class PlanListAddView(LoginRequiredMixin,generic.TemplateView):
-    template_name="planListAdd.html"
 
-class PlanListUpdateView(LoginRequiredMixin,generic.TemplateView):
-    template_name="planListUpdate.html"
+class PlanListDetailView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "planListDetail.html"
+    model = T008Schedule
 
-class PlanListDeleteView(LoginRequiredMixin,generic.TemplateView):
-    template_name="planListDelete.html"
+    def get_queryset(self):
+        pl_detail = T008Schedule.objects.filter(
+            t008_fd01_event=11111)
+        return pl_detail
 
-class ParentConfigView(LoginRequiredMixin,generic.TemplateView):
-    template_name="parentConfig.html"
 
-class TeacherConfigView(LoginRequiredMixin,generic.TemplateView):
-    template_name="teacherConfig.html"
+class PlanListAddView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "planListAdd.html"
+
+
+class PlanListUpdateView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "planListUpdate.html"
+
+
+class PlanListDeleteView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "planListDelete.html"
+
+
+class ParentConfigView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "parentConfig.html"
+
+
+class TeacherConfigView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "teacherConfig.html"
