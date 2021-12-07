@@ -91,7 +91,7 @@
     <!-- 園児リスト -->
     <ul id="list">
         {% for iiii in object_list %}
-        <li class="list_item" data-hobby="age4"><a href="#">{{ iiii.t001_fk01_class_id }}</a></li>
+        <li class="list_item" data-hobby="age4"><a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}?num={{20211207}} ">{{ iiii.t001_fk01_class_id }}</a></li>
         <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
         <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
         <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
@@ -150,7 +150,6 @@
     <h2>連絡帳関連</h2>
     <ul class="submenu">
         <!-- 「詳細」は園児の名前を押下時表示される画面 -->
-        <li><a href="{% url 'main:contactDetail' %}">詳細(閲覧用に置いています)</a></li>
         <li><a href="{% url 'main:contactTemplate' %}">テンプレートの作成</a></li>
         <li><a href="{% url 'main:contactUpdate' %} ">編集</a></li>
         <li><a href="#">削除</a></li>
