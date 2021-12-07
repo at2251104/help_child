@@ -50,11 +50,7 @@
     <!-- 園児リスト -->
     <ul id="list">
         {% for iiii in object_list %}
-<<<<<<< HEAD
         <li class="list_item" data-hobby="age4"><a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}?num={{20211207}} ">{{ iiii.get_full_name }}</a></li>
-=======
-        <li class="list_item" data-hobby="age4"><a href="#">{{ iiii.get_full_name }}</a></li>
->>>>>>> a0c0c0c5d55780cc5c8435afb5cc4c7dd2ec32c7
         {% empty %}
 
         <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
