@@ -3,11 +3,11 @@ from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
-
 from accounts.models import *
 from main.models import *
 # Create your views h
 from .models import *
+from django.db.models import Q
 
 
 class IndexView(generic.TemplateView):
@@ -37,7 +37,18 @@ class ContactTopView(generic.ListView,LoginRequiredMixin):
         # ユーザ種類別のデータの取り出し方...self.request.user.detail_buyer←ここでrelated_nameを指定する！！！！！！！！！！！！！！！
         context["object_list"] = T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id)
         return context
-    
+
+    def get_queryset(self):
+        contact = T001Children.objects.all().select_related()
+        # 検索box 絞り込み
+        if "query" in self.request.GET:
+            search = self.request.GET["query"]
+            or_lookup = (
+                Q(t005_pk01_childen_id__icontains=search)
+            )
+            contact = contact.filter(or_lookup)
+
+        return contact
     
 class ContactTopOyaView(LoginRequiredMixin,generic.TemplateView):
     template_name="contactTop_oya.html"
@@ -56,14 +67,29 @@ class ContactUpdateView(LoginRequiredMixin,generic.TemplateView):
 class ContactTemplateView(LoginRequiredMixin,generic.TemplateView):
     template_name="contactTemplate.html"
 
-class MessageAddressView(LoginRequiredMixin,generic.TemplateView):
+class MessageAddressView(LoginRequiredMixin,generic.ListView):
     template_name="messageAddress.html"
 
 class MessageView(LoginRequiredMixin,generic.TemplateView):
     template_name="message.html"
 
-class AttendView(LoginRequiredMixin,generic.TemplateView):
+class AttendView(LoginRequiredMixin,generic.ListView):
+    model = T005Kindergaten
     template_name="attend.html"
+
+    def get_queryset(self):
+        toukouenn = T005Kindergaten.objects.all().select_related()
+        # 検索box 絞り込み
+        if "query" in self.request.GET:
+            search = self.request.GET["query"]
+            or_lookup = (
+                Q(t005_pk01_childen_id__icontains=search)
+            )
+            toukouenn = toukouenn.filter(or_lookup)
+
+        return toukouenn
+
+    
 
 class TagScanView(LoginRequiredMixin,generic.TemplateView):
     template_name="tagScan.html"

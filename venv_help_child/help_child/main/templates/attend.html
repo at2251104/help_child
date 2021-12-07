@@ -42,37 +42,37 @@
             <ul class="js-check-all-target list" data-check-all="hobby">
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="age0">
+                        <input type="checkbox" name="hobby" value="0歳">
                         <span class="text">0歳児</span>
                     </label>
                 </li>
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="age1">
+                        <input type="checkbox" name="hobby" value="1歳">
                         <span class="text">1歳児</span>
                     </label>
                 </li>
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="age2">
+                        <input type="checkbox" name="hobby" value="2歳">
                         <span class="text">2歳児</span>
                     </label>
                 </li>
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="age3">
+                        <input type="checkbox" name="hobby" value="3歳">
                         <span class="text">3歳児</span>
                     </label>
                 </li>
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="age4">
+                        <input type="checkbox" name="hobby" value="4歳">
                         <span class="text">4歳児</span>
                     </label>
                 </li>
                 <li class="item">
                     <label class="label">
-                        <input type="checkbox" name="hobby" value="age5">
+                        <input type="checkbox" name="hobby" value="5歳">
                         <span class="text">5歳児</span>
                     </label>
                 </li>
@@ -91,25 +91,25 @@
                     <ul class="js-check-all-target list" data-check-all="area">
                         <li class="item">
                             <label class="label">
-                                <input type="checkbox" name="area" value="area1">
+                                <input type="checkbox" name="area" value="登園">
                                 <span class="text">登園</span>
                             </label>
                         </li>
                         <li class="item">
                             <label class="label">
-                                <input type="checkbox" name="area" value="area2">
+                                <input type="checkbox" name="area" value="降園">
                                 <span class="text">降園</span>
                             </label>
                         </li>
                         <li class="item">
                             <label class="label">
-                                <input type="checkbox" name="area" value="area3">
+                                <input type="checkbox" name="area" value="遅刻">
                                 <span class="text">遅刻</span>
                             </label>
                         </li>
                         <li class="item">
                             <label class="label">
-                                <input type="checkbox" name="area" value="area4">
+                                <input type="checkbox" name="area" value="早退">
                                 <span class="text">早退</span>
                             </label>
                         </li>
@@ -120,28 +120,30 @@
     </div>
 
     <!-- 検索box -->
-    <form method="get" action="#" class="search_container">
-        <input type="text" id="search-text" onkeyup="myFunction()" size="30" placeholder="名前検索">
-        <!-- <input type="submit" value="&#xf002"> -->
+     <form action="" method="get" class="search_container">
+        <input name="query" value="{{ request.GET.query }}" type="text" id="search-text"onkeyup="myFunction()" size="30"placeholder="検索">
     </form>
 
     <!-- 園児リスト -->
     <ul id="list">
-        <li class="list_item" data-hobby="age1" data-area="area4"><a href="#">Cくん 2歳 早退</a></li>
-        <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
-        <li class="list_item" data-hobby="age3" data-area="area2"><a href="#">Bちゃん 3歳 降園</a></li>
-        <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
-        <li class="list_item" data-hobby="age2" data-area="area1"><a href="#">Cくん 2歳 登園</a></li>
-        <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
-        <li class="list_item" data-hobby="age1" data-area="area1"><a href="#">Cくん 1歳 登園</a></li>
-        <li class="list_item" data-hobby="age2" data-area="area1"><a href="#">松岡くん 2歳 登園</a></li>
-        <li class="list_item" data-hobby="age2" data-area="area2"><a href="#">マツオカちゃん 2歳 降園</a></li>
-        <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
-        <li class="list_item" data-hobby="age1" data-area="area1"><a href="#">Cくん 1歳 登園</a></li>
-        <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
-        <li class="list_item" data-hobby="age3" data-area="area2"><a href="#">Bちゃん 3歳 降園</a></li>
-        <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
-
+        {% for enji in object_list %}
+            <li class="list_item" data-hobby="{{enji.t005_pk01_childen_id.Age}}" data-area="{{enji.t005_fd04_status}}"><a href="#">{{enji.t005_pk01_childen_id.get_full_name}} {{enji.t005_pk01_childen_id.Age}} {{enji.t005_fd04_status}}</a></li>
+        {% empty %}
+            <li class="list_item" data-hobby="age1" data-area="area4"><a href="#">Cくん 2歳 早退</a></li>
+            <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
+            <li class="list_item" data-hobby="age3" data-area="area2"><a href="#">Bちゃん 3歳 降園</a></li>
+            <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
+            <li class="list_item" data-hobby="age2" data-area="area1"><a href="#">Cくん 2歳 登園</a></li>
+            <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
+            <li class="list_item" data-hobby="age1" data-area="area1"><a href="#">Cくん 1歳 登園</a></li>
+            <li class="list_item" data-hobby="age2" data-area="area1"><a href="#">松岡くん 2歳 登園</a></li>
+            <li class="list_item" data-hobby="age2" data-area="area2"><a href="#">マツオカちゃん 2歳 降園</a></li>
+            <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
+            <li class="list_item" data-hobby="age1" data-area="area1"><a href="#">Cくん 1歳 登園</a></li>
+            <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
+            <li class="list_item" data-hobby="age3" data-area="area2"><a href="#">Bちゃん 3歳 降園</a></li>
+            <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
+        {% endfor %}
     </ul>
 </div>
 {% endblock %}

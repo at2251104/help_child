@@ -40,65 +40,28 @@
     </div>
 
     <!-- 園児年齢別選択 -->
-    <div class="group">
-        <div class="title">
-            <年齢選択>
-        </div>
-        <div class="search-box">
-            <div class="checkAll">
-                <label class="label">
-                    <input class="js-check-all" type="checkbox" name="hobby" data-check-all="hobby">
-                    <span class="text">All</span>
-                </label>
-            </div>
 
-            <ul class="js-check-all-target list" data-check-all="hobby">
-                <li class="item">
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age0">
-                        <span class="text">0歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age1">
-                        <span class="text">1歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age2">
-                        <span class="text">2歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age3">
-                        <span class="text">3歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age4">
-                        <span class="text">4歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age5">
-                        <span class="text">5歳児</span>
-                    </label>
-                </li>
-            </ul>
-        </div>
-    </div>
 
-    <!-- 検索box -->
-    <form method="get" action="#" class="search_container">
-        <input type="text" id="search-text" onkeyup="myFunction()" placeholder="名前検索">
+    <!-- 検索ボックス Django-->
+    <form action="" method="get" class="search_container">
+        <input name="query" value="{{ request.GET.query }}" type="text" id="search-text"onkeyup="myFunction()" size="30"placeholder="検索">
     </form>
 
     <!-- 園児リスト -->
     <ul id="list">
         {% for iiii in object_list %}
+<<<<<<< HEAD
         <li class="list_item" data-hobby="age4"><a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}?num={{20211207}} ">{{ iiii.t001_fk01_class_id }}</a></li>
         <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
         <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
         <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
         <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
         <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
+=======
+        <li class="list_item" data-hobby="age4"><a href="#">{{ iiii.get_full_name }}</a></li>
+>>>>>>> 26a85ba1606eedd39e3e92d603a7746a0b73f3b0
         {% empty %}
-        
+
         <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
         <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
         <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
