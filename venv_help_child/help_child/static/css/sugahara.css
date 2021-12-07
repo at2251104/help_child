@@ -385,9 +385,9 @@ a.btn-border:hover:after {
   table-layout: fixed;
   background-color: #fff;
 }
-.line-2 {
-}
-.input-page-table {
+.line-1,
+.line-2-1 {
+  height: 24px;
 }
 
 /* 画面幅800px以下の設定 */
