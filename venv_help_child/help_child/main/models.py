@@ -40,7 +40,7 @@ class T001Children(models.Model):
         verbose_name_plural="園児テーブル"
 
     def get_full_name(self):
-        full_name = '%s %s' % (self.t001_fd01_last_name, self.t001_fd07_first_name)
+        full_name = '%s %s %s' % (self.t001_fk01_class_id,self.t001_fd01_last_name, self.t001_fd07_first_name)
         return full_name.strip()
 
     def Age(self):
@@ -50,6 +50,11 @@ class T001Children(models.Model):
 
         return str(age) + "歳"
 
+    # T001Childrenのchildren_idとT007Contactbookのchildren_idが一致
+    # するときの関数を作ればいいと思った
+    # def ren(self):
+    #     ren_id = '%s' % ()
+    #     return ren_id
 
     def __str__(self):
         return self.t001_pk01_children_id
