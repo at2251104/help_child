@@ -132,4 +132,4 @@ class SchoolContactForm(forms.Form):
         widget=forms.Select
     )
     school_information = forms.CharField(widget=forms.Textarea)
-    filler_name = forms.CharField(max_length=30)
+    filler_name = forms.CharField(max_length=20)
