@@ -62,29 +62,29 @@ Pick_up_List = (
 
 
 class HomeContactForm(forms.Form):
-    dinner_time = forms.DateTimeField(input_formats=['%H/%M'])
-    dinner_text = forms.CharField(widget=forms.Textarea)
-    breakfast_time = forms.DateTimeField(input_formats=['%H/%M'])
-    breakfast_text = forms.CharField(widget=forms.Textarea)
-    home_inbed = forms.DateTimeField(input_formats=['%H/%M'])
-    home_outbed = forms.DateTimeField(input_formats=['%H/%M'])
-    home_mood = forms.fields.ChoiceField(
+    t007_fd03_meal_time = forms.DateTimeField(input_formats=['%H/%M'])
+    t007_fd04_meal_contents = forms.CharField(widget=forms.Textarea)
+    t007_fd14_breakfast_time = forms.DateTimeField(input_formats=['%H/%M'])
+    t007_fd13_breakfast_contents = forms.CharField(widget=forms.Textarea)
+    t007_fd05_bed_time = forms.DateTimeField(input_formats=['%H/%M'])
+    t007_fd06_wakeup_time = forms.DateTimeField(input_formats=['%H/%M'])
+    t007_fd07_mood = forms.fields.ChoiceField(
         choices=Mood,
         widget=forms.widgets.RadioSelect
     )
-    home_hardness = forms.fields.ChoiceField(
+    t007_fd08_defecation_status = forms.fields.ChoiceField(
         choices=Hardness,
         widget=forms.widgets.RadioSelect
     )
-    home_defecate_num = forms.fields.ChoiceField(
+    t007_fd09_defecation_times = forms.fields.ChoiceField(
         choices=Number,
         widget=forms.Select
     )
-    home_bathe = forms.fields.ChoiceField(
+    t007_fd10_bathing = forms.fields.ChoiceField(
         choices=Presence_Or_Absence,
         widget=forms.widgets.RadioSelect
     )
-    home_temp_time = forms.DateTimeField(input_formats=['%H/%M'])
+    t007_fd11_temperature_time = forms.DateTimeField(input_formats=['%H/%M'])
     home_temperature_int = forms.fields.ChoiceField(
         choices=Temperature_Int,
         widget=forms.Select
