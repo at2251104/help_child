@@ -69,7 +69,7 @@ class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         renrakucho = super().get_context_data(**kwargs)
-        id_a = self.kwargs.get("id", "01")
+        id = self.kwargs.get("id", "01")
         num = self.kwargs.get("num", "20211207")
         renrakucho["object"] = T007Contactbook.objects.filter(t007_fd01_date=datetime.datetime.strptime(num,'%Y%m%d'))
         return renrakucho
