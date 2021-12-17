@@ -8,6 +8,8 @@ from main.models import *
 # Create your views h
 from .models import *
 from django.db.models import Q
+from django.shortcuts import render, get_object_or_404, redirect
+from .forms import *
 
 
 class IndexView(generic.TemplateView):
@@ -69,7 +71,7 @@ class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         renrakucho = super().get_context_data(**kwargs)
-        id_a = self.kwargs.get("id", "01")
+        id = self.kwargs.get("id", "01")
         num = self.kwargs.get("num", "20211207")
         renrakucho["object"] = T007Contactbook.objects.filter(
             t007_fd01_date=datetime.datetime.strptime(num, '%Y%m%d'))
@@ -82,6 +84,44 @@ class ContactUpdateView(LoginRequiredMixin, generic.TemplateView):
 
 class ContactTemplateView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactTemplate.html"
+
+    def book_new(request):
+        form = HomeContactForm(request.POST or None)
+        if form.is_valid():
+            book = T007Contactbook()
+            book.t007_fd03_meal_time = form.cleaned_data['t007_fd03_meal_time']
+            book.t007_fd04_meal_contents = form.cleaned_data['t007_fd04_meal_contents']
+            book.t007_fd14_breakfast_time = form.cleaned_data['t007_fd14_breakfast_time']
+            book.t007_fd13_breakfast_contents = form.cleaned_data['t007_fd13_breakfast_contents']
+            book.t007_fd05_bed_time = form.cleaned_data['t007_fd05_bed_time']
+            book.t007_fd06_wakeup_time = form.cleaned_data['t007_fd06_wakeup_time']
+            book.t007_fd07_mood = form.cleaned_data['t007_fd07_mood']
+            book.t007_fd08_defecation_status = form.cleaned_data['t007_fd08_defecation_status']
+            book.t007_fd09_defecation_times = form.cleaned_data['t007_fd09_defecation_times']
+            book.t007_fd10_bathing = form.cleaned_data['t007_fd10_bathing']
+            book.t007_fd11_temperature_time = form.cleaned_data['t007_fd11_temperature_time']
+            book.t007_fd02_infomation = form.cleaned_data['t007_fd02_infomation']
+            book.t007_fd25_pickup_person = form.cleaned_data['t007_fd25_pickup_person']
+            book.t007_fd26_pickup_time = form.cleaned_data['t007_fd26_pickup_time']
+
+            T007Contactbook.objects.create(
+                t007_fd03_meal_time=book.t007_fd03_meal_time,
+                t007_fd04_meal_contents=book.t007_fd04_meal_contents,
+                t007_fd14_breakfast_time=book.t007_fd14_breakfast_time,
+                t007_fd13_breakfast_contents=book.t007_fd13_breakfast_contents,
+                t007_fd05_bed_time=book.t007_fd05_bed_time,
+                t007_fd06_wakeup_time=book.t007_fd06_wakeup_time,
+                t007_fd07_mood=book.t007_fd07_mood,
+                t007_fd08_defecation_status=book.t007_fd08_defecation_status,
+                t007_fd09_defecation_times=book.t007_fd09_defecation_times,
+                t007_fd10_bathing=book.t007_fd10_bathing,
+                t007_fd11_temperature_time=book.t007_fd11_temperature_time,
+                t007_fd02_infomation=book.t007_fd02_infomation,
+                t007_fd25_pickup_person=book.t007_fd25_pickup_person,
+                t007_fd26_pickup_time=book.t007_fd26_pickup_time,
+            )
+            return redirect('main:ContactTop')
+        return render(request, 'templates/contactTemplate.html', {'form': form})
 
 
 class MessageAddressView(LoginRequiredMixin, generic.ListView):
