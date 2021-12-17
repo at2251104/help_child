@@ -65,12 +65,13 @@ class ContactTopOyaView(LoginRequiredMixin, generic.TemplateView):
 class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactDetail.html"
     context_object_name = 'object'
+    model=T007Contactbook
 
-    def get_queryset(self, request):
-        id = request.GET.get(key="id", default="01")
-        num = request.GET.get(key="num", default="20211207")
-        renrakucho = T007Contactbook.objects.filter(
-            t007_pk01_contactbook_id=id, t007_fd01_date=datetime.date.strptime(num, '%Y%m%d'))
+    def get_context_data(self, **kwargs):
+        renrakucho = super().get_context_data(**kwargs)
+        id_a = self.kwargs.get("id", "01")
+        num = self.kwargs.get("num", "20211207")
+        renrakucho["object"] = T007Contactbook.objects.filter(t007_fd01_date=datetime.datetime.strptime(num,'%Y%m%d'))
         return renrakucho
 
 

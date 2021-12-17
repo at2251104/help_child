@@ -27,8 +27,10 @@
 
 
 {% block main_contents%}
+
 <div id="contact-detail-main">
     <h2>連絡帳</h2>
+    {% for iiii in object %}
     <div id="contact-date">
         <form action="window.alert(target)" method="post" class="planlistDetailCenter">
             <input type="text" placeholder="日付検索" id="target" text-align="center">
@@ -339,7 +341,8 @@
                             連絡事項
                         </th>
                         <td colspan="6">
-                            <textarea id="story" name="home_information" class="info-text"></textarea>
+                            
+                            <textarea id="story" name="home_information" class="info-text">{{iiii.t007_fd04_meal_contents}}</textarea>
                         </td>
                         <td colspan="6">
                             <textarea id="story" name="school_information" class="info-text"></textarea>
@@ -372,8 +375,11 @@
                 </tbody>
             </table>
         </form>
+        
     </div>
+    {% endfor %}
 </div>
+
 {% endblock %}
 
 {% block animation %}
