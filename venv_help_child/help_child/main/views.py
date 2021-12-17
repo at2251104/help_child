@@ -65,13 +65,14 @@ class ContactTopOyaView(LoginRequiredMixin, generic.TemplateView):
 class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactDetail.html"
     context_object_name = 'object'
-    model=T007Contactbook
+    model = T007Contactbook
 
     def get_context_data(self, **kwargs):
         renrakucho = super().get_context_data(**kwargs)
         id_a = self.kwargs.get("id", "01")
         num = self.kwargs.get("num", "20211207")
-        renrakucho["object"] = T007Contactbook.objects.filter(t007_fd01_date=datetime.datetime.strptime(num,'%Y%m%d'))
+        renrakucho["object"] = T007Contactbook.objects.filter(
+            t007_fd01_date=datetime.datetime.strptime(num, '%Y%m%d'))
         return renrakucho
 
 
@@ -134,8 +135,13 @@ class PlanListDetailView(LoginRequiredMixin, generic.TemplateView):
 
     model = T008Schedule
 
-    def get_queryset(self):
-        T005Kindergaten.objects.all()
+    def get_context_data(self, **kwargs):
+        planListdetail = super().get_context_data(**kwargs)
+        id_a = self.kwargs.get("id", "01")
+        num = self.kwargs.get("num", "20211207")
+        planListdetail["object"] = T007Contactbook.objects.filter(
+            t007_fd01_date=datetime.datetime.strptime(num, '%Y%m%d'))
+        return planListdetail
 
 
 class PlanListAddView(LoginRequiredMixin, generic.TemplateView):
