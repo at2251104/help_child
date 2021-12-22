@@ -39,13 +39,17 @@
             <button id="next" onclick="next()">›</button>
         </div>
     </div>
+    {% for iiii in object_list %}
     <div id="planListDetailCaption">
         <h2>今日の行事</h2>
-
+        <P>{{iiii.t008_fd01_event}}</P>
         <h3>備考</h3>
-        <div class="remarksBox2">
-            <p></p>
+        <div class=" remarksBox2">
+            <p>
+                {{iiii.t008_fd02_remarks}}
+            </p>
         </div>
+        {% empty %}
     </div>
 </div>
 
