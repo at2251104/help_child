@@ -104,48 +104,60 @@ Pick_up_List = (
 
 class HomeContactForm(forms.Form):
     t007_fd03_meal_time = forms.DateTimeField(input_formats=['%H/%M'])
-    t007_fd04_meal_contents = forms.CharField(widget=forms.Textarea)
+    t007_fd04_meal_contents = forms.CharField(
+        widget=forms.Textarea,
+        max_length=100,
+    )
     t007_fd14_breakfast_time = forms.DateTimeField(input_formats=['%H/%M'])
-    t007_fd13_breakfast_contents = forms.CharField(widget=forms.Textarea)
+    t007_fd13_breakfast_contents = forms.CharField(
+        widget=forms.Textarea,
+        max_length=100,
+    )
     t007_fd05_bed_time = forms.DateTimeField(input_formats=['%H/%M'])
     t007_fd06_wakeup_time = forms.DateTimeField(input_formats=['%H/%M'])
     t007_fd07_mood = forms.fields.ChoiceField(
         choices=Mood,
-        widget=forms.widgets.RadioSelect
+        widget=forms.widgets.RadioSelect,
     )
     t007_fd08_defecation_status = forms.fields.ChoiceField(
         choices=Hardness,
-        widget=forms.widgets.RadioSelect
+        widget=forms.widgets.RadioSelect,
     )
     t007_fd09_defecation_times = forms.fields.ChoiceField(
         choices=Number,
-        widget=forms.Select
+        widget=forms.Select,
     )
     t007_fd10_bathing = forms.fields.ChoiceField(
         choices=Presence_Or_Absence,
-        widget=forms.widgets.RadioSelect
+        widget=forms.widgets.RadioSelect,
     )
     t007_fd11_temperature_time = forms.DateTimeField(input_formats=['%H/%M'])
     t007_fd12_temperature = forms.fields.ChoiceField(
         choices=Temperature,
-        widget=forms.Select
+        widget=forms.Select,
     )
-    t007_fd02_infomation = forms.CharField(widget=forms.Textarea)
+    t007_fd02_infomation = forms.CharField(
+        widget=forms.Textarea,
+        max_length=200,
+    )
     t007_fd25_pickup_person = forms.fields.ChoiceField(
         choices=Pick_up_List,
-        widget=forms.Select
+        widget=forms.Select,
     )
     t007_fd26_pickup_time = forms.DateTimeField(input_formats=['%H/%M'])
 
 
 class SchoolContactForm(forms.Form):
     t007_fd16_lunch_time = forms.DateTimeField(input_formats=['%H/%M'])
-    t007_fd15_lunch_contents = forms.CharField(widget=forms.Textarea)
+    t007_fd15_lunch_contents = forms.CharField(
+        widget=forms.Textarea,
+        max_length=100,
+    )
     t007_fd05_bed_time = forms.DateTimeField(input_formats=['%H/%M'])
     t007_fd17_wakeup_time = forms.DateTimeField(input_formats=['%H/%M'])
     t007_fd18_mood = forms.fields.ChoiceField(
         choices=Mood,
-        widget=forms.widgets.RadioSelect
+        widget=forms.widgets.RadioSelect,
     )
     t007_fd20_defecation_status = forms.fields.ChoiceField(
         choices=Hardness,
@@ -153,16 +165,16 @@ class SchoolContactForm(forms.Form):
     )
     t007_fd19_defecation_times = forms.fields.ChoiceField(
         choices=Number,
-        widget=forms.Select
+        widget=forms.Select,
     )
     t007_fd21_bathing = forms.fields.ChoiceField(
         choices=Presence_Or_Absence,
-        widget=forms.widgets.RadioSelect
+        widget=forms.widgets.RadioSelect,
     )
     t007_fd23_temperature_time = forms.DateTimeField(input_formats=['%H/%M'])
     t007_fd22_temperature = forms.fields.ChoiceField(
         choices=Temperature,
-        widget=forms.Select
+        widget=forms.Select,
     )
     t007_fd24_infomation = forms.CharField(widget=forms.Textarea)
     t007_fk02_childminder_id = forms.CharField(max_length=20)
