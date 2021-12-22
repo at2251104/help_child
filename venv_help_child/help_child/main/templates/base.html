@@ -52,8 +52,13 @@
                 </h1>
                 <!--大きな端末用（801px以上端末）メニュー-->
                 <nav id="menubar">
+
                     <ul class="mb30">
+                    {% if user.detail_buyer %}
                         <li><a href="{% url 'main:contactTop' %}">連絡帳<span>Contact</span></a></li>
+                    {% else %}
+                        <li><a href="{% url 'main:contactTop_oya' %}">連絡帳<span>Contact</span></a></li>
+                    {% endif %}
                         <li><a href="{% url 'main:planList' %}">予定表<span>PlanList</span></a></li>
                         <li><a href="{% url 'main:locationAdmin' %}">位置情報<span>Location</span></a></li>
                         <li><a href="{% url 'main:attend' %}">登園管理<span>Attend</span></a></li>
