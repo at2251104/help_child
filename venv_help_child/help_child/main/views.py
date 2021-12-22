@@ -74,7 +74,7 @@ class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
         id = self.request.GET.get("id", "01")
         num = self.request.GET.get("num", "20211201")
         renrakucho["object"] = T007Contactbook.objects.filter(
-            t007_fd01_date=datetime.datetime.strptime(num, '%Y%m%d'),t007_fk01_children_id=id)
+            t007_fd01_date=datetime.datetime.strptime(num, '%Y%m%d'), t007_fk01_children_id=id)
         return renrakucho
 
 
@@ -172,15 +172,15 @@ class PlanListView(LoginRequiredMixin, generic.TemplateView):
 
 class PlanListDetailView(LoginRequiredMixin, generic.TemplateView):
     template_name = "planListDetail.html"
+    context_object_name = "object"
 
     model = T008Schedule
 
     def get_context_data(self, **kwargs):
         planListdetail = super().get_context_data(**kwargs)
-        id_a = self.kwargs.get("id", "01")
-        num = self.kwargs.get("num", "20211207")
-        planListdetail["object"] = T007Contactbook.objects.filter(
-            t007_fd01_date=datetime.datetime.strptime(num, '%Y%m%d'))
+        num = self.request.GET.get("num", "20211207")
+        planListdetail["object"] = T008Schedule.objects.filter(
+            t008_fd03_date=datetime.datetime.strptime(num, '%Y%m%d'))
         return planListdetail
 
 
