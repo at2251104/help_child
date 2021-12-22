@@ -72,8 +72,9 @@ function createProcess(year, month) {
                 var num=OnLinkClick(year,month,count);
                 var aaa="/planListDetail/"+num
                 if(year == today.getFullYear()
-                　&& month == (today.getMonth())
-                　&& count == today.getDate()){
+                    && month == (today.getMonth())
+                    && count == today.getDate()) {
+                    //リンクの設定↓
                     calendar += "<td class='today'>"+"<a href="+`${aaa}`+ ">"+count + "</a></td>";
                 } else {
                     calendar += "<td>" + count + "</td>";
