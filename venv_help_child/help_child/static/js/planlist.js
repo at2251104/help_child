@@ -70,13 +70,13 @@ function createProcess(year, month) {
                 // 当月の日付を曜日に照らし合わせて設定
                 count++;
                 var num=OnLinkClick(year,month,count);
-                var aaa="/planListDetail/"+num
+                var aaa=num
                 if(year == today.getFullYear()
                 　&& month == (today.getMonth())
                 　&& count == today.getDate()){
-                    calendar += "<td class='today'>"+"<a href="+`${aaa}`+ ">"+count + "</a></td>";
+                    calendar += "<td class='today'>"+"<a href=/planListDetail?num="+`${aaa}`+ ">"+count + "</a></td>";
                 } else {
-                    calendar += "<td>" + count + "</td>";
+                    calendar += "<td>" +"<a href=/planListDetail?num="+`${aaa}`+ ">"+count + "</a></td>";
                 }
             }
         }
