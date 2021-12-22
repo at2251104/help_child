@@ -18,7 +18,7 @@ class IndexView(generic.TemplateView):
 
 class HomeView(LoginRequiredMixin, generic.TemplateView):
     template_name = "home.html"
-
+   
 # class LoginView(generic.TemplateView):
 #     template_name="login.html"
 
@@ -56,12 +56,19 @@ class ContactTopView(generic.ListView, LoginRequiredMixin):
                 Q(t005_pk01_childen_id__icontains=search)
             )
             contact = contact.filter(or_lookup)
-
         return contact
 
+   
 
 class ContactTopOyaView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactTop_oya.html"
+    model = T001Children
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["object_list"] = T001Children.objects.filter(
+            t001_fk02_parents_id=self.request.user.detail_supplier.id)
+        return context
 
 
 class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
@@ -80,6 +87,7 @@ class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
 
 class ContactUpdateView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactUpdate.html"
+    
 
 
 class ContactTemplateView(LoginRequiredMixin, generic.TemplateView):
@@ -130,6 +138,7 @@ class MessageAddressView(LoginRequiredMixin, generic.ListView):
 
 class MessageView(LoginRequiredMixin, generic.TemplateView):
     template_name = "message.html"
+    
 
 
 class AttendView(LoginRequiredMixin, generic.ListView):

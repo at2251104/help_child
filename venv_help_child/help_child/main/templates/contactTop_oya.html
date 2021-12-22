@@ -38,12 +38,13 @@
         <div id="swImg"></div>
     </div>
     <ul>
-        <li><a href="{% url 'main:contactDetail' %}">Aくん</a></li>
-        <li><a href="#">Bちゃん</a></li>
-        <li><a href="#">Cくん</a></li>
+    {% for iiii in object_list %}
+        <li><a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} ">{{ iiii.get_full_name }}</a></li>
+    {% empty %}
+    {% endfor %}
     </ul>
 </div>
-{%endblock%}
+{% endblock %}
 
 {% block sub_contents%}
 <nav class="box1">
