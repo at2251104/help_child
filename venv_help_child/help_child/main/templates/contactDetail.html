@@ -97,23 +97,28 @@
                             {{iiii.t007_fd03_meal_time}}
                         </td>
                         <td colspan="3">
-                            <textarea cols="" rows="" name="dinner" class="food-text"></textarea>
+                            <!-- <textarea cols="" rows="" name="dinner" class="food-text"></textarea> -->
+                            {{iiii.t007_fd04_meal_contents}}
                         </td>
                         <td colspan="3" rowspan="2">
                             <p>昼食</p>
-                            <input type="time" name="lunch_time" class="time">
+                            <!-- <input type="time" name="lunch_time" class="time"> -->
+                            {{iiii.t007_fd16_lunch_time}}
                         </td>
                         <td colspan="3" rowspan="2">
-                            <textarea cols="" rows="" name="lunch" class="food-text"></textarea>
+                            <!-- <textarea cols="" rows="" name="lunch" class="food-text"></textarea> -->
+                            {{iiii.t007_fd15_lunch_contents}}
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3">
                             <p>今朝</p>
-                            <input type="time" name="breakfast_time" class="time">
+                            <!-- <input type="time" name="breakfast_time" class="time"> -->
+                            {{iiii.t007_fd14_breakfast_time}}
                         </td>
                         <td colspan="3">
-                            <textarea cols="" rows="" name="breakfast" class="food-text"></textarea>
+                            <!-- <textarea cols="" rows="" name="breakfast" class="food-text"></textarea> -->
+                            {{iiii.t007_fd13_breakfast_contents}}
                         </td>
                     </tr>
                     <tr>
@@ -121,14 +126,12 @@
                             睡眠
                         </th>
                         <td colspan="6">
-                            <p>就寝(時分)起床(時分)</p>
-                            <input type="time" name="home_inbed" class="time">~<input type="time" name="home_outbed"
-                                class="time">
+                            <p>睡眠時間</p>
+                                {{iiii.t007_fd05_bed_time}}~{{iiii.t007_fd06_wakeup_time}}
                         </td>
                         <td colspan="6">
-                            <p>就寝(時分)起床(時分)</p>
-                            <input type="time" name="school_inbed" class="time">~<input type="time" name="school_outbed"
-                                class="time">
+                            <p>お昼寝時間</p>
+                                {{iiii.t007_fd27_bed_time}}~{{iiii.t007_fd17_wakeup_time}}
                         </td>
                     </tr>
                     <tr>
@@ -155,28 +158,14 @@
                             <label><input type="radio" name="home_hardness">軟</label><br>
                             <label><input type="radio" name="home_hardness">普</label>
                             <label><input type="radio" name="home_hardness">硬</label>
-                            <select name="number">
-                                <option value="zero">0</option>
-                                <option value="one">1</option>
-                                <option value="two">2</option>
-                                <option value="three">3</option>
-                                <option value="four">4</option>
-                                <option value="five">5</option>
-                            </select>回
+                                {{iiii.t007_fd09_defecation_times}}回
                         </td>
                         <td colspan="6">
                             <label><input type="radio" name="school_hardness">水</label>
                             <label><input type="radio" name="school_hardness">軟</label><br>
                             <label><input type="radio" name="school_hardness">普</label>
                             <label><input type="radio" name="school_hardness">硬</label>
-                            <select name="number">
-                                <option value="zero">0</option>
-                                <option value="one">1</option>
-                                <option value="two">2</option>
-                                <option value="three">3</option>
-                                <option value="four">4</option>
-                                <option value="five">5</option>
-                            </select>回
+                            {{iiii.t007_fd19_defecation_times}}回
                         </td>
                     </tr>
                     <tr>
@@ -191,72 +180,15 @@
                             検温
                         </th>
                         <td colspan="3">
-                            <p>(時分)</p><input type="time" name="home_temp_time" class="time"><br>
-                            <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
+                            <p>(時分)</p>
+                            <p>
+                                {{iiii.t007_fd23_temperature_time}}
+                            </p>
+                            <!-- <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
                                 list="temperature">
                             <datalist id="temperature">
-                                <option value="34.0">
-                                <option value="34.1">
-                                <option value="34.2">
-                                <option value="34.3">
-                                <option value="34.4">
-                                <option value="34.5">
-                                <option value="34.6">
-                                <option value="34.7">
-                                <option value="34.8">
-                                <option value="34.9">
-                                <option value="35.0">
-                                <option value="35.1">
-                                <option value="35.2">
-                                <option value="35.3">
-                                <option value="35.4">
-                                <option value="35.5">
-                                <option value="35.6">
-                                <option value="35.7">
-                                <option value="35.8">
-                                <option value="35.9">
-                                <option value="36.0">
-                                <option value="36.1">
-                                <option value="36.2">
-                                <option value="36.3">
-                                <option value="36.4">
-                                <option value="36.5">
-                                <option value="36.6">
-                                <option value="36.7">
-                                <option value="36.8">
-                                <option value="36.9">
-                                <option value="37.0">
-                                <option value="37.1">
-                                <option value="37.2">
-                                <option value="37.3">
-                                <option value="37.4">
-                                <option value="37.5">
-                                <option value="37.6">
-                                <option value="37.7">
-                                <option value="37.8">
-                                <option value="37.9">
-                                <option value="38.0">
-                                <option value="38.1">
-                                <option value="38.2">
-                                <option value="38.3">
-                                <option value="38.4">
-                                <option value="38.5">
-                                <option value="38.6">
-                                <option value="38.7">
-                                <option value="38.8">
-                                <option value="38.9">
-                                <option value="39.0">
-                                <option value="39.1">
-                                <option value="39.2">
-                                <option value="39.3">
-                                <option value="39.4">
-                                <option value="39.5">
-                                <option value="39.6">
-                                <option value="39.7">
-                                <option value="39.8">
-                                <option value="39.9">
-                                <option value="40.0">
-                            </datalist>℃
+                            </datalist> -->
+                            {{iiii.t007_fd12_temperature}}℃
                         </td>
                         <th>
                             沐浴
@@ -269,72 +201,18 @@
                             検温
                         </th>
                         <td colspan="2">
-                            <p>(時分)</p><input type="time" name="home_temp_time" class="time"><br>
-                            <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
-                                list="temperature">
-                            <datalist id="temperature">
+                            <p>(時分)</p>
+                            <p>{{iiii.t007_fd23_temperature_time}}</p>
+                            <!-- <input type="time"     name="home_temp_time" class="time"><br> -->
+                            <!-- <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
+                                list="temperature"> -->
+                            <!-- <datalist id="temperature">
                                 <option value="34.0">
                                 <option value="34.1">
                                 <option value="34.2">
                                 <option value="34.3">
-                                <option value="34.4">
-                                <option value="34.5">
-                                <option value="34.6">
-                                <option value="34.7">
-                                <option value="34.8">
-                                <option value="34.9">
-                                <option value="35.0">
-                                <option value="35.1">
-                                <option value="35.2">
-                                <option value="35.3">
-                                <option value="35.4">
-                                <option value="35.5">
-                                <option value="35.6">
-                                <option value="35.7">
-                                <option value="35.8">
-                                <option value="35.9">
-                                <option value="36.0">
-                                <option value="36.1">
-                                <option value="36.2">
-                                <option value="36.3">
-                                <option value="36.4">
-                                <option value="36.5">
-                                <option value="36.6">
-                                <option value="36.7">
-                                <option value="36.8">
-                                <option value="36.9">
-                                <option value="37.0">
-                                <option value="37.1">
-                                <option value="37.2">
-                                <option value="37.3">
-                                <option value="37.4">
-                                <option value="37.5">
-                                <option value="37.6">
-                                <option value="37.7">
-                                <option value="37.8">
-                                <option value="37.9">
-                                <option value="38.0">
-                                <option value="38.1">
-                                <option value="38.2">
-                                <option value="38.3">
-                                <option value="38.4">
-                                <option value="38.5">
-                                <option value="38.6">
-                                <option value="38.7">
-                                <option value="38.8">
-                                <option value="38.9">
-                                <option value="39.0">
-                                <option value="39.1">
-                                <option value="39.2">
-                                <option value="39.3">
-                                <option value="39.4">
-                                <option value="39.5">
-                                <option value="39.6">
-                                <option value="39.7">
-                                <option value="39.8">
-                                <option value="39.9">
-                                <option value="40.0">
-                            </datalist>℃
+                            </datalist> -->
+                            {{iiii.t007_fd22_temperature}}℃
                         </td>
                     </tr>
                     <tr>

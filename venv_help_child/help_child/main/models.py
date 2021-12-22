@@ -113,7 +113,7 @@ class T007Contactbook(models.Model):
 
     t007_fd15_lunch_contents = models.CharField(verbose_name='昼食食事内容',db_column='T007_FD15_lunch-contents', max_length=100, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fd16_lunch_time = models.TimeField(verbose_name='昼食食事時間',db_column='T007_FD16_lunch-time', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t007_fd05_bed_time = models.TimeField(verbose_name='就寝時間', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    t007_fd27_bed_time = models.TimeField(verbose_name='就寝時間', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fd17_wakeup_time = models.TimeField(verbose_name='起床時間', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fd18_mood = models.IntegerField(verbose_name='機嫌',blank=True, null=True)  # Field name made lowercase.
     t007_fd19_defecation_times = models.IntegerField(verbose_name='排便回数', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
