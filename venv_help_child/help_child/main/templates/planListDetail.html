@@ -39,7 +39,7 @@
             <button id="next" onclick="next()">›</button>
         </div>
     </div>
-    {% for iiii in object_list %}
+    {% for iiii in object %}
     <div id="planListDetailCaption">
         <h2>今日の行事</h2>
         <P>{{iiii.t008_fd01_event}}</P>
@@ -49,8 +49,8 @@
                 {{iiii.t008_fd02_remarks}}
             </p>
         </div>
-        {% empty %}
     </div>
+    {% endfor %}
 </div>
 
 
