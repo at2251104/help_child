@@ -43,7 +43,7 @@ class ContactTopView(generic.ListView, LoginRequiredMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # ユーザ種類別のデータの取り出し方...self.request.user.detail_buyer←ここでrelated_nameを指定する！！！！！！！！！！！！！！！
-        context["object_list"] = T001Children.objects.filter(
+        context["object_list"] = T001Children.objects.filter(x
             t001_fk01_class_id=self.request.user.detail_buyer.class_id)
         return context
 
