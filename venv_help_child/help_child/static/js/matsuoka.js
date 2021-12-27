@@ -97,3 +97,9 @@ function get_selected_input_items(name) {
     });
     return searchData;
 }
+
+//document.getElementById
+
+/*document.querySelector('#switch1').addEventListener('click', function(){
+   document.querySelector('.menu').classList.toggle('is-active');
+});*/

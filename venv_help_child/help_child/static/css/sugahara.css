@@ -311,6 +311,7 @@ a.btn-border:hover:after {
 }
 .contact-book-table {
   margin: auto;
+  width: 90%; /*連絡帳の幅の固定をしています。*/
   table-layout: fixed;
   background-color: #fff;
 }

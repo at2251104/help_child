@@ -8,6 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
 <script type="text/javascript" src="{% static 'js/planlistDetail.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'js/contactDetail.js' %}"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 {% endblock %}
@@ -180,7 +181,7 @@
                             検温
                         </th>
                         <td colspan="3">
-                            <p>(時分)</p>
+                            <!-- <p>(時分)</p> -->
                             <p>
                                 {{iiii.t007_fd23_temperature_time}}
                             </p>
@@ -201,7 +202,7 @@
                             検温
                         </th>
                         <td colspan="2">
-                            <p>(時分)</p>
+                            <!-- <p>(時:分)</p> -->
                             <p>{{iiii.t007_fd23_temperature_time}}</p>
                             <!-- <input type="time"     name="home_temp_time" class="time"><br> -->
                             <!-- <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
@@ -220,12 +221,10 @@
                             連絡事項
                         </th>
                         <td colspan="6">
-
-                            <textarea id="story" name="home_information"
-                                class="info-text">{{iiii.t008_fd04_meal_contents}}</textarea>
+                            {{iiii.t007_fd02_infomation}}
                         </td>
                         <td colspan="6">
-                            <textarea id="story" name="school_information" class="info-text"></textarea>
+                            {{iiii.t007_fd24_infomation}}
                         </td>
                     </tr>
                     <tr>
@@ -233,23 +232,14 @@
                             お迎え
                         </th>
                         <td colspan="6">
-                            <select name="pickup">
-                                <option value="父">父</option>
-                                <option value="母">母</option>
-                                <option value="兄">兄</option>
-                                <option value="姉">姉</option>
-                                <option value="祖父">祖父</option>
-                                <option value="祖母">祖母</option>
-                                <option value="祖母">バス</option>
-                            </select>
-                            <p>(時分)</p>
-                            <input type="time" name="pickup_time" class="time">
+                            迎えに行く人‥{{iiii.t007_fd25_pickup_person}}
+                            <p>お迎え時間‥{{iiii.t007_fd26_pickup_time}}</p>
                         </td>
                         <th>
                             記入者
                         </th>
                         <td colspan="5">
-                            <input type="text" name="writer" class="writer-text">
+                            <!-- {{iiii.t001_pk01_children_id}} -->
                         </td>
                     </tr>
                 </tbody>
