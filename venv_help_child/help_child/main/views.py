@@ -18,7 +18,7 @@ class IndexView(generic.TemplateView):
 
 class HomeView(LoginRequiredMixin, generic.TemplateView):
     template_name = "home.html"
-   
+
 # class LoginView(generic.TemplateView):
 #     template_name="login.html"
 
@@ -43,7 +43,7 @@ class ContactTopView(generic.ListView, LoginRequiredMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # ユーザ種類別のデータの取り出し方...self.request.user.detail_buyer←ここでrelated_nameを指定する！！！！！！！！！！！！！！！
-        context["object_list"] = T001Children.objects.filter(x
+        context["object_list"] = T001Children.objects.filter(
             t001_fk01_class_id=self.request.user.detail_buyer.class_id)
         return context
 
@@ -58,7 +58,6 @@ class ContactTopView(generic.ListView, LoginRequiredMixin):
             contact = contact.filter(or_lookup)
         return contact
 
-   
 
 class ContactTopOyaView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactTop_oya.html"
@@ -87,7 +86,6 @@ class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
 
 class ContactUpdateView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactUpdate.html"
-    
 
 
 class ContactTemplateView(LoginRequiredMixin, generic.TemplateView):
@@ -138,7 +136,6 @@ class MessageAddressView(LoginRequiredMixin, generic.ListView):
 
 class MessageView(LoginRequiredMixin, generic.TemplateView):
     template_name = "message.html"
-    
 
 
 class AttendView(LoginRequiredMixin, generic.ListView):
