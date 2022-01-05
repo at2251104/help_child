@@ -94,31 +94,25 @@
                     <tr>
                         <td colspan="3">
                             <p>前夜</p>
-                            <!-- <input type="time" name="dinner_time" class="time"> -->
                             {{iiii.t007_fd03_meal_time}}
                         </td>
                         <td colspan="3">
-                            <!-- <textarea cols="" rows="" name="dinner" class="food-text"></textarea> -->
                             {{iiii.t007_fd04_meal_contents}}
                         </td>
                         <td colspan="3" rowspan="2">
                             <p>昼食</p>
-                            <!-- <input type="time" name="lunch_time" class="time"> -->
                             {{iiii.t007_fd16_lunch_time}}
                         </td>
                         <td colspan="3" rowspan="2">
-                            <!-- <textarea cols="" rows="" name="lunch" class="food-text"></textarea> -->
                             {{iiii.t007_fd15_lunch_contents}}
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3">
                             <p>今朝</p>
-                            <!-- <input type="time" name="breakfast_time" class="time"> -->
                             {{iiii.t007_fd14_breakfast_time}}
                         </td>
                         <td colspan="3">
-                            <!-- <textarea cols="" rows="" name="breakfast" class="food-text"></textarea> -->
                             {{iiii.t007_fd13_breakfast_contents}}
                         </td>
                     </tr>
@@ -140,9 +134,12 @@
                             きげん
                         </th>
                         <td colspan="6">
-                            <label><input type="radio" name="home_mood">良</label>
-                            <label><input type="radio" name="home_mood">普</label>
-                            <label><input type="radio" name="home_mood">悪</label>
+                            <label><input type="radio" name="home_mood" checked>良</label>
+                            {% if iiii.t007_fd07_mood == 1 %}
+                            
+                            <label><input type="radio" name="home_mood" >普</label>
+                            {% endif %}
+                            <label><input type="radio" name="home_mood" >悪</label>
                         </td>
                         <td colspan="6">
                             <label><input type="radio" name="school_mood">良</label>
@@ -185,10 +182,6 @@
                             <p>
                                 {{iiii.t007_fd23_temperature_time}}
                             </p>
-                            <!-- <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
-                                list="temperature">
-                            <datalist id="temperature">
-                            </datalist> -->
                             {{iiii.t007_fd12_temperature}}℃
                         </td>
                         <th>
@@ -204,15 +197,6 @@
                         <td colspan="2">
                             <!-- <p>(時:分)</p> -->
                             <p>{{iiii.t007_fd23_temperature_time}}</p>
-                            <!-- <input type="time"     name="home_temp_time" class="time"><br> -->
-                            <!-- <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
-                                list="temperature"> -->
-                            <!-- <datalist id="temperature">
-                                <option value="34.0">
-                                <option value="34.1">
-                                <option value="34.2">
-                                <option value="34.3">
-                            </datalist> -->
                             {{iiii.t007_fd22_temperature}}℃
                         </td>
                     </tr>
