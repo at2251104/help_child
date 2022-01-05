@@ -143,10 +143,7 @@ class HomeContactForm(forms.Form):
     t007_fd25_pickup_person = forms.fields.ChoiceField(
         choices=Pick_up_List,
         widget=forms.Select,
-<<<<<<< HEAD
         
-=======
->>>>>>> fab0c1992561d9296afc45369c2f737c55191488
     )
     t007_fd26_pickup_time = forms.DateTimeField(input_formats=['%H/%M'])
 
