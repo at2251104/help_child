@@ -52,7 +52,7 @@
     <ul id="list">
         {% for iiii in object_list %}
         <li class="list_item" data-hobby="age4"><a
-                href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now " Ymd"%} ">{{ iiii.get_full_name }}</a></li>
+                href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} ">{{ iiii.get_full_name }}</a></li>
         
         {% empty %}
         {% endfor %}
