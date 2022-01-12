@@ -37,6 +37,9 @@
             <input type="text" placeholder="日付検索" id="target" text-align="center">
         </form>
     </div>
+
+    <script type="text/javascript" src="{% static 'js/contactDetail.js' %}"></script>
+
     <div id="next-prev-button">
         <button id="prev" onclick="prev()">‹</button>
         <button id="next" onclick="next()">›</button>
@@ -134,17 +137,34 @@
                             きげん
                         </th>
                         <td colspan="6">
-                            <label><input type="radio" name="home_mood" checked>良</label>
                             {% if iiii.t007_fd07_mood == 1 %}
-                            
-                            <label><input type="radio" name="home_mood" >普</label>
+                            <input type="radio" checked>良
+                            <input type="radio">普
+                            <input type="radio">悪
+                            {% elif iiii.t007_fd07_mood == 2 %}
+                            <input type="radio">良
+                            <input type="radio" checked>普
+                            <input type="radio">悪
+                            {%elif iiii.t007_fd07_mood == 3 %}
+                            <input type="radio">良
+                            <input type="radio">普
+                            <input type="radio" checked>悪
                             {% endif %}
-                            <label><input type="radio" name="home_mood" >悪</label>
                         </td>
                         <td colspan="6">
-                            <label><input type="radio" name="school_mood">良</label>
-                            <label><input type="radio" name="school_mood">普</label>
-                            <label><input type="radio" name="school_mood">悪</label>
+                            {% if iiii.t007_fd18_mood == 1 %}
+                            <input type="radio" checked>良
+                            <input type="radio">普
+                            <input type="radio">悪
+                            {% elif iiii.t007_fd18_mood == 2 %}
+                            <input type="radio">良
+                            <input type="radio" checked>普
+                            <input type="radio">悪
+                            {%elif iiii.t007_fd18_mood == 3 %}
+                            <input type="radio">良
+                            <input type="radio">普
+                            <input type="radio" checked>悪
+                            {% endif %}
                         </td>
                     </tr>
                     <tr>
@@ -152,18 +172,54 @@
                             排便
                         </th>
                         <td colspan="6">
-                            <label><input type="radio" name="home_hardness">水</label>
-                            <label><input type="radio" name="home_hardness">軟</label><br>
-                            <label><input type="radio" name="home_hardness">普</label>
-                            <label><input type="radio" name="home_hardness">硬</label>
-                                {{iiii.t007_fd09_defecation_times}}回
+                            {% if iiii.t007_fd08_defecation_status == 1 %}
+                            <input type="radio" checked>水
+                            <input type="radio">軟<br>
+                            <input type="radio">普
+                            <input type="radio">硬
+                            {% elif iiii.t007_fd08_defecation_status == 2 %}
+                            <input type="radio">水
+                            <input type="radio" checked>軟<br>
+                            <input type="radio">普
+                            <input type="radio">硬
+                            {%elif iiii.t007_fd08_defecation_status == 3 %}
+                            <input type="radio">水
+                            <input type="radio">軟<br>
+                            <input type="radio" checked>普
+                            <input type="radio">硬
+                            {%elif iiii.t007_fd08_defecation_status == 4 %}
+                            <input type="radio">水
+                            <input type="radio">軟<br>
+                            <input type="radio">普
+                            <input type="radio" checked>硬
+                            {% endif %}
+                            <br>
+                                回数：{{iiii.t007_fd09_defecation_times}}回
                         </td>
                         <td colspan="6">
-                            <label><input type="radio" name="school_hardness">水</label>
-                            <label><input type="radio" name="school_hardness">軟</label><br>
-                            <label><input type="radio" name="school_hardness">普</label>
-                            <label><input type="radio" name="school_hardness">硬</label>
-                            {{iiii.t007_fd19_defecation_times}}回
+                            {% if iiii.t007_fd20_defecation_status == 1 %}
+                            <input type="radio" checked>水
+                            <input type="radio">軟<br>
+                            <input type="radio">普
+                            <input type="radio">硬
+                            {% elif iiii.t007_fd20_defecation_status == 2 %}
+                            <input type="radio">水
+                            <input type="radio" checked>軟<br>
+                            <input type="radio">普
+                            <input type="radio">硬
+                            {%elif iiii.t007_fd20_defecation_status == 3 %}
+                            <input type="radio">水
+                            <input type="radio">軟<br>
+                            <input type="radio" checked>普
+                            <input type="radio">硬
+                            {%elif iiii.t007_fd20_defecation_status == 4 %}
+                            <input type="radio">水
+                            <input type="radio">軟<br>
+                            <input type="radio">普
+                            <input type="radio" checked>硬
+                            {% endif %}
+                            <br>
+                                回数：{{iiii.t007_fd19_defecation_times}}回
                         </td>
                     </tr>
                     <tr>
@@ -171,8 +227,13 @@
                             入浴
                         </th>
                         <td colspan="2" nowrap>
-                            <label><input type="radio" name="home_bathe">有</label><br>
-                            <label><input type="radio" name="home_bathe">無</label>
+                            {% if iiii.007_fd10_bathing == checked %}
+                            <input type="radio" checked>有<br>
+                            <input type="radio">無
+                            {% elif iiii.007_fd10_bathing == checked %}
+                            <input type="radio">有<br>
+                            <input type="radio"  checked>無
+                            {% endif %}
                         </td>
                         <th>
                             検温
@@ -188,9 +249,13 @@
                             沐浴
                         </th>
                         <td colspan="2" nowrap>
-                            <label><input type="radio" name="school_bathe">有</label><br>
-                            <label><input type="radio" name="school_bathe">無</label>
-                        </td>
+                            {% if iiii.007_fd21_bathing == checked %}
+                            <input type="radio" checked>有<br>
+                            <input type="radio">無
+                            {% elif iiii.007_fd21_bathing == checked %}
+                            <input type="radio">有<br>
+                            <input type="radio"  checked>無
+                            {% endif %}                        </td>
                         <th>
                             検温
                         </th>
@@ -223,7 +288,7 @@
                             記入者
                         </th>
                         <td colspan="5">
-                            <!-- {{iiii.t001_pk01_children_id}} -->
+                            {{t001_pk01_children_id}}
                         </td>
                     </tr>
                 </tbody>

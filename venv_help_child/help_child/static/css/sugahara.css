@@ -297,6 +297,10 @@ a.btn-border:hover:after {
   margin: auto;
   margin-bottom: 20px;
 }
+#next-prev-button button:hover {
+  background-color: #d4bb92;
+  border-color: #d4bb92;
+}
 #prev {
   float: left;
 }
