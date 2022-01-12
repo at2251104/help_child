@@ -9,6 +9,12 @@ $(function () {
     buttonText: "カレンダーから選択", // ツールチップ表示文言
     buttonImageOnly: true,           // 画像として表示
     showOn: "both",
+    onSelect: function(dateText, inst){
+      const url=new URL(location);
+      let str = dateText.replaceAll("/","");
+      url.searchParams.set("num",str);
+      window.location.href=url.toString();
+    }
   });
   $("#from1").datepicker({
     changeYear: true,    // 年を表示
