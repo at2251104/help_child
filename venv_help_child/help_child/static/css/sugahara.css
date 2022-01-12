@@ -307,6 +307,19 @@ a.btn-border:hover:after {
 #next {
   float: right;
 }
+  /* 土曜日の色設定 */
+  td.ui-datepicker-week-end:last-child a.ui-state-default {
+    color: #00f !important; /* 文字色：青 */
+  }
+  /* 日曜日の色設定 */
+  td.ui-datepicker-week-end:first-child a.ui-state-default {
+    color: #f00 !important; /* 文字色：赤 */
+  }
+  img.ui-datepicker-trigger {
+    cursor: pointer;
+    margin-left: 7px !important;
+    vertical-align: middle;
+  }
 #contact-book {
   display: block;
   margin-top: 10%;
