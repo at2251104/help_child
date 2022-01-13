@@ -44,55 +44,17 @@
 
     <!-- 検索ボックス Django-->
     <form action="" method="get" class="search_container">
-        <input name="query" value="{{ request.GET.query }}" type="text" id="search-text"onkeyup="myFunction()" size="30"placeholder="検索">
+        <input name="query" value="{{ request.GET.query }}" type="text" id="search-text" onkeyup="myFunction()"
+            size="30" placeholder="検索">
     </form>
 
     <!-- 園児リスト -->
     <ul id="list">
         {% for iiii in object_list %}
-        <li class="list_item" data-hobby="age4"><a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} ">{{ iiii.get_full_name }}</a></li>
+        <li class="list_item" data-hobby="age4"><a
+                href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} ">{{ iiii.get_full_name }}</a></li>
+        
         {% empty %}
-
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">aaaくん 2歳 9</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">aaaくん 2歳 9</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">aaaくん 2歳 9</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">aaaくん 2歳 9</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 2</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 3</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 4</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 5</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">Cくん 2歳 6</a></li>
-        <li class="list_item" data-hobby="age4"><a href="#">Aくん 4歳 7</a></li>
-        <li class="list_item" data-hobby="age1"><a href="#">Bちゃん 1歳 8</a></li>
-        <li class="list_item" data-hobby="age2"><a href="#">aaaくん 2歳 最後</a></li>
         {% endfor %}
     </ul>
 </div>
@@ -100,15 +62,15 @@
 
 {% block sub_contents%}
 <!-- 関連項目 -->
-<nav class="box1">
-    <h2>連絡帳関連</h2>
-    <ul class="submenu">
-        <!-- 「詳細」は園児の名前を押下時表示される画面 -->
-        <li><a href="{% url 'main:contactDetail' %}">詳細(閲覧用に置いています)</a></li>
-        <li><a href="{% url 'main:contactTemplate' %}">テンプレートの作成</a></li>
-        <li><a href="{% url 'main:contactUpdate' %} ">編集</a></li>
-        <li><a href="#">削除</a></li>
-        <li><a href="{% url 'main:contactTop_oya' %}">親画面</a></li>
-    </ul>
-</nav>
-{% endblock %}
+<nav class=" box1">
+                <h2>連絡帳関連</h2>
+                <ul class="submenu">
+                    <!-- 「詳細」は園児の名前を押下時表示される画面 -->
+                    <li><a href="{% url 'main:contactDetail' %}">詳細(閲覧用に置いています)</a></li>
+                    <li><a href="{% url 'main:contactTemplate' %}">テンプレートの作成</a></li>
+                    <li><a href="{% url 'main:contactUpdate' %} ">編集</a></li>
+                    <li><a href="#">削除</a></li>
+                    <li><a href="{% url 'main:contactTop_oya' %}">親画面</a></li>
+                </ul>
+                </nav>
+                {% endblock %}

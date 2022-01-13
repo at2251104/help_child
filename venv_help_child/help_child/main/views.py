@@ -64,7 +64,6 @@ class ContactTopView(generic.ListView, LoginRequiredMixin):
             contact = contact.filter(or_lookup)
         return contact
 
-   
 
 class ContactTopOyaView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactTop_oya.html"
@@ -93,7 +92,6 @@ class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
 
 class ContactUpdateView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactUpdate.html"
-    
 
 
 class ContactTemplateView(LoginRequiredMixin, generic.TemplateView):
@@ -144,7 +142,6 @@ class MessageAddressView(LoginRequiredMixin, generic.ListView):
 
 class MessageView(LoginRequiredMixin, generic.TemplateView):
     template_name = "message.html"
-    
 
 
 class AttendView(LoginRequiredMixin, generic.ListView):

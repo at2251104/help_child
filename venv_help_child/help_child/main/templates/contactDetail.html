@@ -8,6 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
 <script type="text/javascript" src="{% static 'js/planlistDetail.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'js/contactDetail.js' %}"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 {% endblock %}
@@ -36,6 +37,9 @@
             <input type="text" placeholder="日付検索" id="target" text-align="center">
         </form>
     </div>
+
+    <script type="text/javascript" src="{% static 'js/contactDetail.js' %}"></script>
+
     <div id="next-prev-button">
         <button id="prev" onclick="prev()">‹</button>
         <button id="next" onclick="next()">›</button>
@@ -93,31 +97,25 @@
                     <tr>
                         <td colspan="3">
                             <p>前夜</p>
-                            <!-- <input type="time" name="dinner_time" class="time"> -->
                             {{iiii.t007_fd03_meal_time}}
                         </td>
                         <td colspan="3">
-                            <!-- <textarea cols="" rows="" name="dinner" class="food-text"></textarea> -->
                             {{iiii.t007_fd04_meal_contents}}
                         </td>
                         <td colspan="3" rowspan="2">
                             <p>昼食</p>
-                            <!-- <input type="time" name="lunch_time" class="time"> -->
                             {{iiii.t007_fd16_lunch_time}}
                         </td>
                         <td colspan="3" rowspan="2">
-                            <!-- <textarea cols="" rows="" name="lunch" class="food-text"></textarea> -->
                             {{iiii.t007_fd15_lunch_contents}}
                         </td>
                     </tr>
                     <tr>
                         <td colspan="3">
                             <p>今朝</p>
-                            <!-- <input type="time" name="breakfast_time" class="time"> -->
                             {{iiii.t007_fd14_breakfast_time}}
                         </td>
                         <td colspan="3">
-                            <!-- <textarea cols="" rows="" name="breakfast" class="food-text"></textarea> -->
                             {{iiii.t007_fd13_breakfast_contents}}
                         </td>
                     </tr>
@@ -139,14 +137,34 @@
                             きげん
                         </th>
                         <td colspan="6">
-                            <label><input type="radio" name="home_mood">良</label>
-                            <label><input type="radio" name="home_mood">普</label>
-                            <label><input type="radio" name="home_mood">悪</label>
+                            {% if iiii.t007_fd07_mood == 1 %}
+                            <input type="radio" checked>良
+                            <input type="radio">普
+                            <input type="radio">悪
+                            {% elif iiii.t007_fd07_mood == 2 %}
+                            <input type="radio">良
+                            <input type="radio" checked>普
+                            <input type="radio">悪
+                            {%elif iiii.t007_fd07_mood == 3 %}
+                            <input type="radio">良
+                            <input type="radio">普
+                            <input type="radio" checked>悪
+                            {% endif %}
                         </td>
                         <td colspan="6">
-                            <label><input type="radio" name="school_mood">良</label>
-                            <label><input type="radio" name="school_mood">普</label>
-                            <label><input type="radio" name="school_mood">悪</label>
+                            {% if iiii.t007_fd18_mood == 1 %}
+                            <input type="radio" checked>良
+                            <input type="radio">普
+                            <input type="radio">悪
+                            {% elif iiii.t007_fd18_mood == 2 %}
+                            <input type="radio">良
+                            <input type="radio" checked>普
+                            <input type="radio">悪
+                            {%elif iiii.t007_fd18_mood == 3 %}
+                            <input type="radio">良
+                            <input type="radio">普
+                            <input type="radio" checked>悪
+                            {% endif %}
                         </td>
                     </tr>
                     <tr>
@@ -154,18 +172,54 @@
                             排便
                         </th>
                         <td colspan="6">
-                            <label><input type="radio" name="home_hardness">水</label>
-                            <label><input type="radio" name="home_hardness">軟</label><br>
-                            <label><input type="radio" name="home_hardness">普</label>
-                            <label><input type="radio" name="home_hardness">硬</label>
-                                {{iiii.t007_fd09_defecation_times}}回
+                            {% if iiii.t007_fd08_defecation_status == 1 %}
+                            <input type="radio" checked>水
+                            <input type="radio">軟<br>
+                            <input type="radio">普
+                            <input type="radio">硬
+                            {% elif iiii.t007_fd08_defecation_status == 2 %}
+                            <input type="radio">水
+                            <input type="radio" checked>軟<br>
+                            <input type="radio">普
+                            <input type="radio">硬
+                            {%elif iiii.t007_fd08_defecation_status == 3 %}
+                            <input type="radio">水
+                            <input type="radio">軟<br>
+                            <input type="radio" checked>普
+                            <input type="radio">硬
+                            {%elif iiii.t007_fd08_defecation_status == 4 %}
+                            <input type="radio">水
+                            <input type="radio">軟<br>
+                            <input type="radio">普
+                            <input type="radio" checked>硬
+                            {% endif %}
+                            <br>
+                                回数：{{iiii.t007_fd09_defecation_times}}回
                         </td>
                         <td colspan="6">
-                            <label><input type="radio" name="school_hardness">水</label>
-                            <label><input type="radio" name="school_hardness">軟</label><br>
-                            <label><input type="radio" name="school_hardness">普</label>
-                            <label><input type="radio" name="school_hardness">硬</label>
-                            {{iiii.t007_fd19_defecation_times}}回
+                            {% if iiii.t007_fd20_defecation_status == 1 %}
+                            <input type="radio" checked>水
+                            <input type="radio">軟<br>
+                            <input type="radio">普
+                            <input type="radio">硬
+                            {% elif iiii.t007_fd20_defecation_status == 2 %}
+                            <input type="radio">水
+                            <input type="radio" checked>軟<br>
+                            <input type="radio">普
+                            <input type="radio">硬
+                            {%elif iiii.t007_fd20_defecation_status == 3 %}
+                            <input type="radio">水
+                            <input type="radio">軟<br>
+                            <input type="radio" checked>普
+                            <input type="radio">硬
+                            {%elif iiii.t007_fd20_defecation_status == 4 %}
+                            <input type="radio">水
+                            <input type="radio">軟<br>
+                            <input type="radio">普
+                            <input type="radio" checked>硬
+                            {% endif %}
+                            <br>
+                                回数：{{iiii.t007_fd19_defecation_times}}回
                         </td>
                     </tr>
                     <tr>
@@ -173,45 +227,41 @@
                             入浴
                         </th>
                         <td colspan="2" nowrap>
-                            <label><input type="radio" name="home_bathe">有</label><br>
-                            <label><input type="radio" name="home_bathe">無</label>
+                            {% if iiii.t007_fd10_bathing == FAlse%}
+                            <input type="radio" checked>有<br>
+                            <input type="radio">無
+                            {% else%}
+                            <input type="radio">有<br>
+                            <input type="radio"  checked>無
+                            {% endif %}
                         </td>
                         <th>
                             検温
                         </th>
                         <td colspan="3">
-                            <p>(時分)</p>
+                            <!-- <p>(時分)</p> -->
                             <p>
                                 {{iiii.t007_fd23_temperature_time}}
                             </p>
-                            <!-- <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
-                                list="temperature">
-                            <datalist id="temperature">
-                            </datalist> -->
                             {{iiii.t007_fd12_temperature}}℃
                         </td>
                         <th>
                             沐浴
                         </th>
                         <td colspan="2" nowrap>
-                            <label><input type="radio" name="school_bathe">有</label><br>
-                            <label><input type="radio" name="school_bathe">無</label>
-                        </td>
+                            {% if iiii.007_fd21_bathing == checked %}
+                            <input type="radio" checked>有<br>
+                            <input type="radio">無
+                            {% elif iiii.007_fd21_bathing == checked %}
+                            <input type="radio">有<br>
+                            <input type="radio"  checked>無
+                            {% endif %}                        </td>
                         <th>
                             検温
                         </th>
                         <td colspan="2">
-                            <p>(時分)</p>
+                            <!-- <p>(時:分)</p> -->
                             <p>{{iiii.t007_fd23_temperature_time}}</p>
-                            <!-- <input type="time"     name="home_temp_time" class="time"><br> -->
-                            <!-- <input type="number" name="home_temperature" value="36" min="34.0" max="40.0" step="1"
-                                list="temperature"> -->
-                            <!-- <datalist id="temperature">
-                                <option value="34.0">
-                                <option value="34.1">
-                                <option value="34.2">
-                                <option value="34.3">
-                            </datalist> -->
                             {{iiii.t007_fd22_temperature}}℃
                         </td>
                     </tr>
@@ -220,12 +270,10 @@
                             連絡事項
                         </th>
                         <td colspan="6">
-
-                            <textarea id="story" name="home_information"
-                                class="info-text">{{iiii.t008_fd04_meal_contents}}</textarea>
+                            {{iiii.t007_fd02_infomation}}
                         </td>
                         <td colspan="6">
-                            <textarea id="story" name="school_information" class="info-text"></textarea>
+                            {{iiii.t007_fd24_infomation}}
                         </td>
                     </tr>
                     <tr>
@@ -233,23 +281,14 @@
                             お迎え
                         </th>
                         <td colspan="6">
-                            <select name="pickup">
-                                <option value="父">父</option>
-                                <option value="母">母</option>
-                                <option value="兄">兄</option>
-                                <option value="姉">姉</option>
-                                <option value="祖父">祖父</option>
-                                <option value="祖母">祖母</option>
-                                <option value="祖母">バス</option>
-                            </select>
-                            <p>(時分)</p>
-                            <input type="time" name="pickup_time" class="time">
+                            迎えに行く人‥{{iiii.t007_fd25_pickup_person}}
+                            <p>お迎え時間‥{{iiii.t007_fd26_pickup_time}}</p>
                         </td>
                         <th>
                             記入者
                         </th>
                         <td colspan="5">
-                            <input type="text" name="writer" class="writer-text">
+                            {{t001_pk01_children_id}}
                         </td>
                     </tr>
                 </tbody>

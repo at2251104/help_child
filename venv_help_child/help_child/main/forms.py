@@ -92,13 +92,13 @@ Temperature = (
 )
 
 Pick_up_List = (
-    ('father', '父'),
-    ('mother', '母'),
-    ('Brother', '兄'),
-    ('sister', '姉'),
-    ('grandfather', '祖父'),
-    ('grandmother', '祖母'),
-    ('bus', 'バス'),
+    ('父', '父'),
+    ('母', '母'),
+    ('兄', '兄'),
+    ('姉', '姉'),
+    ('祖父', '祖父'),
+    ('祖母', '祖母'),
+    ('バス', 'バス'),
 )
 
 
@@ -153,7 +153,7 @@ class SchoolContactForm(forms.Form):
         widget=forms.Textarea,
         max_length=100,
     )
-    t007_fd05_bed_time = forms.DateTimeField(input_formats=['%H/%M'])
+    t007_fd27_bed_time = forms.DateTimeField(input_formats=['%H/%M'])
     t007_fd17_wakeup_time = forms.DateTimeField(input_formats=['%H/%M'])
     t007_fd18_mood = forms.fields.ChoiceField(
         choices=Mood,
@@ -176,5 +176,8 @@ class SchoolContactForm(forms.Form):
         choices=Temperature,
         widget=forms.Select,
     )
-    t007_fd24_infomation = forms.CharField(widget=forms.Textarea)
+    t007_fd24_infomation = forms.CharField(
+        widget=forms.Textarea,
+        max_length=200,
+    )
     t007_fk02_childminder_id = forms.CharField(max_length=20)
