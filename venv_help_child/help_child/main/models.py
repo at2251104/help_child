@@ -395,7 +395,6 @@ class T012Contactbooktem(models.Model):
 
 
 class T013Blog(models.Model):
-<<<<<<< HEAD
     t013_pk01_blog_id = models.CharField(
         verbose_name='ブログID', primary_key=True, max_length=10)
     t013_fd01_title = models.CharField(verbose_name='タイトル', max_length=40)
@@ -411,24 +410,10 @@ class T013Blog(models.Model):
         verbose_name='作成日時', auto_now_add=True,)
     t013_fd07_updatedata = models.DateTimeField(
         verbose_name='更新日時', auto_now=True, blank=True, null=True)
-=======
-    t013_pk01_blog_id = models.CharField(verbose_name='ブログID',primary_key=True, max_length=10) 
-    t013_fd01_title = models.CharField(verbose_name='タイトル',max_length=40)
-    t013_fd02_content = models.TextField(verbose_name='本文',blank=True,null=True)
-    t013_fd03_photo1 = models.ImageField(verbose_name='写真１',blank=True,null=True)
-    t013_fd04_photo2 = models.ImageField(verbose_name='写真２',blank=True,null=True)
-    t013_fd05_photo3 = models.ImageField(verbose_name='写真３',blank=True,null=True)
-    t013_fd06_createdata = models.DateTimeField(verbose_name='作成日時',auto_now_add=True,)  
-    t013_fd07_updatedata = models.DateTimeField(verbose_name='更新日時',auto_now=True,blank=True, null=True)  
->>>>>>> c719b53c5bbdd8efce40bda4da2eee992fc82d53
 
     class Meta:
         db_table = 'T013_blog'
         verbose_name_plural = 'ブログテーブル'
 
         def __str__(self):
-<<<<<<< HEAD
             return self.t013_fd01_title
-=======
-            return self.t013_fd01_title
->>>>>>> c719b53c5bbdd8efce40bda4da2eee992fc82d53
