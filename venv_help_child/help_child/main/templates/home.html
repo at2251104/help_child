@@ -20,10 +20,12 @@
 
 <div id="main">
 	<section id="new">
-		<h2 id="newinfo_hdr" class="close">更新情報・お知らせ</h2>
+		<h2 id="newinfo_hdr" class="close">ブログ</h2>
 		<dl id="newinfo">
-			<dt>2017/02/23</dt>
-			<dd>スライドショーの設定を少し変更。トップの列車アニメーションがIEで動かなかったので修正。<span class="newicon">NEW</span></dd>
+		{% for blog in object_list %}
+			<dt>{{ blog.t013_fd06_createdata }}</dt>
+			<dd><a href="{% url 'main:blogDetail' %}?id={{blog.t013_pk01_blog_id}}">{{ blog.t013_fd01_title }}<span class="newicon">NEW</span></a></dd>
+		{% empty %}
 			<dt>2017/02/20</dt>
 			<dd>{{ user.email }}</dd>
 			<dt>20XX/00/00</dt>
@@ -38,6 +40,7 @@
 			<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
 			<dt>20XX/00/00</dt>
 			<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+		{% endfor %}
 		</dl>
 	</section>
 	

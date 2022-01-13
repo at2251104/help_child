@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 app_name="main"
 
 urlpatterns=[
@@ -24,5 +25,7 @@ urlpatterns=[
     path('planListDetail',views.PlanListDetailView.as_view(),name="planListDetail"),
     path('planListUpdate',views.PlanListUpdateView.as_view(),name="planListUpdate"),
     path('planListDelete',views.PlanListDeleteView.as_view(),name="planListDelete"),
+
+    path('blogDetail',views.BlogDetailView.as_view(),name="blogDetail"),
 
 ]

@@ -203,3 +203,6 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 # デフォルトのメール送信元を設定
 # DEFAULT_FROM_EMAIL = 'admin@example.com'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
