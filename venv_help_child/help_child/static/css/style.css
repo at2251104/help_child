@@ -365,11 +365,11 @@ footer .pr {
 #new dt {
   font-weight: bold; /*太字にする設定。標準がいいならこの行削除。*/
   float: left;
-  width: 8em;
+  width: 15em;
 }
 /*記事設定*/
 #new dd {
-  padding-left: 8em;
+  padding-left: 10em;
 }
 
 /*テーブル（ta1）

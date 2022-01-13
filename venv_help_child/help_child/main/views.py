@@ -17,8 +17,14 @@ class IndexView(generic.TemplateView):
 
 
 class HomeView(LoginRequiredMixin, generic.TemplateView):
+    model = T013Blog
     template_name = "home.html"
 
+    def get_context_data(self, **kwargs):
+        blog = super().get_context_data(**kwargs)
+        blog["object_list"] = T013Blog.objects.order_by('-t013_fd06_createdata')
+        return blog
+   
 # class LoginView(generic.TemplateView):
 #     template_name="login.html"
 
@@ -208,3 +214,15 @@ class ParentConfigView(LoginRequiredMixin, generic.TemplateView):
 
 class TeacherConfigView(LoginRequiredMixin, generic.TemplateView):
     template_name = "teacherConfig.html"
+
+class BlogDetailView(LoginRequiredMixin, generic.TemplateView):
+    model = T013Blog
+    template_name = "blogDetail.html"
+
+    def get_context_data(self, **kwargs):
+        blog = super().get_context_data(**kwargs)
+        id = self.request.GET.get("id", "00")
+        blog["object_list"] = T013Blog.objects.filter(
+            t013_pk01_blog_id=id
+        )
+        return blog
