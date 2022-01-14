@@ -52,7 +52,7 @@ class T001Children(models.Model):
 
 
     def __str__(self):
-        return self.t001_pk01_children_id
+        return self.get_full_name()
 
 
 # 登降園状態
