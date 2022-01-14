@@ -38,29 +38,42 @@
     </form>
 
     <!-- 園児リスト -->
-    <ul id="list">
+    <ul id="child-list">
 
-        <table border>
+        <table border="2" style="border-collapse: collapse; border-color: #000">
+            <tr>
+                <th class="class-name">
+                    クラス名
+                </th>
+                <th class="child-name">
+                    園児名
+                </th>
+                <th class="child-name">
+                    よみがな(姓名)
+                </th>
+            </tr>
             {% for iiii in object_list %}
             <tr>
-                <td>
+                <td class="class-name">
                     <li class="list_item" data-hobby="age4">
                         <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now " Ymd"%} ">{{ iiii.t001_fk01_class_id }}</a>
                     </li>
                 </td>
-                <td>
+                <td class="child-name">
                     <li class=" list_item" data-hobby="age4">
-                            <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now " Ymd"%} ">{{ iiii.get_full_name }}</a>
+                        <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now " Ymd"%} ">{{ iiii.get_full_name }}</a>
                     </li>
                 </td>
-            <td>
-                <li class=" list_item" data-hobby="age4">
-                                <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "
-                                    Ymd"%} ">{{iiii.get_full_name_kana}}</a>
-                </li>
-            </td>
-            <td></td>
-        </tr>
+                <td class="child-name">
+                    <li class=" list_item" data-hobby="age4">
+                        <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now " Ymd"%} ">{{iiii.get_full_name_kana}}</a>
+                    </li>
+                </td>
+                <td class="select">
+                    <button type=“button” onclick="location.href='https://techacademy.jp/magazine/'" class="select-btn">記入</button>
+                    <button type=“button” onclick="location.href='https://techacademy.jp/magazine/'" class="select-btn">閲覧</button>
+                </td>
+            </tr>
         {% empty %}
         {% endfor %}
         </table>
