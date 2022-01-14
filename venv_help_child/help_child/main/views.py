@@ -22,9 +22,10 @@ class HomeView(LoginRequiredMixin, generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         blog = super().get_context_data(**kwargs)
-        blog["object_list"] = T013Blog.objects.order_by('-t013_fd06_createdata')
+        blog["object_list"] = T013Blog.objects.order_by(
+            '-t013_fd06_createdata')
         return blog
-   
+
 # class LoginView(generic.TemplateView):
 #     template_name="login.html"
 
@@ -182,8 +183,9 @@ class PlanListView(LoginRequiredMixin, generic.TemplateView):
     template_name = "planlist.html"
 
 
-class PlanListDetailView(LoginRequiredMixin, generic.TemplateView):
+class PlanListDetailView(LoginRequiredMixin, generic.ListView):
     template_name = "planListDetail.html"
+    paginate_by = 2
     context_object_name = "object"
 
     model = T008Schedule
@@ -214,6 +216,7 @@ class ParentConfigView(LoginRequiredMixin, generic.TemplateView):
 
 class TeacherConfigView(LoginRequiredMixin, generic.TemplateView):
     template_name = "teacherConfig.html"
+
 
 class BlogDetailView(LoginRequiredMixin, generic.TemplateView):
     model = T013Blog

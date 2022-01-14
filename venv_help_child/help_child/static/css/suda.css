@@ -339,16 +339,16 @@
     padding-top: 30%; /*コンテンツ上にあける余白*/
   }
 
-  #plmain h2 {
+  /*#plmain h2 {
     clear: both;
-    font-size: 17px; /*文字サイズ*/
-    text-align: left; /*テキストの位置*/
+    font-size: 17px; /*文字サイズ
+    text-align: left; /*テキストの位置
     margin-bottom: 15px;
-    color: #fff; /*文字色*/
-    padding: 8px 30px; /*上下、左右への余白*/
-    background: #37a8e9; /*背景色（古いブラウザ用）*/
+    color: #fff; /*文字色
+    padding: 8px 30px; /*上下、左右への余白
+    background: #37a8e9; /*背景色（古いブラウザ用）
     border-radius: 30px;
-  }
+  } */
   #plmain form {
     margin-left: auto;
     margin-right: auto;
@@ -404,20 +404,25 @@
 
   /*planListDetail画面の備考欄のためのクラス*/
   .remarksBox2 {
+    content: attr(data-en);
     padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;
     font-size: 20px;
-    color: #6091d3; /*文字色*/
+    color: #0c192b; /*文字色*/
     background: #fff;
-    border: solid 3px #6091d3; /*線*/
+    border: solid 3px #2a3c53; /*線*/
     border-radius: 10px; /*角の丸み*/
     position: relative;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
   }
 
   .remarksBox2 p {
     margin: 0;
     padding: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
   }
   /*planListDetail画面終了*/
 
@@ -919,20 +924,25 @@
 
   /*planListDetail画面の備考欄のためのクラス*/
   .remarksBox2 {
+    content: attr(data-en);
     padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;
     font-size: 20px;
-    color: #6091d3; /*文字色*/
+    color: #0c192b; /*文字色*/
     background: #fff;
-    border: solid 3px #6091d3; /*線*/
+    border: solid 3px #2a3c53; /*線*/
     border-radius: 10px; /*角の丸み*/
     position: relative;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
   }
 
   .remarksBox2 p {
     margin: 0;
     padding: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
   }
   /*planListDetail画面終了*/
 
@@ -1033,6 +1043,37 @@
     color: #00abea;
     text-align: center;
   }
+  .heading07 {
+    position: relative;
+    word-wrap: break-all;
+    overflow-wrap: break-word;
+    padding-top: 50px;
+    padding-left: 30px;
+    font-size: 26px;
+  }
+
+  .heading07 span {
+    position: relative;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
+    z-index: 2;
+  }
+
+  .heading07::before {
+    content: attr(data-en);
+    position: absolute;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
+    transform: rotate(-5deg);
+    top: -20px;
+    left: 0;
+    color: rgba(224, 66, 114, 0.6);
+    font-size: 80px;
+    font-weight: 400;
+    font-family: luxus-brut, cursive;
+    font-style: italic;
+    opacity: 0.3;
+  }
 }
 
 #contact-detail-main {
@@ -1052,4 +1093,36 @@
   left: 0;
   right: 0;
   margin: auto;
+}
+
+.heading07 {
+  position: relative;
+  word-wrap: break-all;
+  overflow-wrap: break-word;
+  padding-top: 50px;
+  padding-left: 30px;
+  font-size: 26px;
+}
+
+.heading07 span {
+  position: relative;
+  overflow-wrap: break-word;
+  word-wrap: break-all;
+  z-index: 2;
+}
+
+.heading07::before {
+  content: attr(data-en);
+  position: absolute;
+  overflow-wrap: break-word;
+  word-wrap: break-all;
+  transform: rotate(-5deg);
+  top: -20px;
+  left: 0;
+  color: rgba(224, 66, 114, 0.6);
+  font-size: 80px;
+  font-weight: 400;
+  font-family: luxus-brut, cursive;
+  font-style: italic;
+  opacity: 0.3;
 }

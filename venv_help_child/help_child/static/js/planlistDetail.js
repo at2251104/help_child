@@ -44,6 +44,11 @@ $(function () {
   //console.log(plc);
 });
 
+function getURL() {
+  var url = location.href;
+  document.getElementById('URLnum').innerHTML = url;
+}
+
 
 
 // $(function() {
