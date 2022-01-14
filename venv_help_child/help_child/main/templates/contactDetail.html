@@ -31,19 +31,19 @@
 
 <div id="contact-detail-main">
     <h2>連絡帳</h2>
-    {% for iiii in object %}
     <div id="contact-date">
         <form action="window.alert(target)" method="post" class="planlistDetailCenter">
             <input type="text" placeholder="日付検索" id="target" text-align="center">
         </form>
     </div>
-
+    
     <script type="text/javascript" src="{% static 'js/contactDetail.js' %}"></script>
-
+    
     <div id="next-prev-button">
         <button id="prev" onclick="prev()">‹</button>
         <button id="next" onclick="next()">›</button>
     </div>
+    {% for iiii in object %}
     <div id="contact-book">
         <form action="" style="margin:0px;">
             <table border="1" class="contact-book-table">
@@ -318,7 +318,7 @@
 <nav class="box1">
     <h2>連絡帳関連</h2>
     <ul class="submenu">
-        <li><a href="{% url 'main:contactTop' %}">園児選択画面</a></li>
+        <!-- <li><a href="{% url 'main:contactTop' %}">園児選択画面</a></li> -->
         <!-- <li><a href="#">追加</a></li> -->
         <li><a href="#">編集</a></li>
         <li><a href="#">削除</a></li>
