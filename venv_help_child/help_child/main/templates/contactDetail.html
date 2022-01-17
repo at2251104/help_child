@@ -31,19 +31,19 @@
 
 <div id="contact-detail-main">
     <h2>連絡帳</h2>
-    {% for iiii in object %}
     <div id="contact-date">
         <form action="window.alert(target)" method="post" class="planlistDetailCenter">
             <input type="text" placeholder="日付検索" id="target" text-align="center">
         </form>
     </div>
-
+    
     <script type="text/javascript" src="{% static 'js/contactDetail.js' %}"></script>
-
+    
     <div id="next-prev-button">
         <button id="prev" onclick="prev()">‹</button>
         <button id="next" onclick="next()">›</button>
     </div>
+    {% for iiii in object %}
     <div id="contact-book">
         <form action="" style="margin:0px;">
             <table border="1" class="contact-book-table">
@@ -139,30 +139,30 @@
                         <td colspan="6">
                             {% if iiii.t007_fd07_mood == 1 %}
                             <input type="radio" checked>良
-                            <input type="radio">普
-                            <input type="radio">悪
+                            <input type="radio" disabled>普
+                            <input type="radio" disabled>悪
                             {% elif iiii.t007_fd07_mood == 2 %}
-                            <input type="radio">良
+                            <input type="radio" disabled>良
                             <input type="radio" checked>普
-                            <input type="radio">悪
+                            <input type="radio" disabled>悪
                             {%elif iiii.t007_fd07_mood == 3 %}
-                            <input type="radio">良
-                            <input type="radio">普
+                            <input type="radio" disabled>良
+                            <input type="radio" disabled>普
                             <input type="radio" checked>悪
                             {% endif %}
                         </td>
                         <td colspan="6">
                             {% if iiii.t007_fd18_mood == 1 %}
                             <input type="radio" checked>良
-                            <input type="radio">普
-                            <input type="radio">悪
+                            <input type="radio" disabled>普
+                            <input type="radio" disabled>悪
                             {% elif iiii.t007_fd18_mood == 2 %}
-                            <input type="radio">良
+                            <input type="radio" disabled>良
                             <input type="radio" checked>普
-                            <input type="radio">悪
+                            <input type="radio" disabled>悪
                             {%elif iiii.t007_fd18_mood == 3 %}
-                            <input type="radio">良
-                            <input type="radio">普
+                            <input type="radio" disabled>良
+                            <input type="radio" disabled>普
                             <input type="radio" checked>悪
                             {% endif %}
                         </td>
@@ -174,23 +174,23 @@
                         <td colspan="6">
                             {% if iiii.t007_fd08_defecation_status == 1 %}
                             <input type="radio" checked>水
-                            <input type="radio">軟<br>
-                            <input type="radio">普
-                            <input type="radio">硬
+                            <input type="radio" disabled>軟<br>
+                            <input type="radio" disabled>普
+                            <input type="radio" disabled>硬
                             {% elif iiii.t007_fd08_defecation_status == 2 %}
-                            <input type="radio">水
+                            <input type="radio" disabled>水
                             <input type="radio" checked>軟<br>
-                            <input type="radio">普
-                            <input type="radio">硬
+                            <input type="radio" disabled>普
+                            <input type="radio" disabled>硬
                             {%elif iiii.t007_fd08_defecation_status == 3 %}
-                            <input type="radio">水
-                            <input type="radio">軟<br>
+                            <input type="radio" disabled>水
+                            <input type="radio" disabled>軟<br>
                             <input type="radio" checked>普
                             <input type="radio">硬
                             {%elif iiii.t007_fd08_defecation_status == 4 %}
-                            <input type="radio">水
-                            <input type="radio">軟<br>
-                            <input type="radio">普
+                            <input type="radio" disabled>水
+                            <input type="radio" disabled>軟<br>
+                            <input type="radio" disabled>普
                             <input type="radio" checked>硬
                             {% endif %}
                             <br>
@@ -199,23 +199,23 @@
                         <td colspan="6">
                             {% if iiii.t007_fd20_defecation_status == 1 %}
                             <input type="radio" checked>水
-                            <input type="radio">軟<br>
-                            <input type="radio">普
-                            <input type="radio">硬
+                            <input type="radio" disabled>軟<br>
+                            <input type="radio" disabled>普
+                            <input type="radio" disabled>硬
                             {% elif iiii.t007_fd20_defecation_status == 2 %}
-                            <input type="radio">水
+                            <input type="radio" disabled>水
                             <input type="radio" checked>軟<br>
-                            <input type="radio">普
-                            <input type="radio">硬
+                            <input type="radio" disabled>普
+                            <input type="radio" disabled>硬
                             {%elif iiii.t007_fd20_defecation_status == 3 %}
-                            <input type="radio">水
-                            <input type="radio">軟<br>
+                            <input type="radio" disabled>水
+                            <input type="radio" disabled>軟<br>
                             <input type="radio" checked>普
-                            <input type="radio">硬
+                            <input type="radio" disabled>硬
                             {%elif iiii.t007_fd20_defecation_status == 4 %}
-                            <input type="radio">水
-                            <input type="radio">軟<br>
-                            <input type="radio">普
+                            <input type="radio" disabled>水
+                            <input type="radio" disabled>軟<br>
+                            <input type="radio" disabled>普
                             <input type="radio" checked>硬
                             {% endif %}
                             <br>
@@ -229,9 +229,9 @@
                         <td colspan="2" nowrap>
                             {% if iiii.t007_fd10_bathing == FAlse%}
                             <input type="radio" checked>有<br>
-                            <input type="radio">無
+                            <input type="radio" disabled>無
                             {% else%}
-                            <input type="radio">有<br>
+                            <input type="radio" disabled>有<br>
                             <input type="radio"  checked>無
                             {% endif %}
                         </td>
@@ -251,9 +251,9 @@
                         <td colspan="2" nowrap>
                             {% if iiii.007_fd21_bathing == checked %}
                             <input type="radio" checked>有<br>
-                            <input type="radio">無
+                            <input type="radio" disabled>無
                             {% elif iiii.007_fd21_bathing == checked %}
-                            <input type="radio">有<br>
+                            <input type="radio" disabled>有<br>
                             <input type="radio"  checked>無
                             {% endif %}                        </td>
                         <th>
@@ -318,7 +318,7 @@
 <nav class="box1">
     <h2>連絡帳関連</h2>
     <ul class="submenu">
-        <li><a href="{% url 'main:contactTop' %}">園児選択画面</a></li>
+        <!-- <li><a href="{% url 'main:contactTop' %}">園児選択画面</a></li> -->
         <!-- <li><a href="#">追加</a></li> -->
         <li><a href="#">編集</a></li>
         <li><a href="#">削除</a></li>

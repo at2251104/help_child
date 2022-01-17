@@ -25,7 +25,11 @@
 <nav id="menubar-s">
     <ul id="menu-list">
         <h1>機能一覧</h1>
+        {% if user.detail_buyer %}
         <li><a href="{% url 'main:contactTop' %}">連絡帳<span>Contact</span></a></li>
+        {% else %}
+        <li><a href="{% url 'main:contactTop_oya' %}">連絡帳<span>Contact</span></a></li>
+        {% endif %}
         <li><a href="{% url 'main:planList' %}">予定表<span>PlanList</span></a></li>
         <li><a href="{% url 'main:locationAdmin' %}">位置情報<span>Location</span></a></li>
         <li><a href="{% url 'main:tagScan' %}">登園管理<span>Attend</span></a></li>
