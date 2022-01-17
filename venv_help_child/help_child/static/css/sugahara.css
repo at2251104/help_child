@@ -427,3 +427,78 @@ a.btn-border:hover:after {
 }
 /*contactUpdate画面
 ---------------------------------------------------------------------------*/
+
+/*contactTop画面
+---------------------------------------------------------------------------*/
+#contact-top-main {
+  float: right; 
+  width: 70%; 
+  overflow: hidden;
+  padding-top: 30%;
+  margin: auto;
+}
+
+#contact-top-main h2 {
+  clear: both;
+  font-size: 17px; /*文字サイズ*/
+  text-align: left; /*テキストの位置*/
+  margin-bottom: 15px;
+  color: #fff; /*文字色*/
+  padding: 8px 30px; /*上下、左右への余白*/
+  background: #37a8e9; /*背景色（古いブラウザ用）*/
+  border-radius: 30px; /*角丸のサイズ。大きめにしておけばOK。*/
+}
+
+.search_container {
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+#child-list {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+#child-list table{
+  white-space: nowrap;
+  width: 100%;
+  background-color: #fff;
+}
+
+.class-name {
+  width: 30%;
+}
+
+.child-name {
+  width: 30%;
+}
+
+.select {
+  width: 10%;
+}
+
+.select-btn {
+  border: 2px double #0037ff;
+  background-color: #37a8e9;
+  color: #fff;
+}
+/* 画面幅800px以下の設定 */
+@media screen and (max-width: 800px) {
+  /*mainコンテンツ*/
+  #contact-top-main {
+    float: none;
+    width: auto;
+  }
+
+  /*main*/
+  #contact-top-main {
+    padding: 0 !important;
+  }
+}
+/*画面幅480px以下の設定*/
+@media screen and (max-width: 480px) {
+  /*メインコンテンツ*/
+  .br {display: none;}
+}
+/*contactTop画面
+---------------------------------------------------------------------------*/
