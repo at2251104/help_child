@@ -46,6 +46,10 @@ $(function () {
 });
 
 
+  var url = location.href;
+  document.getElementById("getURL").value = url;
+
+
 
 // $(function() {
 //   var from1 = $("#from1").datepicker({
