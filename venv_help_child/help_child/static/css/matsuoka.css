@@ -5,7 +5,7 @@
   letter-spacing: 0; /* 文字間             */
   text-align: center; /* 文字位置は中央     */
   font-size: 27px; /* 文字サイズ         */
-  
+
   position: relative; /* 親要素が基点       */
   margin: auto; /* 中央寄せ           */
   width: 170px; /* ボタンの横幅       */
@@ -65,10 +65,10 @@
 }
 
 #contactTop-main {
-  float: right; 
-  width: 70%; 
+  float: right;
+  width: 70%;
   overflow: hidden;
-  padding-top: 30%; 
+  padding-top: 30%;
 }
 
 #h2 {
@@ -89,7 +89,6 @@
 .group {
   border-bottom: 4px solid #dedede;
 }
-
 
 /* セレクトボックス */
 .title {
@@ -177,11 +176,15 @@
     padding: 0 !important;
   }
 }
-.br {display: block;}
+.br {
+  display: block;
+}
 /*画面幅480px以下の設定*/
 @media screen and (max-width: 480px) {
   /*メインコンテンツ*/
-  .br {display: none;}
+  .br {
+    display: none;
+  }
 }
 
 /* ------チェックボックスによる絞り込み----- */
@@ -190,3 +193,15 @@
 }
 
 /* --------------------------------------------------------- */
+
+/* -----------blog.html-------------------*/
+.row {
+}
+
+.row h1 {
+  padding: 0.2em;
+  background: aliceblue;
+  font-size: 20px;
+  /*border-bottom: solid 3px #516ab6; /*下線*/
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.23);
+}
