@@ -37,6 +37,8 @@ function showProcess(date) {
 
     var calendar = createProcess(year, month);
     document.querySelector('#calendar').innerHTML = calendar;
+
+
 }
 
 // カレンダー作成

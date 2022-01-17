@@ -16,6 +16,7 @@ $(function () {
       window.location.href=url.toString();
     }
   });
+  $("#target").datepicker("setDate", "2014/02/15");
   $("#from1").datepicker({
     changeYear: true,    // 年を表示
     changeMonth: true,   // 月を選択
@@ -43,6 +44,10 @@ $(function () {
   //var plc = $("target").position();
   //console.log(plc);
 });
+
+
+  var url = location.href;
+  document.getElementById("getURL").value = url;
 
 
 
