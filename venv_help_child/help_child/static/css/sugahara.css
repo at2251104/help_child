@@ -479,9 +479,24 @@ a.btn-border:hover:after {
 
 .select-btn {
   border: 2px double #0037ff;
-  background-color: #37a8e9;
-  color: #fff;
+  display: inline-block;
+  border-radius: 5%;          /* 角丸       */
+  font-size: 7pt;        /* 文字サイズ */
+  text-align: center;      /* 文字位置   */
+  cursor: pointer;     /* カーソル   */
+  padding: 12px 12px;   /* 余白       */
+  background: #37a8e9;     /* 背景色     */
+  color: #ffffff;     /* 文字色     */
+  line-height: 0.3em;         /* 1行の高さ  */
+  transition: .3s;         /* なめらか変化 */
+  border: 2px solid #37a8e9;    /* 枠の指定 */
 }
+
+.button:hover {
+  color: #37a8e9;     /* 背景色     */
+  background: #ffffff;     /* 文字色     */
+}
+
 /* 画面幅800px以下の設定 */
 @media screen and (max-width: 800px) {
   /*mainコンテンツ*/

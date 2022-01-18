@@ -1,5 +1,6 @@
 from pyexpat.errors import messages
 from django.core.mail import message
+from django.http import request
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -24,9 +25,10 @@ class HomeView(LoginRequiredMixin, generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         blog = super().get_context_data(**kwargs)
-        blog["object_list"] = T013Blog.objects.order_by('-t013_fd06_createdata')
+        blog["object_list"] = T013Blog.objects.order_by(
+            '-t013_fd06_createdata')
         return blog
-   
+
 # class LoginView(generic.TemplateView):
 #     template_name="login.html"
 
@@ -184,17 +186,27 @@ class PlanListView(LoginRequiredMixin, generic.TemplateView):
     template_name = "planlist.html"
 
 
-class PlanListDetailView(LoginRequiredMixin, generic.TemplateView):
+class PlanListDetailView(LoginRequiredMixin, ListView):
     template_name = "planListDetail.html"
+    paginate_by = 2
+    paginate_orphans = 1
     context_object_name = "object"
 
     model = T008Schedule
 
-    def get_context_data(self, **kwargs):
-        planListdetail = super().get_context_data(**kwargs)
-        num = self.request.GET.get("num", "20211207")
-        planListdetail["object"] = T008Schedule.objects.filter(
-            t008_fd03_date=datetime.datetime.strptime(num, '%Y%m%d'))
+    # def get_context_data(self, **kwargs):
+    #     planListdetail = super().get_context_data(**kwargs)
+    #     num = self.request.GET.get("num", "20211207")
+    #     planListdetail["object"] = T008Schedule.objects.filter(
+    #         t008_fd03_date=datetime.datetime.strptime(num, '%Y%m%d'))
+    #     return planListdetail
+
+    def get_queryset(self):
+        planListdetail = T008Schedule.objects.all()
+        num = self.request.GET['num']
+        if num is not None:
+            planListdetail = T008Schedule.objects.filter(
+                t008_fd03_date=datetime.datetime.strptime(num, '%Y%m%d'))
         return planListdetail
 
 
@@ -216,6 +228,7 @@ class ParentConfigView(LoginRequiredMixin, generic.TemplateView):
 
 class TeacherConfigView(LoginRequiredMixin, generic.TemplateView):
     template_name = "teacherConfig.html"
+
 
 class BlogDetailView(LoginRequiredMixin, generic.TemplateView):
     model = T013Blog

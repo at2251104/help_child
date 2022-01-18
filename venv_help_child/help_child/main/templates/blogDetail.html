@@ -25,79 +25,70 @@
 
 {% block main_contents%}
 <div id="main">
-<div class="container">
-    <div class="my-div-style w-100">
-    {% for blog in object_list %}
-        <div class="row">
-            <div style="font-size:large;">
-                <strong>タイトル</strong>
+    <div class="container">
+        <div class="my-div-style w-100">
+            {% for blog in object_list %}
+            <div class="row">
+                <div style="font-size:large;">
+                    <h1>
+                        {{ blog.t013_fd01_title }}
+
+                    </h1>
+                </div>
+                <div>
+                </div>
             </div>
-            <div>
-                {{ blog.t013_fd01_title }}
+            <div class="row">
+                <div style="font-size:large;">
+                    <strong>本文</strong>
+                </div>
+                <div>
+                    {{ blog.t013_fd02_content|linebreaksbr }}
+                </div>
             </div>
+
+            <div class="row">
+                <div style="font-size:large;">
+                    <strong>写真</strong>
+                </div>
+                <div>
+                    {% if blog.t013_fd03_photo1 %}
+                    <img src="{{ blog.t013_fd03_photo1.url }}" width="500" height="200" />
+                    {% endif %}
+                </div>
+                <div>
+                    {% if blog.t013_fd04_photo2 %}
+                    <img src="{{ blog.t013_fd04_photo2.url }}" width="500" height="200" />
+                    {% endif %}
+                </div>
+                <div>
+                    {% if blog.t013_fd05_photo3 %}
+                    <img src="{{ blog.t013_fd05_photo3.url }}" width="500" height="200" />
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <strong>作成日時</strong>
+                </div>
+                <div>
+                    {{ blog.t013_fd06_createdata }}
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <strong>更新日時</strong>
+                </div>
+                <div>
+                    {{ blog.t013_fd07_updatedata }}
+                </div>
+            </div>
+
+            {% endfor %}
         </div>
-
-        <hr>
-
-        <div class="row">
-            <div style="font-size:large;">
-                <strong>本文</strong>
-            </div>
-            <div>
-                {{ blog.t013_fd02_content|linebreaksbr }}
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-            <div style="font-size:large;">
-                <strong>写真</strong>
-            </div>
-            <div>
-                {% if blog.t013_fd03_photo1 %}
-                    <img src="{{ blog.t013_fd03_photo1.url }}" width="500" height="200"/>
-                {% endif %}
-            </div>
-            <div>
-                {% if blog.t013_fd04_photo2 %}
-                    <img src="{{ blog.t013_fd04_photo2.url }}" width="500" height="200"/>
-                {% endif %}
-            </div>
-            <div>
-                {% if blog.t013_fd05_photo3 %}
-                    <img src="{{ blog.t013_fd05_photo3.url }}" width="500" height="200"/>
-                {% endif %}
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-            <div>
-                <strong>作成日時</strong>
-            </div>
-            <div>
-                {{ blog.t013_fd06_createdata }}
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-            <div>
-                <strong>更新日時</strong>
-            </div>
-            <div>
-                {{ blog.t013_fd07_updatedata }}
-            </div>
-        </div>
-
-        
     </div>
     <a class="btn btn-success mt-5 mb-3" href="{% url 'main:blogUpdate' blog.pk %}">編集</a>
     <a class="btn btn-danger mt-5 ml-2 mb-3" href="{% url 'main:blogDelete' blog.pk %}">削除</a>
     {% endfor %}
-</div>
 </div>
 {% endblock %}

@@ -227,10 +227,10 @@
                             入浴
                         </th>
                         <td colspan="2" nowrap>
-                            {% if iiii.t007_fd10_bathing == FAlse%}
+                            {% if iiii.t007_fd10_bathing == 1 %}
                             <input type="radio" checked>有<br>
                             <input type="radio" disabled>無
-                            {% else%}
+                            {% elif iiii.t007_fd10_bathing == 0 %}
                             <input type="radio" disabled>有<br>
                             <input type="radio"  checked>無
                             {% endif %}
@@ -249,13 +249,14 @@
                             沐浴
                         </th>
                         <td colspan="2" nowrap>
-                            {% if iiii.007_fd21_bathing == checked %}
+                            {% if iiii.t007_fd21_bathing == 1 %}
                             <input type="radio" checked>有<br>
                             <input type="radio" disabled>無
-                            {% elif iiii.007_fd21_bathing == checked %}
+                            {% elif iiii.t007_fd21_bathing == 0 %}
                             <input type="radio" disabled>有<br>
                             <input type="radio"  checked>無
-                            {% endif %}                        </td>
+                            {% endif %}
+                        </td>
                         <th>
                             検温
                         </th>
@@ -288,7 +289,7 @@
                             記入者
                         </th>
                         <td colspan="5">
-                            {{t001_pk01_children_id}}
+                            {{iiii.t007_fd25_pickup_person}}
                         </td>
                     </tr>
                 </tbody>

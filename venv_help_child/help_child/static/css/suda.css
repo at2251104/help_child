@@ -12,8 +12,8 @@
   #planListDetailheader {
     text-align: center;
     font-size: 24px;
-    width: 100%;
-    margin: 1rem 0 0;
+    /* width: 100%;
+    margin: 1rem 0 0; */
   }
 
   /*カレンダー*/
@@ -339,16 +339,16 @@
     padding-top: 30%; /*コンテンツ上にあける余白*/
   }
 
-  #plmain h2 {
+  /*#plmain h2 {
     clear: both;
-    font-size: 17px; /*文字サイズ*/
-    text-align: left; /*テキストの位置*/
+    font-size: 17px; /*文字サイズ
+    text-align: left; /*テキストの位置
     margin-bottom: 15px;
-    color: #fff; /*文字色*/
-    padding: 8px 30px; /*上下、左右への余白*/
-    background: #37a8e9; /*背景色（古いブラウザ用）*/
+    color: #fff; /*文字色
+    padding: 8px 30px; /*上下、左右への余白
+    background: #37a8e9; /*背景色（古いブラウザ用）
     border-radius: 30px;
-  }
+  } */
   #plmain form {
     margin-left: auto;
     margin-right: auto;
@@ -360,15 +360,12 @@
 /*日付入力欄(target)とカレンダーアイコンに参照させるためのクラス*/
   .planlistDetailCenter {
     vertical-align: center;
-    top: 20px;
     position: relative;
   }
   .planlistDetailCenter select {
     font-size: 20px;
-    width: 300px;
     border: 2px solid skyblue;
     border-radius: 3px;
-    margin-bottom: 40px;
   }
   #from1 {
     font-size: 20px;
@@ -404,20 +401,25 @@
 
   /*planListDetail画面の備考欄のためのクラス*/
   .remarksBox2 {
+    content: attr(data-en);
     padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;
     font-size: 20px;
-    color: #6091d3; /*文字色*/
+    color: #0c192b; /*文字色*/
     background: #fff;
-    border: solid 3px #6091d3; /*線*/
+    border: solid 3px #2a3c53; /*線*/
     border-radius: 10px; /*角の丸み*/
     position: relative;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
   }
 
   .remarksBox2 p {
     margin: 0;
     padding: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
   }
   /*planListDetail画面終了*/
 
@@ -528,7 +530,6 @@
     text-align: center;
     font-size: 24px;
     width: auto;
-    margin: 1rem 0 0;
   }
 
   /*カレンダー*/
@@ -874,17 +875,17 @@
 /*日付入力欄(target)とカレンダーアイコンに参照させるためのクラス*/
   .planlistDetailCenter {
     vertical-align: center;
-    top: 20px;
+    /* top: 20px; */
     position: relative;
     /* height: 30px; */
     /* text-align: center; */
   }
   .planlistDetailCenter select {
     font-size: 20px;
-    width: 300px;
+    width: auto;
     border: 2px solid skyblue;
     border-radius: 3px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
   #from1 {
     font-size: 20px;
@@ -919,20 +920,25 @@
 
   /*planListDetail画面の備考欄のためのクラス*/
   .remarksBox2 {
+    content: attr(data-en);
     padding: 0.5em 1em;
     margin: 2em 0;
     font-weight: bold;
     font-size: 20px;
-    color: #6091d3; /*文字色*/
+    color: #0c192b; /*文字色*/
     background: #fff;
-    border: solid 3px #6091d3; /*線*/
+    border: solid 3px #2a3c53; /*線*/
     border-radius: 10px; /*角の丸み*/
     position: relative;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
   }
 
   .remarksBox2 p {
     margin: 0;
     padding: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
   }
   /*planListDetail画面終了*/
 
@@ -991,6 +997,7 @@
     font-family: cursive; /*フォント指定(いじるかもしれない)*/
     margin-bottom: 20px;
   }
+
   .underline {
     padding: auto;
     border-bottom: 1px solid red;
@@ -1033,6 +1040,62 @@
     color: #00abea;
     text-align: center;
   }
+  .heading07 {
+    position: relative;
+    word-wrap: break-all;
+    overflow-wrap: break-word;
+    padding-top: 50px;
+    padding-left: 30px;
+    font-size: 26px;
+  }
+
+  .heading07 span {
+    position: relative;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
+    z-index: 2;
+  }
+
+  .heading07::before {
+    content: attr(data-en);
+    position: absolute;
+    overflow-wrap: break-word;
+    word-wrap: break-all;
+    transform: rotate(-5deg);
+    top: -20px;
+    left: 0;
+    color: rgba(224, 66, 114, 0.6);
+    font-size: 80px;
+    font-weight: 400;
+    font-family: luxus-brut, cursive;
+    font-style: italic;
+    opacity: 0.3;
+  }
+  .pagination li {
+    display: none;
+  }
+
+  .pagination li.pre,
+  .pagination li.next {
+    display: inline-block;
+    width: 40%;
+    height: 50px;
+    text-align: center;
+  }
+
+  .pagination li.pre a,
+  .pagination li.next a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pagination li.pre span::after {
+    content: "　前の10件へ";
+  }
+
+  .pagination li.next span::before {
+    content: "次の10件へ　";
+  }
 }
 
 #contact-detail-main {
@@ -1052,4 +1115,83 @@
   left: 0;
   right: 0;
   margin: auto;
+}
+
+.heading07 {
+  position: relative;
+  word-wrap: break-all;
+  overflow-wrap: break-word;
+  padding-top: 50px;
+  padding-left: 30px;
+  font-size: 26px;
+}
+
+.heading07 span {
+  position: relative;
+  overflow-wrap: break-word;
+  word-wrap: break-all;
+  z-index: 2;
+}
+
+.heading07::before {
+  content: attr(data-en);
+  position: absolute;
+  overflow-wrap: break-word;
+  word-wrap: break-all;
+  transform: rotate(-5deg);
+  top: -20px;
+  left: 0;
+  color: rgba(224, 66, 114, 0.6);
+  font-size: 80px;
+  font-weight: 400;
+  font-family: luxus-brut, cursive;
+  font-style: italic;
+  opacity: 0.3;
+}
+
+.pagination ul {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination li {
+  display: inline;
+  margin: 0 2px;
+  padding: 0;
+  display: inline-block;
+  background: #3683a1d7;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  position: relative;
+}
+
+.pagination li a {
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: table;
+  color: #fff;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.pagination li a span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.pagination li a:hover,
+.pagination li a.active {
+  color: #000;
+  background: rgb(208, 240, 250);
+}
+
+.nonPlan {
+  font-size: 20px;
 }
