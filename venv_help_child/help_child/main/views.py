@@ -1,5 +1,7 @@
+from pyexpat.errors import messages
 from django.core.mail import message
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
@@ -225,4 +227,44 @@ class BlogDetailView(LoginRequiredMixin, generic.TemplateView):
         blog["object_list"] = T013Blog.objects.filter(
             t013_pk01_blog_id=id
         )
+        return blog
+
+class BlogCreateView(LoginRequiredMixin, generic.CreateView):
+    model = T013Blog
+    template_name = "blogCreate.html"
+    form_class = BlogCreateForm
+    success_url = reverse_lazy('main:home')
+
+    def form_valid(self,form):
+        main = form.save(commit=False)
+        main.save()
+        #messages.success(self.request,'ブログを作成しました。')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        #messages.error(self.request,"ブログの作成に失敗しました。")
+        return super().form_invalid(form)
+
+class BlogUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = T013Blog
+    template_name = "blogUpdate.html"
+    form_class = BlogCreateForm
+    success_url = reverse_lazy('main:home')
+
+    def form_valid(self,form):
+        #messages.success(self.request,'ブログを作成しました。')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        #messages.error(self.request,"ブログの作成に失敗しました。")
+        return super().form_invalid(form)
+
+class BlogDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = T013Blog
+    template_name = "blogDelete.html"
+    success_url = reverse_lazy('main:home')
+
+    def get_context_data(self, **kwargs):
+        blog = super().get_context_data(**kwargs)
+        blog["object_list"] = T013Blog.objects.all
         return blog

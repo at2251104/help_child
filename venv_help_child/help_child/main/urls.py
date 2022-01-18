@@ -27,5 +27,8 @@ urlpatterns=[
     path('planListDelete',views.PlanListDeleteView.as_view(),name="planListDelete"),
 
     path('blogDetail',views.BlogDetailView.as_view(),name="blogDetail"),
+    path('blogCreate',views.BlogCreateView.as_view(),name="blogCreate"),
+    path('blogUpdate/<int:pk>/',views.BlogUpdateView.as_view(),name="blogUpdate"),
+    path('blogDelete/<int:pk>/',views.BlogDeleteView.as_view(),name="blogDelete"),
 
 ]

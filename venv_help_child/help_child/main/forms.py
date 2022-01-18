@@ -1,4 +1,6 @@
+from dataclasses import field
 from django import forms
+from .models import T013Blog
 
 Mood = (
     ('good', '良'),
@@ -181,3 +183,9 @@ class SchoolContactForm(forms.Form):
         max_length=200,
     )
     t007_fk02_childminder_id = forms.CharField(max_length=20)
+
+class BlogCreateForm(forms.ModelForm):
+    class Meta:
+        model = T013Blog
+        fields = ('t013_pk01_blog_id','t013_fd01_title','t013_fd02_content','t013_fd03_photo1',
+        't013_fd04_photo2','t013_fd05_photo3',)

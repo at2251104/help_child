@@ -395,8 +395,8 @@ class T012Contactbooktem(models.Model):
 
 
 class T013Blog(models.Model):
-    t013_pk01_blog_id = models.CharField(
-        verbose_name='ブログID', primary_key=True, max_length=10)
+    t013_pk01_blog_id = models.AutoField(
+        verbose_name='ブログID', primary_key=True)
     t013_fd01_title = models.CharField(verbose_name='タイトル', max_length=40)
     t013_fd02_content = models.TextField(
         verbose_name='本文', blank=True, null=True)
