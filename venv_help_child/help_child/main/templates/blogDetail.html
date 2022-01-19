@@ -26,64 +26,71 @@
 {% block main_contents%}
 <div id="main">
     <div class="container">
-        <div class="my-div-style w-100">
-            {% for blog in object_list %}
-            <div class="row">
-                <div style="font-size:large;">
-                    <h1>
-                        {{ blog.t013_fd01_title }}
+        <div class="blogBackground">
 
-                    </h1>
-                </div>
-                <div>
-                </div>
-            </div>
-            <div class="row">
-                <div style="font-size:large;">
-                    <strong>本文</strong>
-                </div>
-                <div>
-                    {{ blog.t013_fd02_content|linebreaksbr }}
-                </div>
-            </div>
+            <div class="my-div-style w-100">
 
-            <div class="row">
-                <div style="font-size:large;">
-                    <strong>写真</strong>
-                </div>
-                <div>
-                    {% if blog.t013_fd03_photo1 %}
-                    <img src="{{ blog.t013_fd03_photo1.url }}" width="500" height="200" />
-                    {% endif %}
-                </div>
-                <div>
-                    {% if blog.t013_fd04_photo2 %}
-                    <img src="{{ blog.t013_fd04_photo2.url }}" width="500" height="200" />
-                    {% endif %}
-                </div>
-                <div>
-                    {% if blog.t013_fd05_photo3 %}
-                    <img src="{{ blog.t013_fd05_photo3.url }}" width="500" height="200" />
-                    {% endif %}
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    <strong>作成日時</strong>
-                </div>
-                <div>
-                    {{ blog.t013_fd06_createdata }}
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    <strong>更新日時</strong>
-                </div>
-                <div>
-                    {{ blog.t013_fd07_updatedata }}
-                </div>
-            </div>
+                {% for blog in object_list %}
+                <div class="row">
+                    <div style="font-size:large;">
+                        <h1>
+                            {{ blog.t013_fd01_title }}
 
+                        </h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <strong>
+                            作成日時
+                        </strong>
+                    </div>
+                    <div>
+                        {{ blog.t013_fd06_createdata }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="font-size:large;">
+
+                    </div>
+                    <div>
+                        <p>
+                            {{ blog.t013_fd02_content|linebreaksbr }}
+
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div style="font-size:large;">
+
+                    </div>
+                    <div class="img">
+                        {% if blog.t013_fd03_photo1 %}
+                        <img src="{{ blog.t013_fd03_photo1.url }}" width="200" height="200" />
+                        {% endif %}
+
+                        {% if blog.t013_fd04_photo2 %}
+                        <img src="{{ blog.t013_fd04_photo2.url }}" width="200" height="200" />
+                        {% endif %}
+
+                        {% if blog.t013_fd05_photo3 %}
+                        <img src="{{ blog.t013_fd05_photo3.url }}" width="200" height="200" />
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div>
+
+                    </div>
+                    <div>
+                        {{ blog.t013_fd07_updatedata }}
+                    </div>
+                </div>
+
+            </div>
             {% endfor %}
         </div>
     </div>

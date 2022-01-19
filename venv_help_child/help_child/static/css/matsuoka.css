@@ -199,9 +199,21 @@
 }
 
 .row h1 {
-  padding: 0.2em;
-  background: aliceblue;
+  padding: 0.4em 0.5em; /*文字の上下 左右の余白*/
+  color: #494949; /*文字色*/
+  background: #f4f4f4; /*背景色*/
+  border-left: solid 5px #7db4e6; /*左線*/
+  border-bottom: solid 3px #d7d7d7; /*下線*/
+}
+.img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.blogBackground {
+  background: #f8f8f8ea; /*背景色*/
+}
+
+.row p {
   font-size: 20px;
-  /*border-bottom: solid 3px #516ab6; /*下線*/
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.23);
 }
