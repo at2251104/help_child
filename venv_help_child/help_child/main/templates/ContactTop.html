@@ -70,8 +70,8 @@
                     </li>
                 </td>
                 <td class="select">
-                    <button type=“button” onclick="location.href='https://techacademy.jp/magazine/'" class="select-btn">記入</button>
-                    <button type=“button” onclick="location.href='https://techacademy.jp/magazine/'" class="select-btn">閲覧</button>
+                    <a href="{%url 'main:contactUpdate'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">記入</a>
+                    <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">閲覧</a>
                 </td>
             </tr>
         {% empty %}
