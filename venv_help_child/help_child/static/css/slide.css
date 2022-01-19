@@ -40,7 +40,7 @@
 	position: relative;
 	max-width: 1400px;	/*画像の最大幅の指定*/
 	margin: 0 auto;
-	border-radius: 0px 0px 200px 200px;	/*角丸のサイズ。左上、右上、右下、左下。*/
+	border-radius: 0px 0px 100px 100px;	/*角丸のサイズ。左上、右上、右下、左下。*/
 }
 /*３枚画像の共通設定*/
 #slide1,#slide2,#slide3 {
