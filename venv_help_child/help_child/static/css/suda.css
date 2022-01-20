@@ -17,6 +17,8 @@
   .cal-wrap {
     position: relative;
     cursor: pointer;
+    border: 2px solid #168db8;
+    background-color: #ffffff;
   }
   .cal-wrap:before {
     content: "";
@@ -29,6 +31,7 @@
     bottom: 0;
     left: 10px;
     margin: auto;
+    border: #168db8;
   }
 
   /*カレンダー*/
@@ -479,7 +482,7 @@
   /*日付入力欄のCSS*/
   #target {
     font-size: 20px;
-    border: 2px solid skyblue; /* 枠線 */
+    border: none; /* 枠線 */
     border-radius: 0.27em; /* 角丸 */
     font-family: cursive; /*フォント指定(いじるかもしれない)*/
     margin-bottom: 20px;
