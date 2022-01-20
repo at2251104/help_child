@@ -17,8 +17,12 @@
   .cal-wrap {
     position: relative;
     cursor: pointer;
-    border: 2px solid #168db8;
+    border: 2px solid skyblue;
+    border-radius: 0.27em;
+    font-family: cursive;
     background-color: #ffffff;
+    font-size: 30px;
+    /* z-index: ; */
   }
   .cal-wrap:before {
     content: "";
@@ -485,7 +489,6 @@
     border: none; /* 枠線 */
     border-radius: 0.27em; /* 角丸 */
     font-family: cursive; /*フォント指定(いじるかもしれない)*/
-    margin-bottom: 20px;
   }
   #float {
     float: left;
