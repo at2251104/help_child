@@ -24,6 +24,7 @@ $(function () {
     onSelect: function(dateText, inst){
       const url=new URL(location);
       let str = dateText.replaceAll("/","");
+      url.searchParams.delete("page");
       url.searchParams.set("num",str);
       window.location.href=url.toString();
     }
@@ -31,6 +32,7 @@ $(function () {
   
   $("#target").datepicker("option", "dateFormat", 'yy/mm/dd' );
   $('#target').datepicker('setDate', toDate(params.get('num')));
+
   
   $("#from1").datepicker({
     changeYear: true,    // 年を表示
