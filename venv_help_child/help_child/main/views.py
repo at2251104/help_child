@@ -102,6 +102,10 @@ class ContactUpdateView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactUpdate.html"
 
 
+class ContactUpdateOyaView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "contactUpdate_oya.html"
+
+
 class ContactTemplateView(LoginRequiredMixin, generic.CreateView):
     model = T012Contactbooktem
     template_name = "contactTemplate.html"
