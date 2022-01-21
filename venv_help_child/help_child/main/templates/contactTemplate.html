@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}テンプレート{% endblock %}
+{% block title %}テンプレート作成{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
@@ -38,7 +38,22 @@
         <button id="prev" onclick="prev()">‹</button>
         <button id="next" onclick="next()">›</button>
     </div>
-    <div id="contact-book">
+<div id="main">
+    <div class="container">
+        <div class="row">
+            <div class="my-div-style">
+                <form method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <table class="table">
+                        {{ form.as_table }}
+                    </table>
+                    <button class="btn btn-primary" type="submit">作成</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- <div id="contact-book">
         <form method="post" action="">
             <table border="1" class="contact-book-table">
                 <tr>
@@ -70,7 +85,7 @@
                 <tr>
                     <td colspan="3">
                         <p>前夜</p>
-                        {{ form.t007_fd03_meal_time }}
+                        {{ form.t007_fd03_meal_time }} 
                     </td>
                     <td colspan="3">
                         <input type="text" name="前夜" class="food-text">
@@ -347,7 +362,7 @@
                 </tr>
             </table>
         </form>
-    </div>
+    </div> -->
 </div>
 {% endblock %}
 
