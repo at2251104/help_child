@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.deletion import CASCADE
+from django.forms import CharField
 from accounts.models import T002Parents, T003Childminder, CustomUser
 import datetime
 from datetime import date
@@ -53,6 +54,8 @@ class T001Children(models.Model):
     t001_fd03_address = models.CharField(
         verbose_name='住所', db_column='T001_FD03_address', max_length=50)
     # Field name made lowercase.
+    t001_fd11_kindergaten = models.BooleanField(
+        verbose_name='登園状態', default='True',)
     t001_fd04_createdata = models.DateTimeField(
         verbose_name='作成日時', db_column='T001_FD04_createdata', auto_now_add=True, blank=True, null=True)
     # Field name made lowercase.

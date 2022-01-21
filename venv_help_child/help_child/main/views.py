@@ -13,6 +13,8 @@ from .models import *
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import *
+import tkinter
+from django.db import transaction
 
 
 class IndexView(generic.TemplateView):
@@ -149,21 +151,35 @@ class MessageView(LoginRequiredMixin, generic.TemplateView):
 
 
 class AttendView(LoginRequiredMixin, generic.ListView):
-    model = T005Kindergaten
+    model = T001Children
     template_name = "attend.html"
 
     def get_queryset(self):
-        toukouenn = T005Kindergaten.objects.all().select_related()
+        toukouenn = T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id).select_related()
         # 検索box 絞り込み
-        if "query" in self.request.GET:
-            search = self.request.GET["query"]
-            or_lookup = (
-                Q(t005_pk01_childen_id__icontains=search)
-            )
-            toukouenn = toukouenn.filter(or_lookup)
+        #if "query" in self.request.GET:
+        #    search = self.request.GET["query"]
+        #    or_lookup = (
+        #        Q(t005_pk01_childen_id__icontains=search)
+        #    )
+        #    toukouenn = toukouenn.filter(or_lookup)
 
         return toukouenn
 
+    def kindergaten(request):
+        if request.method == 'POST' :
+            enji = request.POST.getlist["update_button"]
+
+            with transaction.atomic() :
+
+                T001Children.objects.filter(
+                    t001_pk01_children_id=enji
+                ).update(
+                    t001_fd11_kindergaten=False,
+                )
+            messages.info(request, f'登園状態にしました。')
+
+            return render(request, "attend.html",)
 
 class TagScanView(LoginRequiredMixin, generic.TemplateView):
     template_name = "tagScan.html"
