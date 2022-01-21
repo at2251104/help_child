@@ -125,26 +125,53 @@
     </form>
 
     <!-- 園児リスト -->
-    <ul id="list">
-        {% for enji in object_list %}
-            <li class="list_item" data-hobby="{{enji.t005_pk01_childen_id.Age}}" data-area="{{enji.t005_fd04_status}}"><a href="#">{{enji.t005_pk01_childen_id.get_full_name}} {{enji.t005_pk01_childen_id.Age}} {{enji.t005_fd04_status}}</a></li>
-        {% empty %}
-            <li class="list_item" data-hobby="age1" data-area="area4"><a href="#">Cくん 2歳 早退</a></li>
-            <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
-            <li class="list_item" data-hobby="age3" data-area="area2"><a href="#">Bちゃん 3歳 降園</a></li>
-            <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
-            <li class="list_item" data-hobby="age2" data-area="area1"><a href="#">Cくん 2歳 登園</a></li>
-            <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
-            <li class="list_item" data-hobby="age1" data-area="area1"><a href="#">Cくん 1歳 登園</a></li>
-            <li class="list_item" data-hobby="age2" data-area="area1"><a href="#">松岡くん 2歳 登園</a></li>
-            <li class="list_item" data-hobby="age2" data-area="area2"><a href="#">マツオカちゃん 2歳 降園</a></li>
-            <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
-            <li class="list_item" data-hobby="age1" data-area="area1"><a href="#">Cくん 1歳 登園</a></li>
-            <li class="list_item" data-hobby="age4" data-area="area1"><a href="#">Aくん 4歳 登園</a></li>
-            <li class="list_item" data-hobby="age3" data-area="area2"><a href="#">Bちゃん 3歳 降園</a></li>
-            <li class="list_item" data-hobby="age1" data-area="area3"><a href="#">Cくん 1歳 遅刻</a></li>
-        {% endfor %}
+
+
+    <ul id="child-list">
+    
+        <table border="2" style="border-collapse: collapse; border-color: #000">
+            <tr>
+                <th class="child-name">
+                    園児名
+                </th>
+                <th class="child-name">
+                    よみがな(姓名)
+                </th>
+                <th class="child-name">
+                    登降園状態
+                </th>
+            </tr>
+            {% for enji in object_list %}
+            <tr>
+                <td class="class-name">
+                    <li class="list_item" data-hobby="{{enji.Age}}" data-area="{{enji.t001_fd11_kindergaten}}">
+                        {{enji.get_full_name}}
+                    </li>
+                </td>
+                <td class="child-name">
+                    <li class=" list_item" data-hobby="{{enji.Age}}" data-area="{{enji.t001_fd11_kindergaten}}">
+                        {{enji.get_full_name_kana}}
+                    </li>
+                </td>
+                <td class="child-name">
+                    <li class=" list_item" data-hobby="{{enji.Age}}" data-area="{{enji.t001_fd11_kindergaten}}">
+                        {{enji.t001_fd11_kindergaten}}
+                    </li>
+                </td>
+                <form method="POST">
+                {% csrf_token %}
+                <td class="select">
+                    <button type="submit" name="update_button" class="select-btn" value="{{ enji.t001_pk01_children_id }}">登園</button>
+                    <button type="submit" class="select-btn">降園</a>
+                </td>
+                </form>
+            </tr>
+            {% empty %}
+            {% endfor %}
+        </table>
     </ul>
+ 
+    
 </div>
 {% endblock %}
 <script>

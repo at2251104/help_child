@@ -5,9 +5,14 @@
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="{% static 'js/matsuoka.js' %}"></script>
-
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!--自作のJS-->
+<script src="{% static 'js/blogdetail.js' %}"></script>
 {% endblock %}
 
 {% block title %}ブログ-BLOG{% endblock %}
@@ -24,7 +29,7 @@
 {% endblock %}
 
 {% block main_contents%}
-<div id="main">
+<div id="bgmain">
     <div class="container">
         <div class="blogBackground">
 
@@ -41,12 +46,14 @@
                 </div>
                 <div class="row">
                     <div>
+                        <br>
                         <strong>
-                            作成日時
+                            更新日時
                         </strong>
+                        <br>
                     </div>
                     <div>
-                        {{ blog.t013_fd06_createdata }}
+                        {{ blog.t013_fd07_updatedata }}
                     </div>
                 </div>
                 <div class="row">
@@ -63,10 +70,8 @@
                 </div>
 
                 <div class="row">
-                    <div style="font-size:large;">
 
-                    </div>
-                    <div class="img">
+                    <ul class="slider">
                         {% if blog.t013_fd03_photo1 %}
                         <img src="{{ blog.t013_fd03_photo1.url }}" width="200" height="200" />
                         {% endif %}
@@ -78,7 +83,16 @@
                         {% if blog.t013_fd05_photo3 %}
                         <img src="{{ blog.t013_fd05_photo3.url }}" width="200" height="200" />
                         {% endif %}
-                    </div>
+                    </ul>
+                    <!--/slider-->
+
+                    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+                        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+                    <!--自作のJS-->
+                    <script src="{% static 'js/blogdetail.js' %}"></script>
+                    </body>
                 </div>
 
                 <div class="row">
@@ -86,7 +100,7 @@
 
                     </div>
                     <div>
-                        {{ blog.t013_fd07_updatedata }}
+
                     </div>
                 </div>
 
@@ -94,5 +108,8 @@
             {% endfor %}
         </div>
     </div>
+    <a class="btn btn-success mt-5 mb-3" href="{% url 'main:blogUpdate' blog.pk %}">編集</a>
+    <a class="btn btn-danger mt-5 ml-2 mb-3" href="{% url 'main:blogDelete' blog.pk %}">削除</a>
+    {% endfor %}
 </div>
 {% endblock %}

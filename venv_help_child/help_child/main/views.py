@@ -1,6 +1,8 @@
+from pyexpat.errors import messages
 from django.core.mail import message
 from django.http import request
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
@@ -11,6 +13,8 @@ from .models import *
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import *
+import tkinter
+from django.db import transaction
 
 
 class IndexView(generic.TemplateView):
@@ -147,21 +151,35 @@ class MessageView(LoginRequiredMixin, generic.TemplateView):
 
 
 class AttendView(LoginRequiredMixin, generic.ListView):
-    model = T005Kindergaten
+    model = T001Children
     template_name = "attend.html"
 
     def get_queryset(self):
-        toukouenn = T005Kindergaten.objects.all().select_related()
+        toukouenn = T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id).select_related()
         # 検索box 絞り込み
-        if "query" in self.request.GET:
-            search = self.request.GET["query"]
-            or_lookup = (
-                Q(t005_pk01_childen_id__icontains=search)
-            )
-            toukouenn = toukouenn.filter(or_lookup)
+        #if "query" in self.request.GET:
+        #    search = self.request.GET["query"]
+        #    or_lookup = (
+        #        Q(t005_pk01_childen_id__icontains=search)
+        #    )
+        #    toukouenn = toukouenn.filter(or_lookup)
 
         return toukouenn
 
+    def kindergaten(request):
+        if request.method == 'POST' :
+            enji = request.POST.getlist["update_button"]
+
+            with transaction.atomic() :
+
+                T001Children.objects.filter(
+                    t001_pk01_children_id=enji
+                ).update(
+                    t001_fd11_kindergaten=False,
+                )
+            messages.info(request, f'登園状態にしました。')
+
+            return render(request, "attend.html",)
 
 class TagScanView(LoginRequiredMixin, generic.TemplateView):
     template_name = "tagScan.html"
@@ -238,4 +256,44 @@ class BlogDetailView(LoginRequiredMixin, generic.TemplateView):
         blog["object_list"] = T013Blog.objects.filter(
             t013_pk01_blog_id=id
         )
+        return blog
+
+class BlogCreateView(LoginRequiredMixin, generic.CreateView):
+    model = T013Blog
+    template_name = "blogCreate.html"
+    form_class = BlogCreateForm
+    success_url = reverse_lazy('main:home')
+
+    def form_valid(self,form):
+        main = form.save(commit=False)
+        main.save()
+        #messages.success(self.request,'ブログを作成しました。')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        #messages.error(self.request,"ブログの作成に失敗しました。")
+        return super().form_invalid(form)
+
+class BlogUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = T013Blog
+    template_name = "blogUpdate.html"
+    form_class = BlogCreateForm
+    success_url = reverse_lazy('main:home')
+
+    def form_valid(self,form):
+        #messages.success(self.request,'ブログを作成しました。')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        #messages.error(self.request,"ブログの作成に失敗しました。")
+        return super().form_invalid(form)
+
+class BlogDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = T013Blog
+    template_name = "blogDelete.html"
+    success_url = reverse_lazy('main:home')
+
+    def get_context_data(self, **kwargs):
+        blog = super().get_context_data(**kwargs)
+        blog["object_list"] = T013Blog.objects.all
         return blog

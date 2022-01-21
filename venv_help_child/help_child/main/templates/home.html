@@ -80,7 +80,9 @@
 	<h2>MENU</h2>
 	<ul class="submenu">
 		<li><a href="/accounts/logout">ログアウト</a></li>
-		<li><a href="#">サンプルメニュー</a></li>
+		{% if user.detail_buyer %}
+		<li><a href="{% url 'main:blogCreate' %}">ブログを作成</a></li>
+		{% endif %}
 		<li><a href="#">サンプルメニュー</a></li>
 	</ul>
 </nav>
