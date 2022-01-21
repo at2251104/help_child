@@ -1,4 +1,16 @@
+function toDate (str) {
+  var arr = (str.substr(0, 4) + '/' + str.substr(4, 2) + '/' + str.substr(6, 2)).split('/');
+  return new Date(arr[0], arr[1] - 1, arr[2]);
+};
+
 $(function () {
+
+  var url = new URL(window.location.href);
+
+// URLSearchParamsオブジェクトを取得
+  var params = url.searchParams;
+
+
   $("#target").datepicker({
     changeYear: true,    // 年を表示
     changeMonth: true,   // 月を選択
@@ -12,11 +24,16 @@ $(function () {
     onSelect: function(dateText, inst){
       const url=new URL(location);
       let str = dateText.replaceAll("/","");
+      url.searchParams.delete("page");
       url.searchParams.set("num",str);
       window.location.href=url.toString();
     }
   });
-  $("#target").datepicker("setDate", "2014/02/15");
+  
+  $("#target").datepicker("option", "dateFormat", 'yy/mm/dd' );
+  $('#target').datepicker('setDate', toDate(params.get('num')));
+
+  
   $("#from1").datepicker({
     changeYear: true,    // 年を表示
     changeMonth: true,   // 月を選択
@@ -44,10 +61,6 @@ $(function () {
   //var plc = $("target").position();
   //console.log(plc);
 });
-
-
-  var url = location.href;
-  document.getElementById("getURL").value = url;
 
 
 

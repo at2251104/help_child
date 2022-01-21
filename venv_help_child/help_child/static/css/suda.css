@@ -12,8 +12,30 @@
   #planListDetailheader {
     text-align: center;
     font-size: 24px;
-    /* width: 100%;
-    margin: 1rem 0 0; */
+    width: auto;
+  }
+  .cal-wrap {
+    position: relative;
+    cursor: pointer;
+    border: 2px solid skyblue;
+    border-radius: 0.27em;
+    font-family: cursive;
+    background-color: #ffffff;
+    font-size: 30px;
+    /* z-index: ; */
+  }
+  .cal-wrap:before {
+    content: "";
+    background: "/static/images/calender2.png" no-repeat;
+    background-size: contain;
+    height: 22px;
+    width: 22px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    margin: auto;
+    border: #168db8;
   }
 
   /*カレンダー*/
@@ -161,9 +183,6 @@
 
   .ta1 {
     width: 96%;
-    margin: 0;
-    margin-bottom: 15px;
-    background: #fff; /*背景色（古いブラウザ用）*/
     background: rgba(
       255,
       255,
@@ -336,7 +355,7 @@
     float: right; /*右側に回り込み*/
     width: 70%; /*幅*/
     /* overflow: hidden; */
-    padding-top: 30%; /*コンテンツ上にあける余白*/
+    padding-top: 25%; /*コンテンツ上にあける余白*/
   }
 
   /*#plmain h2 {
@@ -367,7 +386,7 @@
     border: 2px solid skyblue;
     border-radius: 3px;
   }
-  #from1 {
+  /* #from1 {
     font-size: 20px;
     width: 300px;
     border: 2px solid skyblue;
@@ -381,7 +400,7 @@
     border: 2px solid skyblue;
     border-radius: 3px;
     margin-bottom: 40px;
-  }
+  } */
   /*planListDetail画面の今日の行事名表示のためのID*/
   #planListDetailCaption h2 {
     width: 12%;
@@ -467,11 +486,9 @@
   /*日付入力欄のCSS*/
   #target {
     font-size: 20px;
-    border-color: skyblue;
-    border: 2px solid skyblue; /* 枠線 */
+    border: none; /* 枠線 */
     border-radius: 0.27em; /* 角丸 */
     font-family: cursive; /*フォント指定(いじるかもしれない)*/
-    margin-bottom: 20px;
   }
   #float {
     float: left;
@@ -875,7 +892,7 @@
 /*日付入力欄(target)とカレンダーアイコンに参照させるためのクラス*/
   .planlistDetailCenter {
     vertical-align: center;
-    /* top: 20px; */
+    top: 20px;
     position: relative;
     /* height: 30px; */
     /* text-align: center; */
