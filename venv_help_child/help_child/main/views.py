@@ -99,6 +99,9 @@ class ContactUpdateView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactUpdate.html"
 
 
+class ContactUpdateOyaView(LoginRequiredMixin, generic.TemplateView):
+    template_name = "contactUpdate_oya.html"
+
 class ContactTemplateView(LoginRequiredMixin, generic.TemplateView):
     template_name = "contactTemplate.html"
 
