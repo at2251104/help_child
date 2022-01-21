@@ -378,6 +378,13 @@ a.btn-border:hover:after {
 .writer-text {
   width: 100%;
 }
+#contact-book-none {
+  display: block;
+  margin-top: 20%;
+  margin-bottom: 10%;
+  width: 100%;
+  font-size: 25px;
+}
 /* 画面幅800px以下の設定 */
 @media screen and (max-width: 800px) {
   /*mainコンテンツ*/
