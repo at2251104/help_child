@@ -108,5 +108,8 @@
             {% endfor %}
         </div>
     </div>
+    <a class="btn btn-success mt-5 mb-3" href="{% url 'main:blogUpdate' blog.pk %}">編集</a>
+    <a class="btn btn-danger mt-5 ml-2 mb-3" href="{% url 'main:blogDelete' blog.pk %}">削除</a>
+    {% endfor %}
 </div>
 {% endblock %}
