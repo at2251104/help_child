@@ -109,11 +109,9 @@ class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
         main = form.save(commit=False)
         main.user = self.request.user
         main.save()
-        messages.success(self.request, '連絡帳を作成しました。')
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, "連絡帳の作成に失敗しました。")
         return super().form_invalid(form)
 
 
@@ -127,11 +125,9 @@ class ContactUpdateOyaView(LoginRequiredMixin, generic.CreateView):
         main = form.save(commit=False)
         main.user = self.request.user
         main.save()
-        messages.success(self.request, '連絡帳を作成しました。')
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, "連絡帳の作成に失敗しました。")
         return super().form_invalid(form)
 
 
