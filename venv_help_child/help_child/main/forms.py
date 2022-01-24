@@ -1,6 +1,7 @@
+from cProfile import label
 from dataclasses import field
 from django import forms
-from .models import T013Blog, T012Contactbooktem, T007Contactbook
+from .models import *
 
 
 class HomeContactForm(forms.ModelForm):
@@ -19,6 +20,10 @@ class BlogCreateForm(forms.ModelForm):
         fields = ('t013_pk01_blog_id','t013_fd01_title','t013_fd02_content','t013_fd03_photo1',
         't013_fd04_photo2','t013_fd05_photo3',)
 
+class KindergatenForm(forms.ModelForm):
+    class Meta:
+        model = T001Children
+        fields = ('t001_fd11_kindergaten',)
 class TemplateCreateForm(forms.ModelForm):
     class Meta:
         model = T012Contactbooktem
