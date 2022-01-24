@@ -372,7 +372,7 @@ class T012Contactbooktem(models.Model):
     t012_fd01_date = models.DateField(
         verbose_name='日時', db_column='T012_FD01_date', blank=True, null=True)
     # Field name made lowercase.
-    t012_fd02_information = models.CharField(
+    t012_fd02_information = models.TextField(
         verbose_name='備考', db_column='T012_FD02_information', max_length=200, blank=True, null=True)
     # Field name made lowercase. This field type is a guess.
     t012_fd03_mealtime = models.TimeField(

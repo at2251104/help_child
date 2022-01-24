@@ -34,6 +34,7 @@
             <input type="text" placeholder="日付検索" id="target" text-align="center">
         </form>
     </div>
+
     <div id="next-prev-button">
         <button id="prev" onclick="prev()">‹</button>
         <button id="next" onclick="next()">›</button>
@@ -47,13 +48,17 @@
                     <table class="table">
                         {{ form.as_table }}
                     </table>
-                    <button class="btn btn-primary" type="submit">作成</button>
+                    <form action="ContactTop.html">
+                        <button class="btn btn-primary" type="submit">作成</button>
+                    </form>
                 </form>
             </div>
         </div>
     </div>
-</div>
-    <!-- <div id="contact-book">
+<!-- </div> -->
+
+
+    <div id="contact-book">
         <form method="post" action="">
             <table border="1" class="contact-book-table">
                 <tr>
@@ -350,18 +355,21 @@
                             <option value="祖父">祖父</option>
                             <option value="祖母">祖母</option>
                         </select>
-                        <p>(時分)</p>
+                        <p>(時:分)</p>
                         <input type="time" name="pickup_time">
                     </td>
                     <td style="writing-mode: tb-rl">
                         記入者
                     </td>
                     <td colspan="6">
-                        <textarea id="story" name="filler_name"></textarea>
                     </td>
                 </tr>
             </table>
         </form>
+    </div>
+ 
+    <!-- <div id="contact-book-none">
+        <p>テンプレートの作成をしてください</p>
     </div> -->
 </div>
 {% endblock %}
