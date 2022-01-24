@@ -99,7 +99,7 @@ class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
         return CustomUser.objects.filter(username=self.request.user.username)
 
 
-class ContactUpdateView(LoginRequiredMixin, generic.TemplateView):
+class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
     model = T007Contactbook
     template_name = "contactUpdate.html"
     form_class = SchoolContactForm
@@ -117,7 +117,7 @@ class ContactUpdateView(LoginRequiredMixin, generic.TemplateView):
         return super().form_invalid(form)
 
 
-class ContactUpdateOyaView(LoginRequiredMixin, generic.TemplateView):
+class ContactUpdateOyaView(LoginRequiredMixin, generic.CreateView):
     model = T007Contactbook
     template_name = "contactUpdate_oya.html"
     form_class = HomeContactForm
