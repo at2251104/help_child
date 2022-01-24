@@ -21,7 +21,7 @@
     border-radius: 0.27em;
     font-family: cursive;
     background-color: #ffffff;
-    font-size: 30px;
+    font-size: 25px;
     /* z-index: ; */
   }
   .cal-wrap:before {
@@ -52,29 +52,44 @@
     color: #000;
   }
   th,
-  td {
+  .ta1 td {
     outline: 1px solid #ddd;
-    padding-top: 10px;
-    padding-bottom: 10px;
     text-align: center;
+    height: 50px;
+  }
+  .ta1 td a {
+    height: 50px;
+    font-size: 30px;
+    margin: auto;
+    display: block;
+    text-decoration: none;
   }
   /*日曜日*/
-  td:first-child {
-    color: red;
+  .ta1 td:first-child a {
+    color: #f59494e1;
+    display: block;
+    vertical-align: center;
   }
   /*土曜日*/
-  td:last-child {
-    color: blue;
+  .ta1 td:last-child a {
+    display: block;
+    color: #00aceaca;
+    vertical-align: center;
   }
 
   /*前後月の日付*/
-  td.disabled {
+  .ta1 td.disabled {
     color: #ccc;
+    font-size: 30px;
   }
   /*本日*/
-  td.today {
+  .ta1 td.today {
+    display: block;
     background-color: #d65e72;
     color: #fff;
+  }
+  .ta1 td :hover {
+    background-color: rgb(252, 193, 206);
   }
 
   /*ボタン*/
@@ -83,17 +98,17 @@
   }
   #next-prev-button button {
     cursor: pointer;
-    background: #b78d4a;
+    background: #f5961a;
     color: #fff;
-    border: 1px solid #b78d4a;
+    border: 1px solid #f5961a;
     border-radius: 4px;
     font-size: 1rem;
     padding: 0.5rem 2rem;
     margin: 1rem 0;
   }
   #next-prev-button button:hover {
-    background-color: #d4bb92;
-    border-color: #d4bb92;
+    background-color: #f5961a;
+    border-color: #f5961a;
   }
   #prev {
     float: left;
@@ -489,6 +504,7 @@
     border: none; /* 枠線 */
     border-radius: 0.27em; /* 角丸 */
     font-family: cursive; /*フォント指定(いじるかもしれない)*/
+    background-color: rgba(0, 0, 0, 0);
   }
   #float {
     float: left;
@@ -565,8 +581,7 @@
   th,
   td {
     outline: 1px solid #ddd;
-    padding-top: 10px;
-    padding-bottom: 10px;
+
     text-align: center;
   }
   /*日曜日*/

@@ -24,19 +24,18 @@
 {% endblock %}
 
 {% block main_contents%}
-<div id="main">
-<div class="container">
+<div id="bgmain">
     <div class="row">
+        <div id="focus"></div>
         <div class="my-div-style w-100">
             <form method="POST" enctype='multipart/form-data'>
                 {% csrf_token %}
                 <table class="table">
                     {{ form.as_table }}
                 </table>
-                <button class="btn btn-primary" type="submit">作成</button>
+                <button class="btnbtn-primary" type="submit">作成</button>
             </form>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}

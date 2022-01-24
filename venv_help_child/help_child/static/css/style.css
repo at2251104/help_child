@@ -390,7 +390,6 @@ footer .pr {
 .ta1 td,
 .ta1 th {
   border: 1px dashed #999; /*テーブルの枠線の幅、線種、色*/
-  padding: 10px; /*ボックス内の余白*/
   word-break: break-all;
 }
 /*テーブル１行目に入った見出し部分*/
@@ -401,7 +400,8 @@ footer .pr {
 }
 /*ta1の左側ボックス*/
 .ta1 th {
-  width: 140px; /*幅*/
+  width: 100px; /*幅*/
+  height: 50px;
   text-align: center; /*センタリング*/
   background: #f7f7f7; /*背景色（古いブラウザ用）*/
   background: rgba(
@@ -514,30 +514,29 @@ img.fl {
 
 #return-btn {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #fff;
+  bottom: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
   border-radius: 4px;
   text-align: center;
   line-height: 50px;
-  background-color: #000;
+  background-color: #fff;
   z-index: 999;
 }
 #return-btn:hover {
-  border: 1px solid #000;
-  background-color: #fff;
+  border: 1px solid #fff;
+  background-color: #000;
 }
 #return-btn a {
   display: block;
-  color: #fff;
+  color: #000;
   text-decoration: none;
-  
   font-size: 40px;
 }
 #return-btn a:hover {
-  color: #000;
+  color: #fff;
 }
 /*画面幅800px以下の設定
 ------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -624,6 +623,8 @@ img.fl {
     border-radius: 4px; /*角丸のサイズ*/
     padding: 12px 10px 5px; /*上、左右、下へのボックス内余白*/
     background: #fff; /*背景色*/
+    cursor: pointer;
+    cursor: hand;
   }
   /*３本のバー（1本あたり）*/
   #menubar_hdr span {
@@ -704,13 +705,13 @@ img.fl {
 ---------------------------------------------------------------------------*/
   /*テーブル内の左側*/
   .ta1 th {
-    width: 100px;
-    padding: 5px;
+    width: 30px;
+    height: 30px;
   }
   /*テーブル内の右側*/
   .ta1 td {
     width: auto;
-    padding: 5px;
+    height: auto;
   }
 
   /*その他

@@ -56,21 +56,25 @@
             <tr>
                 <td class="class-name">
                     <li class="list_item" data-hobby="age4">
-                        <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} ">{{ iiii.t001_fk01_class_id }}</a>
+                        <p>{{ iiii.t001_fk01_class_id }}</p>
                     </li>
                 </td>
                 <td class="child-name">
                     <li class=" list_item" data-hobby="age4">
-                        <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} ">{{ iiii.get_full_name }}</a>
+                        <p>{{ iiii.get_full_name }}</p>
                     </li>
                 </td>
                 <td class="child-name">
                     <li class=" list_item" data-hobby="age4">
-                        <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} ">{{iiii.get_full_name_kana}}</a>
+                        <p>{{iiii.get_full_name_kana}}</p>
                     </li>
                 </td>
                 <td class="select">
+                    {% if user.detail_buyer %}
                     <a href="{%url 'main:contactUpdate'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">記入</a>
+                    {% else %}
+                    <a href="{%url 'main:contactUpdate_oya'%}?id={{iiii.t001_pk01_children_id}}&num={% now " Ymd"%} " class=" select-btn">記入</a>
+                    {% endif %}
                     <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">閲覧</a>
                 </td>
             </tr>

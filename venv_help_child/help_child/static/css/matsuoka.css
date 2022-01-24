@@ -298,3 +298,69 @@
 .slick-dots .slick-active button {
   background: #333; /*ドットボタンの現在地表示の色*/
 }
+
+.table {
+  display: flex;
+}
+.table input {
+  font-size: 20px;
+  width: 400px;
+  padding: 0.5em 1em;
+  margin: 30px 0;
+  border: double 5px #cad0d1d8;
+}
+.table textarea {
+  resize: none;
+  width: 400px;
+  height: 250px;
+  padding: 0.5em 1em;
+  border: double 5px #cad0d1d8;
+}
+.table label {
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+form {
+  padding: 5px 1em;
+  margin: 10px 0;
+  color: #5d627b;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.22);
+  width: 70%;
+  max-width: 700px;
+  border-radius: 20px;
+}
+#focus {
+  border: 3px solid #fef6fb;
+  box-shadow: 0 0 10px 0 #d09b52;
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  border-radius: 10px;
+  display: none;
+}
+
+input {
+  border-radius: 10px;
+  transition: 0.3s ease;
+  color: #868283;
+}
+
+input[type="file"] {
+}
+
+.btnbtn-primary {
+  font-size: 30px;
+  width: 150px;
+  color: rgba(255, 255, 255);
+  background-color: #91d4fa;
+  border: 2px ridge;
+  border-color: rgba(230, 249, 252, 0.5);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.22);
+}

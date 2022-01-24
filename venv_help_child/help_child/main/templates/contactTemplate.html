@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}テンプレート{% endblock %}
+{% block title %}テンプレート作成{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
@@ -34,10 +34,30 @@
             <input type="text" placeholder="日付検索" id="target" text-align="center">
         </form>
     </div>
+
     <div id="next-prev-button">
         <button id="prev" onclick="prev()">‹</button>
         <button id="next" onclick="next()">›</button>
     </div>
+<div id="main">
+    <div class="container">
+        <div class="row">
+            <div class="my-div-style">
+                <form method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <table class="table">
+                        {{ form.as_table }}
+                    </table>
+                    <form action="ContactTop.html">
+                        <button class="btn btn-primary" type="submit">作成</button>
+                    </form>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- </div> -->
+
+
     <div id="contact-book">
         <form method="post" action="">
             <table border="1" class="contact-book-table">
@@ -70,7 +90,7 @@
                 <tr>
                     <td colspan="3">
                         <p>前夜</p>
-                        {{ form.t007_fd03_meal_time }}
+                        {{ form.t007_fd03_meal_time }} 
                     </td>
                     <td colspan="3">
                         <input type="text" name="前夜" class="food-text">
@@ -335,19 +355,22 @@
                             <option value="祖父">祖父</option>
                             <option value="祖母">祖母</option>
                         </select>
-                        <p>(時分)</p>
+                        <p>(時:分)</p>
                         <input type="time" name="pickup_time">
                     </td>
                     <td style="writing-mode: tb-rl">
                         記入者
                     </td>
                     <td colspan="6">
-                        <textarea id="story" name="filler_name"></textarea>
                     </td>
                 </tr>
             </table>
         </form>
     </div>
+ 
+    <!-- <div id="contact-book-none">
+        <p>テンプレートの作成をしてください</p>
+    </div> -->
 </div>
 {% endblock %}
 
