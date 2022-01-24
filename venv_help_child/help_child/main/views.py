@@ -1,3 +1,4 @@
+from json.tool import main
 from pyexpat.errors import messages
 from django.core.mail import message
 from django.http import request
@@ -99,11 +100,39 @@ class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
 
 
 class ContactUpdateView(LoginRequiredMixin, generic.TemplateView):
+    model = T007Contactbook
     template_name = "contactUpdate.html"
+    form_class = SchoolContactForm
+    success_url = reverse_lazy('main:contactTop')
+
+    def form_valid(self, form):
+        main = form.save(commit=False)
+        main.user = self.request.user
+        main.save()
+        messages.success(self.request, '連絡帳を作成しました。')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, "連絡帳の作成に失敗しました。")
+        return super().form_invalid(form)
 
 
 class ContactUpdateOyaView(LoginRequiredMixin, generic.TemplateView):
+    model = T007Contactbook
     template_name = "contactUpdate_oya.html"
+    form_class = HomeContactForm
+    success_url = reverse_lazy('main:contactTop_oya')
+
+    def form_valid(self, form):
+        main = form.save(commit=False)
+        main.user = self.request.user
+        main.save()
+        messages.success(self.request, '連絡帳を作成しました。')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, "連絡帳の作成に失敗しました。")
+        return super().form_invalid(form)
 
 
 class ContactTemplateView(LoginRequiredMixin, generic.CreateView):
