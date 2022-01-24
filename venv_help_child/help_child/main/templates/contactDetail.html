@@ -289,13 +289,17 @@
                             記入者
                         </th>
                         <td colspan="5">
-                            {{iiii.t007_fd25_pickup_person}}
+                            {{iiii.t007_fd28_person}}
                         </td>
+                
                     </tr>
                 </tbody>
             </table>
         </form>
-
+    </div>
+    {% empty %}
+    <div id="contact-book-none">
+        <p>連絡帳がありません</p>
     </div>
     {% endfor %}
 </div>

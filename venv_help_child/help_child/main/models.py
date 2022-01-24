@@ -232,6 +232,8 @@ class T007Contactbook(models.Model):
         verbose_name='備考', max_length=200, blank=True, null=True)
     t007_fd01_date = models.DateField(verbose_name='日付', default=datetime.date.today,
                                       db_column='T007_FD01_date', blank=True, null=True)  # Field name made lowercase.
+    t007_fd28_person = models.CharField(
+        verbose_name='記入者',max_length=20, blank=True, null=True)
 
     class Meta:
 
@@ -387,6 +389,9 @@ class T012Contactbooktem(models.Model):
     # Field name made lowercase.
     t012_fd07_updatedata = models.DateTimeField(
         verbose_name='更新日時', auto_now=True, db_column='T012_FD07_updatedata')
+    t023_fd08_person = models.CharField(
+        verbose_name='記入者',max_length=20, blank=True, null=True)
+
 
     class Meta:
 

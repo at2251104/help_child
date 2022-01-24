@@ -623,6 +623,8 @@ img.fl {
     border-radius: 4px; /*角丸のサイズ*/
     padding: 12px 10px 5px; /*上、左右、下へのボックス内余白*/
     background: #fff; /*背景色*/
+    cursor: pointer;
+    cursor: hand;
   }
   /*３本のバー（1本あたり）*/
   #menubar_hdr span {

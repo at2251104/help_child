@@ -1,6 +1,6 @@
 from dataclasses import field
 from django import forms
-from .models import T013Blog
+from .models import T013Blog,T012Contactbooktem
 
 Mood = (
     ('good', '良'),
@@ -189,3 +189,9 @@ class BlogCreateForm(forms.ModelForm):
         model = T013Blog
         fields = ('t013_pk01_blog_id','t013_fd01_title','t013_fd02_content','t013_fd03_photo1',
         't013_fd04_photo2','t013_fd05_photo3',)
+
+class TemplateCreateForm(forms.ModelForm):
+    class Meta:
+        model = T012Contactbooktem
+        fields = ('t012_pk01_contactbook_id','t012_fk01_childminder_id','t012_fd01_date','t012_fd02_information','t012_fd03_mealtime',
+        't012_fd04_meal_contents','t012_fd05_bed_time','t012_fd06_wakeup_time','t023_fd08_person')
