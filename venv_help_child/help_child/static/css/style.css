@@ -390,7 +390,6 @@ footer .pr {
 .ta1 td,
 .ta1 th {
   border: 1px dashed #999; /*テーブルの枠線の幅、線種、色*/
-  padding: 10px; /*ボックス内の余白*/
   word-break: break-all;
 }
 /*テーブル１行目に入った見出し部分*/
@@ -401,7 +400,8 @@ footer .pr {
 }
 /*ta1の左側ボックス*/
 .ta1 th {
-  width: 140px; /*幅*/
+  width: 100px; /*幅*/
+  height: 50px;
   text-align: center; /*センタリング*/
   background: #f7f7f7; /*背景色（古いブラウザ用）*/
   background: rgba(
@@ -705,13 +705,13 @@ img.fl {
 ---------------------------------------------------------------------------*/
   /*テーブル内の左側*/
   .ta1 th {
-    width: 100px;
-    padding: 5px;
+    width: 30px;
+    height: 30px;
   }
   /*テーブル内の右側*/
   .ta1 td {
     width: auto;
-    padding: 5px;
+    height: auto;
   }
 
   /*その他
