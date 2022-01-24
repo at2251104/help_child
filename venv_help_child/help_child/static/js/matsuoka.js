@@ -23,6 +23,23 @@ $(function () {
             .filter(dataCheckGroup)
             .find('input[type="checkbox"]:not(:disabled)')
             .prop('checked', false);
+        
+        $('#files').css({
+         'position': 'absolute',
+         'top': '-9999px'
+     }).change(function() {
+         var val = $(this).val();
+         var path = val.replace(/\\/g, '/');
+         var match = path.lastIndexOf('/');
+    $('#filename').css("display","inline-block");
+         $('#filename').val(match !== -1 ? val.substring(match + 1) : val);
+     });
+     $('#filename').bind('keyup, keydown, keypress', function() {
+         return false;
+     });
+     $('#filename, #btn').click(function() {
+         $('#files').trigger('click');
+     });
     });
 });
 
@@ -103,3 +120,4 @@ function get_selected_input_items(name) {
 /*document.querySelector('#switch1').addEventListener('click', function(){
    document.querySelector('.menu').classList.toggle('is-active');
 });*/
+
