@@ -159,11 +159,11 @@
                     </li>
                 </td>
                 <form method="POST">
-                {% csrf_token %}
-                <td class="select">
-                    <button type="submit" name="update_button" class="select-btn" value="{{ enji.t001_pk01_children_id }}">登園</button>
-                    <button type="submit" class="select-btn">降園</a>
-                </td>
+                    {% csrf_token %}
+                    <td class="select">
+                        
+                        <button type="submit" name="update_button" value="{{ enji.t001_pk01_children_id }}" class="select-btn">切替</button>
+                    </td>
                 </form>
             </tr>
             {% empty %}
