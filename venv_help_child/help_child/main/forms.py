@@ -12,7 +12,14 @@ class HomeContactForm(forms.ModelForm):
 class SchoolContactForm(forms.ModelForm):
     class Meta:
         model = T007Contactbook
-        fields = ('t007_fd16_lunch_time','t007_fd15_lunch_contents','t007_fd27_bed_time','t007_fd17_wakeup_time','t007_fd18_mood','t007_fd20_defecation_status','t007_fd19_defecation_times','t007_fd21_bathing','t007_fd23_temperature_time','t007_fd22_temperature','t007_fd24_infomation','t007_fk02_childminder_id')
+        fields = ('t007_fd16_lunch_time', 't007_fd15_lunch_contents', 't007_fd27_bed_time', 't007_fd17_wakeup_time', 't007_fd18_mood', 't007_fd20_defecation_status',
+                  't007_fd19_defecation_times', 't007_fd21_bathing', 't007_fd23_temperature_time', 't007_fd22_temperature', 't007_fd24_infomation', 't007_f28_person', 't007_fd01_date')
+        widgets = {
+            't007_fd16_lunch_time': forms.DateTimeInput(attrs={"type": "time"}),
+            't007_fd27_bed_time': forms.DateTimeInput(attrs={"type": "time"}),
+            't007_fd17_wakeup_time': forms.DateTimeInput(attrs={"type": "time"}),
+            't007_fd23_temperature_time': forms.DateTimeInput(attrs={"type": "time"}),
+        }
 
 class BlogCreateForm(forms.ModelForm):
     class Meta:
