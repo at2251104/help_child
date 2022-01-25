@@ -156,10 +156,16 @@
                 </td>
                 
                 <td class="child-name">
+
+                    
                     <li class=" list_item" name="aa" data-hobby="{{enji.Age}}" data-area="{{enji.t001_fd11_kindergaten}}" value="{{enji.t001_fd11_kindergaten}}" >
-                     
-                        {{enji.t001_fd11_kindergaten}}
+                        {% if enji.t001_fd11_kindergaten %}
+                            登園
+                        {% else %}
+                            降園
+                        {% endif %}
                     </li>
+                
                 </td>
                 <form method="POST">
                     {% csrf_token %}
@@ -175,8 +181,8 @@
         </table>
         <form method="POST">
             {% csrf_token %}
-            <button type="submit" name="all_true_button" value="pomeranian" class="select-btn">全てTrue</button>
-            <button type="submit" name="all_false_button" value="pomeranian" class="select-btn">全てFalse</button>
+            <button type="submit" name="all_true_button" value="pomeranian" class="select-btn">全て登園</button>
+            <button type="submit" name="all_false_button" value="pomeranian" class="select-btn">全て降園</button>
         </form>
     </ul>
  
