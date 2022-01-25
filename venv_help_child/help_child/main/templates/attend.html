@@ -142,6 +142,7 @@
                 </th>
             </tr>
             {% for enji in object_list %}
+    　　　　　
             <tr>
                 <td class="class-name">
                     <li class="list_item" data-hobby="{{enji.Age}}" data-area="{{enji.t001_fd11_kindergaten}}">
@@ -153,8 +154,10 @@
                         {{enji.get_full_name_kana}}
                     </li>
                 </td>
+                
                 <td class="child-name">
-                    <li class=" list_item" data-hobby="{{enji.Age}}" data-area="{{enji.t001_fd11_kindergaten}}">
+                    <li class=" list_item" name="aa" data-hobby="{{enji.Age}}" data-area="{{enji.t001_fd11_kindergaten}}" value="{{enji.t001_fd11_kindergaten}}" >
+                     
                         {{enji.t001_fd11_kindergaten}}
                     </li>
                 </td>
@@ -163,12 +166,18 @@
                     <td class="select">
                         
                         <button type="submit" name="update_button" value="{{ enji.t001_pk01_children_id }}" class="select-btn">切替</button>
+
                     </td>
-                </form>
+                 </form>
             </tr>
             {% empty %}
             {% endfor %}
         </table>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" name="all_true_button" value="pomeranian" class="select-btn">全てTrue</button>
+            <button type="submit" name="all_false_button" value="pomeranian" class="select-btn">全てFalse</button>
+        </form>
     </ul>
  
     

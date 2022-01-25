@@ -13,7 +13,7 @@ from accounts.models import *
 from main.models import *
 # Create your views h
 from .models import *
-from django.db.models import Q
+from django.db.models import Q,F
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import *
 from django.db import transaction
@@ -167,16 +167,19 @@ class AttendView(LoginRequiredMixin, generic.ListView):
     template_name = "attend.html"
 
     def post(self,request,*args,**kwargs):
-
         if self.request.POST.get('update_button',None):
-            logger.debug("self.request.POST.get() = " + self.request.POST.get('update_button', None))
-            T001Children.objects.filter(
-                t001_pk01_children_id=self.request.POST.get('update_button')
-            ).update(
-                t001_fd11_kindergaten= not bool(T001Children.t001_fd11_kindergaten)
-            )
-        return self.get(request, *args,**kwargs)
+                t=T001Children.objects.filter(
+                    t001_pk01_children_id=self.request.POST.get('update_button')).first()
+                t.t001_fd11_kindergaten=not bool(t.t001_fd11_kindergaten)
+                t.save()
+        elif self.request.POST.get('all_true_button',None):
+            T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id).update(t001_fd11_kindergaten=True)
+        elif self.request.POST.get('all_false_button',None):
+            T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id).update(t001_fd11_kindergaten=False)
+        return  self.get(request, *args,**kwargs,)
 
+
+        
     def get_queryset(self):
         toukouenn = T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id).select_related()
         # 検索box 絞り込み
