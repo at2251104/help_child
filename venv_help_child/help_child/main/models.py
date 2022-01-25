@@ -335,6 +335,10 @@ class T007Contactbook(models.Model):
         verbose_name='備考', max_length=200, blank=True, null=True)
     t007_fd01_date = models.DateField(verbose_name='日付', default=datetime.date.today,
                                       db_column='T007_FD01_date', blank=True, null=True)  # Field name made lowercase.
+    t007_f28_person = models.CharField(
+        verbose_name='記入者',max_length=20, blank=True, null=True)
+
+
     class Meta:
 
         db_table = 'T007_contactbook'
