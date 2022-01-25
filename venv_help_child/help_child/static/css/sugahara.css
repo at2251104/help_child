@@ -268,7 +268,7 @@ button.btn-border:hover:after {
   float: right; /*contact-detail-main右側に回り込み*/
   width: 70%; /*幅*/
   overflow: hidden;
-  padding-top: 30%; /*コンテンツ上にあける余白*/
+  padding-top: 20%; /*コンテンツ上にあける余白*/
   text-align: center;
 }
 #contact-detail-main h2 {
