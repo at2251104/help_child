@@ -34,6 +34,7 @@
         <li><a href="{% url 'main:locationAdmin' %}">位置情報<span>Location</span></a></li>
         {% if user.detail_buyer %}
         <li><a href="{% url 'main:tagScan' %}">登園管理<span>Attend</span></a></li>
+        <li><a href="{% url 'main:listTop' %}">名簿<span>Enji</span></a></li>
         {% endif %}
     </ul>
 </nav>
@@ -70,6 +71,7 @@
                         <li><a href="{% url 'main:locationAdmin' %}">位置情報<span>Location</span></a></li>
                         {% if user.detail_buyer %}
                         <li><a href="{% url 'main:attend' %}">登園管理<span>Attend</span></a></li>
+                        <li><a href="{% url 'main:listTop' %}">名簿<span>Enji</span></a></li>
                         {% endif %}
                     </ul>
                 </nav>
