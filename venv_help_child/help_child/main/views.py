@@ -109,6 +109,19 @@ class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
     form_class = SchoolContactForm
     success_url = reverse_lazy('main:contactTop')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        num = self.request.GET.get("num", "20211201")
+        id = self.request.GET.get("id", "01")
+        test = "test"
+        default_data = {
+            't007_pk01_contactbook_id': (num + id),
+            't007_fd24_infomation': test,
+        }
+        schoolcontact_form = SchoolContactForm(initial=default_data)
+        context['schoolcontact_form'] = schoolcontact_form
+        return context
+
     def form_valid(self, form):
         main = form.save(commit=False)
         main.user = self.request.user
@@ -117,7 +130,6 @@ class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
 
     def form_invalid(self, form):
         return super().form_invalid(form)
-
 
 class ContactUpdateOyaView(LoginRequiredMixin, generic.CreateView):
     model = T007Contactbook
