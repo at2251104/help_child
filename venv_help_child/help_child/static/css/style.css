@@ -96,7 +96,7 @@ a:hover {
 }
 /*トップページのmain*/
 #top #main {
-  padding-top: 30%; /*コンテンツ上にあける余白*/
+  padding-top: 22%; /*コンテンツ上にあける余白*/
 }
 /*mainコンテンツのh2タグの設定*/
 #main h2 {
