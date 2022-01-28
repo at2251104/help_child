@@ -143,8 +143,8 @@ class ContactUpdateOyaView(LoginRequiredMixin, generic.CreateView):
         default_data = {
             't007_pk01_contactbook_id': (num + id),
         }
-        schoolcontact_form = SchoolContactForm(initial=default_data)
-        context['form'] = schoolcontact_form
+        homecontact_form = HomeContactForm(initial=default_data)
+        context['form'] = homecontact_form
         return context
 
     def form_valid(self, form):
