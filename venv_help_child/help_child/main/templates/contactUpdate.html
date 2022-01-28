@@ -42,7 +42,7 @@
         <form method="POST" enctype='multipart/form-data'>
             {% csrf_token %}
             園児名：{{ form.t007_fk01_children_id }}
-            連絡帳ID：{{ form.t007_pk01_contactbook_id }}
+            {{ form.t007_pk01_contactbook_id }}
             <table border="1" class="contact-book-table">
                 <!-- 日付 -->
                 <!-- <tr>
@@ -152,18 +152,12 @@
                             {{ form.t007_fd28_person }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            作成日
-                        </th>
-                        <td colspan="6">
-                            {{ form.t007_fd01_date }}
-                        </td>
                 </tbody>
             </table>
+            <br>
+            <button type="submit" name="create" value="作成" class="select-btn">作成</button>
         </form>
     </div>
-    <button type="submit" name="create" value="作成" class="select-btn">作成</button>
 </div>
 {% endblock %}
 
