@@ -218,11 +218,10 @@
   object-fit: cover;
 } */
   #bgmain {
+    display: inline-block;
     position: relative;
     /* overflow: scroll; */
-    float: right; /*右側に回り込み*/
-    width: 70%; /*幅*/
-    padding-top: 25%; /*コンテンツ上にあける余白*/
+    width: 100%; /*幅*/
     overflow: hidden;
   }
 
