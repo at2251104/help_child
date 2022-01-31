@@ -24,17 +24,36 @@
 <!--小さな端末用（800px以下端末）メニュー-->
 <nav id="menubar-s">
     <ul id="menu-list">
+        <!--アイコンと指名-->
+        <div style="display: flex;">
+            <img width="50px" height="50px" style="display:block" z-index="13" src=../../static/images/profile_icon.png>
+            <div style="padding-top:5px;">
+                <div style="padding-left: 10px;">
+                    <div style="font-size:20px">
+                        <p style="text-align:left">{{ user.get_full_name }}</p>
+                    </div>
+                </div>
+            </div>
+            <p>{{ user.email }}</p>
+        </div>
+
+
+
+
+
+
+
         <h1>機能一覧</h1>
         {% if user.detail_buyer %}
-        <li><a href="{% url 'main:contactTop' %}">連絡帳<span>Contact</span></a></li>
+        <li><a href="{% url 'main:contactTop' %}" style="width: 100%;">連絡帳<span>Contact</span></a></li>
         {% else %}
-        <li><a href="{% url 'main:contactTop_oya' %}">連絡帳<span>Contact</span></a></li>
+        <li><a href="{% url 'main:contactTop_oya' %}" style="width: 100%;">連絡帳<span>Contact</span></a></li>
         {% endif %}
-        <li><a href="{% url 'main:planList' %}">予定表<span>PlanList</span></a></li>
-        <li><a href="{% url 'main:locationAdmin' %}">位置情報<span>Location</span></a></li>
+        <li><a href="{% url 'main:planList' %}" style="width: 100%;">予定表<span>PlanList</span></a></li>
+        <li><a href="{% url 'main:locationAdmin' %}" style="width: 100%;">位置情報<span>Location</span></a></li>
         {% if user.detail_buyer %}
-        <li><a href="{% url 'main:tagScan' %}">登園管理<span>Attend</span></a></li>
-        <li><a href="{% url 'main:listTop' %}">名簿<span>Enji</span></a></li>
+        <li><a href="{% url 'main:tagScan' %}" style="width: 100%;">登園管理<span>Attend</span></a></li>
+        <li><a href="{% url 'main:listTop' %}" style="width: 100%;">名簿<span>Enji</span></a></li>
         {% endif %}
     </ul>
 </nav>

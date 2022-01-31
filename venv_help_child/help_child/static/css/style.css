@@ -602,6 +602,9 @@ img.fl {
     width: 100%;
     background: rgba(135, 206, 250, 0.5);
   }
+  /* メニューバーのアイコンの設定 */
+  #menu-list img {
+  }
   /*メニュー１個あたりの設定*/
   #menubar-s li {
     margin: 0 auto;
