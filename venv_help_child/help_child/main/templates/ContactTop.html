@@ -71,15 +71,18 @@
                 </td>
                 <td class="select">
                     {% if user.detail_buyer %}
-                    <a href="{%url 'main:contactUpdate'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">記入</a>
+                    <a href="{%url 'main:contactUpdate'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class=" select-btn">記入</a>
                     {% else %}
-                    <a href="{%url 'main:contactUpdate_oya'%}?id={{iiii.t001_pk01_children_id}}&num={% now " Ymd"%} " class=" select-btn">記入</a>
+                    <a href="{%url 'main:contactUpdate_oya'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class=" select-btn">記入</a>
                     {% endif %}
-                    <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">閲覧</a>
+
+                    <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class=" select-btn">閲覧</a>
+
+                    <p></p>
                 </td>
             </tr>
-        {% empty %}
-        {% endfor %}
+            {% empty %}
+            {% endfor %}
         </table>
     </ul>
 </div>

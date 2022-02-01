@@ -1,6 +1,6 @@
-@media screen and (min-width: 801px) {
-  /* contactTop------------------------------------------------ */
-  /* === ボタンを表示するエリア ============================== */
+/* contactTop------------------------------------------------ */
+/* === ボタンを表示するエリア ============================== */
+@media screen and (max-width: 800px) {
   .switchArea {
     line-height: 60px; /* 1行の高さ          */
     letter-spacing: 0; /* 文字間             */
@@ -218,11 +218,10 @@
   object-fit: cover;
 } */
   #bgmain {
+    display: inline-block;
     position: relative;
     /* overflow: scroll; */
-    float: right; /*右側に回り込み*/
-    width: 70%; /*幅*/
-    padding-top: 25%; /*コンテンツ上にあける余白*/
+    width: 100%; /*幅*/
     overflow: hidden;
   }
 

@@ -111,6 +111,17 @@ class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
     form_class = SchoolContactForm
     success_url = reverse_lazy('main:contactTop')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        num = self.request.GET.get("num", "20211201")
+        id = self.request.GET.get("id", "01")
+        default_data = {
+            't007_pk01_contactbook_id': (num + id),
+        }
+        schoolcontact_form = SchoolContactForm(initial=default_data)
+        context['form'] = schoolcontact_form
+        return context
+
     def form_valid(self, form):
         main = form.save(commit=False)
         main.user = self.request.user
@@ -120,12 +131,22 @@ class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
     def form_invalid(self, form):
         return super().form_invalid(form)
 
-
-class ContactUpdateOyaView(LoginRequiredMixin, generic.CreateView):
+class ContactUpdateOyaView(LoginRequiredMixin, generic.UpdateView):
     model = T007Contactbook
     template_name = "contactUpdate_oya.html"
     form_class = HomeContactForm
     success_url = reverse_lazy('main:contactTop_oya')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        num = self.request.GET.get("num", "20211201")
+        id = self.request.GET.get("id", "01")
+        default_data = {
+            't007_pk01_contactbook_id': (num + id),
+        }
+        homecontact_form = HomeContactForm(initial=default_data)
+        context['form'] = homecontact_form
+        return context
 
     def form_valid(self, form):
         main = form.save(commit=False)
@@ -139,17 +160,15 @@ class ContactUpdateOyaView(LoginRequiredMixin, generic.CreateView):
 
 class ContactTemplateView(LoginRequiredMixin, generic.CreateView):
     model = T012Contactbooktem
+    fields = '__all__'
     template_name = "contactTemplate.html"
-    form_class = TemplateCreateForm
-    success_url = reverse_lazy('main:home')
 
-    def form_valid(self,form):
-        main = form.save(commit=False)
-        main.save()
-        return super().form_valid(form)
     
-    def form_invalid(self,form):
-        return super().form_invalid(form)
+    def post(self,request,*args,**kwargs):
+        if self.request.POST.getlist('data',None):
+            post=self.request.POST.getlist('data',None)
+            T012Contactbooktem.objects.create(t012_fd03_mealtime=post[0],t012_fd04_meal_contents=post[1],t012_fd05_bed_time=post[2],t012_fd06_wakeup_time=post[3],t012_fd02_information=post[4])
+        return self.get(request, *args,**kwargs,)
 
 
 class MessageAddressView(LoginRequiredMixin, generic.ListView):

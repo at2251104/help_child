@@ -31,7 +31,7 @@ class T004Class(models.Model):
 class T001Children(models.Model):
     # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_pk01_children_id = models.CharField(
-        verbose_name='園児ID', db_column='T001_PK01_children-id', primary_key=True, max_length=150)
+        verbose_name='園児ID', db_column='T001_PK01_children-id', primary_key=True, max_length=50)
     # Field name made lowercase. Field renamed to remove unsuitable characters.
     t001_fk01_class_id = models.ForeignKey(
         T004Class,on_delete=models.SET_NULL, default='1', verbose_name='クラス名', db_column='T001_FK01_class-id',blank=True, null=True)
@@ -244,7 +244,7 @@ class T007Contactbook(models.Model):
 
     # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_pk01_contactbook_id = models.CharField(
-        verbose_name='連絡帳ID', db_column='T007_PK01_contactbook-id', primary_key=True, max_length=10)
+        verbose_name='連絡帳ID', db_column='T007_PK01_contactbook-id', primary_key=True, max_length=60)
     # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fk02_childminder_id = models.ForeignKey(
         T003Childminder, models.DO_NOTHING, default='1', verbose_name='保育士ID', db_column='T007_FK02_childminder-id')
@@ -467,7 +467,7 @@ class T011Room(models.Model):
 # 連絡帳テンプレート---------------------------------------------------------------------------------------
 class T012Contactbooktem(models.Model):
     # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t012_pk01_contactbook_id = models.CharField(
+    t012_pk01_contactbook_id = models.AutoField(
         verbose_name='連絡帳テンプレートID', db_column='T012_PK01_contactbook-id', primary_key=True, max_length=10)
     # Field name made lowercase. Field renamed to remove unsuitable characters.
     t012_fk01_childminder_id = models.ForeignKey(
@@ -501,7 +501,7 @@ class T012Contactbooktem(models.Model):
         verbose_name_plural = "連絡帳テンプレートテーブル"
 
     def __str__(self):
-        return self.t012_pk01_contactbook_id
+        return str(self.t012_pk01_contactbook_id)
 
 
 class T013Blog(models.Model):

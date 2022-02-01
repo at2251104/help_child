@@ -6,15 +6,32 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class HomeContactForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['t007_pk01_contactbook_id'].widget = forms.HiddenInput()
+
     class Meta:
         model = T007Contactbook
-        fields = ('t007_fd03_meal_time','t007_fd04_meal_contents','t007_fd14_breakfast_time','t007_fd13_breakfast_contents','t007_fd05_bed_time','t007_fd06_wakeup_time','t007_fd07_mood','t007_fd08_defecation_status','t007_fd09_defecation_times','t007_fd10_bathing','t007_fd11_temperature_time','t007_fd12_temperature','t007_fd02_infomation','t007_fd25_pickup_person','t007_fd26_pickup_time')
+        fields = ('t007_fk01_children_id', 't007_pk01_contactbook_id', 't007_fd03_meal_time', 't007_fd04_meal_contents', 't007_fd14_breakfast_time', 't007_fd13_breakfast_contents', 't007_fd05_bed_time', 't007_fd06_wakeup_time',
+                  't007_fd07_mood', 't007_fd08_defecation_status', 't007_fd09_defecation_times', 't007_fd10_bathing', 't007_fd11_temperature_time', 't007_fd12_temperature', 't007_fd02_infomation', 't007_fd25_pickup_person', 't007_fd26_pickup_time')
+        widgets = {
+            't007_fd03_meal_time': forms.DateTimeInput(attrs={"type": "time"}),
+            't007_fd14_breakfast_time': forms.DateTimeInput(attrs={"type": "time"}),
+            't007_fd05_bed_time': forms.DateTimeInput(attrs={"type": "time"}),
+            't007_fd06_wakeup_time': forms.DateTimeInput(attrs={"type": "time"}),
+            't007_fd11_temperature_time': forms.DateTimeInput(attrs={"type": "time"}),
+            't007_fd26_pickup_time': forms.DateTimeInput(attrs={"type": "time"}),
+        }
 
 class SchoolContactForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['t007_pk01_contactbook_id'].widget = forms.HiddenInput()
+
     class Meta:
         model = T007Contactbook
         fields = ('t007_fk01_children_id', 't007_pk01_contactbook_id', 't007_fd16_lunch_time', 't007_fd15_lunch_contents', 't007_fd27_bed_time', 't007_fd17_wakeup_time', 't007_fd18_mood', 't007_fd20_defecation_status',
-                  't007_fd19_defecation_times', 't007_fd21_bathing', 't007_fd23_temperature_time', 't007_fd22_temperature', 't007_fd24_infomation', 't007_fd28_person', 't007_fd01_date')
+                  't007_fd19_defecation_times', 't007_fd21_bathing', 't007_fd23_temperature_time', 't007_fd22_temperature', 't007_fd24_infomation', 't007_fd28_person')
         widgets = {
             't007_fd16_lunch_time': forms.DateTimeInput(attrs={"type": "time"}),
             't007_fd27_bed_time': forms.DateTimeInput(attrs={"type": "time"}),

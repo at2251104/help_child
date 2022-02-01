@@ -41,10 +41,125 @@
     <div id="contact-book">
         <form method="POST" enctype='multipart/form-data'>
             {% csrf_token %}
-            <table class="table">
-                {{ form.as_table }}
+            園児名：{{ form.t007_fk01_children_id }}
+            {{ form.t007_pk01_contactbook_id }}
+            <table border="1" class="contact-book-table">
+                <!-- 日付 -->
+                <!-- <tr>
+                                                    <th>日時</th><td colspan="12"><input type="datetime" name="data"></td>
+                                                </tr> -->
+                <colgroup class="table-col-1">
+                </colgroup>
+                <colgroup>
+                    <col class="table-col-2">
+                    <col class="table-col-3">
+                    <col class="table-col-4">
+                    <col class="table-col-5">
+                    <col class="table-col-6">
+                    <col class="table-col-7">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th colspan="6">
+                            家庭から
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th rowspan="3">
+                            食事
+                        </th>
+                        <td colspan="3">
+                            時刻
+                        </td>
+                        <td colspan="3">
+                            献立
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <p>前夜</p>
+                            {{ form.t007_fd03_meal_time }}
+                        </td>
+                        <td colspan="3">
+                            {{ form.t007_fd04_meal_contents }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <p>今朝</p>
+                            {{ form.t007_fd14_breakfast_time }}
+                        </td>
+                        <td colspan="3">
+                            {{ form.t007_fd13_breakfast_contents }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            睡眠
+                        </th>
+                        <td colspan="6">
+                            <p>睡眠時間</p>
+                            {{ form.t007_fd05_bed_time }} ~
+                            {{ form.t007_fd06_wakeup_time }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            きげん
+                        </th>
+                        <td colspan="6">
+                            {{ form.t007_fd07_mood }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            排便
+                        </th>
+                        <td colspan="6">
+                            {{ form.t007_fd08_defecation_status}}
+                            <br>
+                            回数：{{ form.t007_fd09_defecation_times }}回
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            入浴
+                        </th>
+                        <td colspan="2" nowrap>
+                            {{ form.t007_fd10_bathing }}
+                        </td>
+                        <th>
+                            検温
+                        </th>
+                        <td colspan="3">
+                            {{ form.t007_fd11_temperature_time }}
+                            {{ form.t007_fd12_temperature }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            連絡事項
+                        </th>
+                        <td colspan="6">
+                            {{ form.t007_fd02_infomation }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            お迎え
+                        </th>
+                        <td colspan="6">
+                            迎えに行く人‥{{ form.t007_fd25_pickup_person }}<br>
+                            お迎え時間‥{{ form.t007_fd26_pickup_time }}
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-            <button class="btn btn-primary" type="submit">更新</button>
+            <br>
+            <button type="submit" name="create" value="作成" class="select-btn">作成</button>
         </form>
     </div>
 </div>
