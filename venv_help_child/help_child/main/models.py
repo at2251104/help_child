@@ -468,7 +468,7 @@ class T011Room(models.Model):
 class T012Contactbooktem(models.Model):
     # Field name made lowercase. Field renamed to remove unsuitable characters.
     t012_pk01_contactbook_id = models.AutoField(
-        verbose_name='連絡帳テンプレートID', db_column='T012_PK01_contactbook-id', primary_key=True, max_length=10)
+        verbose_name='連絡帳テンプレートID', db_column='T012_PK01_contactbook-id', primary_key=True,)
     # Field name made lowercase. Field renamed to remove unsuitable characters.
     t012_fk01_childminder_id = models.ForeignKey(
         T003Childminder, models.DO_NOTHING, default='1', verbose_name='保育士ID', db_column='T012_FK01_childminder-id')

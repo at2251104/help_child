@@ -467,8 +467,25 @@ class ChildminderUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = CustomUser
     template_name = "childminderUpdate.html"
     form_class = AdultEditForm
+
+    def get_success_url(self):
+        return reverse('main:childminder2Update',kwargs= {'pk':self.kwargs['pk']})
+
+    def form_valid(self,form):
+        #messages.success(self.request,'ブログを作成しました。')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        #messages.error(self.request,"ブログの作成に失敗しました。")
+        return super().form_invalid(form)
+
+class Childminder2UpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = CustomUser
+    template_name = "childminderUpdate.html"
+    form_class = ChildminderEditForm
     success_url = reverse_lazy('main:childminderlistTop')
 
+    
     def form_valid(self,form):
         #messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
@@ -482,7 +499,7 @@ class ParentsUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "parentsUpdate.html"
     form_class = AdultEditForm
     success_url = reverse_lazy('main:parentslistTop')
-
+    
     def form_valid(self,form):
         #messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
@@ -497,7 +514,7 @@ class ChildrenDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy('main:childrenlistTop')
 
     
- 
+
 class ChildminderDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = CustomUser
     template_name = "childminderDelete.html"
