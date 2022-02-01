@@ -2,6 +2,7 @@ from cProfile import label
 from dataclasses import field
 from django import forms
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
 
 
 class HomeContactForm(forms.ModelForm):
@@ -36,3 +37,35 @@ class TemplateCreateForm(forms.ModelForm):
         model = T012Contactbooktem
         fields = ('t012_pk01_contactbook_id','t012_fk01_childminder_id','t012_fd01_date','t012_fd02_information','t012_fd03_mealtime',
         't012_fd04_meal_contents','t012_fd05_bed_time','t012_fd06_wakeup_time')
+
+class ChildrenEditForm(forms.ModelForm):
+    class Meta:
+        model = T001Children
+        fields = ('t001_pk01_children_id','t001_fk01_class_id','t001_fk02_parents_id','t001_fd01_last_name','t001_fd07_first_name',
+        't001_fd08_last_name_kana','t001_fd09_first_name_kana','t001_fd06_sex','t001_fd02_birthday','t001_fd10_postal_code','t001_fd03_address')
+
+class AdultEditForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ('username','last_name','first_name','last_name_kana','first_name_kana','email','sex','birthday',
+        'postal_code','address','tel','password')
+
+class AdultCreateForm(UserCreationForm):
+ 
+  class Meta:
+    model = CustomUser
+    
+    fields = ('username','last_name','first_name','last_name_kana','first_name_kana','sex','birthday',
+    'postal_code','address','tel','email',
+    )
+ 
+class ChildminderForm(forms.ModelForm):
+    class Meta:
+        model = T003Childminder
+        fields = ('user','class_id')
+
+
+class ParentsForm(forms.ModelForm):
+    class Meta:
+        model = T002Parents
+        fields = ('user',)
