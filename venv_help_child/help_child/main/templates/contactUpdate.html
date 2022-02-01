@@ -41,7 +41,7 @@
     <div id="contact-book">
         <form method="POST" enctype='multipart/form-data'>
             {% csrf_token %}
-            園児名：{{ form.t007_fk01_children_id }}
+            園児名：{{ form.t007_fk01_children_id }}<p>a</p>
             {{ form.t007_pk01_contactbook_id }}
             <table border="1" class="contact-book-table">
                 <!-- 日付 -->
