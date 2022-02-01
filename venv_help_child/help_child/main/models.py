@@ -253,7 +253,7 @@ class T007Contactbook(models.Model):
         T001Children, models.DO_NOTHING, default='1', verbose_name='園児ID', db_column='T007_FK01_children-id')
     # Field name made lowercase.
     t007_fd13_updatedata = models.DateTimeField(
-        verbose_name='保存or投稿日時',default=datetime.datetime.now, db_column='T007_FD13_updatedata')
+        verbose_name='保存or投稿日時', default=datetime.datetime.now, db_column='T007_FD13_updatedata')
     # Field name made lowercase. Field renamed to remove unsuitable characters.
     t007_fd04_meal_contents = models.CharField(
         verbose_name='前夜食事内容', db_column='T007_FD04_meal-contents', max_length=100, blank=True, null=True)
@@ -336,8 +336,7 @@ class T007Contactbook(models.Model):
     t007_fd01_date = models.DateField(verbose_name='日付', default=datetime.date.today,
                                       db_column='T007_FD01_date', blank=True, null=True)  # Field name made lowercase.
     t007_fd28_person = models.CharField(
-        verbose_name='記入者',max_length=20, blank=True, null=True)
-
+        verbose_name='記入者', max_length=20, blank=True, null=True)
 
     class Meta:
 
@@ -356,6 +355,7 @@ class T008Schedule(models.Model):
     # Field name made lowercase. Field renamed to remove unsuitable characters.
     t008_fk01_class_id = models.ForeignKey(
         T004Class, models.DO_NOTHING, default='1', verbose_name='クラスID', db_column='T008_FK01_class-id')
+
     # Field name made lowercase.
     t008_fd01_event = models.CharField(
         verbose_name='イベント名', db_column='T008_FD01_event', max_length=100)
@@ -493,7 +493,6 @@ class T012Contactbooktem(models.Model):
     # Field name made lowercase.
     t012_fd07_updatedata = models.DateTimeField(
         verbose_name='更新日時', auto_now=True, db_column='T012_FD07_updatedata')
-
 
     class Meta:
 

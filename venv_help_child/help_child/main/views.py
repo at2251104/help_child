@@ -14,13 +14,14 @@ from accounts.models import *
 from main.models import *
 # Create your views h
 from .models import *
-from django.db.models import Q,F
+from django.db.models import Q, F
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import *
 from django.db import transaction
 import logging
 
 logger = logging.getLogger('development')
+
 
 class IndexView(generic.TemplateView):
     template_name = "index.html"
@@ -99,7 +100,7 @@ class ContactDetailView(LoginRequiredMixin, generic.TemplateView):
         renrakucho["object"] = T007Contactbook.objects.filter(
             t007_fd01_date=datetime.datetime.strptime(num, '%Y%m%d'), t007_fk01_children_id=id)
         return renrakucho
-    
+
     def get_queryset(self):
         return CustomUser.objects.filter(username=self.request.user.username)
 
@@ -129,6 +130,7 @@ class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
 
     def form_invalid(self, form):
         return super().form_invalid(form)
+
 
 class ContactUpdateOyaView(LoginRequiredMixin, generic.CreateView):
     model = T007Contactbook
@@ -162,12 +164,12 @@ class ContactTemplateView(LoginRequiredMixin, generic.CreateView):
     fields = '__all__'
     template_name = "contactTemplate.html"
 
-    
-    def post(self,request,*args,**kwargs):
-        if self.request.POST.getlist('data',None):
-            post=self.request.POST.getlist('data',None)
-            T012Contactbooktem.objects.create(t012_fd03_mealtime=post[0],t012_fd04_meal_contents=post[1],t012_fd05_bed_time=post[2],t012_fd06_wakeup_time=post[3],t012_fd02_information=post[4])
-        return self.get(request, *args,**kwargs,)
+    def post(self, request, *args, **kwargs):
+        if self.request.POST.getlist('data', None):
+            post = self.request.POST.getlist('data', None)
+            T012Contactbooktem.objects.create(t012_fd03_mealtime=post[0], t012_fd04_meal_contents=post[1],
+                                              t012_fd05_bed_time=post[2], t012_fd06_wakeup_time=post[3], t012_fd02_information=post[4])
+        return self.get(request, *args, **kwargs,)
 
 
 class MessageAddressView(LoginRequiredMixin, generic.ListView):
@@ -182,24 +184,25 @@ class AttendView(LoginRequiredMixin, generic.ListView):
     model = T001Children
     template_name = "attend.html"
 
-    def post(self,request,*args,**kwargs):
-        if self.request.POST.get('update_button',None):
-                t=T001Children.objects.filter(
-                    t001_pk01_children_id=self.request.POST.get('update_button')).first()
-                t.t001_fd11_kindergaten=not bool(t.t001_fd11_kindergaten)
-                t.save()
-        elif self.request.POST.get('all_true_button',None):
-            T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id).update(t001_fd11_kindergaten=True)
-        elif self.request.POST.get('all_false_button',None):
-            T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id).update(t001_fd11_kindergaten=False)
-        return  self.get(request, *args,**kwargs,)
+    def post(self, request, *args, **kwargs):
+        if self.request.POST.get('update_button', None):
+            t = T001Children.objects.filter(
+                t001_pk01_children_id=self.request.POST.get('update_button')).first()
+            t.t001_fd11_kindergaten = not bool(t.t001_fd11_kindergaten)
+            t.save()
+        elif self.request.POST.get('all_true_button', None):
+            T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id).update(
+                t001_fd11_kindergaten=True)
+        elif self.request.POST.get('all_false_button', None):
+            T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id).update(
+                t001_fd11_kindergaten=False)
+        return self.get(request, *args, **kwargs,)
 
-
-        
     def get_queryset(self):
-        toukouenn = T001Children.objects.filter(t001_fk01_class_id=self.request.user.detail_buyer.class_id).select_related()
+        toukouenn = T001Children.objects.filter(
+            t001_fk01_class_id=self.request.user.detail_buyer.class_id).select_related()
         # 検索box 絞り込み
-        #if "query" in self.request.GET:
+        # if "query" in self.request.GET:
         #    search = self.request.GET["query"]
         #    or_lookup = (
         #        Q(t005_pk01_childen_id__icontains=search)
@@ -207,6 +210,7 @@ class AttendView(LoginRequiredMixin, generic.ListView):
         #    toukouenn = toukouenn.filter(or_lookup)
 
         return toukouenn
+
 
 class TagScanView(LoginRequiredMixin, generic.TemplateView):
     template_name = "tagScan.html"
@@ -256,6 +260,14 @@ class PlanListDetailView(LoginRequiredMixin, ListView):
 class PlanListAddView(LoginRequiredMixin, generic.TemplateView):
     template_name = "planListAdd.html"
 
+    def post(self, request, *args, **kwargs):
+        if self.request.POST.getlist('planName', None):
+            post = self.request.POST.getlist('planName', None)
+            post[1] = T004Class.objects.get(t004_pk01_class_id=post[1])
+            T008Schedule.objects.create(t008_pk01_schedule_id=post[0], t008_fk01_class_id=post[1],
+                                        t008_fd01_event=post[3], t008_fd03_date=post[2], t008_fd02_remarks=post[4])
+        return self.get(request, *args, **kwargs,)
+
 
 class PlanListUpdateView(LoginRequiredMixin, generic.TemplateView):
     template_name = "planListUpdate.html"
@@ -285,21 +297,23 @@ class BlogDetailView(LoginRequiredMixin, generic.TemplateView):
         )
         return blog
 
+
 class BlogCreateView(LoginRequiredMixin, generic.CreateView):
     model = T013Blog
     template_name = "blogCreate.html"
     form_class = BlogCreateForm
     success_url = reverse_lazy('main:home')
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         main = form.save(commit=False)
         main.save()
-        #messages.success(self.request,'ブログを作成しました。')
+        # messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        #messages.error(self.request,"ブログの作成に失敗しました。")
+        # messages.error(self.request,"ブログの作成に失敗しました。")
         return super().form_invalid(form)
+
 
 class BlogUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = T013Blog
@@ -307,13 +321,14 @@ class BlogUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = BlogCreateForm
     success_url = reverse_lazy('main:home')
 
-    def form_valid(self,form):
-        #messages.success(self.request,'ブログを作成しました。')
+    def form_valid(self, form):
+        # messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        #messages.error(self.request,"ブログの作成に失敗しました。")
+        # messages.error(self.request,"ブログの作成に失敗しました。")
         return super().form_invalid(form)
+
 
 class BlogDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = T013Blog
@@ -325,15 +340,17 @@ class BlogDeleteView(LoginRequiredMixin, generic.DeleteView):
         blog["object_list"] = T013Blog.objects.all
         return blog
 
+
 class ListTopView(generic.ListView, LoginRequiredMixin):
 
     template_name = "listtop.html"
-    model = T001Children,T002Parents,T003Childminder
+    model = T001Children, T002Parents, T003Childminder
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # ユーザ種類別のデータの取り出し方...self.request.user.detail_buyer←ここでrelated_nameを指定する！！！！！！！！！！！！！！！
-        context["Children"] = T001Children.objects.all().order_by('t001_fd08_last_name_kana')
+        context["Children"] = T001Children.objects.all().order_by(
+            't001_fd08_last_name_kana')
         context["adult"] = CustomUser.objects.all().order_by('last_name_kana')
         return context
 
@@ -347,15 +364,17 @@ class ListTopView(generic.ListView, LoginRequiredMixin):
             )
             contact = contact.filter(or_lookup)
         return contact
+
 
 class ChildminderListTopView(generic.ListView, LoginRequiredMixin):
 
     template_name = "childminderlistTop.html"
-    model = T001Children,T002Parents,T003Childminder
+    model = T001Children, T002Parents, T003Childminder
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["adult"] = CustomUser.objects.filter().order_by('last_name_kana')
+        context["adult"] = CustomUser.objects.filter().order_by(
+            'last_name_kana')
         return context
 
     def get_queryset(self):
@@ -368,15 +387,17 @@ class ChildminderListTopView(generic.ListView, LoginRequiredMixin):
             )
             contact = contact.filter(or_lookup)
         return contact
+
 
 class ChildrenListTopView(generic.ListView, LoginRequiredMixin):
 
     template_name = "childrenlistTop.html"
-    model = T001Children,T002Parents,T003Childminder
+    model = T001Children, T002Parents, T003Childminder
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["Children"] = T001Children.objects.all().order_by('t001_fd08_last_name_kana')
+        context["Children"] = T001Children.objects.all().order_by(
+            't001_fd08_last_name_kana')
         return context
 
     def get_queryset(self):
@@ -390,10 +411,11 @@ class ChildrenListTopView(generic.ListView, LoginRequiredMixin):
             contact = contact.filter(or_lookup)
         return contact
 
+
 class ParentsListTopView(generic.ListView, LoginRequiredMixin):
 
     template_name = "ParentslistTop.html"
-    model = T001Children,T002Parents,T003Childminder
+    model = T001Children, T002Parents, T003Childminder
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -410,6 +432,7 @@ class ParentsListTopView(generic.ListView, LoginRequiredMixin):
             )
             contact = contact.filter(or_lookup)
         return contact
+
 
 class ListDetailView(LoginRequiredMixin, generic.TemplateView):
     model = T013Blog
@@ -423,21 +446,23 @@ class ListDetailView(LoginRequiredMixin, generic.TemplateView):
         )
         return blog
 
+
 class ListCreateView(LoginRequiredMixin, generic.CreateView):
     model = T013Blog
     template_name = "blogCreate.html"
     form_class = BlogCreateForm
     success_url = reverse_lazy('main:home')
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         main = form.save(commit=False)
         main.save()
-        #messages.success(self.request,'ブログを作成しました。')
+        # messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        #messages.error(self.request,"ブログの作成に失敗しました。")
+        # messages.error(self.request,"ブログの作成に失敗しました。")
         return super().form_invalid(form)
+
 
 class ListUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = T013Blog
@@ -445,13 +470,14 @@ class ListUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = BlogCreateForm
     success_url = reverse_lazy('main:home')
 
-    def form_valid(self,form):
-        #messages.success(self.request,'ブログを作成しました。')
+    def form_valid(self, form):
+        # messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        #messages.error(self.request,"ブログの作成に失敗しました。")
+        # messages.error(self.request,"ブログの作成に失敗しました。")
         return super().form_invalid(form)
+
 
 class ListDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = T013Blog
