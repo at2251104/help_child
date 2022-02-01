@@ -133,9 +133,13 @@ class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
         return super().form_invalid(form)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 class ContactUpdateOyaView(LoginRequiredMixin, generic.CreateView):
 =======
+=======
+
+>>>>>>> 0f95eb7e5d35a9620382b202bd434d5c7c3006df
 class ContactUpdateOyaView(LoginRequiredMixin, generic.UpdateView):
 >>>>>>> f4a7204e33cfea0dee1929e4502273db88bfc2a4
     model = T007Contactbook
@@ -162,7 +166,6 @@ class ContactUpdateOyaView(LoginRequiredMixin, generic.UpdateView):
 
     def form_invalid(self, form):
         return super().form_invalid(form)
-
 
 class ContactTemplateView(LoginRequiredMixin, generic.CreateView):
     model = T012Contactbooktem
