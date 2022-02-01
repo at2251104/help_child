@@ -18,7 +18,7 @@ class UserType(models.Model):
                                 max_length=150)
 
     def __str__(self):
-        return f'{self.id} - {self.typename}'
+        return f'{self.typename}'
 
 USERTYPE_PARENTS = 200
 USERTYPE_CHILDMINDER = 100
@@ -61,7 +61,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
         _('username'),
         max_length=150,
-        help_text=_('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
+        help_text=_('ユーザ名は名前をローマ字で入力してください。この項目は必須です。'),
         default='01',
         validators=[username_validator],
         error_messages={
@@ -75,7 +75,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
                                 blank=True,
                                 on_delete=models.PROTECT)
 
-    email = models.EmailField(('メールアドレス'),primary_key=True, unique=True)
+    email = models.EmailField(('メールアドレス'),primary_key=True, unique=True,help_text=_('ログイン時に必須'))
     last_name = models.CharField(('姓'), max_length=150)
     first_name = models.CharField(('名'),max_length=150)
     last_name_kana = models.CharField(('姓（かな）'), max_length=150)
@@ -111,8 +111,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         verbose_name = ('user')
         verbose_name_plural = ('ユーザー')
 
-    def __str__(self):
-        return self.username
 
     def clean(self):
         super().clean()
@@ -132,19 +130,19 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def email_user(self, subject, message, from_email=None, **kwargs):
         send_mail(subject, message, from_email, [self.email], **kwargs)
 
+    def __str__(self):
+        return self.username
+
 class T002Parents(models.Model):
     user = models.OneToOneField(CustomUser,
                                 unique=True,
                                 related_name='detail_supplier',
+                                help_text=_('登録したユーザ名を選択'),
                                 on_delete=models.CASCADE)
-    # 保護者向けの項目
-    notification = models.BooleanField(
-                                    verbose_name='通知',
-                                    default=True
-                                )
+
     def __str__(self):
         user = CustomUser.objects.get(pk=self.user_id)
-        return f'{self.user} - {self.id} -{self.notification}'
+        return f'{self.user} - {self.id}'
 
     class Meta:
         verbose_name_plural="保護者テーブル"
@@ -153,6 +151,7 @@ class T003Childminder(models.Model):
     user = models.OneToOneField(CustomUser,
                                 unique=True,
                                 related_name='detail_buyer',
+                                help_text=_('登録したユーザ名を選択'),
                                 on_delete=models.CASCADE)
     # 保育士向けの項目
     class_id = models.ForeignKey("main.T004Class",

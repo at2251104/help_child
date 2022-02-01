@@ -67,14 +67,15 @@
                     </li>
                 </td>
                 <td class="select">
-                    <a href="{%url 'main:contactUpdate'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">詳細</a>
-                    <a href="{%url 'main:contactUpdate_oya'%}?id={{iiii.t001_pk01_children_id}}&num={% now " Ymd"%} " class=" select-btn">編集</a>
-                    <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">削除</a>
+                    <a href="{%url 'main:childrenDetail'%}?id={{iiii.t001_pk01_children_id}}" class="select-btn">詳細</a>
+                    <a href="{%url 'main:childrenUpdate' iiii.pk %} " class=" select-btn">編集</a>
+                    <a href="{%url 'main:childrenDelete' iiii.pk %}"  class="select-btn">削除</a>
                 </td>
             </tr>
             {% empty %}
             {% endfor %}
         </table>
+        <a href="{%url 'main:childrenCreate' %}"  class="select-btn">作成</a>
     </ul>
 </div>
 {% endblock %}
