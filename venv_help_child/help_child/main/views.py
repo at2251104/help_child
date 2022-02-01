@@ -666,3 +666,4 @@ class Parents2CreateView(LoginRequiredMixin, generic.CreateView):
     def form_invalid(self, form):
         # messages.error(self.request,"ブログの作成に失敗しました。")
         return super().form_invalid(form)
+# aaaaa
