@@ -372,21 +372,19 @@ class ChildminderListTopView(generic.ListView, LoginRequiredMixin):
 
     template_name = "childminderlistTop.html"
 
-
-<< << << < HEAD
     model = T001Children, T002Parents, T003Childminder
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["adult"] = CustomUser.objects.filter().order_by(
             'last_name_kana')
-== == == =
+
     model = T003Childminder
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["adult"] = T003Childminder.objects.all().order_by('user_id')
->>>>>> > f4a7204e33cfea0dee1929e4502273db88bfc2a4
+
         return context
 
     def get_queryset(self):
@@ -404,11 +402,13 @@ class ChildminderListTopView(generic.ListView, LoginRequiredMixin):
 class ChildrenListTopView(generic.ListView, LoginRequiredMixin):
 
     template_name = "childrenlistTop.html"
-<<<<<<< HEAD
+
+
+<< << << < HEAD
     model = T001Children, T002Parents, T003Childminder
-=======
+== == == =
     model = T001Children,
->>>>>>> f4a7204e33cfea0dee1929e4502273db88bfc2a4
+>>>>>> > f4a7204e33cfea0dee1929e4502273db88bfc2a4
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -431,11 +431,13 @@ class ChildrenListTopView(generic.ListView, LoginRequiredMixin):
 class ParentsListTopView(generic.ListView, LoginRequiredMixin):
 
     template_name = "ParentslistTop.html"
-<<<<<<< HEAD
+
+
+<< << << < HEAD
     model = T001Children, T002Parents, T003Childminder
-=======
+== == == =
     model = T002Parents
->>>>>>> f4a7204e33cfea0dee1929e4502273db88bfc2a4
+>>>>>> > f4a7204e33cfea0dee1929e4502273db88bfc2a4
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -453,16 +455,23 @@ class ParentsListTopView(generic.ListView, LoginRequiredMixin):
             contact = contact.filter(or_lookup)
         return contact
 
-<<<<<<< HEAD
+<< << << < HEAD
+
 
 class ListDetailView(LoginRequiredMixin, generic.TemplateView):
     model = T013Blog
     template_name = "blogDetail.html"
-=======
+
+
+== == == =
+
+
 class ChildrenDetailView(LoginRequiredMixin, generic.TemplateView):
     model = T001Children
     template_name = "childrenDetail.html"
->>>>>>> f4a7204e33cfea0dee1929e4502273db88bfc2a4
+
+
+>>>>>> > f4a7204e33cfea0dee1929e4502273db88bfc2a4
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -472,14 +481,19 @@ class ChildrenDetailView(LoginRequiredMixin, generic.TemplateView):
         )
         return context
 
-<<<<<<< HEAD
+<< << << < HEAD
+
 
 class ListCreateView(LoginRequiredMixin, generic.CreateView):
     model = T013Blog
     template_name = "blogCreate.html"
     form_class = BlogCreateForm
     success_url = reverse_lazy('main:home')
-=======
+
+
+== == == =
+
+
 class ChildminderDetailView(LoginRequiredMixin, generic.TemplateView):
     model = CustomUser
     template_name = "childminderDetail.html"
@@ -491,6 +505,7 @@ class ChildminderDetailView(LoginRequiredMixin, generic.TemplateView):
             email=Email
         )
         return context
+
 
 class ParentsDetailView(LoginRequiredMixin, generic.TemplateView):
     model = CustomUser
@@ -511,13 +526,14 @@ class ChildrenUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = ChildrenEditForm
     success_url = reverse_lazy('main:childrenlistTop',)
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         # messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
 
     def form_invalid(self, form):
         # messages.error(self.request,"ブログの作成に失敗しました。")
         return super().form_invalid(form)
+
 
 class ChildminderUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = CustomUser
@@ -525,13 +541,14 @@ class ChildminderUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = AdultEditForm
     success_url = reverse_lazy('main:childminderlistTop')
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         # messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
 
     def form_invalid(self, form):
         # messages.error(self.request,"ブログの作成に失敗しました。")
         return super().form_invalid(form)
+
 
 class ParentsUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = CustomUser
@@ -539,69 +556,71 @@ class ParentsUpdateView(LoginRequiredMixin, generic.UpdateView):
     form_class = AdultEditForm
     success_url = reverse_lazy('main:parentslistTop')
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         # messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
 
     def form_invalid(self, form):
         # messages.error(self.request,"ブログの作成に失敗しました。")
         return super().form_invalid(form)
+
 
 class ChildrenDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = T001Children
     template_name = "childrenDelete.html"
     success_url = reverse_lazy('main:childrenlistTop')
 
-    
- 
+
 class ChildminderDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = CustomUser
     template_name = "childminderDelete.html"
     success_url = reverse_lazy('main:childminderlistTop')
 
-   
 
 class ParentsDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = CustomUser
     template_name = "parentsDelete.html"
     success_url = reverse_lazy('main:parentslistTop')
 
-   
 
 class ChildrenCreateView(LoginRequiredMixin, generic.CreateView):
     model = T001Children
     template_name = "childrenCreate.html"
     form_class = ChildrenEditForm
     success_url = reverse_lazy('main:childrenlistTop')
->>>>>>> f4a7204e33cfea0dee1929e4502273db88bfc2a4
+
+
+>>>>>> > f4a7204e33cfea0dee1929e4502273db88bfc2a4
 
     def form_valid(self, form):
         main = form.save(commit=False)
         main.save()
         # messages.success(self.request,'ブログを作成しました。')
         return super().form_valid(form)
-    
+
     def form_invalid(self, form):
         # messages.error(self.request,"ブログの作成に失敗しました。")
         return super().form_invalid(form)
 
+
 class ChildminderCreateView(LoginRequiredMixin, generic.CreateView):
-    model = CustomUser,T003Childminder
+    model = CustomUser, T003Childminder
     template_name = "childminderCreate.html"
     form_class = AdultCreateForm
     success_url = reverse_lazy('main:childminder2Create')
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         main = form.save(commit=False)
         main.save()
         return super().form_valid(form)
-
 
     def form_invalid(self, form):
         # messages.error(self.request,"ブログの作成に失敗しました。")
         return super().form_invalid(form)
 
-<<<<<<< HEAD
+
+<< << << < HEAD
+
 
 class ListUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = T013Blog
@@ -610,19 +629,25 @@ class ListUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy('main:home')
 
     def form_valid(self, form):
+
+
         # messages.success(self.request,'ブログを作成しました。')
-=======
+== == == =
+
+
 class ParentsCreateView(LoginRequiredMixin, generic.CreateView):
     model = CustomUser
     template_name = "parentsCreate.html"
     form_class = AdultCreateForm
     success_url = reverse_lazy('main:parents2Create')
 
-    def form_valid(self,form):
+    def form_valid(self, form):
         main = form.save(commit=False)
         main.save()
+
+
         # messages.success(self.request,'ブログを作成しました。')
->>>>>>> f4a7204e33cfea0dee1929e4502273db88bfc2a4
+>>>>>> > f4a7204e33cfea0dee1929e4502273db88bfc2a4
         return super().form_valid(form)
 
     def form_invalid(self, form):
