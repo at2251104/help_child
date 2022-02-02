@@ -28,15 +28,12 @@
 
 {% block main_contents%}
 <div id="contact-update-main">
-    <h2>連絡帳</h2>
-    <div id="contact-date">
-        <form action="window.alert(target)" method="post" class="planlistDetailCenter">
-            <input type="text" placeholder="日付検索" id="target" text-align="center">
-        </form>
+    <h2>今日の連絡帳</h2>
+    <div id="">
+        {{ form.t007_fd01_date}}
     </div>
     <div id="next-prev-button">
-        <button id="prev" onclick="prev()">‹</button>
-        <button id="next" onclick="next()">›</button>
+       
     </div>
     <div id="contact-book">
             <form method="POST" enctype='multipart/form-data'>
