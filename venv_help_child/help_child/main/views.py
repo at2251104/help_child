@@ -116,11 +116,15 @@ class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
         context = super().get_context_data(**kwargs)
         num = self.request.GET.get("num", "20211201")
         id = self.request.GET.get("id", "01")
-        default_data = {
-            't007_pk01_contactbook_id': (num + id),
+        
+        
+        initial_dict = {
+        't007_fk01_children_id': id,
+        't007_pk01_contactbook_id': num+id
         }
-        schoolcontact_form = SchoolContactForm(initial=default_data)
-        context['form'] = schoolcontact_form
+        
+        context['form'] = SchoolContactForm(self.request.POST or None, initial=initial_dict)
+
         return context
 
     def form_valid(self, form):
