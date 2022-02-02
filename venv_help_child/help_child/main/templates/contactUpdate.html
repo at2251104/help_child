@@ -33,10 +33,10 @@
         {{ form.t007_fd01_date}}
     </div>
     <div id="next-prev-button">
-       
+
     </div>
     <div id="contact-book">
-            <form method="POST" enctype='multipart/form-data'>
+        <form method="POST" enctype='multipart/form-data'>
             {% csrf_token %}
             {{ form.t007_fk01_children_id}}
             {{ form.t007_pk01_contactbook_id }}
