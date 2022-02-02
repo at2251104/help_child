@@ -15,7 +15,7 @@
 {% block head_slide%}
 <aside id="mainimg">
     <div>
-        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/0.png' %}" alt="" id="slide0">
         <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
         <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
         <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
@@ -25,19 +25,20 @@
 
 {% block main_contents%}
 <div id="main">
-<div class="container">
-    <div class="row">
-        <div class="my-div-style w-100">
-            <form method="POST">
-                {% csrf_token %}
-                <p>本当に削除しますか？</p>
-                <button class="btn btn-primary mt-5" type="submit">削除</button>
-                {% for blog in object_list %}
-                <a class="btn btn-secondary mt-5 ml-2" href="{% url 'main:listDetail' %}?id={{blog.t013_pk01_blog_id}}">キャンセル</a>
-                {% endfor %}
-            </form>
+    <div class="container">
+        <div class="row">
+            <div class="my-div-style w-100">
+                <form method="POST">
+                    {% csrf_token %}
+                    <p>本当に削除しますか？</p>
+                    <button class="btn btn-primary mt-5" type="submit">削除</button>
+                    {% for blog in object_list %}
+                    <a class="btn btn-secondary mt-5 ml-2"
+                        href="{% url 'main:listDetail' %}?id={{blog.t013_pk01_blog_id}}">キャンセル</a>
+                    {% endfor %}
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}

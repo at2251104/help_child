@@ -17,7 +17,7 @@
 <!--スライドショー-->
 <aside id="mainimg">
     <div>
-        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/0.png' %}" alt="" id="slide0">
         <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
         <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
         <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
@@ -69,13 +69,13 @@
                 <td class="select">
                     <a href="{%url 'main:childrenDetail'%}?id={{iiii.t001_pk01_children_id}}" class="select-btn">詳細</a>
                     <a href="{%url 'main:childrenUpdate' iiii.pk %} " class=" select-btn">編集</a>
-                    <a href="{%url 'main:childrenDelete' iiii.pk %}"  class="select-btn">削除</a>
+                    <a href="{%url 'main:childrenDelete' iiii.pk %}" class="select-btn">削除</a>
                 </td>
             </tr>
             {% empty %}
             {% endfor %}
         </table>
-        <a href="{%url 'main:childrenCreate' %}"  class="select-btn">作成</a>
+        <a href="{%url 'main:childrenCreate' %}" class="select-btn">作成</a>
     </ul>
 </div>
 {% endblock %}
