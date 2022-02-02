@@ -457,7 +457,7 @@ button.btn-border:hover:after {
 
 /*contactTop画面
 ---------------------------------------------------------------------------*/
-#contact-top-main {
+.contact-top-main {
   float: right; 
   width: 70%; 
   overflow: hidden;
@@ -465,7 +465,7 @@ button.btn-border:hover:after {
   margin: auto;
 }
 
-#contact-top-main h2 {
+.contact-top-main h2 {
   clear: both;
   font-size: 17px; /*文字サイズ*/
   text-align: left; /*テキストの位置*/
@@ -481,12 +481,12 @@ button.btn-border:hover:after {
   margin-bottom: 15px;
 }
 
-#child-list {
+.child-list {
   margin-bottom: 15px;
   width: 100%;
 }
 
-#child-list table{
+.child-list table{
   white-space: nowrap;
   width: 100%;
   background-color: #fff;
@@ -528,13 +528,13 @@ button.btn-border:hover:after {
 /* 画面幅800px以下の設定 */
 @media screen and (max-width: 800px) {
   /*mainコンテンツ*/
-  #contact-top-main {
+  .contact-top-main {
     float: none;
     width: auto;
   }
 
   /*main*/
-  #contact-top-main {
+  .contact-top-main {
     padding: 0 !important;
   }
 }

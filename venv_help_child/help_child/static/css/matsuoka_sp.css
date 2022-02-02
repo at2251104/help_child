@@ -199,6 +199,29 @@
   .row {
   }
 
+  .row select {
+    font-size: 20px;
+    width: 80%;
+    background: #ffffff; /*背景色*/
+    border: 3px double #dadddd;
+    border-radius: 15;
+    margin-bottom: 20px;
+  }
+
+  .row_btn button {
+    margin-left: 18%;
+    text-align: center;
+    width: 150px;
+    font-size: 25px;
+    background-color: #22b5eb;
+    color: #ffffff;
+    border: 3px double rgb(196, 194, 194);
+  }
+  .row_btn a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
   .row h1 {
     padding: 0.4em 0.5em; /*文字の上下 左右の余白*/
     color: #494949; /*文字色*/
@@ -223,6 +246,33 @@
     /* overflow: scroll; */
     width: 100%; /*幅*/
     overflow: hidden;
+  }
+
+  #bgmain form {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  #bgmain input {
+    font-size: 20px;
+    width: 80%;
+    height: 5%;
+    margin-bottom: 10px;
+    border: 2px double #a8a9aa;
+  }
+
+  #bgmain .remarksBox1 {
+    width: 100%;
+    height: 30%;
+    overflow: hidden;
+    vertical-align: top;
+  }
+
+  #bgmain .planlistAddButton {
+    background-color: #3879d9;
+    color: ffffff;
+    width: 80px;
+    height: 40px;
+    text-align: center;
   }
 
   /*==================================================
@@ -317,13 +367,6 @@
     border: double 5px #cad0d1d8;
   }
   .table label {
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-
-    font-family: "Poppins", sans-serif;
   }
 
   form {

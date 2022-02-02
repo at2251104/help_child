@@ -14,7 +14,6 @@
 {% block title %}連絡帳園児リスト-CONTACT{% endblock %}
 
 {% block head_slide%}
-
 <!--スライドショー-->
 <aside id="mainimg">
     <div>
@@ -25,20 +24,17 @@
     </div>
 </aside>
 {% endblock %}
-{% block main_contents%}
 
-<div id="contactTop-main">
-    <div id="h2">
-        <h2>連絡帳一覧</h2>
-    </div>
-    <!-- 閲覧/記入の切り替え -->
-    <div class="switchArea">
-        <input type="checkbox" id="switch1">
-        <label for="switch1"><span></span></label>
-        <div id="swImg"></div>
-    </div>
-    <ul id="child-list">
-    
+{% block main_contents%}
+<div class="contact-top-main">
+    <h2>園児選択</h2>
+    <!-- 検索ボックス Django-->
+    <form action="" method="get" class="search_container">
+        <input name="query" value="{{ request.GET.query }}" type="text" id="search-text" onkeyup="myFunction()" size="30"
+            placeholder="検索">
+    </form>
+    <!-- 園児リスト -->
+    <ul class="child-list">
         <table border="2" style="border-collapse: collapse; border-color: #000">
             <tr>
                 <th class="class-name">
@@ -69,15 +65,12 @@
                     </li>
                 </td>
                 <td class="select">
-            
                     {% if user.detail_buyer %}
                     <a href="{%url 'main:contactUpdate'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">記入</a>
                     {% else %}
                     <a href="/contactUpdate_oya/{% now "Ymd"%}{{iiii.t001_pk01_children_id}}" class=" select-btn">記入</a>
                     {% endif %}
-        
                     <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">閲覧</a>
-        
                     <p></p>
                 </td>
             </tr>
