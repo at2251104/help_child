@@ -150,15 +150,14 @@ class ContactUpdateOyaView(LoginRequiredMixin, generic.UpdateView):
         id = self.request.GET.get("id", "01")
         default_data = {
             't007_pk01_contactbook_id': (num + id),
+            't007_fk01_children_id': id,
         }
-        homecontact_form = HomeContactForm(initial=default_data)
+        homecontact_form = HomeContactForm(initial = default_data)
         context['form'] = homecontact_form
+
         return context
 
     def form_valid(self, form):
-        main = form.save(commit=False)
-        main.user = self.request.user
-        main.save()
         return super().form_valid(form)
 
     def form_invalid(self, form):
@@ -277,6 +276,14 @@ class PlanListAddView(LoginRequiredMixin, generic.TemplateView):
 
 class PlanListUpdateView(LoginRequiredMixin, generic.TemplateView):
     template_name = "planListUpdate.html"
+    def post(self, request, *args, **kwargs):
+        if self.request.POST.getlist('planName', None):
+            post = self.request.POST.getlist('planName', None)
+            post[1] = T004Class.objects.get(t004_pk01_class_id=post[1])
+            T008Schedule.objects.create(t008_pk01_schedule_id=post[0], t008_fk01_class_id=post[1],
+                                        t008_fd01_event=post[3], t008_fd03_date=post[2], t008_fd02_remarks=post[4])
+        return self.get(request, *args, **kwargs,)
+
 
 
 class PlanListDeleteView(LoginRequiredMixin, generic.TemplateView):
