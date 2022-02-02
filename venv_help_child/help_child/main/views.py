@@ -150,15 +150,14 @@ class ContactUpdateOyaView(LoginRequiredMixin, generic.UpdateView):
         id = self.request.GET.get("id", "01")
         default_data = {
             't007_pk01_contactbook_id': (num + id),
+            't007_fk01_children_id': id,
         }
-        homecontact_form = HomeContactForm(initial=default_data)
+        homecontact_form = HomeContactForm(initial = default_data)
         context['form'] = homecontact_form
+
         return context
 
     def form_valid(self, form):
-        main = form.save(commit=False)
-        main.user = self.request.user
-        main.save()
         return super().form_valid(form)
 
     def form_invalid(self, form):
