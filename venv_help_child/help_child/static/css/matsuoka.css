@@ -214,6 +214,28 @@
     font-size: 20px;
   }
 
+  .row select {
+    font-size: 20px;
+    background: #ffffff; /*背景色*/
+    border: 3px solid #cbcecf;
+    border-radius: 15;
+    margin-bottom: 20px;
+  }
+
+  .row button {
+    margin-left: 18%;
+    text-align: center;
+    width: 150px;
+    font-size: 25px;
+    background-color: #22b5eb;
+    color: #ffffff;
+    border: 3px double rgb(196, 194, 194);
+  }
+  .row a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
   /* .row img {
   object-fit: cover;
 } */
@@ -226,6 +248,30 @@
     overflow: hidden;
   }
 
+  #bgmain form {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  #bgmain input {
+    font-size: 20px;
+    margin-bottom: 10px;
+    border: 2px double #a8a9aa;
+  }
+
+  #bgmain .remarksBox1 {
+    width: 80%;
+    height: 200px;
+    overflow: hidden;
+    vertical-align: top;
+  }
+
+  #bgmain .planlistAddButton {
+    background-color: #3879d9;
+    color: ffffff;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+  }
   /*==================================================
 スライダーのためのcss
 ===================================*/

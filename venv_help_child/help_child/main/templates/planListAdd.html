@@ -3,10 +3,8 @@
 {% block head %}
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="{% static 'js/sugahara.js' %}"></script>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<link rel="stylesheet" href="{% static 'css/suda.css' %}">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
@@ -14,6 +12,7 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
 
 <link rel="stylesheet" href="{% static 'css/matsuoka.css' %}">
+<link rel="stylesheet" href="{% static 'css/matsuoka_sp.css' %}">
 {% endblock %}
 
 {% block head_slide%}
@@ -32,65 +31,23 @@
 {% endblock %}
 
 {% block main_contents%}
-<div id="plmain">
-    <h2>予定表追加</h2>
-    <div class="group">
-        <div class="title">
-            <年齢選択>
-        </div>
-        <div class="search-box">
-            <div class="checkAll">
-                <label class="label">
-                    <input class="js-check-all" type="checkbox" name="hobby" data-check-all="hobby">
-                    <span class="text">All</span>
-                </label>
-            </div>
-            <ul class="js-check-all-target list" data-check-all="hobby">
-                <li class="item">
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age0">
-                        <span class="text">0歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age1">
-                        <span class="text">1歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age2">
-                        <span class="text">2歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age3">
-                        <span class="text">3歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age4">
-                        <span class="text">4歳児</span>
-                    </label>
-                    <label class="label">
-                        <input type="checkbox" name="hobby" value="age5">
-                        <span class="text">5歳児</span><br>
-                    </label>
-                </li>
-            </ul>
-        </div>
+<div id="bgmain">
+    <div style="font-size: 40px;">
+        <h1 style="text-align: center;">予定表追加</h1>
+
     </div>
-    <ul id="list">
-        <li class="list_item" data-hobby="age0"><a href="#">0クラス </a></li>
-
-    </ul>
-
 
     <form method="post">
         {% csrf_token %}
-        <h2>追加したい日程・行事</h2>
-        <p>ID:<input type="textbox" name="planName"></p>
-        <p>クラス名<input type="integer" name="planName"></p>
-        <h4>日 付 : <input type="date" placeholder="日付" name="planName"></h4>
-        <h4>行事名 : <input type="textbox" name="planName"></h4>
+        <h1 style="text-align: center;">追加したい日程・行事</h1>
+        <p>予定表ID:<input type="textbox" name="planName"></p>
+        <p>クラスID:<input type="integer" name="planName"></p>
+        <p>日　付　: <input type="date" placeholder="日付" name="planName"></p>
+        <p>行事名　: <input type="textbox" name="planName"></p>
 
         備考<br>
-        <input type="textarea" class="remarksBox1" rows="6" cols="40" name="planName"></input><br>
+        <input type="textarea" class="remarksBox1" rows="6" cols="40" name="planName"><br>
+
         <br>
         <input type="submit" value="追加" class="planlistAddButton">
     </form>
