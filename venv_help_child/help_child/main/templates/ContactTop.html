@@ -26,20 +26,16 @@
 {% endblock %}
 
 {% block main_contents%}
-<div id="contact-top-main">
+<div class="contact-top-main">
     <h2>園児選択</h2>
-
     <!-- 園児年齢別選択 -->
-
     <!-- 検索ボックス Django-->
     <form action="" method="get" class="search_container">
         <input name="query" value="{{ request.GET.query }}" type="text" id="search-text" onkeyup="myFunction()"
             size="30" placeholder="検索">
     </form>
-
     <!-- 園児リスト -->
-    <ul id="child-list">
-
+    <ul class="child-list">
         <table border="2" style="border-collapse: collapse; border-color: #000">
             <tr>
                 <th class="class-name">
@@ -75,9 +71,7 @@
                     {% else %}
                     <a href="{%url 'main:contactUpdate_oya'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class=" select-btn">記入</a>
                     {% endif %}
-
                     <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class=" select-btn">閲覧</a>
-
                     <p></p>
                 </td>
             </tr>
