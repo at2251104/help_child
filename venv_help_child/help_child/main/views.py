@@ -20,7 +20,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import *
 from django.db import transaction
 import logging
-
+from datetime import time
 logger = logging.getLogger('development')
 
 
@@ -116,11 +116,16 @@ class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
         context = super().get_context_data(**kwargs)
         num = self.request.GET.get("num", "20211201")
         id = self.request.GET.get("id", "01")
-        
+        a=T012Contactbooktem.objects.all().first()
         
         initial_dict = {
         't007_fk01_children_id': id,
-        't007_pk01_contactbook_id': num+id
+        't007_pk01_contactbook_id': num+id,
+        't007_fd15_lunch_contents': a.t012_fd04_meal_contents,
+        't007_fd16_lunch_time':datetime.time(a.t012_fd03_mealtime.hour,a.t012_fd03_mealtime.minute),
+        't007_fd27_bed_time':a.t012_fd05_bed_time,
+        't007_fd17_wakeup_time':a.t012_fd06_wakeup_time,
+        't007_fd24_infomation':a.t012_fd02_information
         }
         
         context['form'] = SchoolContactForm(self.request.POST or None, initial=initial_dict)
@@ -146,11 +151,12 @@ class ContactUpdateOyaView(LoginRequiredMixin, generic.UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        
         num = self.request.GET.get("num", "20211201")
         id = self.request.GET.get("id", "01")
         default_data = {
             't007_pk01_contactbook_id': (num + id),
-            't007_fk01_children_id': id,
+            't007_fk01_children_id': id
         }
         homecontact_form = HomeContactForm(initial = default_data)
         context['form'] = homecontact_form
@@ -172,8 +178,9 @@ class ContactTemplateView(LoginRequiredMixin, generic.CreateView):
     def post(self, request, *args, **kwargs):
         if self.request.POST.getlist('data', None):
             post = self.request.POST.getlist('data', None)
+            a=T003Childminder.objects.get(user__username=self.request.user.username)
             T012Contactbooktem.objects.create(t012_fd03_mealtime=post[0], t012_fd04_meal_contents=post[1],
-                                              t012_fd05_bed_time=post[2], t012_fd06_wakeup_time=post[3], t012_fd02_information=post[4])
+                                            t012_fd05_bed_time=post[2], t012_fd06_wakeup_time=post[3], t012_fd02_information=post[4],t012_fk01_childminder_id=a)
         return self.get(request, *args, **kwargs,)
 
 
@@ -264,7 +271,11 @@ class PlanListDetailView(LoginRequiredMixin, ListView):
 
 class PlanListAddView(LoginRequiredMixin, generic.TemplateView):
     template_name = "planListAdd.html"
-
+    context_object_name = "objects"
+    model=T004Class
+    def get_queryset(self):
+        planListdetail = T004Class.objects.all()
+        return planListdetail
     def post(self, request, *args, **kwargs):
         if self.request.POST.getlist('planName', None):
             post = self.request.POST.getlist('planName', None)
