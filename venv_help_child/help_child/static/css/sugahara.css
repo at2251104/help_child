@@ -147,7 +147,7 @@ button.btn-border:hover:after {
   float: right; /*右側に回り込み*/
   width: 70%; /*幅*/
   overflow: hidden;
-  padding-top: 30%; /*コンテンツ上にあける余白*/
+  padding-top: 220px; /*コンテンツ上にあける余白*/
 }
 #attend-main h2 {
   /* font-size: 30px;
@@ -268,7 +268,7 @@ button.btn-border:hover:after {
   float: right; /*contact-detail-main右側に回り込み*/
   width: 70%; /*幅*/
   overflow: hidden;
-  padding-top: 20%; /*コンテンツ上にあける余白*/
+  padding-top: 220px; /*コンテンツ上にあける余白*/
   text-align: center;
 }
 #contact-detail-main h2 {
@@ -418,7 +418,7 @@ button.btn-border:hover:after {
   float: right; /*contact-update-main右側に回り込み*/
   width: 70%; /*幅*/
   overflow: hidden;
-  padding-top: 30%; /*コンテンツ上にあける余白*/
+  padding-top: 220px; /*コンテンツ上にあける余白*/
   text-align: center;
 }
 #contact-update-main h2 {
@@ -461,7 +461,7 @@ button.btn-border:hover:after {
   float: right; 
   width: 70%; 
   overflow: hidden;
-  padding-top: 30%;
+  padding-top: 220px;
   margin: auto;
 }
 
@@ -544,4 +544,33 @@ button.btn-border:hover:after {
   .br {display: none;}
 }
 /*contactTop画面
+---------------------------------------------------------------------------*/
+/*childrenlistTop画面
+---------------------------------------------------------------------------*/
+#child-select-btn {
+    border: 2px double #0037ff;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5%; /*角丸*/
+  font-size: 7pt; /*文字サイズ*/
+  text-align: center; /*文字位置*/
+  cursor: pointer; /*カーソル*/
+  padding: 12px 12px; /*余白*/
+  background: #37a8e9; /*背景色*/
+  color: #ffffff; /*文字色*/
+  line-height: 0.3em; /*1行の高さ*/
+  transition: .3s; /*なめらか変化*/
+  border: 2px solid #37a8e9; /*枠の指定*/
+}
+/*childrenlistTop画面
+---------------------------------------------------------------------------*/
+/*parentslistTop画面
+---------------------------------------------------------------------------*/
+
+/*parentslistTop画面
+---------------------------------------------------------------------------*/
+/*childminderlistTop画面
+---------------------------------------------------------------------------*/
+
+/*childminderlistTop画面
 ---------------------------------------------------------------------------*/

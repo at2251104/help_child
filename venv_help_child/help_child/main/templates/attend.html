@@ -14,7 +14,7 @@
 <!--スライドショー-->
 <aside id="mainimg">
     <div>
-        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/0.png' %}" alt="" id="slide0">
         <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
         <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
         <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
@@ -120,15 +120,16 @@
     </div>
 
     <!-- 検索box -->
-     <form action="" method="get" class="search_container">
-        <input name="query" value="{{ request.GET.query }}" type="text" id="search-text"onkeyup="myFunction()" size="30"placeholder="検索">
+    <form action="" method="get" class="search_container">
+        <input name="query" value="{{ request.GET.query }}" type="text" id="search-text" onkeyup="myFunction()"
+            size="30" placeholder="検索">
     </form>
 
     <!-- 園児リスト -->
 
 
     <ul id="child-list">
-    
+
         <table border="2" style="border-collapse: collapse; border-color: #000">
             <tr>
                 <th class="child-name">
@@ -142,7 +143,7 @@
                 </th>
             </tr>
             {% for enji in object_list %}
-    　　　　　
+            　　　　　
             <tr>
                 <td class="class-name">
                     <li class="list_item" data-hobby="{{enji.Age}}" data-area="{{enji.t001_fd11_kindergaten}}">
@@ -154,27 +155,29 @@
                         {{enji.get_full_name_kana}}
                     </li>
                 </td>
-                
+
                 <td class="child-name">
 
-                    
-                    <li class=" list_item" name="aa" data-hobby="{{enji.Age}}" data-area="{{enji.t001_fd11_kindergaten}}" value="{{enji.t001_fd11_kindergaten}}" >
+
+                    <li class=" list_item" name="aa" data-hobby="{{enji.Age}}"
+                        data-area="{{enji.t001_fd11_kindergaten}}" value="{{enji.t001_fd11_kindergaten}}">
                         {% if enji.t001_fd11_kindergaten %}
-                            登園
+                        登園
                         {% else %}
-                            降園
+                        降園
                         {% endif %}
                     </li>
-                
+
                 </td>
                 <form method="POST">
                     {% csrf_token %}
                     <td class="select">
-                        
-                        <button type="submit" name="update_button" value="{{ enji.t001_pk01_children_id }}" class="select-btn">切替</button>
+
+                        <button type="submit" name="update_button" value="{{ enji.t001_pk01_children_id }}"
+                            class="select-btn">切替</button>
 
                     </td>
-                 </form>
+                </form>
             </tr>
             {% empty %}
             {% endfor %}
@@ -185,8 +188,8 @@
             <button type="submit" name="all_false_button" value="pomeranian" class="select-btn">全て降園</button>
         </form>
     </ul>
- 
-    
+
+
 </div>
 {% endblock %}
 <script>
