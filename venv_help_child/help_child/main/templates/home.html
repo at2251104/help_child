@@ -6,11 +6,11 @@
 {% block head_slide%}
 <!--スライドショー-->
 <aside id="mainimg">
-	<div>
-		<img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
-		<img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
-		<img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
-		<img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
+
+	<img src="{% static 'images/0.png' %}" alt="" id="slide0">
+	<img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+	<img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+	<img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
 	</div>
 </aside>
 {% endblock %}
@@ -31,6 +31,7 @@
 			<!-- <dd>{{ user.email }}</dd> -->
 			{% endfor %}
 		</dl>
+		<h2 id="newinfo_hdr" class="close">近日の予定入れたい</h2>
 	</section>
 
 	<!-- <section>

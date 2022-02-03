@@ -17,7 +17,7 @@
 <!--スライドショー-->
 <aside id="mainimg">
     <div>
-        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/0.png' %}" alt="" id="slide0">
         <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
         <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
         <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
@@ -27,11 +27,16 @@
 
 {% block main_contents%}
 <div class="contact-top-main">
-    <h2>園児</h2>
+    <h2>園児名簿</h2>
+    <div class="list-select">
+        <a href="{% url 'main:childrenlistTop' %}" id="child-select-btn-c">園　児</a>
+        <a href="{% url 'main:parentslistTop' %}" id="parent-select-btn-c">保護者</a>
+        <a href="{% url 'main:childminderlistTop' %}" id="minder-select-btn-c">保育士</a>
+    </div>
     <!-- 検索ボックス Django-->
     <form action="" method="get" class="search_container">
         <input name="query" value="{{ request.GET.query }}" type="text" id="search-text" onkeyup="myFunction()"
-            size="30" placeholder="検索">
+            size="30" placeholder="名前検索(ひらがな)">
     </form>
 
     <!-- リスト -->
@@ -49,7 +54,7 @@
                     クラス名
                 </th>
             </tr>
-            {% for iiii in Children %}
+            {% for iiii in object_list %}
             <tr>
                 <td class="class-name">
                     <li class="list_item" data-hobby="age4">
@@ -58,7 +63,7 @@
                 </td>
                 <td class="child-name">
                     <li class=" list_item" data-hobby="age4">
-                        <p>{{iiii.get_full_name_kana}}</p>
+                        <p>{{ iiii.get_full_name_kana }}</p>
                     </li>
                 </td>
                 <td class="child-name">
@@ -69,13 +74,13 @@
                 <td class="select">
                     <a href="{%url 'main:childrenDetail'%}?id={{iiii.t001_pk01_children_id}}" class="select-btn">詳細</a>
                     <a href="{%url 'main:childrenUpdate' iiii.pk %} " class=" select-btn">編集</a>
-                    <a href="{%url 'main:childrenDelete' iiii.pk %}"  class="select-btn">削除</a>
+                    <a href="{%url 'main:childrenDelete' iiii.pk %}" class="select-btn">削除</a>
                 </td>
             </tr>
             {% empty %}
             {% endfor %}
         </table>
-        <a href="{%url 'main:childrenCreate' %}"  class="select-btn">作成</a>
+        <a href="{%url 'main:childrenCreate' %}" class="select-btn">作成</a>
     </ul>
 </div>
 {% endblock %}

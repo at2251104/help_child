@@ -17,7 +17,7 @@
 <!--スライドショー-->
 <aside id="mainimg">
     <div>
-        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/0.png' %}" alt="" id="slide0">
         <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
         <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
         <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
@@ -31,7 +31,7 @@
     <h2>詳細</h2>
     <!-- リスト -->
     <ul class="child-list">
-       {% for iiii in Childminder %}
+        {% for iiii in Childminder %}
         <table border="2" style="border-collapse: collapse; border-color: #000">
             <tr>
                 <th class="class-name">
@@ -99,11 +99,11 @@
             </tr>
 
         </table>
-                <a href="{%url 'main:childminderUpdate' iiii.email %}" class=" select-btn">編集</a>
-                <a href="{%url 'main:childminderDelete' iiii.email %}" class="select-btn">削除</a>
+        <a href="{%url 'main:childminderUpdate' iiii.email %}" class=" select-btn">編集</a>
+        <a href="{%url 'main:childminderDelete' iiii.email %}" class="select-btn">削除</a>
         {% empty %}
         {% endfor %}
-        
+
     </ul>
 </div>
 {% endblock %}
@@ -117,7 +117,7 @@
         <li><a href="{% url 'main:childrenlistTop' %}">園児</a></li>
         <li><a href="{% url 'main:parentslistTop' %}">保護者</a></li>
         <li><a href="{% url 'main:childminderlistTop' %} ">保育士</a></li>
-        
+
     </ul>
 </nav>
 {% endblock %}

@@ -29,13 +29,16 @@ class IndexView(generic.TemplateView):
 
 
 class HomeView(LoginRequiredMixin, generic.TemplateView):
-    model = T013Blog
+    model = T013Blog,T008Schedule
     template_name = "home.html"
 
     def get_context_data(self, **kwargs):
         blog = super().get_context_data(**kwargs)
+        schedule = super().get_context_data(**kwargs)
         blog["object_list"] = T013Blog.objects.order_by(
             '-t013_fd06_createdata')
+        one_week = datetime.datetime.now() + datetime.timedelta(days = 7)
+        schedule["object"] = T008Schedule.objects.filter(t008_fd03_date__range=[datetime.datetime.now(),one_week,])
         return blog
 
 # class LoginView(generic.TemplateView):
@@ -224,9 +227,6 @@ class AttendView(LoginRequiredMixin, generic.ListView):
         return toukouenn
 
 
-class TagScanView(LoginRequiredMixin, generic.TemplateView):
-    template_name = "tagScan.html"
-
 # 名簿画面は作らないことになった
 # class NameListView(generic.TemplateView):
 #     template_name="nameList.html"
@@ -365,57 +365,27 @@ class BlogDeleteView(LoginRequiredMixin, generic.DeleteView):
         return blog
 
 
-class ListTopView(generic.ListView, LoginRequiredMixin):
-
-    template_name = "listtop.html"
-    model = T001Children, T002Parents, T003Childminder
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # ユーザ種類別のデータの取り出し方...self.request.user.detail_buyer←ここでrelated_nameを指定する！！！！！！！！！！！！！！！
-        context["Children"] = T001Children.objects.all().order_by(
-            't001_fd08_last_name_kana')
-        context["adult"] = CustomUser.objects.all().order_by('last_name_kana')
-        return context
-
-    def get_queryset(self):
-        contact = T001Children.objects.all().select_related()
-        # 検索box 絞り込み
-        if "query" in self.request.GET:
-            search = self.request.GET["query"]
-            or_lookup = (
-                Q(t005_pk01_childen_id__icontains=search)
-            )
-            contact = contact.filter(or_lookup)
-        return contact
-
-
 class ChildminderListTopView(generic.ListView, LoginRequiredMixin):
 
     template_name = "childminderlistTop.html"
 
-    model = T001Children, T002Parents, T003Childminder
+    model = T003Childminder,CustomUser
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["adult"] = CustomUser.objects.filter().order_by(
-            'last_name_kana')
-
-    model = T003Childminder
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["adult"] = T003Childminder.objects.all().order_by('user_id')
+        context["adult"] = T003Childminder.objects.all().order_by('user__last_name_kana')
 
         return context
 
     def get_queryset(self):
-        contact = T001Children.objects.all().select_related()
+        contact = T003Childminder.objects.all().select_related()
         # 検索box 絞り込み
         if "query" in self.request.GET:
             search = self.request.GET["query"]
             or_lookup = (
-                Q(t005_pk01_childen_id__icontains=search)
+                Q(user__last_name_kana__icontains=search) |
+                Q(user__first_name_kana__icontains=search)
             )
             contact = contact.filter(or_lookup)
         return contact
@@ -425,8 +395,6 @@ class ChildrenListTopView(generic.ListView, LoginRequiredMixin):
 
     template_name = "childrenlistTop.html"
 
-
-
     model = T001Children, T002Parents, T003Childminder
 
     def get_context_data(self, **kwargs):
@@ -435,13 +403,15 @@ class ChildrenListTopView(generic.ListView, LoginRequiredMixin):
             't001_fd08_last_name_kana')
         return context
 
+
     def get_queryset(self):
         contact = T001Children.objects.all().select_related()
         # 検索box 絞り込み
         if "query" in self.request.GET:
             search = self.request.GET["query"]
             or_lookup = (
-                Q(t005_pk01_childen_id__icontains=search)
+                Q(t001_fd08_last_name_kana__icontains=search)|
+                Q(t001_fd09_first_name_kana__icontains=search)
             )
             contact = contact.filter(or_lookup)
         return contact
@@ -449,23 +419,22 @@ class ChildrenListTopView(generic.ListView, LoginRequiredMixin):
 
 class ParentsListTopView(generic.ListView, LoginRequiredMixin):
 
-    template_name = "ParentslistTop.html"
+    template_name = "parentslistTop.html"
 
-
-
-    model = T001Children, T002Parents, T003Childminder
+    model = T002Parents,CustomUser
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["adult"] = T002Parents.objects.all().order_by('user_id')
         return context
 
     def get_queryset(self):
-        contact = T001Children.objects.all().select_related()
+        contact = T002Parents.objects.all().select_related()
         # 検索box 絞り込み
         if "query" in self.request.GET:
             search = self.request.GET["query"]
             or_lookup = (
-                Q(t005_pk01_childen_id__icontains=search)
+                Q(user__first_name_kana__icontains=search) |
+                Q(user__last_name_kana__icontains=search)
             )
             contact = contact.filter(or_lookup)
         return contact

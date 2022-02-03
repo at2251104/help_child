@@ -17,7 +17,7 @@
 <!--スライドショー-->
 <aside id="mainimg">
     <div>
-        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/0.png' %}" alt="" id="slide0">
         <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
         <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
         <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
@@ -33,10 +33,10 @@
         {{ form.t007_fd01_date}}
     </div>
     <div id="next-prev-button">
-       
+
     </div>
     <div id="contact-book">
-            <form method="POST" enctype='multipart/form-data'>
+        <form method="POST" enctype='multipart/form-data'>
             {% csrf_token %}
             {{ form.t007_fk01_children_id}}
             {{ form.t007_pk01_contactbook_id }}
