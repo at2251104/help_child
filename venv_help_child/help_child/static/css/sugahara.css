@@ -547,30 +547,190 @@ button.btn-border:hover:after {
 ---------------------------------------------------------------------------*/
 /*childrenlistTop画面
 ---------------------------------------------------------------------------*/
-#child-select-btn {
-    border: 2px double #0037ff;
+.list-select {
+  padding-bottom: 10px;
+  text-align:center;
+}
+
+#child-select-btn-c {
+  border: 2px solid #3275bc;
   display: inline-block;
   text-decoration: none;
-  border-radius: 5%; /*角丸*/
-  font-size: 7pt; /*文字サイズ*/
+  font-size: 10pt; /*文字サイズ*/
   text-align: center; /*文字位置*/
   cursor: pointer; /*カーソル*/
   padding: 12px 12px; /*余白*/
-  background: #37a8e9; /*背景色*/
-  color: #ffffff; /*文字色*/
+  background-color: #d0e6fd; /*背景色*/
+  color: #3275bc; /*文字色*/
   line-height: 0.3em; /*1行の高さ*/
   transition: .3s; /*なめらか変化*/
-  border: 2px solid #37a8e9; /*枠の指定*/
 }
+#child-select-btn-c:hover {
+  color: #37a8e9; /*背景色*/
+  background: #ffffff; /*文字色*/
+}
+
+#parent-select-btn-c {
+  margin-right: 5%;
+  margin-left: 5%;
+  border: 2px solid #ddd;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 10pt; /*文字サイズ*/
+  text-align: center; /*文字位置*/
+  cursor: pointer; /*カーソル*/
+  padding: 12px 12px; /*余白*/
+  background-color: #ffffff; /*背景色*/
+  color: #ddd; /*文字色*/
+  line-height: 0.3em; /*1行の高さ*/
+  transition: .3s; /*なめらか変化*/
+}
+#parent-select-btn-c:hover {
+  border: 2px solid #000;
+  color: #000; /*背景色*/
+  background: #ffffff; /*文字色*/
+}
+
+#minder-select-btn-c {
+  border: 2px solid #ddd;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 10pt; /*文字サイズ*/
+  text-align: center; /*文字位置*/
+  cursor: pointer; /*カーソル*/
+  padding: 12px 12px; /*余白*/
+  background-color: #ffffff; /*背景色*/
+  color: #ddd; /*文字色*/
+  line-height: 0.3em; /*1行の高さ*/
+  transition: .3s; /*なめらか変化*/
+}
+#minder-select-btn-c:hover {
+  border: 2px solid #000;
+  color: #000; /*背景色*/
+  background: #ffffff; /*文字色*/
+}
+
 /*childrenlistTop画面
 ---------------------------------------------------------------------------*/
 /*parentslistTop画面
 ---------------------------------------------------------------------------*/
+#child-select-btn-p {
+  border: 2px solid #ddd;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 10pt; /*文字サイズ*/
+  text-align: center; /*文字位置*/
+  cursor: pointer; /*カーソル*/
+  padding: 12px 12px; /*余白*/
+  background-color: #ffffff; /*背景色*/
+  color: #ddd; /*文字色*/
+  line-height: 0.3em; /*1行の高さ*/
+  transition: .3s; /*なめらか変化*/
+}
+#child-select-btn-p:hover {
+  border: 2px solid #000;
+  color: #000; /*背景色*/
+  background: #ffffff; /*文字色*/
+}
 
+#parent-select-btn-p {
+  margin-right: 5%;
+  margin-left: 5%;
+  border: 2px solid #3275bc;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 10pt; /*文字サイズ*/
+  text-align: center; /*文字位置*/
+  cursor: pointer; /*カーソル*/
+  padding: 12px 12px; /*余白*/
+  background-color: #d0e6fd; /*背景色*/
+  color: #3275bc; /*文字色*/
+  line-height: 0.3em; /*1行の高さ*/
+  transition: .3s; /*なめらか変化*/
+}
+#parent-select-btn-p:hover {
+  color: #37a8e9; /*背景色*/
+  background: #ffffff; /*文字色*/
+}
+
+#minder-select-btn-p {
+  border: 2px solid #ddd;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 10pt; /*文字サイズ*/
+  text-align: center; /*文字位置*/
+  cursor: pointer; /*カーソル*/
+  padding: 12px 12px; /*余白*/
+  background-color: #ffffff; /*背景色*/
+  color: #ddd; /*文字色*/
+  line-height: 0.3em; /*1行の高さ*/
+  transition: .3s; /*なめらか変化*/
+}
+#minder-select-btn-p:hover {
+  border: 2px solid #000;
+  color: #000; /*背景色*/
+  background: #ffffff; /*文字色*/
+}
 /*parentslistTop画面
 ---------------------------------------------------------------------------*/
 /*childminderlistTop画面
 ---------------------------------------------------------------------------*/
+#child-select-btn-m {
+  border: 2px solid #ddd;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 10pt; /*文字サイズ*/
+  text-align: center; /*文字位置*/
+  cursor: pointer; /*カーソル*/
+  padding: 12px 12px; /*余白*/
+  background-color: #ffffff; /*背景色*/
+  color: #ddd; /*文字色*/
+  line-height: 0.3em; /*1行の高さ*/
+  transition: .3s; /*なめらか変化*/
+}
+#child-select-btn-m:hover {
+  border: 2px solid #000;
+  color: #000; /*背景色*/
+  background: #ffffff; /*文字色*/
+}
 
+#parent-select-btn-m {
+  margin-right: 5%;
+  margin-left: 5%;
+  border: 2px solid #ddd;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 10pt; /*文字サイズ*/
+  text-align: center; /*文字位置*/
+  cursor: pointer; /*カーソル*/
+  padding: 12px 12px; /*余白*/
+  background-color: #ffffff; /*背景色*/
+  color: #ddd; /*文字色*/
+  line-height: 0.3em; /*1行の高さ*/
+  transition: .3s; /*なめらか変化*/
+}
+#parent-select-btn-m:hover {
+  border: 2px solid #000;
+  color: #000; /*背景色*/
+  background: #ffffff; /*文字色*/
+}
+
+#minder-select-btn-m {
+  border: 2px solid #3275bc;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 10pt; /*文字サイズ*/
+  text-align: center; /*文字位置*/
+  cursor: pointer; /*カーソル*/
+  padding: 12px 12px; /*余白*/
+  background-color: #d0e6fd; /*背景色*/
+  color: #3275bc; /*文字色*/
+  line-height: 0.3em; /*1行の高さ*/
+  transition: .3s; /*なめらか変化*/
+}
+#minder-select-btn-m:hover {
+  color: #37a8e9; /*背景色*/
+  background: #ffffff; /*文字色*/
+}
 /*childminderlistTop画面
 ---------------------------------------------------------------------------*/

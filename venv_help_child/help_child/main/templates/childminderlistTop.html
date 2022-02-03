@@ -27,8 +27,12 @@
 
 {% block main_contents%}
 <div class="contact-top-main">
-    <h2>保育士</h2>
-
+    <h2>保育士名簿</h2>
+    <div class="list-select">
+        <a href="{% url 'main:childrenlistTop' %}" id="child-select-btn-m">園　児</a>
+        <a href="{% url 'main:parentslistTop' %}" id="parent-select-btn-m">保護者</a>
+        <a href="{% url 'main:childminderlistTop' %}" id="minder-select-btn-m">保育士</a>
+    </div>
     <!-- 検索ボックス Django-->
     <form action="" method="get" class="search_container">
         <input name="query" value="{{ request.GET.query }}" type="text" id="search-text" onkeyup="myFunction()"
