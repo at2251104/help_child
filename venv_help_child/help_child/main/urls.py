@@ -32,7 +32,6 @@ urlpatterns=[
     path('blogUpdate/<int:pk>/',views.BlogUpdateView.as_view(),name="blogUpdate"),
     path('blogDelete/<int:pk>/',views.BlogDeleteView.as_view(),name="blogDelete"),
 
-    path('listTop',views.ListTopView.as_view(),name='listTop'),
     path('childrenlistTop',views.ChildrenListTopView.as_view(),name='childrenlistTop'),
     path('childminderlistTop',views.ChildminderListTopView.as_view(),name='childminderlistTop'),
     path('parentslistTop',views.ParentsListTopView.as_view(),name='parentslistTop'),

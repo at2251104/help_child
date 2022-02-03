@@ -357,31 +357,6 @@ class BlogDeleteView(LoginRequiredMixin, generic.DeleteView):
         return blog
 
 
-class ListTopView(generic.ListView, LoginRequiredMixin):
-
-    template_name = "listtop.html"
-    model = T001Children, T002Parents, T003Childminder
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # ユーザ種類別のデータの取り出し方...self.request.user.detail_buyer←ここでrelated_nameを指定する！！！！！！！！！！！！！！！
-        context["Children"] = T001Children.objects.all().order_by(
-            't001_fd08_last_name_kana')
-        context["adult"] = CustomUser.objects.all().order_by('last_name_kana')
-        return context
-
-    def get_queryset(self):
-        contact = T001Children.objects.all().select_related()
-        # 検索box 絞り込み
-        if "query" in self.request.GET:
-            search = self.request.GET["query"]
-            or_lookup = (
-                Q(t005_pk01_childen_id__icontains=search)
-            )
-            contact = contact.filter(or_lookup)
-        return contact
-
-
 class ChildminderListTopView(generic.ListView, LoginRequiredMixin):
 
     template_name = "childminderlistTop.html"
