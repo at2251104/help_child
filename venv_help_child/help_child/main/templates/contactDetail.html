@@ -17,7 +17,7 @@
 <!--スライドショー-->
 <aside id="mainimg">
     <div>
-        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/0.png' %}" alt="" id="slide0">
         <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
         <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
         <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
@@ -35,7 +35,7 @@
             <input type="text" placeholder="日付検索" id="target" text-align="center" readonly='readonly'>
         </form>
     </div>
-        
+
     <div id="next-prev-button">
         <button id="prev" onclick="prev()">‹</button>
         <button id="next" onclick="next()">›</button>
@@ -122,11 +122,11 @@
                         </th>
                         <td colspan="6">
                             <p>睡眠時間</p>
-                                {{iiii.t007_fd05_bed_time}}~{{iiii.t007_fd06_wakeup_time}}
+                            {{iiii.t007_fd05_bed_time}}~{{iiii.t007_fd06_wakeup_time}}
                         </td>
                         <td colspan="6">
                             <p>お昼寝時間</p>
-                                {{iiii.t007_fd27_bed_time}}~{{iiii.t007_fd17_wakeup_time}}
+                            {{iiii.t007_fd27_bed_time}}~{{iiii.t007_fd17_wakeup_time}}
                         </td>
                     </tr>
                     <tr>
@@ -191,7 +191,7 @@
                             <input type="radio" checked>硬
                             {% endif %}
                             <br>
-                                回数：{{iiii.t007_fd09_defecation_times}}回
+                            回数：{{iiii.t007_fd09_defecation_times}}回
                         </td>
                         <td colspan="6">
                             {% if iiii.t007_fd20_defecation_status == 1 %}
@@ -216,7 +216,7 @@
                             <input type="radio" checked>硬
                             {% endif %}
                             <br>
-                                回数：{{iiii.t007_fd19_defecation_times}}回
+                            回数：{{iiii.t007_fd19_defecation_times}}回
                         </td>
                     </tr>
                     <tr>
@@ -229,7 +229,7 @@
                             <input type="radio" disabled>無
                             {% elif iiii.t007_fd10_bathing == 0 %}
                             <input type="radio" disabled>有<br>
-                            <input type="radio"  checked>無
+                            <input type="radio" checked>無
                             {% endif %}
                         </td>
                         <th>
@@ -251,7 +251,7 @@
                             <input type="radio" disabled>無
                             {% elif iiii.t007_fd21_bathing == 0 %}
                             <input type="radio" disabled>有<br>
-                            <input type="radio"  checked>無
+                            <input type="radio" checked>無
                             {% endif %}
                         </td>
                         <th>
@@ -288,7 +288,7 @@
                         <td colspan="5">
                             {{iiii.t007_fd28_person}}
                         </td>
-                
+
                     </tr>
                 </tbody>
             </table>

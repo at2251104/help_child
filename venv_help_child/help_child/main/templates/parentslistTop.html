@@ -17,7 +17,7 @@
 <!--スライドショー-->
 <aside id="mainimg">
     <div>
-        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/0.png' %}" alt="" id="slide0">
         <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
         <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
         <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
@@ -27,7 +27,7 @@
 
 {% block main_contents%}
 <div class="contact-top-main">
-<h2>保護者</h2>
+    <h2>保護者</h2>
     <!-- 園児年齢別選択 -->
 
     <!-- 検索ボックス Django-->
@@ -48,8 +48,8 @@
                     よみがな(姓名)
                 </th>
             </tr>
-            
-             {% for iiii in adult %}
+
+            {% for iiii in adult %}
             <tr>
                 <td class="class-name">
                     <li class="list_item" data-hobby="age4">
@@ -70,7 +70,7 @@
             {% empty %}
             {% endfor %}
         </table>
-        <a href="{%url 'main:parentsCreate' %}"  class="select-btn">作成</a>
+        <a href="{%url 'main:parentsCreate' %}" class="select-btn">作成</a>
     </ul>
 </div>
 {% endblock %}

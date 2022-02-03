@@ -17,7 +17,7 @@
 <!--スライドショー-->
 <aside id="mainimg">
     <div>
-        <img src="{% static 'images/1.jpg' %}" alt="" id="slide0">
+        <img src="{% static 'images/0.png' %}" alt="" id="slide0">
         <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
         <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
         <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
@@ -27,7 +27,7 @@
 
 {% block main_contents%}
 <div class="contact-top-main">
-<h2>ここの画面は変えます</h2>
+    <h2>ここの画面は変えます</h2>
     <div class="group">
 
         <div class="search-box">
@@ -66,7 +66,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <!-- 園児年齢別選択 -->
 
@@ -109,14 +109,17 @@
                     </li>
                 </td>
                 <td class="select">
-                    <a href="{%url 'main:contactUpdate'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">詳細</a>
-                    <a href="/contactUpdate_oya/{% now "Ymd"%}{{iiii.t001_pk01_children_id}}" class=" select-btn">編集</a>
-                    <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">削除</a>
+                    <a href="{%url 'main:contactUpdate'%}?id={{iiii.t001_pk01_children_id}}&num={% now "
+                        Ymd"%} " class=" select-btn">詳細</a>
+                    <a href="/contactUpdate_oya/{% now " Ymd"%}{{iiii.t001_pk01_children_id}}"
+                        class=" select-btn">編集</a>
+                    <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "
+                        Ymd"%} " class=" select-btn">削除</a>
                 </td>
             </tr>
             {% empty %}
             {% endfor %}
-             {% for iiii in adult %}
+            {% for iiii in adult %}
             <tr>
                 <td class="class-name">
                     <li class="list_item" data-hobby="age4">
@@ -134,9 +137,12 @@
                     </li>
                 </td>
                 <td class="select">
-                    <a href="{%url 'main:contactUpdate'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">詳細</a>
-                    <a href="/contactUpdate_oya/{% now "Ymd"%}{{iiii.t001_pk01_children_id}}" class=" select-btn">編集</a>
-                    <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%} " class="select-btn">削除</a>
+                    <a href="{%url 'main:contactUpdate'%}?id={{iiii.t001_pk01_children_id}}&num={% now "
+                        Ymd"%} " class=" select-btn">詳細</a>
+                    <a href="/contactUpdate_oya/{% now " Ymd"%}{{iiii.t001_pk01_children_id}}"
+                        class=" select-btn">編集</a>
+                    <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "
+                        Ymd"%} " class=" select-btn">削除</a>
                 </td>
             </tr>
             {% empty %}
@@ -155,7 +161,7 @@
         <li><a href="{% url 'main:childrenlistTop' %}">園児</a></li>
         <li><a href="{% url 'main:parentslistTop' %}">保護者</a></li>
         <li><a href="{% url 'main:childminderlistTop' %} ">保育士</a></li>
-        
+
     </ul>
 </nav>
 {% endblock %}
