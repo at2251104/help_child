@@ -31,7 +31,7 @@
     <!-- 検索ボックス Django-->
     <form action="" method="get" class="search_container">
         <input name="query" value="{{ request.GET.query }}" type="text" id="search-text" onkeyup="myFunction()"
-            size="30" placeholder="検索">
+            size="30" placeholder="名前検索(ひらがな)">
     </form>
 
     <!-- リスト -->
@@ -49,7 +49,7 @@
                     クラス名
                 </th>
             </tr>
-            {% for iiii in Children %}
+            {% for iiii in object_list %}
             <tr>
                 <td class="class-name">
                     <li class="list_item" data-hobby="age4">
