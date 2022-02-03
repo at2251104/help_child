@@ -19,7 +19,6 @@ urlpatterns=[
     path('contactTemplate',views.ContactTemplateView.as_view(),name="contactTemplate"),
 
     path('attend',views.AttendView.as_view(),name="attend"),
-    path('tagScan',views.TagScanView.as_view(),name="tagScan"),
 
     path('planList',views.PlanListView.as_view(),name="planList"),
     path('planListAdd',views.PlanListAddView.as_view(),name="planListAdd"),

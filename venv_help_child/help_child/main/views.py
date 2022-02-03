@@ -220,9 +220,6 @@ class AttendView(LoginRequiredMixin, generic.ListView):
         return toukouenn
 
 
-class TagScanView(LoginRequiredMixin, generic.TemplateView):
-    template_name = "tagScan.html"
-
 # 名簿画面は作らないことになった
 # class NameListView(generic.TemplateView):
 #     template_name="nameList.html"
