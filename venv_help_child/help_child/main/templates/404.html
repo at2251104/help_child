@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}CHIlink{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/sugahara.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap" rel="stylesheet">
+{% endblock %}
+
+
+{% block head_slide%}
+<!--スライドショー-->
+<aside id="mainimg">
+
+    <img src="{% static 'images/0.png' %}" alt="" id="slide0">
+    <img src="{% static 'images/1.jpg' %}" alt="" id="slide1">
+    <img src="{% static 'images/2.jpg' %}" alt="" id="slide2">
+    <img src="{% static 'images/3.jpg' %}" alt="" id="slide3">
+    </div>
+</aside>
+{% endblock %}
+
+
+{% block main_contents%}
+
+<div id="page-not-found-main">
+    <h1>contact book not found</h1>
+    <nav id="page-not-found-box">
+        <p>園から今日の連絡帳が送られてきていません。</p>
+    </nav>
+</div>
+
+{% endblock %}
+
+<!--/main-->
+
+{% block animation %}
+<!--移動するアニメーション画像-->
+<img src="{% static 'images/animation1.png' %}" alt="" id="animation1">
+
+<!--小さな端末用（800px以下端末）更新情報-->
+<script type="text/javascript">
+    if (OCwindowWidth() <= 800) {
+        open_close("newinfo_hdr", "newinfo");
+    }
+</script>
+<!--メニューの開閉処理条件設定　800px以下-->
+<script type="text/javascript">
+    if (OCwindowWidth() <= 800) {
+        $("s").html('')
+    }
+</script>
+{% endblock %}
+
+{% block sub_contents%}
+<nav class="box1">
+    <h2>MENU</h2>
+    <ul class="submenu">
+        <li><a href="/accounts/logout">ログアウト</a></li>
+        {% if user.detail_buyer %}
+        <li><a href="{% url 'main:blogCreate' %}">ブログを作成</a></li>
+        {% endif %}
+        <li><a href="#">サンプルメニュー</a></li>
+    </ul>
+</nav>
+{% endblock %}
