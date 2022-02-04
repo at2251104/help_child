@@ -267,6 +267,14 @@
     vertical-align: top;
   }
 
+  #bgmain select {
+    font-size: 20px;
+    background: #ffffff; /*背景色*/
+    border: 3px solid #cbcecf;
+    border-radius: 15;
+    margin-bottom: 20px;
+  }
+
   #bgmain .planlistAddButton {
     background-color: #3879d9;
     color: ffffff;
