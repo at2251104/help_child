@@ -682,3 +682,19 @@ class Parents2CreateView(LoginRequiredMixin, generic.CreateView):
         # messages.error(self.request,"ブログの作成に失敗しました。")
         return super().form_invalid(form)
 # aaaaa
+class ClassCreateView(LoginRequiredMixin, generic.CreateView):
+    model = T004Class
+    template_name = "classCreate.html"
+    form_class = ClassCreateForm
+    success_url = reverse_lazy('main:home')
+
+
+    def form_valid(self, form):
+        main = form.save(commit=False)
+        main.save()
+        # messages.success(self.request,'ブログを作成しました。')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        # messages.error(self.request,"ブログの作成に失敗しました。")
+        return super().form_invalid(form)

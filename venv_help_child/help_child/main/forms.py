@@ -99,3 +99,8 @@ class ChildminderEditForm(forms.ModelForm):
     class Meta:
         model = T003Childminder
         fields = ('class_id',)
+
+class ClassCreateForm(forms.ModelForm):
+    class Meta:
+        model = T004Class
+        fields = ('t004_pk01_class_id','t004_fd01_class_name','t004_fd02_year')

@@ -53,4 +53,6 @@ urlpatterns=[
     path('password_change/', views.PasswordChangeView.as_view(), name='password_change'),  
     path('password_change_done/', views.PasswordChangeDoneView.as_view(), name='password_change_done'), 
 
+    path('classCreate',views.ClassCreateView.as_view(),name="classCreate"),
+
 ]

@@ -2,7 +2,6 @@
 {% load static %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/matsuoka.css' %}">
-<link rel="stylesheet" href="{% static 'css/matsuoka_sp.css' %}">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="{% static 'js/matsuoka.js' %}"></script>
@@ -27,14 +26,12 @@
 {% block main_contents%}
 <div id="bgmain">
     <div class="row">
+        <div id="focus"></div>
         <div class="my-div-style w-100">
-            <h2 style="text-align: center; font-size:30px;">トピックス作成</h2>
             <form method="POST" enctype='multipart/form-data'>
                 {% csrf_token %}
                 <table class="table">
-                    <div class="originalFileBtn">
-                        {{ form.as_table }}
-                    </div>
+                    {{ form.as_table }}
                 </table>
                 <button class="btnbtn-primary" type="submit">作成</button>
             </form>
