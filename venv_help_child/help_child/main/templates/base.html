@@ -80,11 +80,11 @@
                     <h2>ユーザー情報</h2>
                     <ul class="usermenu">
                         <img src="{% static 'images/profile_icon.png' %}">
-                        <p>
+                        <a href="{%url 'main:childminderDetail'%}?Email={{user.email}}">
                             {{user.get_full_name}}<br>
-                        </p>
+                        </a>
                         <li><a href="/accounts/logout">ログアウト</a></li>
-                        <li><a href="#">パスワード変更</a></li>
+                        <li><a href="{% url 'password_change_form' %}">パスワード変更</a></li>
                     </ul>
                 </nav>
                 {% block sub_contents%}

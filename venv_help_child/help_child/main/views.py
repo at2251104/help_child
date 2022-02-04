@@ -27,8 +27,8 @@ from datetime import time
 logger = logging.getLogger('development')
 
 
-class IndexView(generic.TemplateView):
-    template_name = "index.html"
+class BaseView(generic.TemplateView):
+    template_name = "base.html"
 
 
 class HomeView(LoginRequiredMixin, generic.TemplateView):
@@ -43,6 +43,16 @@ class HomeView(LoginRequiredMixin, generic.TemplateView):
         one_week = datetime.datetime.now() + datetime.timedelta(days = 7)
         schedule["object"] = T008Schedule.objects.filter(t008_fd03_date__range=[datetime.datetime.now(),one_week,])
         return blog
+
+    def get_week_data(self, **kwargs):
+        soon = super().get_context_data(**kwargs)
+        schedule = super().get_context_data(**kwargs)
+        soon["object_list"] = T013Blog.objects.order_by(
+            '-t013_fd06_createdata')
+        one_week = datetime.datetime.now() + datetime.timedelta(days=7)
+        schedule["object"] = T008Schedule.objects.filter(t008_fd03_date__range=[datetime.datetime.now(), one_week, ])
+        return soon
+
 
 # class LoginView(generic.TemplateView):
 #     template_name="login.html"
@@ -138,7 +148,7 @@ class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
         }
         
         context['form'] = SchoolContactForm(self.request.POST or None, initial=initial_dict)
-
+        # test
         return context
 
     def form_valid(self, form):
@@ -279,15 +289,13 @@ class PlanListAddView(LoginRequiredMixin, generic.TemplateView):
     template_name = "planListAdd.html"
     context_object_name = "objects"
     model=T004Class
-    def get_queryset(self):
-        planListdetail = T004Class.objects.all()
-        return planListdetail
+
     def post(self, request, *args, **kwargs):
         if self.request.POST.getlist('planName', None):
             post = self.request.POST.getlist('planName', None)
-            post[1] = T004Class.objects.get(t004_pk01_class_id=post[1])
-            T008Schedule.objects.create(t008_pk01_schedule_id=post[0], t008_fk01_class_id=post[1],
-                                        t008_fd01_event=post[3], t008_fd03_date=post[2], t008_fd02_remarks=post[4])
+            post[0] = T004Class.objects.get(t004_fd01_class_name=post[0])
+            T008Schedule.objects.create(t008_fk01_class_id=post[0],
+                                        t008_fd01_event=post[2], t008_fd03_date=post[1], t008_fd02_remarks=post[3])
         return self.get(request, *args, **kwargs,)
 
 

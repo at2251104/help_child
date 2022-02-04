@@ -734,3 +734,50 @@ button.btn-border:hover:after {
 }
 /*childminderlistTop画面
 ---------------------------------------------------------------------------*/
+/*404画面
+---------------------------------------------------------------------------*/
+#page-not-found-main {
+  float: right; 
+  width: 70%; 
+  overflow: hidden;
+  padding-top: 220px;
+  margin: auto;
+}
+#page-not-found-main h1 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 60px;
+}
+#page-not-found-box {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 20px;
+  margin: auto;
+  padding: 15px; /*ボックス内の余白*/
+  margin-bottom: 40px; /*ボックスの下に空けるスペース*/
+  background: #f3f3f3; /*背景色（古いブラウザ用）*/
+  background-color: #fff;
+  border: solid 1px rgb(95, 95, 95); /*線の線種、幅、色*/
+  -webkit-box-shadow: 0px 0px 1px 1px #fff inset; /*ボックスの影。内側に白のラインを入れる。*/
+  box-shadow: 0px 0px 1px 1px #fff inset; /*同上*/
+  border-radius: 10px; /*角丸のサイズ*/
+}
+/* 画面幅800px以下の設定 */
+@media screen and (max-width: 800px) {
+  /*mainコンテンツ*/
+  #page-not-found-main {
+    float: none;
+    width: auto;
+  }
+
+  /*main*/
+  #page-not-found-main {
+    padding: 0 !important;
+  }
+}
+/*画面幅480px以下の設定*/
+@media screen and (max-width: 480px) {
+  /*メインコンテンツ*/
+  .br {display: none;}
+}
+
+/*404画面
+---------------------------------------------------------------------------*/
