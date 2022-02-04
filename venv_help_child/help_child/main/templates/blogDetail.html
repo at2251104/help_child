@@ -32,87 +32,80 @@
 
 {% block main_contents%}
 <div id="bgmain">
-    <div class="container">
-        <div class="blogBackground">
 
-            <div class="my-div-style w-100">
+    <div class="blogBackground">
 
-                {% for blog in object_list %}
-                <div class="row">
-                    <div style="font-size:large;">
-                        <h1>
-                            {{ blog.t013_fd01_title }}
+        <div class="my-div-style w-100">
 
-                        </h1>
-                    </div>
+            {% for blog in object_list %}
+            <div class="row">
+                <div style="font-size:large;">
+                    <h1>
+                        {{ blog.t013_fd01_title }}
+
+                    </h1>
                 </div>
-                <div class="row">
-                    <div>
-                        <br>
-                        <strong>
-                            更新日時
-                        </strong>
-                        <br>
-                    </div>
-                    <div>
-                        {{ blog.t013_fd07_updatedata }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div style="font-size:large;">
-
-                    </div>
-                    <div>
-                        <p>
-                            {{ blog.t013_fd02_content|linebreaksbr }}
-
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <ul class="slider">
-                        {% if blog.t013_fd03_photo1 %}
-                        <img src="{{ blog.t013_fd03_photo1.url }}" width="200" height="200" />
-                        {% endif %}
-
-                        {% if blog.t013_fd04_photo2 %}
-                        <img src="{{ blog.t013_fd04_photo2.url }}" width="200" height="200" />
-                        {% endif %}
-
-                        {% if blog.t013_fd05_photo3 %}
-                        <img src="{{ blog.t013_fd05_photo3.url }}" width="200" height="200" />
-                        {% endif %}
-                    </ul>
-                    <!--/slider-->
-
-                    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-                        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-                        crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-                    <!--自作のJS-->
-                    <script src="{% static 'js/blogdetail.js' %}"></script>
-                    </body>
-                </div>
-
-                <div class="row">
-                    <div>
-
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
-
             </div>
+            <div class="row">
+                <div>
+                    <br>
+                    <strong>
+                        更新日時
+                    </strong>
+                    <br>
+                </div>
+                <div>
+                    {{ blog.t013_fd07_updatedata }}
+                </div>
+            </div>
+            <div class="row">
+                <div style="font-size:large;">
+
+                </div>
+                <div>
+                    <p>
+                        {{ blog.t013_fd02_content|linebreaksbr }}
+
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="row">
+
+                <ul class="slider">
+                    {% if blog.t013_fd03_photo1 %}
+                    <img src="{{ blog.t013_fd03_photo1.url }}" width="200" height="200" />
+                    {% endif %}
+
+                    {% if blog.t013_fd04_photo2 %}
+                    <img src="{{ blog.t013_fd04_photo2.url }}" width="200" height="200" />
+                    {% endif %}
+
+                    {% if blog.t013_fd05_photo3 %}
+                    <img src="{{ blog.t013_fd05_photo3.url }}" width="200" height="200" />
+                    {% endif %}
+                </ul>
+                <!--/slider-->
+
+                <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+                    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+                <!--自作のJS-->
+                <script src="{% static 'js/blogdetail.js' %}"></script>
+            </div>
+            {% if user.detail_buyer %}
+            <a class="btn btn-success mt-5 mb-3" href="{% url 'main:blogUpdate' blog.pk %}">編集</a>
+            <a class="btn btn-danger mt-5 ml-2 mb-3" href="{% url 'main:blogDelete' blog.pk %}"
+                style="background-color: red;">削除</a>
+            {% endif %}
+            {% endfor %}
+
+
+
+
+
         </div>
     </div>
-    {% if user.detail_buyer %}
-    <a class="btn btn-success mt-5 mb-3" href="{% url 'main:blogUpdate' blog.pk %}">編集</a>
-    <a class="btn btn-danger mt-5 ml-2 mb-3" href="{% url 'main:blogDelete' blog.pk %}">削除</a>
-    {% endif %}
-    {% endfor %}
 </div>
 {% endblock %}
