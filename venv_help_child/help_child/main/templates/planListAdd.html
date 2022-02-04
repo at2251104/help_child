@@ -41,7 +41,12 @@
         {% csrf_token %}
         <h1 style="text-align: center;">追加したい日程・行事</h1>
         <p>予定表ID:<input type="textbox" name="planName"></p>
-        <p>クラスID:<input type="integer" name="planName"></p>
+        <p>クラス名：
+        <select value="クラス名" name="planName">
+            {% for iiii in objects %}
+                <option value={{ iiii.t004_pk01_class_id }}>{{iiii.t004_fd01_class_name}}</option>
+            
+        </select>{% endfor %}</p>
         <p>日　付　: <input type="date" placeholder="日付" name="planName"></p>
         <p>行事名　: <input type="textbox" name="planName"></p>
 

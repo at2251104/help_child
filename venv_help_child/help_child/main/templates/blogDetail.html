@@ -109,8 +109,10 @@
             </div>
         </div>
     </div>
+    {% if user.detail_buyer %}
     <a class="btn btn-success mt-5 mb-3" href="{% url 'main:blogUpdate' blog.pk %}">編集</a>
     <a class="btn btn-danger mt-5 ml-2 mb-3" href="{% url 'main:blogDelete' blog.pk %}">削除</a>
+    {% endif %}
     {% endfor %}
 </div>
 {% endblock %}
