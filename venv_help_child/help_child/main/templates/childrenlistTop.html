@@ -30,9 +30,11 @@
     <h2>園児</h2>
     <!-- 検索ボックス Django-->
     <form action="" method="get" class="search_container">
-        <input name="query" value="{{ request.GET.query }}" type="text" id="search-text" onkeyup="myFunction()"
-            size="30" placeholder="名前検索(ひらがな)">
+        <input name="query" value="{{ request.GET.query }}" type="text"  id="search-text" 
+        onkeyup="myFunction()"size="30" placeholder="名前検索(ひらがな)">
     </form>
+    
+
 
     <!-- リスト -->
     <ul class="child-list">

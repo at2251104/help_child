@@ -20,6 +20,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import *
 from django.db import transaction
 import logging
+from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
+
 
 logger = logging.getLogger('development')
 
@@ -65,7 +67,7 @@ class ContactTopView(generic.ListView, LoginRequiredMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # ユーザ種類別のデータの取り出し方...self.request.user.detail_buyer←ここでrelated_nameを指定する！！！！！！！！！！！！！！！
-        context["object_list"] = T001Children.objects.filter(
+        context["contact"] = T001Children.objects.filter(
             t001_fk01_class_id=self.request.user.detail_buyer.class_id)
         return context
 
@@ -75,7 +77,10 @@ class ContactTopView(generic.ListView, LoginRequiredMixin):
         if "query" in self.request.GET:
             search = self.request.GET["query"]
             or_lookup = (
-                Q(t005_pk01_childen_id__icontains=search)
+                Q(t001_fd08_last_name_kana__icontains=search)|
+                Q(t001_fd09_first_name_kana__icontains=search) |
+                Q(t001_fd01_last_name__icontains=search) |
+                Q(t001_fd07_first_name__icontains=search) 
             )
             contact = contact.filter(or_lookup)
         return contact
@@ -388,6 +393,7 @@ class ChildminderListTopView(generic.ListView, LoginRequiredMixin):
 
     model = T003Childminder,CustomUser
 
+    
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -397,12 +403,15 @@ class ChildminderListTopView(generic.ListView, LoginRequiredMixin):
 
     def get_queryset(self):
         contact = T003Childminder.objects.all().select_related()
+        
         # 検索box 絞り込み
         if "query" in self.request.GET:
             search = self.request.GET["query"]
             or_lookup = (
                 Q(user__last_name_kana__icontains=search) |
-                Q(user__first_name_kana__icontains=search)
+                Q(user__first_name_kana__icontains=search) |
+                Q(user__first_name__icontains=search) |
+                Q(user__last_name__icontains=search) 
             )
             contact = contact.filter(or_lookup)
         return contact
@@ -420,15 +429,19 @@ class ChildrenListTopView(generic.ListView, LoginRequiredMixin):
             't001_fd08_last_name_kana')
         return context
 
+    
 
     def get_queryset(self):
         contact = T001Children.objects.all().select_related()
+        
         # 検索box 絞り込み
         if "query" in self.request.GET:
             search = self.request.GET["query"]
             or_lookup = (
                 Q(t001_fd08_last_name_kana__icontains=search)|
-                Q(t001_fd09_first_name_kana__icontains=search)
+                Q(t001_fd09_first_name_kana__icontains=search) |
+                Q(t001_fd01_last_name__icontains=search) |
+                Q(t001_fd07_first_name__icontains=search) 
             )
             contact = contact.filter(or_lookup)
         return contact
@@ -451,7 +464,9 @@ class ParentsListTopView(generic.ListView, LoginRequiredMixin):
             search = self.request.GET["query"]
             or_lookup = (
                 Q(user__first_name_kana__icontains=search) |
-                Q(user__last_name_kana__icontains=search)
+                Q(user__last_name_kana__icontains=search) |
+                Q(user__first_name__icontains=search) |
+                Q(user__last_name__icontains=search) 
             )
             contact = contact.filter(or_lookup)
         return contact

@@ -52,4 +52,7 @@ urlpatterns=[
     path('parentsCreate',views.ParentsCreateView.as_view(),name="parentsCreate"),
     path('parents2Create',views.Parents2CreateView.as_view(),name="parents2Create"),
 
+    path('password_change/', views.PasswordChangeView.as_view(), name='password_change'),  
+    path('password_change_done/', views.PasswordChangeDoneView.as_view(), name='password_change_done'), 
+
 ]
