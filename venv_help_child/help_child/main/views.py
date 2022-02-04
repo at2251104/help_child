@@ -27,8 +27,8 @@ from datetime import time
 logger = logging.getLogger('development')
 
 
-class IndexView(generic.TemplateView):
-    template_name = "index.html"
+class BaseView(generic.TemplateView):
+    template_name = "base.html"
 
 
 class HomeView(LoginRequiredMixin, generic.TemplateView):
@@ -288,14 +288,17 @@ class PlanListDetailView(LoginRequiredMixin, ListView):
 class PlanListAddView(LoginRequiredMixin, generic.TemplateView):
     template_name = "planListAdd.html"
     context_object_name = "objects"
-    model=T004Class
-    def get_queryset(self):
-        planListdetail = T004Class.objects.all()
-        return planListdetail
+    model=T003Childminder
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["object_list"] = T003Childminder.objects.filter(
+            user__username = self.request.user.username)
+        return context
     def post(self, request, *args, **kwargs):
         if self.request.POST.getlist('planName', None):
             post = self.request.POST.getlist('planName', None)
-            post[1] = T004Class.objects.get(t004_pk01_class_id=post[1])
+            post[1] = T004Class.objects.get(t004_fd01_class_name=post[1])
             T008Schedule.objects.create(t008_pk01_schedule_id=post[0], t008_fk01_class_id=post[1],
                                         t008_fd01_event=post[3], t008_fd03_date=post[2], t008_fd02_remarks=post[4])
         return self.get(request, *args, **kwargs,)
