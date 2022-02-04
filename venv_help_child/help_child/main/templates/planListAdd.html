@@ -59,9 +59,19 @@
 <nav class="box1">
     <h2>予定表関連</h2>
     <ul class="submenu">
+        </div>
         <li><a href="{% url 'main:planList' %}">カレンダー</a></li>
         <li><a href="{% url 'main:planListUpdate'%}">編集</a></li>
         <li><a href="{% url 'main:planListDelete' %}">削除</a></li>
     </ul>
+</nav>
+
+<nav class="userbox1">
+    <div class="submenu_head">
+        <img src="{% static 'images/profile_icon.png' %}">
+        <p>
+            {{user.get_full_name}}<br>
+
+        </p>
 </nav>
 {% endblock %}

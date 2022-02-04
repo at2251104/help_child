@@ -24,29 +24,6 @@
 <!--小さな端末用（800px以下端末）メニュー-->
 <nav id="menubar-s">
     <ul id="menu-list">
-        <!--アイコンと指名-->
-        <div style="display: flex;">
-            <div style="margin-left: 10%;">
-                <div style="margin-top: 5%;">
-                    <img width="50px" height="50px" style="display:block" z-index="13"
-                        src=../../static/images/profile_icon.png>
-                </div>
-            </div>
-            <div style="padding-left: 10px;">
-                <div style="margin-top:5px;">
-                    <div style="font-size:20px">
-                        <p style="text-align:left">{{ user.get_full_name }}</p>
-                    </div>
-                </div>
-                <p style="font-size: 15px;">{{ user.email }}</p>
-            </div>
-        </div>
-
-
-
-
-
-
         <h1>機能一覧</h1>
         {% if user.detail_buyer %}
         <li><a href="{% url 'main:contactTop' %}" style="width: 100%;">連絡帳<span>Contact</span></a></li>
@@ -98,8 +75,22 @@
                         {% endif %}
                     </ul>
                 </nav>
-                {% block sub_contents%}{% endblock %}
+
+                <nav class="box2">
+                    <h2>ユーザー情報</h2>
+                    <ul class="usermenu">
+                        <img src="{% static 'images/profile_icon.png' %}">
+                        <p>
+                            {{user.get_full_name}}<br>
+                        </p>
+                        <li><a href="/accounts/logout">ログアウト</a></li>
+                        <li><a href="#">パスワード変更</a></li>
+                    </ul>
+                </nav>
+                {% block sub_contents%}
+
             </div>
+            {% endblock %}
             <!--/sub-->
 
             <p id="pagetop"><a href="#"><img src="{% static 'images/pagetop.png' %}" alt="ページの上部へ"></a></p>
