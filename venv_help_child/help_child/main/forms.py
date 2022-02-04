@@ -32,6 +32,7 @@ class SchoolContactForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['t007_pk01_contactbook_id'].widget = forms.HiddenInput()
         self.fields['t007_fk01_children_id'].widget = forms.HiddenInput()
+        self.fields['t007_fd16_lunch_time'].initial=T012Contactbooktem.t012_fd03_mealtime
 
 
     class Meta:

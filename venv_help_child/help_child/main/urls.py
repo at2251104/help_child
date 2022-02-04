@@ -19,7 +19,6 @@ urlpatterns=[
     path('contactTemplate',views.ContactTemplateView.as_view(),name="contactTemplate"),
 
     path('attend',views.AttendView.as_view(),name="attend"),
-    path('tagScan',views.TagScanView.as_view(),name="tagScan"),
 
     path('planList',views.PlanListView.as_view(),name="planList"),
     path('planListAdd',views.PlanListAddView.as_view(),name="planListAdd"),
@@ -32,7 +31,6 @@ urlpatterns=[
     path('blogUpdate/<int:pk>/',views.BlogUpdateView.as_view(),name="blogUpdate"),
     path('blogDelete/<int:pk>/',views.BlogDeleteView.as_view(),name="blogDelete"),
 
-    path('listTop',views.ListTopView.as_view(),name='listTop'),
     path('childrenlistTop',views.ChildrenListTopView.as_view(),name='childrenlistTop'),
     path('childminderlistTop',views.ChildminderListTopView.as_view(),name='childminderlistTop'),
     path('parentslistTop',views.ParentsListTopView.as_view(),name='parentslistTop'),

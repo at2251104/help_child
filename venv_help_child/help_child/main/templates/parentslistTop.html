@@ -27,7 +27,12 @@
 
 {% block main_contents%}
 <div class="contact-top-main">
-    <h2>保護者</h2>
+    <h2>保護者名簿</h2>
+    <div class="list-select">
+        <a href="{% url 'main:childrenlistTop' %}" id="child-select-btn-p">園　児</a>
+        <a href="{% url 'main:parentslistTop' %}" id="parent-select-btn-p">保護者</a>
+        <a href="{% url 'main:childminderlistTop' %}" id="minder-select-btn-p">保育士</a>
+    </div>
     <!-- 園児年齢別選択 -->
 
     <!-- 検索ボックス Django-->
@@ -80,6 +85,7 @@
 <nav class=" box1">
     <h2>連絡帳関連</h2>
     <ul class="submenu">
+
         <li><a href="{% url 'main:childrenlistTop' %}">園児</a></li>
         <li><a href="{% url 'main:childminderlistTop' %} ">保育士</a></li>
     </ul>
