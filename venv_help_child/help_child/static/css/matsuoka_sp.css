@@ -198,6 +198,21 @@
   /* -----------blog.html-------------------*/
   .row {
   }
+  .row h1 {
+    padding: 0.4em 0.5em; /*文字の上下 左右の余白*/
+    color: #494949; /*文字色*/
+    background: #f4f4f4; /*背景色*/
+    border-left: solid 5px #7db4e6; /*左線*/
+    border-bottom: solid 3px #d7d7d7; /*下線*/
+  }
+
+  .blogBackground {
+    background: #f8f8f8ea; /*背景色*/
+  }
+
+  .row p {
+    font-size: 20px;
+  }
 
   .row select {
     font-size: 20px;
@@ -208,7 +223,7 @@
     margin-bottom: 20px;
   }
 
-  .row_btn button {
+  .row button {
     margin-left: 18%;
     text-align: center;
     width: 150px;
@@ -217,7 +232,7 @@
     color: #ffffff;
     border: 3px double rgb(196, 194, 194);
   }
-  .row_btn a {
+  .row a {
     color: #ffffff;
     text-decoration: none;
   }
@@ -281,6 +296,19 @@
     width: 80px;
     height: 40px;
     text-align: center;
+  }
+  #bgmain a {
+    margin-top: 50px;
+    margin-left: 25%;
+    margin-left: 25%;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #22b5eb;
+    text-align: center;
+    display: inline-block;
+    height: 35px;
+    width: 90px;
+    border: 3px double rgb(196, 194, 194);
   }
 
   /*==================================================

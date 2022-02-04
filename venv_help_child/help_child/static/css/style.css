@@ -309,6 +309,7 @@ a:hover {
 }
 
 #sub .box2 {
+  margin-top: 40px;
   padding: 15px; /*ボックス内の余白*/
   margin-bottom: 15px; /*ボックスの下に空けるスペース*/
   background: #f3f3f3; /*背景色（古いブラウザ用）*/
