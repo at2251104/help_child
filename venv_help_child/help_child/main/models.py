@@ -9,8 +9,8 @@ import math
 
 class T004Class(models.Model):
     # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t004_pk01_class_id = models.CharField(
-        verbose_name='クラスID', db_column='T004_PK01_class-id', primary_key=True, max_length=3)
+    t004_pk01_class_id = models.AutoField(
+        verbose_name='クラスID', db_column='T004_PK01_class-id', primary_key=True)
     # Field name made lowercase. Field renamed to remove unsuitable characters.
     t004_fd01_class_name = models.CharField(
         verbose_name='クラス名', db_column='T004_FD01_class-name', max_length=20)
@@ -350,8 +350,8 @@ class T007Contactbook(models.Model):
 # 行事-----------------------------------------------------------------------------------
 class T008Schedule(models.Model):
     # Field name made lowercase. Field renamed to remove unsuitable characters.
-    t008_pk01_schedule_id = models.CharField(
-        verbose_name='スケジュールID', db_column='T008_PK01_schedule-id', primary_key=True, max_length=10)
+    t008_pk01_schedule_id = models.AutoField(
+        verbose_name='スケジュールID', db_column='T008_PK01_schedule-id', primary_key=True)
     # Field name made lowercase. Field renamed to remove unsuitable characters.
     t008_fk01_class_id = models.ForeignKey(
         T004Class, models.DO_NOTHING, default='1', verbose_name='クラスID', db_column='T008_FK01_class-id')

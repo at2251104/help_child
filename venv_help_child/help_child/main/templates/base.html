@@ -80,7 +80,7 @@
                     <h2>ユーザー情報</h2>
                     <ul class="usermenu">
                         <img src="{% static 'images/profile_icon.png' %}">
-                        <a href="{%url 'main:childminderDetail'%}?Email={{iiii.user.email}}">
+                        <a href="{%url 'main:childminderDetail'%}?Email={{user.email}}">
                             {{user.get_full_name}}<br>
                         </a>
                         <li><a href="/accounts/logout">ログアウト</a></li>
