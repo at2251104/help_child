@@ -44,6 +44,16 @@ class HomeView(LoginRequiredMixin, generic.TemplateView):
         schedule["object"] = T008Schedule.objects.filter(t008_fd03_date__range=[datetime.datetime.now(),one_week,])
         return blog
 
+    def get_week_data(self, **kwargs):
+        soon = super().get_context_data(**kwargs)
+        schedule = super().get_context_data(**kwargs)
+        soon["object_list"] = T013Blog.objects.order_by(
+            '-t013_fd06_createdata')
+        one_week = datetime.datetime.now() + datetime.timedelta(days=7)
+        schedule["object"] = T008Schedule.objects.filter(t008_fd03_date__range=[datetime.datetime.now(), one_week, ])
+        return soon
+
+
 # class LoginView(generic.TemplateView):
 #     template_name="login.html"
 
