@@ -299,6 +299,8 @@ a:hover {
 }
 
 #sub ul.usermenu li a {
+  background-color: #f6fbff;
+  text-align: center;
   font-size: 0.9em;
   text-decoration: none;
   display: block;
