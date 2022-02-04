@@ -138,7 +138,7 @@ class ContactUpdateView(LoginRequiredMixin, generic.CreateView):
         }
         
         context['form'] = SchoolContactForm(self.request.POST or None, initial=initial_dict)
-
+        # test
         return context
 
     def form_valid(self, form):
