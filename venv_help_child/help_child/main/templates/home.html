@@ -72,8 +72,6 @@
 		<li><a href="/accounts/logout">ログアウト</a></li>
 		{% if user.detail_buyer %}
 		<li><a href="{% url 'main:blogCreate' %}">ブログを作成</a></li>
-		{% elif user.detail_supplier %}
-		<li><a href="{% url 'password_change_form' %}">パスワード変更</a></li>
 		{% endif %}
 		<li><a href="#">サンプルメニュー</a></li>
 	</ul>
