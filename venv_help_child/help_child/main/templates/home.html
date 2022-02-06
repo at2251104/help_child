@@ -23,9 +23,10 @@
 		<h2 id="newinfo_hdr" class="close">トピックス</h2>
 		<dl id="newinfo">
 			{% for blog in object_list %}
-			<dt>{{ blog.t013_fd06_createdata }}</dt>
-			<dd><a href="{% url 'main:blogDetail' %}?id={{blog.t013_pk01_blog_id}}">{{ blog.t013_fd01_title }}<span
-						class="newicon">NEW</span></a></dd>
+				{% if forloop.counter <= 7 %}
+				<dt>{{ blog.t013_fd06_createdata }}</dt>
+				<dd><a href="{% url 'main:blogDetail' %}?id={{blog.t013_pk01_blog_id}}">{{ blog.t013_fd01_title }}<span class="newicon">NEW</span></a></dd>
+				{% endif %}
 			{% empty %}
 			<dt>トピックスを追加してください</dt>
 			<!-- <dd>{{ user.email }}</dd> -->
@@ -33,10 +34,11 @@
 		</dl>
 		<h2 id="newinfo_hdr" class="close">近日の予定入れたい</h2>
 		<dl id="newinfo">
-			{% for soon in object_list %}
-			<dt>{{ soon.t013_fd06_createdata }}</dt>
-			<dd><a href="{% url 'main:blogDetail' %}?id={{soon.t013_pk01_blog_id}}">{{ soon.t013_fd01_title }}<span
-						class="newicon">NEW</span></a></dd>
+			{% for soon in soon_list %}
+				{% if forloop.counter <= 3 %}
+				<dt>{{ soon.t008_fd03_date }}</dt>
+				<dd><a>{{ soon.t008_fd01_event }}<span class="newicon">NEW</span></a></dd>
+				{% endif %}
 			{% empty %}
 			<dt>ブログを追加してください</dt>
 			<!-- <dd>{{ user.email }}</dd> -->
