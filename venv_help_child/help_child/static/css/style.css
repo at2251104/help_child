@@ -290,7 +290,7 @@ a:hover {
 
 #sub ul.usermenu img {
   height: 50px;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 /*メニュー１個ごとの設定*/
 #sub ul.usermenu li {
