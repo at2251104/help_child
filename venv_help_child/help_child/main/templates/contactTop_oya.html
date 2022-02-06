@@ -68,7 +68,7 @@
                     {% if user.detail_buyer %}
                     <a href="{%url 'main:contactUpdate'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%}" class="select-btn">記入</a>
                     {% else %}
-                    <a href="/contactUpdate_oya/{% now " Ymd"%}{{iiii.t001_pk01_children_id}}?num={% now "Ymd"%}" class="select-btn">記入</a>
+                    <a href="/contactUpdate_oya/{% now "Ymd"%}{{iiii.t001_pk01_children_id}}?num={% now "Ymd"%}" class="select-btn">記入</a>
                     {% endif %}
                     <a href="{%url 'main:contactDetail'%}?id={{iiii.t001_pk01_children_id}}&num={% now "Ymd"%}" class="select-btn">閲覧</a>
                     <p></p>
