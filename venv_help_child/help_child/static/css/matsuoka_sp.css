@@ -224,8 +224,6 @@
   }
 
   .row button {
-    margin-left: 18%;
-    text-align: center;
     width: 150px;
     font-size: 25px;
     background-color: #22b5eb;
@@ -298,16 +296,15 @@
     text-align: center;
   }
   #bgmain a {
+    margin-left: 20%;
     margin-top: 50px;
-    margin-left: 25%;
-    margin-left: 25%;
     color: #ffffff;
     text-decoration: none;
     background-color: #22b5eb;
     text-align: center;
     display: inline-block;
     height: 35px;
-    width: 90px;
+    width: 20%;
     border: 3px double rgb(196, 194, 194);
   }
 
