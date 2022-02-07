@@ -161,11 +161,10 @@ class ContactUpdateOyaView(LoginRequiredMixin, generic.UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         
-        num = self.request.GET.get("num", "20211201")
-        id = self.request.GET.get("id", "01")
+        num = self.kwargs.get('pk')
         default_data = {
-            't007_pk01_contactbook_id': (num + id),
-            't007_fk01_children_id': id
+            't007_pk01_contactbook_id': num,
+            't007_fk01_children_id': num[8:]
         }
         homecontact_form = HomeContactForm(initial = default_data)
         context['form'] = homecontact_form
