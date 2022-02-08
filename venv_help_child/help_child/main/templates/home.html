@@ -52,15 +52,15 @@
 <!--/main-->
 
 {% block sub_contents%}
+{% if user.detail_buyer %}
 <nav class="box1">
 	<h2>MENU</h2>
 	<ul class="submenu">
-		{% if user.detail_buyer %}
 		<li><a href="{% url 'main:blogCreate' %}">トピックスを作成</a></li>
-		{% endif %}
 		<!-- <li><a href="#">サンプルメニュー</a></li> -->
 	</ul>
 </nav>
+{% endif %}
 
 {% endblock %}
 <!--/box1-->
