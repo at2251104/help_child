@@ -40,7 +40,7 @@
 				<dd><a>{{ soon.t008_fd01_event }}<span class="newicon">NEW</span></a></dd>
 				{% endif %}
 			{% empty %}
-			<dt>ブログを追加してください</dt>
+			<dt>トピックスがありません。</dt>
 			<!-- <dd>{{ user.email }}</dd> -->
 			{% endfor %}
 		</dl>
@@ -56,9 +56,9 @@
 	<h2>MENU</h2>
 	<ul class="submenu">
 		{% if user.detail_buyer %}
-		<li><a href="{% url 'main:blogCreate' %}">ブログを作成</a></li>
+		<li><a href="{% url 'main:blogCreate' %}">トピックスを作成</a></li>
 		{% endif %}
-		<li><a href="#">サンプルメニュー</a></li>
+		<!-- <li><a href="#">サンプルメニュー</a></li> -->
 	</ul>
 </nav>
 

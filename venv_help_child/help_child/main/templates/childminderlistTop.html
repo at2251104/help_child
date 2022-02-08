@@ -38,6 +38,8 @@
         <input name="query" value="{{ request.GET.query }}" type="text" id="search-text" onkeyup="myFunction()"
             size="30" placeholder="名前検索(ひらがな)">
     </form>
+    <!-- <a href="{% url 'main:classCreate' %} " id="minder-select-btn-m">クラス作成</a> -->
+    
 
     <!-- リスト -->
     <ul class="child-list">
@@ -93,8 +95,8 @@
     <ul class="submenu">
 
         <!-- 「詳細」は園児の名前を押下時表示される画面 -->
-        <li><a href="{% url 'main:childrenlistTop' %}">園児</a></li>
-        <li><a href="{% url 'main:parentslistTop' %}">保護者</a></li>
+        <!-- <li><a href="{% url 'main:childrenlistTop' %}">園児</a></li>
+        <li><a href="{% url 'main:parentslistTop' %}">保護者</a></li> -->
         <li><a href="{% url 'main:classCreate' %} ">クラス作成</a></li>
     </ul>
 </nav>
